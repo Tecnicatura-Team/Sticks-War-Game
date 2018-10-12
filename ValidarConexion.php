@@ -17,6 +17,6 @@ if (mysqli_fetch_row($registros) != 0) {
 } else {
   echo "<script>alert('No se pudo iniciar sesión, verifique los datos ingresados');</script>";
    //redirige a la pagina principal
-  echo "<script>location.href='SticksWar.php';</script>";
+  echo "<script>location.href='index.html';</script>";
 }
 ?>

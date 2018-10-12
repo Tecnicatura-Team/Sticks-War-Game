@@ -21,6 +21,6 @@ if (mysqli_fetch_row($registros) != 0) {
 
   echo "<script>alert('Usuario registrado con éxito, volviendo a la página principal.');</script>";
    //redirige a la pagina principal
-  echo "<script>location.href='SticksWar.php';</script>";
+  echo "<script>location.href='index.html';</script>";
 }
 ?>
