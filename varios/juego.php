@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Sticks War Game</title>
-  </head>
-  <body>
-    <h1>Sticks War Game</h1>
-    <article >
-      <p>Juego</p>
-    </article>
-  </body>
-</html>
+<?php
+include_once "class_conexion.php";
+
+public function selectdb($base){
+  mysqli_selectdb($this->conexion, $base);
+}
+public function query($sql){
+  return mysqli_query($this->conexion, $sql);
+}
+
+$db=new conexion('localhost','root','');
+$db->selectdb('SticksWarTest');                               
+$r=$db->query('select * from usuario');       
+echo '<select nombre=usuario>';
+
+while($reg=mysqli_fetch_array($r)){
+  echo "'<option value='".$reg['ci']."'>'".$reg['nombre']."'</option>';";
+  echo "'</select>'"
+      }
+  }
+?>
