@@ -5,7 +5,7 @@ function crearlogin() {
     elemento.id = 'login'
     elemento.className = 'login'
     var contenido =
-        '<h2 class=\'subtitulo\'>Inicia sesión</h2>' +
+        '<h2 class=\'subtitulo\'>Inicia sesión!</h2>' +
         '<br><br>' +
         '<form method=\'post\' action=\'ValidarConexion.php\' id=form align=\'center\'>' +
         '<label class=\'labelc\' for=\'in\'>Ingrese su Nombre:</label> <br>' +
@@ -33,7 +33,7 @@ function crearregistro() {
     var elemento = document.createElement('section')
     elemento.id = "registro"
     var contenido =
-        '<h2 class=\'subtitulo\'>Formulario de Registro</h2>' +
+        '<h2 class=\'subtitulo\'>Registrar cuenta</h2>' +
         '<br><br>' +
         '<form method="post" action="insert.php">' +
         '<label class=\'labelc\' for=\'in\'>Ingrese el nombre de usuario:</label><br>' +

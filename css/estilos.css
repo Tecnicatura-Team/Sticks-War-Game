@@ -158,7 +158,7 @@ table {
 }
 
 td:hover {
-    background: rgba(165, 42, 42, 0.295);
+    background: rgba(165, 42, 42, 0.11);
     /* border: solid;*/
 }
 
@@ -181,7 +181,7 @@ td p {
 }
 
 .bodyinicio {
-    background: url("../img/fondo5.gif");
+    background: url("../img/fondo6.gif");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
