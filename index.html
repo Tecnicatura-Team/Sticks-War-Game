@@ -3,37 +3,31 @@
 
 <head>
     <link rel="stylesheet" href="css/estilos.css">
-    <script src="js/scripts.js"></script>
     <meta charset="utf-8">
-    <!-- -->
-    <style>
-
-    </style>
-
     <title>Inicio Sticks War</title>
     <!--  <link rel="shortcut icon" href="img\logo.png"/> icono para la pestaña -->
 </head>
 
 
-<body background="img/fondo5.gif" style="background-repeat:no-repeat; background-attachment:fixed; background-position:center; background-size: 100% 100%; ">
-    <header>
-        <section class="barra">
-            <section class="logo">
-                <a href="index.html"><img src="img/logo1.jpg"></a>
-            </section>
+<body class="bodyinicio">
+    <div id="cuerpo">
+        <header>
+            <section class="barra">
+                <section class="logo">
+                    <a href="index.html"><img src="img/logo1.jpg"></a>
+                </section>
 
-            <nav>
-                <ul id="menu">
-                    <li> <a href="index.html">Inicio</a></li>
-                    <li> <a href="personajes.html">Personajes</a></li>
-                    <li> <a href="">Guía</a></li>
-                    <li> <a href="equipo.html">Equipo</a></li>
-                </ul>
+                <nav>
+                    <ul id="menu">
+                        <li> <a href="index.html">Inicio</a></li>
+                        <li> <a href="personajes.html">Personajes</a></li>
+                        <li> <a href="">Guía</a></li>
+                        <li> <a href="equipo.html">Equipo</a></li>
+                    </ul>
 
-            </nav>
-    </header>
-    <main>
-        <div align="right" style="color:aliceblue; float: right;">
+                </nav>
+        </header>
+        <div class="barralateral">
             <p>hola</p>
             <p>hola</p>
             <p>hola</p>
@@ -42,113 +36,15 @@
             <p>hola</p>
             <p>hola</p>
         </div>
-        <div class="logreg" align="center" style="color:aliceblue;">
-            <section class="login" id="login">
-                <!--   <h2 align="center">
-                    <font face="Comic Sans MS" color="#ffffff" size="4">¿Ya tienes una cuenta?</font>
-                </h2>-->
-                <h2 align="center">
-                    <font face="Comic Sans MS" color="#ffffff" size="4">Inicia sesión</font>
-                </h2>
-                <br><br>
-                <form method="post" action="ValidarConexion.php" id=form align="center">
-                    <font face="Comic Sans MS" color="#ffffff" size="2">Ingrese su Nombre:</font> <br>
-                    <input type="text" name="Nombre" minlength="3" required>
-                    <br>
-                    <br>
-                    <font face="Comic Sans MS" color="#ffffff" size="2">Ingrese su Contraseña:</font> <br>
-                    <input id="pass" type="password" name="Contraseña" minlength="3" required>
-                    <br><br>
-
-                    <!--mostrar ocultar campo de contraseña -->
-                    <input id="mostrar" type="checkbox" checked onClick="mostrarPassword()">
-                    <font face="Comic Sans MS" color="#ffffff" size="2">Mostrar/Ocultar contraseña</font>
-                    <br>
-                    <br>
-                    <input type="submit" value="Iniciar Sesión">
-                    <input type="submit" value="Recuperar mi Cuenta" onclick="location='recuperar.php'">
-                </form>
-                <br> <br>
-                <input type="button" onclick="mostrarRegistro('registro', this)" value="¿Eres nuevo? Registrate ahora!">
-            </section>
-
-            <section class="registro" align="center" id="registro" style="display:none;">
-                <!-- <h2 align="center">
-                    <font face="Comic Sans MS" color="#ffffff" size="4">¿Eres nuevo?</font>
-                </h2>-->
-                <h2 align="center">
-                    <font face="Comic Sans MS" color="#ffffff" size="4">Formulario de Registro</font>
-                </h2>
-                <br><br>
-
-                <form method="post" action="">
-                    <font face="Comic Sans MS" color="#ffffff" size="2">Ingrese el nombre de usuario:</font> <br>
-                    <input type="text" name="RNombre" minlength="3" required>
-                    <br>
-                    <br>
-                    <font face="Comic Sans MS" color="#ffffff" size="2">Ingrese una contraseña:</font> <br>
-                    <input type="password" name="RContraseña" id="RContraseña" minlength="3" required>
-                    <br>
-                    <br>
-                    <font face="Comic Sans MS" color="#ffffff" size="2">Repetir contraseña:</font> <br>
-                    <input type="password" name="RContraseña2" id="RContraseña2" minlength="3" required>
-                    <br><br>
-                    <input type="submit" name="submit" value="Crear cuenta">
-                    <br> <br>
-                    <input type="button" onclick="mostrarLogin('login', this)" value="¿Ya tienes cuenta? Inicia sesión">
-
-                    <!--Validar ambas contraseñas para que sean iguales -->
-                    <script>
-                        var clave, clave2;
-
-                        clave = document.getElementById('RContraseña');
-                        clave2 = document.getElementById('RContraseña2');
-
-                        RContraseña.onchange = RContraseña2.onkeyup = CompararPass;
-
-                        function CompararPass() {
-
-                            if (RContraseña.value !== RContraseña2.value) {
-                                RContraseña2.setCustomValidity('Las contraseñas no coinciden.');
-                            } else {
-                                RContraseña2.setCustomValidity('');
-                            }
-                        } //fin funcion CompararPass
-
-                        //funcion para mostrar/ocultar contraseña
-                        function mostrarPassword() {
-                            //Accedo a los elementos del formulario
-                            var chkbox = document.getElementById("mostrar");
-                            var contenido = document.getElementById("pass");
-                            var atributo = contenido.getAttribute("type");
-
-                            //Pregunto si el checkbox esta marcado
-                            if (chkbox.checked) {
-                                contenido.setAttribute("type", "password"); //Si el checkbox esta marcado, el atributo type vale password
-                            } else {
-                                contenido.setAttribute("type", "text"); //Si el checkbox esta sin marcar, el atributo type vale text
-                            }
-                        } // fin funcion mostrar password
-                    </script>
-                </form>
-
-                <?php
-          //redirige a insert.php cuando se presione el boton "crear cuenta " de tipo "submit"
-          if (isset($_POST['submit'])) {
-          require("insert.php");
-          }
-
-          ?>
-
-
-            </section>
+        <div class="logreg" align="center" id="contenido" style="color:aliceblue;">
 
         </div>
-    </main>
-    <footer style="color:aliceblue">
-        <address>Contacto: <a href="correo@gmail.com">Correo</a></address>
-        <p>Redes sociales: <a href="http://facebook.com/">Mi Facebook</a></p>
-    </footer>
+        <footer style="color:aliceblue">
+            <address>Contacto: <a href="correo@gmail.com">Correo</a></address>
+            <p>Redes sociales: <a href="http://facebook.com/">Mi Facebook</a></p>
+        </footer>
+    </div>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
