@@ -33,7 +33,7 @@ function crearregistro() {
     var elemento = document.createElement('section')
     elemento.id = "registro"
     var contenido =
-        '<h2 class=\'subtitulo\'>Formulario de Registro</h2>' +
+        '<h2 class=\'subtitulo\'>Registrar nueva cuenta</h2>' +
         '<br><br>' +
         '<form method="post" action="insert.php" id="form">' +
         '<label class=\'labelc\' for=\'in\'>Ingrese el nombre de usuario:</label><br>' +
