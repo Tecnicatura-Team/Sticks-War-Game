@@ -35,24 +35,25 @@ function crearregistro() {
     var contenido =
         '<h2 class=\'subtitulo\'>Formulario de Registro</h2>' +
         '<br><br>' +
-        '<form method="post" action="insert.php">' +
+        '<form method="post" action="insert.php" id="form">' +
         '<label class=\'labelc\' for=\'in\'>Ingrese el nombre de usuario:</label><br>' +
-        '<input type="text" name="RNombre" minlength="3" required>' +
+        '<input type="text" name="RNombre">' +
         '<br>' +
         '<br>' +
         '<label class=\'labelc\' for=\'ic\'>Ingrese una contraseña:</label><br>' +
-        '<input type="password" name="RContraseña" id="RContraseña" minlength="3" required>' +
+        '<input type="password" name="RContraseña" id="RContraseña">' +
         '<br>' +
         '<br>' +
         '<label class=\'labelc\' for=\'rc\'>Repetir Contraseña:</label><br>' +
-        '<input type="password" name="RContraseña2" id="RContraseña2" minlength="3" required>' +
+        '<input type="password" name="RContraseña2" id="RContraseña2">' +
         '<br><br>' +
-        '<input type="submit" value="Crear cuenta">' +
+        '<input type="submit" value="Crear cuenta" id="crearcuenta">' +
         '<br> <br>' +
         '<input type="button" onclick="cambiarir()" value="¿Ya tienes cuenta? Inicia sesión">' +
         '</form>'
     elemento.innerHTML = contenido
     document.getElementById('contenido').appendChild(elemento)
+    $("#crearcuenta").on("click", compararpsw())
 }
 
 function cambiarir() {
@@ -73,4 +74,43 @@ function mostrarPassword() {
     } else {
         contraseñam.setAttribute('type', 'password')
     }
+}
+
+function compararpsw() {
+    $("#form").validate({
+            rules: {
+                RNombre: { required: true, minlength: 3 },
+                RContraseña: { required: true, minlength: 3, maxlength: 10 },
+                RContraseña2: { required: true, minlength: 3, maxlength: 10, equalTo: "#RContraseña" }
+            },
+            messages: {
+                RNombre: {
+                    required: "Este campo es requerido",
+                    minlength: "Se requiere que ingrese al menos 3 caracteres"
+                },
+                RContraseña: {
+                    required: "Este campo es requerido",
+                    minlength: "Se requiere que ingrese al menos 3 caracteres",
+                    maxlength: "Solo se puede ingresar 10 caracteres maximo"
+                },
+                RContraseña2: {
+                    required: "Este campo es requerido",
+                    minlength: "Se requiere que ingrese al menos 3 caracteres",
+                    maxlength: "Solo se puede ingresar 10 caracteres maximo",
+                    equalTo: "Las contraseñas no coinciden"
+                }
+            }
+        })
+        //alert("entre")
+        // var psw = document.frmregistro.RContraseña.value
+        // var psw1 = document.frmregistro.RContraseña2.value
+        // alert("los valores son: " + psw + " - " + psw1)
+        // if (psw !== psw1) {
+        //     alert("Contraseñas no coinciden")
+        //     var el = document.getElementById("RContraseña")
+        //     el.style.background = "#FF0000"
+        // } else {
+        //     alert("ingreso correcto")
+        // }
+
 }
