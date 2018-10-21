@@ -7,25 +7,26 @@ function crearlogin() {
     var contenido =
         '<h2 class=\'subtitulo\'>Inicia sesión!</h2>' +
         '<br><br>' +
-        '<form method=\'post\' action=\'ValidarConexion.php\' id=form align=\'center\'>' +
+        '<form method=\'post\' action=\'ValidarConexion.php\' id="form" align=\'center\'>' +
         '<label class=\'labelc\' for=\'in\'>Ingrese su Nombre:</label> <br>' +
-        '<input type=\'text\' name=\'Nombre\' minlength=\'3\' required>' +
+        '<input type=\'text\' name=\'Nombre\' >' +
         '<br>' +
         '<br>' +
         '<label class=\'labelc\' for=\'ic\'>Ingrese su Contraseña:</label><br>' +
-        '<input id=\'pass\' type=\'password\' name=\'Contraseña\' minlength=\'3\' required>' +
+        '<input id=\'pass\' type=\'password\' name=\'Contraseña\' >' +
         '<br><br>' +
         '<input id=\'mostrar\' type=\'checkbox\' checked onClick=\'mostrarPassword()\'>' +
         '<label class=\'labelc\' for=\'mc\'>Mostrar/Ocultar contraseña</label>' +
         '<br>' +
         '<br>' +
-        '<input type=\'submit\' value=\'Iniciar Sesión\'>' +
+        '<input type=\'submit\' value=\'Iniciar Sesión\' id="iniciarsesion">' +
         '<input type=\'submit\' value=\'Recuperar mi Cuenta\' onclick=\'location="recuperar.php"\'>' +
         '</form>' +
         '<br> <br>' +
         '<input type=\'button\' onclick=\'cambiarir()\' value=\'¿Eres nuevo? Registrate ahora!\'>'
     elemento.innerHTML = contenido
     document.getElementById('contenido').appendChild(elemento)
+    $("#iniciarsesion").on("click", mensajelogin())
 }
 
 
@@ -78,27 +79,45 @@ function mostrarPassword() {
 
 function compararpsw() {
     $("#form").validate({
+        rules: {
+            RNombre: { required: true, minlength: 3 },
+            RContraseña: { required: true, minlength: 3, maxlength: 20 },
+            RContraseña2: { required: true, minlength: 3, maxlength: 20, equalTo: "#RContraseña" }
+        },
+        messages: {
+            RNombre: {
+                required: "<br>     <div class='mensajes' > Este campo es requerido </div>",
+                minlength: "<br>    <div class='mensajes' > Se requiere que ingrese al menos 3 caracteres </div>"
+            },
+            RContraseña: {
+                required: "<br>     <div class='mensajes' > Este campo es requerido </div>",
+                minlength: "<br>    <div class='mensajes' > Se requiere que ingrese al menos 3 caracteres</div>",
+                maxlength: "<br>    <div class='mensajes' > Solo se puede ingresar 20 caracteres maximo </div>"
+            },
+            RContraseña2: {
+                required: "<br>     <div class='mensajes'> Este campo es requerido </div>",
+                minlength: "<br>    <div class='mensajes'> Se requiere que ingrese al menos 3 caracteres</div>",
+                maxlength: "<br>    <div class='mensajes'> Solo se puede ingresar 20 caracteres maximo </div>",
+                equalTo: "<br>      <div class='mensajes'> Las contraseñas no coinciden </div>"
+            }
+        }
+    })
+}
+
+function mensajelogin() {
+    $("#form").validate({
             rules: {
-                RNombre: { required: true, minlength: 3 },
-                RContraseña: { required: true, minlength: 3, maxlength: 10 },
-                RContraseña2: { required: true, minlength: 3, maxlength: 10, equalTo: "#RContraseña" }
+                Nombre: { required: true },
+                Contraseña: { required: true },
             },
             messages: {
-                RNombre: {
-                    required: "Este campo es requerido",
-                    minlength: "Se requiere que ingrese al menos 3 caracteres"
+                Nombre: {
+                    required: "<br>     <div class='mensajes' > Este campo es requerido </div>",
                 },
-                RContraseña: {
-                    required: "Este campo es requerido",
-                    minlength: "Se requiere que ingrese al menos 3 caracteres",
-                    maxlength: "Solo se puede ingresar 10 caracteres maximo"
+                Contraseña: {
+                    required: "<br>     <div class='mensajes' > Este campo es requerido </div>",
                 },
-                RContraseña2: {
-                    required: "Este campo es requerido",
-                    minlength: "Se requiere que ingrese al menos 3 caracteres",
-                    maxlength: "Solo se puede ingresar 10 caracteres maximo",
-                    equalTo: "Las contraseñas no coinciden"
-                }
+
             }
         })
         //alert("entre")

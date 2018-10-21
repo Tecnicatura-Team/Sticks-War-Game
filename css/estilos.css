@@ -198,7 +198,12 @@ td p {
 /* '<h2 align="center">'+'<font face="Comic Sans MS" color="#ffffff" size="4">Inicia sesión</font>'+'</h2>'+ */
 
 
-/**/
+/*mensajes en el login registro*/
+
+.mensajes {
+    font-family: Comic Sans MS;
+    color: red;
+}
 
 
 /**/
