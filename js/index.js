@@ -106,30 +106,43 @@ function compararpsw() {
 
 function mensajelogin() {
     $("#form").validate({
-            rules: {
-                Nombre: { required: true },
-                Contraseña: { required: true },
+        rules: {
+            Nombre: { required: true },
+            Contraseña: { required: true },
+        },
+        messages: {
+            Nombre: {
+                required: "<br>     <div class='mensajes' > Este campo es requerido </div>",
             },
-            messages: {
-                Nombre: {
-                    required: "<br>     <div class='mensajes' > Este campo es requerido </div>",
-                },
-                Contraseña: {
-                    required: "<br>     <div class='mensajes' > Este campo es requerido </div>",
-                },
+            Contraseña: {
+                required: "<br>     <div class='mensajes' > Este campo es requerido </div>",
+            },
 
-            }
-        })
-        //alert("entre")
-        // var psw = document.frmregistro.RContraseña.value
-        // var psw1 = document.frmregistro.RContraseña2.value
-        // alert("los valores son: " + psw + " - " + psw1)
-        // if (psw !== psw1) {
-        //     alert("Contraseñas no coinciden")
-        //     var el = document.getElementById("RContraseña")
-        //     el.style.background = "#FF0000"
-        // } else {
-        //     alert("ingreso correcto")
-        // }
-
+        }
+    })
 }
+
+//limitar checkbox personajes
+function validacion(obj) {
+    limite = 3;
+    num = 0;
+    if (obj.checked) {
+        for (i = 0; ele = obj.form.elements[i]; i++)
+            if (ele.checked) num++;
+        if (num > limite)
+            obj.checked = false;
+    }
+}
+
+
+//alert("entre")
+// var psw = document.frmregistro.RContraseña.value
+// var psw1 = document.frmregistro.RContraseña2.value
+// alert("los valores son: " + psw + " - " + psw1)
+// if (psw !== psw1) {
+//     alert("Contraseñas no coinciden")
+//     var el = document.getElementById("RContraseña")
+//     el.style.background = "#FF0000"
+// } else {
+//     alert("ingreso correcto")
+// }

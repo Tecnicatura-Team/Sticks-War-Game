@@ -23,7 +23,7 @@ footer {
 
 /*ocultar barra scroll*/
 
-::-webkit-scrollbar {
+ ::-webkit-scrollbar {
     display: none;
 }
 
@@ -141,33 +141,6 @@ input[type=password]:focus,
     padding-left: 50px;
 }
 
-
-/*pagina personajes*/
-
-table {
-    width: 100%;
-    height: 100%;
-}
-
-.tabla table {
-    padding-top: 1%;
-    padding-bottom: 1%;
-    color: aliceblue;
-    margin: auto;
-    /* border: solid;*/
-}
-
-td:hover {
-    background: rgba(165, 42, 42, 0.11);
-    /* border: solid;*/
-}
-
-td p {
-    margin-top: 3%;
-    text-align: left;
-    /*border: solid;*/
-}
-
 .subtitulo {
     font-size: 4;
     font-family: Comic Sans MS;
@@ -206,7 +179,151 @@ td p {
 }
 
 
-/**/
+/*pagina personajes*/
+
+
+/* 
+    table {
+        width: 100%;
+        height: 100%;
+    } */
+
+
+/* .tabla */
+
+table {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    /* padding-left: 2%;
+    color: aliceblue;
+    margin: auto;*/
+    width: 100%;
+    height: 100%;
+    /* border: solid;*/
+}
+
+td:hover {
+    background: rgba(165, 42, 42, 0.11);
+    /* border: solid; */
+}
+
+
+/*  td p {
+        margin-top: 3%;
+        text-align: left;
+        /*border: solid;
+
+
+}*/
+
+
+/*eleccion de personajes*/
+
+.Personajes {
+    position: relative;
+}
+
+.Personajes input {
+    -webkit-appearance: none;
+    -moz-appearance: window;
+    -ms-appearance: window;
+    appearance: window;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+}
+
+.Paladin+label::before {
+    top: 0;
+    display: inline-block;
+    background: url('../img/Paladin.png') no-repeat 0 0;
+    display: block;
+    width: 200px;
+    height: 200px;
+    content: '';
+    vertical-align: middle;
+}
+
+.Paladin:checked+label::before {
+    background: transparent url('../img/Paladin2.png') no-repeat 0 0;
+}
+
+.Guerrero+label::before {
+    top: 0;
+    display: inline-block;
+    background: url('../img/Guerrero.png') no-repeat 0 0;
+    display: block;
+    width: 200px;
+    height: 200px;
+    content: '';
+    vertical-align: middle;
+}
+
+.Guerrero:checked+label::before {
+    background: transparent url('../img/Guerrero2.png') no-repeat 0 0;
+}
+
+.Mago+label::before {
+    top: 0;
+    display: inline-block;
+    background: url('../img/Mago.png') no-repeat 0 0;
+    display: block;
+    width: 200px;
+    height: 200px;
+    content: '';
+    vertical-align: middle;
+}
+
+.Mago:checked+label::before {
+    background: transparent url('../img/Mago2.png') no-repeat 0 0;
+}
+
+.Arquero+label::before {
+    top: 0;
+    display: inline-block;
+    background: url('../img/Arquero.png') no-repeat 0 0;
+    display: block;
+    width: 200px;
+    height: 200px;
+    content: '';
+    vertical-align: middle;
+}
+
+.Arquero:checked+label::before {
+    background: transparent url('../img/Arquero2.png') no-repeat 0 0;
+}
+
+.Amazona+label::before {
+    top: 0;
+    display: inline-block;
+    background: url('../img/logo.png') no-repeat 0 0;
+    display: block;
+    width: 200px;
+    height: 200px;
+    content: '';
+    vertical-align: middle;
+}
+
+.Amazona:checked+label::before {
+    background: transparent url('../img/logo1.jpg') no-repeat 0 0;
+}
+
+.Asesino+label::before {
+    top: 0;
+    display: inline-block;
+    background: url('../img/logo.png') no-repeat 0 0;
+    display: block;
+    width: 200px;
+    height: 200px;
+    content: '';
+    vertical-align: middle;
+}
+
+.Asesino:checked+label::before {
+    background: transparent url('../img/logo1.jpg') no-repeat 0 0;
+}
 
 
 /**/
