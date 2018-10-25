@@ -30,8 +30,8 @@
             </h1>
 
             <form action="" class="Personajes" style="padding-top:60px; padding-left: 10px; padding-right:10px;">
-                <table border size="2">
-                    <tr>
+                <table <!--border="2px" --> >
+                    <tr class="NomClases">
                         <td style="color:aliceblue; text-align: center;">Paladín</td>
                         <td style="color:aliceblue; text-align: center;">Guerrero</td>
                         <td style="color:aliceblue; text-align: center;">Mago</td>
@@ -40,6 +40,7 @@
                         <td style="color:aliceblue; text-align: center;">Asesino</td>
                     </tr>
                     <tr>
+
                         <td><input type="checkbox" class="Paladin" onchange="validacion(this)"> <label></label></td>
                         <td><input type="checkbox" class="Guerrero" onchange="validacion(this)"> <label></label></td>
                         <td><input type="checkbox" class="Mago" onchange="validacion(this)"> <label></label></td>
@@ -47,53 +48,64 @@
                         <td><input type="checkbox" class="Amazona" onchange="validacion(this)"> <label></label></td>
                         <td><input type="checkbox" class="Asesino" onchange="validacion(this)"> <label></label></td>
                     </tr>
+
+                    <tr>
+                        <td class="Habilidades">
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripcion de la habilidad 1');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 2');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 3');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 4');" onMouseOut="hiddenDiv()" style='display:table;'>
+                        </td>
+                        <td class="Habilidades">
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 1');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 2');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 3');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 4');" onMouseOut="hiddenDiv()" style='display:table;'>
+                        </td>
+                        <td class="Habilidades">
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 1');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 2');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 3');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 4');" onMouseOut="hiddenDiv()" style='display:table;'>
+                        </td>
+                        <td class="Habilidades">
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 1');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 2');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 3');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 4');" onMouseOut="hiddenDiv()" style='display:table;'>
+                        </td>
+                        <td class="Habilidades">
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 1');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 2');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 3');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 4');" onMouseOut="hiddenDiv()" style='display:table;'>
+                        </td>
+                        <td class="Habilidades">
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 1');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 2');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 3');" onMouseOut="hiddenDiv()" style='display:table;'>
+                            <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 4');" onMouseOut="hiddenDiv()" style='display:table;'>
+                        </td>
+                        <tr>
+                            <td colspan="6" align="center">
+                                <div id="flotante"></div>
+                            </td>
+                        </tr>
+
                 </table>
+
             </form>
+
         </div>
-        <!-- <section class="tabla" style="color:aliceblue">
-
-            <table>
 
 
-                <tr align="center">
-                    <td>
-                        <input type="checkbox" name="color" id="color"><img src="img/logo.jpg">
-                        <p> contenido contenido contenido contenido contenido contenid contenido contenido contenido contenido contenido contenido contenido contenido</p>
-                    </td>
-                    <td>
-                        <img src="img/logo.jpg">
-                        <p> contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido</p>
-                    </td>
-                    <td>
-                        <img src="img/logo.jpg">
-                        <p> contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido</p>
-                    </td>
-                </tr>
+        <footer style="color:aliceblue">
+            <address>Contacto: <a href="correo@gmail.com" style="color: brown">Correo</a></address>
+            <p>Redes sociales: <a href="http://facebook.com/" style="color: brown">Mi Facebook</a></p>
+        </footer>
 
-                <tr align="center" style="border-spacing: 5%;">
-                    <td>
-                        <img src="img/logo.jpg">
-                        <p> contenido contenido contenido contenido contenido contenid contenido contenido contenido contenido contenido contenido contenido contenido</p>
-                    </td>
-                    <td>
-                        <img src="img/logo.jpg">
-                        <p> contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido</p>
-                    </td>
-                    <td>
-                        <img src="img/logo.jpg">
-                        <p> contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido contenido</p>
-                    </td>
-                </tr>
-            </table>
-        </section> -->
-
+        <script src="js/index.js"></script>
     </div>
-
-    <footer style="color:aliceblue">
-        <address>Contacto: <a href="correo@gmail.com" style="color: brown">Correo</a></address>
-        <p>Redes sociales: <a href="http://facebook.com/" style="color: brown">Mi Facebook</a></p>
-    </footer>
-    <script src="js/index.js"></script>
 </body>
 
 </html>

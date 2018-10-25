@@ -6,6 +6,16 @@
     margin-right: 0%;
 }
 
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
 
 /*footer*/
 
@@ -192,31 +202,13 @@ input[type=password]:focus,
 /* .tabla */
 
 table {
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 1%;
-    padding-right: 1%;
-    /* padding-left: 2%;
+    font-family: Comic Sans MS;
     color: aliceblue;
-    margin: auto;*/
-    width: 100%;
-    height: 100%;
-    /* border: solid;*/
 }
 
-td:hover {
+.Personajes td:hover {
     background: rgba(165, 42, 42, 0.11);
-    /* border: solid; */
 }
-
-
-/*  td p {
-        margin-top: 3%;
-        text-align: left;
-        /*border: solid;
-
-
-}*/
 
 
 /*eleccion de personajes*/
@@ -298,7 +290,7 @@ td:hover {
 .Amazona+label::before {
     top: 0;
     display: inline-block;
-    background: url('../img/logo.png') no-repeat 0 0;
+    background: url('../img/Amazona.png') no-repeat 0 0;
     display: block;
     width: 200px;
     height: 200px;
@@ -307,13 +299,13 @@ td:hover {
 }
 
 .Amazona:checked+label::before {
-    background: transparent url('../img/logo1.jpg') no-repeat 0 0;
+    background: transparent url('../img/Amazona2.png') no-repeat 0 0;
 }
 
 .Asesino+label::before {
     top: 0;
     display: inline-block;
-    background: url('../img/logo.png') no-repeat 0 0;
+    background: url('../img/Asesino.png') no-repeat 0 0;
     display: block;
     width: 200px;
     height: 200px;
@@ -322,8 +314,54 @@ td:hover {
 }
 
 .Asesino:checked+label::before {
-    background: transparent url('../img/logo1.jpg') no-repeat 0 0;
+    background: transparent url('../img/Asesino2.png') no-repeat 0 0;
+}
+
+.Habilidades img {
+    display: inline;
+    float: left;
+    /* margin-left: 8px;
+    border: solid;
+    color: aliceblue;*/
+    padding-left: 8px;
 }
 
 
-/**/
+/*pagina de juego*/
+
+.Juego {
+    background: url("../img/batalla.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-position-y: 40px;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 92%;
+    border: solid;
+    color: black;
+    margin-top: 0%;
+    /*  border: solid;
+    color: aliceblue; */
+}
+
+.pjPartida {
+    margin: auto;
+    margin-top: 100px;
+    /*  border: solid;
+    color: aliceblue; */
+}
+
+.pjPartida td {
+    padding: 0%;
+    margin: 0%;
+    /* border: solid;
+    color: aliceblue; */
+}
+
+.pjHabilidades {
+    width: 200px;
+    height: 40px;
+    margin: auto;
+    align: center;
+}
