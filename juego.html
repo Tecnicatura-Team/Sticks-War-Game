@@ -25,38 +25,91 @@
 
     <div class="Juego">
 
-        <table class="pjPartida" width="150px;" height="350px ">
-            <tr>
-                <td><img src="img/StickArquero2.png" alt=" " width="160px " height="300px "></td>
-                <td><img src="img/StickMago2.png" alt=" " width="160px " height="300px "></td>
-                <td><img src="img/StickGuerrero2.png" alt=" " width="160px " height="300px "></td>
+        <table class="pjPartida" width="100px;" height="250px ">
+            <tr align="center">
+                <td><img id="SelectPJ3" alt=" " width="40px " height="40px "></td>
+                <td><img id="SelectPJ2" alt=" " width="40px " height="40px "></td>
+                <td><img id="SelectPJ1" alt=" " width="40px " height="40px "></td>
                 <td>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
-                <td><img src="img/StickPaladin.png " alt=" " width="160px " height="300px "></td>
-                <td><img src="img/StickAmazona.png " alt=" " width="160px " height="300px "></td>
-                <td><img src="img/StickAsesino.png " alt=" " width="160px " height="300px "></td>
+                <td><img id="SelectEnemigoPJ1" alt=" " width="40px " height="40px "></td>
+                <td><img id="SelectEnemigoPJ2" alt=" " width="40px " height="40px "></td>
+                <td><img id="SelectEnemigoPJ3" alt=" " width="40px " height="40px "></td>
             </tr>
-
             <tr>
-                <td class="Habilidades" colspan="7">
-                    <div class="pjHabilidades">
-                        <img src="img/logo1.jpg " alt=" " width="40px " height="40px " onmouseover="showdiv(event, 'Descripción de la habilidad 1'); " onMouseOut="hiddenDiv() " style='display:table;'>
-                        <img src="img/logo1.jpg " alt=" " width="40px " height="40px " onmouseover="showdiv(event, 'Descripción de la habilidad 2'); " onMouseOut="hiddenDiv() " style='display:table;'>
-                        <img src="img/logo1.jpg " alt=" " width="40px " height="40px " onmouseover="showdiv(event, 'Descripción de la habilidad 3'); " onMouseOut="hiddenDiv() " style='display:table;'>
-                        <img src="img/logo1.jpg " alt=" " width="40px " height="40px " onmouseover="showdiv(event, 'Descripción de la habilidad 4'); " onMouseOut="hiddenDiv() " style='display:table;'>
+                <td><img src="img/StickArquero2.png" id="PJ3" alt=" " width="110px " height="200px "></td>
+                <td><img src="img/StickMago2.png" id="PJ2" alt=" " width="110px " height="200px "></td>
+                <td><img src="img/StickGuerrero2.png" id="PJ1" alt=" " width="110px " height="200px "></td>
+                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                <td><img src="img/StickPaladin.png " id="EPJ1" alt=" " width="110px " height="200px "></td>
+                <td><img src="img/StickAmazona.png " id="EPJ2" alt=" " width="110px " height="200px "></td>
+                <td><img src="img/StickAsesino.png " id="EPJ1" alt=" " width="110px " height="200px "></td>
+            </tr>
+            <tr>
+                <td id="TurnoPJ3">
+                    <div class="fondoVida">
+                        <div id="VidaPJ3"></div>
+                    </div>
+                </td>
+                <td id="TurnoPJ2">
+                    <div class="fondoVida">
+                        <div id="VidaPJ2"></div>
+                    </div>
+                </td>
+                <td id="TurnoPJ1">
+                    <div class="fondoVida">
+                        <div id="VidaPJ1"></div>
+                    </div>
+                </td>
+                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                <td id="EnemigoPJ1">
+                    <div class="fondoVida">
+                        <div id="VidaEnemigoPJ1"></div>
+                    </div>
+                </td>
+                <td id="EnemigoPJ2">
+                    <div class="fondoVida">
+                        <div id="VidaEnemigoPJ2"></div>
+                    </div>
+                </td>
+                <td id="EnemigoPJ3">
+                    <div class="fondoVida">
+                        <div id="VidaEnemigoPJ3"></div>
                     </div>
                 </td>
             </tr>
+
+        </table>
+
+        <table class="THabilidad">
+
+            <tr>
+                <td rowspan="2">
+                </td>
+                <td class="Habilidades" colspan="7">
+                    <div class="pjHabilidades">
+                        <img src="img/logo1.jpg " alt=" " width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ1','img/SelectEnemigo.png',event,'Descripción de la habilidad 1')" onmouseout=" ocultarhabilidad('SelectEnemigoPJ1')" style='display:table;'>
+                        <img src="img/logo1.jpg " alt=" " width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ2','img/SelectEnemigo.png',event,'Descripción de la habilidad 2')" onmouseout=" ocultarhabilidad('SelectEnemigoPJ2')" style='display:table;'>
+                        <img src="img/logo1.jpg " alt=" " width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ3','img/SelectEnemigo.png',event,'Descripción de la habilidad 3')" onmouseout=" ocultarhabilidad('SelectEnemigoPJ3')" style='display:table;'>
+                        <img src="img/logo1.jpg " alt=" " width="40px " height="40px" onmouseover="mostrarhabilidad('SelectPJ1','img/SelectEnemigo.png',event,'Descripción de la habilidad 4')" onmouseout=" ocultarhabilidad('SelectPJ1')" style='display:table;'>
+                    </div>
+                </td>
+                <td rowspan="2"></td>
+            </tr>
+
             <tr>
                 <td colspan="7 " align="center">
                     <div id="flotante"></div>
                 </td>
             </tr>
     </div>
-
-
-    <script src="js/index.js "></script>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/juego.js "></script>
 
     </div>
 </body>
