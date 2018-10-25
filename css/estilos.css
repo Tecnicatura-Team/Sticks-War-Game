@@ -188,22 +188,10 @@ input[type=password]:focus,
     color: red;
 }
 
-
-/*pagina personajes*/
-
-
-/* 
-    table {
-        width: 100%;
-        height: 100%;
-    } */
-
-
-/* .tabla */
-
 table {
     font-family: Comic Sans MS;
     color: aliceblue;
+    /* border: solid; */
 }
 
 .Personajes td:hover {
@@ -320,9 +308,8 @@ table {
 .Habilidades img {
     display: inline;
     float: left;
-    /* margin-left: 8px;
-    border: solid;
-    color: aliceblue;*/
+    /*  border: solid aliceblue;
+     */
     padding-left: 8px;
 }
 
@@ -332,38 +319,28 @@ table {
 .Juego {
     background: url("../img/batalla3.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-position-y: 60px;
+    position: relative;
     background-size: 1024px 500px;
-    width: 100%;
-    height: 93.5%;
-    border: rgba(95, 158, 160, 0);
-    border: solid;
-    margin-top: 0%;
-    /* border: solid;
-    color: aliceblue; */
+    width: 1024px;
+    height: 700px;
+    margin: auto;
+    margin-top: 30px;
+    border: solid aliceblue;
 }
 
 .pjPartida {
     margin: auto;
     margin-top: 200px;
-    /*  border: solid;
-    color: aliceblue; */
+    position: relative;
+    /*  border: solid aliceblue;
+     */
 }
 
 .pjPartida td {
     padding: 0%;
     margin: 0%;
-    /* border: solid;
-    color: aliceblue; */
-}
-
-.pjHabilidades {
-    width: 200px;
-    height: 40px;
-    margin: auto;
-    align: center;
+    /*  border: solid aliceblue;
+     */
 }
 
 #TurnoPJ1,
@@ -415,7 +392,12 @@ table {
     border-radius: 10px 7px 8px 2px;
 }
 
+
+/* tabla de habilidades en pagina juego */
+
 .THabilidad {
+    position: relative;
+    width: 1024px;
     margin: auto;
     margin-top: 50px;
     border: solid;
@@ -426,3 +408,34 @@ table {
     border: solid;
     color: aliceblue;
 }
+
+#atributosAliado {
+    width: 350px;
+    height: 100px;
+}
+
+#atributosEnemigo {
+    width: 350px;
+    height: 100px;
+}
+
+
+/* barra de habilidades */
+
+.pjHabilidades {
+    width: 200px;
+    height: 40px;
+    margin: auto;
+    align: center;
+}
+
+.desc {
+    width: 200px;
+    height: 100px;
+}
+
+
+/* #descHabilidad {
+    width: 200px;
+    height: 100px;
+} */
