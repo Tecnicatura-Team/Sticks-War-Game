@@ -44,13 +44,17 @@ input[type=password]:focus,
 [type=text]:focus,
 [type=submit],
 [type=button] {
-    padding: 5px 15px;
-    background: #ccc;
     cursor: pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    color: #930;
-    border-color: #930;
+    font-family: Comic Sans MS;
+    font-size: 15px;
+    border-radius: 0px 10px 0px 10px;
+    background-color: rgba(0, 0, 0, 0.356);
+    border-color: brown;
+    color: aliceblue;
+}
+
+input:focus {
+    outline: none;
 }
 
 
@@ -75,14 +79,40 @@ input[type=password]:focus,
 }
 
 #menu li a {
+    float: left;
+}
+
+#menu li a,
+.close,
+.closeB {
     margin-left: 15px;
     font-family: Comic Sans MS;
     font-size: 15px;
     text-decoration: none;
-    float: left;
     padding: 9px;
-    background-color: black;
     color: #fff;
+}
+
+#menu>li>ul {
+    display: none;
+}
+
+.close,
+.closeB {
+    float: right;
+}
+
+.closeB {
+    border-radius: 0px 0px 0px 0px;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 9px;
+    margin-top: 0%;
+    border-top: 0px;
+    border-bottom: 0;
+}
+
+#menu>li:hover>ul {
+    display: block;
 }
 
 #menu li a:hover {
@@ -178,9 +208,6 @@ input[type=password]:focus,
 }
 
 
-/* '<h2 align="center">'+'<font face="Comic Sans MS" color="#ffffff" size="4">Inicia sesión</font>'+'</h2>'+ */
-
-
 /*mensajes en el login registro*/
 
 .mensajes {
@@ -192,17 +219,53 @@ table {
     font-family: Comic Sans MS;
     color: aliceblue;
     /* border: solid; */
+    position: relative;
 }
 
-.Personajes td:hover {
+
+/* table td {
+    border: solid aliceblue;
+} */
+
+.clases:hover {
     background: rgba(165, 42, 42, 0.11);
 }
 
 
 /*eleccion de personajes*/
 
+#cuerpoIndex,
+#cuerpoPJ,
+#cuerpoEquipo {
+    width: 100%;
+    height: 100%;
+    /* border: solid aqua; */
+    position: relative;
+}
+
+.Eleccion {
+    width: 1235px;
+    height: 550px;
+    position: relative;
+    /* border: solid rgb(6, 139, 255); */
+    margin: auto;
+}
+
+.Eleccion h1 {
+    color: aliceblue;
+    font-family: Comic Sans MS;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30;
+    position: relative;
+}
+
 .Personajes {
     position: relative;
+    width: 1235;
+    height: 350;
+    margin-top: 20px;
+    /* border: solid rgb(56, 155, 101); */
 }
 
 .Personajes input {
@@ -211,98 +274,116 @@ table {
     -ms-appearance: window;
     appearance: window;
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
+}
+
+.clases {
+    margin: auto;
+    width: 150px;
+    height: 150px;
 }
 
 .Paladin+label::before {
     top: 0;
     display: inline-block;
     background: url('../img/Paladin.png') no-repeat 0 0;
+    background-size: 150px 150px;
     display: block;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     content: '';
     vertical-align: middle;
 }
 
 .Paladin:checked+label::before {
     background: transparent url('../img/Paladin2.png') no-repeat 0 0;
+    background-size: 150px 150px;
 }
 
 .Guerrero+label::before {
     top: 0;
     display: inline-block;
     background: url('../img/Guerrero.png') no-repeat 0 0;
+    background-size: 150px 150px;
     display: block;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     content: '';
     vertical-align: middle;
 }
 
 .Guerrero:checked+label::before {
     background: transparent url('../img/Guerrero2.png') no-repeat 0 0;
+    background-size: 150px 150px;
 }
 
 .Mago+label::before {
     top: 0;
     display: inline-block;
     background: url('../img/Mago.png') no-repeat 0 0;
+    background-size: 150px 150px;
     display: block;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     content: '';
     vertical-align: middle;
 }
 
 .Mago:checked+label::before {
     background: transparent url('../img/Mago2.png') no-repeat 0 0;
+    background-size: 150px 150px;
 }
 
 .Arquero+label::before {
     top: 0;
     display: inline-block;
     background: url('../img/Arquero.png') no-repeat 0 0;
+    background-size: 150px 150px;
     display: block;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     content: '';
     vertical-align: middle;
 }
 
 .Arquero:checked+label::before {
     background: transparent url('../img/Arquero2.png') no-repeat 0 0;
+    background-size: 150px 150px;
 }
 
 .Amazona+label::before {
     top: 0;
     display: inline-block;
     background: url('../img/Amazona.png') no-repeat 0 0;
+    background-size: 150px 150px;
     display: block;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     content: '';
     vertical-align: middle;
 }
 
 .Amazona:checked+label::before {
     background: transparent url('../img/Amazona2.png') no-repeat 0 0;
+    background-size: 150px 150px;
 }
 
 .Asesino+label::before {
     top: 0;
     display: inline-block;
     background: url('../img/Asesino.png') no-repeat 0 0;
+    background-size: 150px 150px;
     display: block;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     content: '';
     vertical-align: middle;
 }
 
 .Asesino:checked+label::before {
     background: transparent url('../img/Asesino2.png') no-repeat 0 0;
+    background-size: 150px 150px;
 }
 
 .Habilidades img {
@@ -341,12 +422,6 @@ table {
     margin: 0%;
     /*  border: solid aliceblue;
      */
-}
-
-#TurnoPJ1,
-#TurnoPJ2,
-#TurnoPJ3 {
-    border-radius: 10px 7px 8px 2px;
 }
 
 .fondoVida {
@@ -432,10 +507,15 @@ table {
 .desc {
     width: 200px;
     height: 100px;
+    text-align: center;
 }
 
 
-/* #descHabilidad {
-    width: 200px;
-    height: 100px;
+/* .BContinuar {
+    font-family: Comic Sans MS;
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    background-color: rgba(0, 0, 0, 0);
 } */

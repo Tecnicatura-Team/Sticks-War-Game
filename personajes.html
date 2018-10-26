@@ -6,7 +6,7 @@
 </head>
 
 <body background="img/fondete2.jpg" style="background-repeat:no-repeat; background-attachment:fixed; background-position:center; background-size: 100% 100% ">
-    <div id="cuerpo">
+    <div id="cuerpoPJ">
         <header>
             <section class="barra">
                 <section class="logo">
@@ -18,19 +18,20 @@
                         <li> <a href="personajes.html">Personajes</a></li>
                         <li> <a href="">Guía</a></li>
                         <li> <a href="equipo.html">Equipo</a></li>
+                        <li><input class="closeB" type="button" value="Cerrar Sesión"></li>
+                        <li> <label class="close">Nombre Usuario</label></li>
+
                     </ul>
 
                 </nav>
         </header>
 
-        <div style="width: 100%; height: 300px;" align="center">
+        <div class="Eleccion" align="center">
 
-            <h1 style="color:aliceblue; text-align: center; padding-top: 30px; ">
-                <font face="Comic Sans MS" size=10>Elección de personajes</font>
-            </h1>
-
-            <form action="" class="Personajes" style="padding-top:60px; padding-left: 10px; padding-right:10px;">
-                <table <!--border="2px" --> >
+            <h1> Elije 3 personajes para pelear</h1>
+            <br>
+            <form action="" class="Personajes">
+                <table>
                     <tr class="NomClases">
                         <td style="color:aliceblue; text-align: center;">Paladín</td>
                         <td style="color:aliceblue; text-align: center;">Guerrero</td>
@@ -40,13 +41,25 @@
                         <td style="color:aliceblue; text-align: center;">Asesino</td>
                     </tr>
                     <tr>
+                        <td>
+                            <div class="clases"> <input type="checkbox" class="Paladin" onchange="validacion(this)"> <label></label></td>
+                        </div>
 
-                        <td><input type="checkbox" class="Paladin" onchange="validacion(this)"> <label></label></td>
-                        <td><input type="checkbox" class="Guerrero" onchange="validacion(this)"> <label></label></td>
-                        <td><input type="checkbox" class="Mago" onchange="validacion(this)"> <label></label></td>
-                        <td><input type="checkbox" class="Arquero" onchange="validacion(this)"> <label></label></td>
-                        <td><input type="checkbox" class="Amazona" onchange="validacion(this)"> <label></label></td>
-                        <td><input type="checkbox" class="Asesino" onchange="validacion(this)"> <label></label></td>
+                        <td>
+                            <div class="clases"><input type="checkbox" class="Guerrero" onchange="validacion(this)"> <label></label></div>
+                        </td>
+                        <td>
+                            <div class="clases"><input type="checkbox" class="Mago" onchange="validacion(this)"> <label></label></div>
+                        </td>
+                        <td>
+                            <div class="clases"><input type="checkbox" class="Arquero" onchange="validacion(this)"> <label></label></div>
+                        </td>
+                        <td>
+                            <div class="clases"><input type="checkbox" class="Amazona" onchange="validacion(this)"> <label></label></div>
+                        </td>
+                        <td>
+                            <div class="clases"><input type="checkbox" class="Asesino" onchange="validacion(this)"> <label></label></div>
+                        </td>
                     </tr>
 
                     <tr>
@@ -87,15 +100,20 @@
                             <img src="img/logo1.jpg" alt="" width="40px" height="40px" onmouseover="showdiv(event,'Descripción de la habilidad 4');" onMouseOut="hiddenDiv()" style='display:table;'>
                         </td>
                         <tr>
-                            <td colspan="6" align="center">
-                                <div id="flotante"></div>
+                            <td colspan="6" class="desc">
+                                <div id="descHabilidad"></div>
                             </td>
+                        </tr>
+                        <tr>
+
+                            <input type="radio">
                         </tr>
 
                 </table>
 
             </form>
-
+            <input class="BContinuar" type="button" value="Continuar">
+            <!-- falta el action -->
         </div>
 
 

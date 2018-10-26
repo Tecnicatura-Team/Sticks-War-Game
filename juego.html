@@ -6,122 +6,126 @@
 </head>
 
 <body background="img/fondete2.jpg" style="background-repeat:no-repeat; background-attachment:fixed; background-position:center; background-size: 100% 100% ">
-    <div id="cuerpo"></div>
-    <header>
-        <section class="barra">
-            <section class="logo">
-                <a href="index.html"><img src="img/logo1.jpg"></a>
-            </section>
-            <nav>
-                <ul id="menu">
-                    <li> <a href="index.html">Inicio</a></li>
-                    <li> <a href="personajes.html">Personajes</a></li>
-                    <li> <a href="">Guía</a></li>
-                    <li> <a href="equipo.html">Equipo</a></li>
-                </ul>
+    <div id="cuerpoJuego">
+        <header>
+            <section class="barra">
+                <section class="logo">
+                    <a href="index.html"><img src="img/logo1.jpg"></a>
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li> <a href="index.html">Inicio</a></li>
+                        <li> <a href="personajes.html">Personajes</a></li>
+                        <li> <a href="">Guía</a></li>
+                        <li> <a href="equipo.html">Equipo</a></li>
+                        <li><input class="closeB" type="button" value="Cerrar Sesión"></li>
+                        <li> <label class="close">Nombre Usuario</label></li>
 
-            </nav>
-    </header>
+                    </ul>
+                </nav>
+        </header>
 
-    <div class="Juego">
+        <div class="Juego">
 
-        <table class="pjPartida" width="100px;" height="250px ">
-            <tr align="center">
-                <td>
-                    <img src="img/Espera.png" id="SelectPJ3" alt=" " width="40px " height="40px ">
+            <table class="pjPartida" width="100px;" height="250px ">
+                <tr align="center">
+                    <td>
+                        <img src="img/Espera.png" id="SelectPJ3" alt=" " width="40px " height="40px ">
 
-                </td>
-                <td><img src="img/Espera.png" id="SelectPJ2" alt=" " width="40px " height="40px "></td>
-                <td><img src="img/Espera.png" id="SelectPJ1" alt=" " width="40px " height="40px "></td>
-                <td>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </td>
-                <td><img src="img/Espera.png" id="SelectEnemigoPJ1" alt=" " width="40px " height="40px "></td>
-                <td><img src="img/Espera.png" id="SelectEnemigoPJ2" alt=" " width="40px " height="40px "></td>
-                <td><img src="img/Espera.png" id="SelectEnemigoPJ3" alt=" " width="40px " height="40px "></td>
-            </tr>
-            <tr>
-                <td><img src="img/StickArquero2.png" id="PJ3" alt=" " width="110px " height="200px "></td>
-                <td><img src="img/StickMago2.png" id="PJ2" alt=" " width="110px " height="200px "></td>
-                <td><img src="img/StickGuerrero2.png" id="PJ1" alt=" " width="110px " height="200px "></td>
-                <td>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </td>
-                <td><img src="img/StickPaladin.png " id="EPJ1" alt=" " width="110px " height="200px "></td>
-                <td><img src="img/StickAmazona.png " id="EPJ2" alt=" " width="110px " height="200px "></td>
-                <td><img src="img/StickAsesino.png " id="EPJ1" alt=" " width="110px " height="200px "></td>
-            </tr>
-            <tr>
-                <td id="TurnoPJ3">
-                    <div class="fondoVida">
-                        <div id="VidaPJ3"></div>
-                    </div>
-                </td>
-                <td id="TurnoPJ2">
-                    <div class="fondoVida">
-                        <div id="VidaPJ2"></div>
-                    </div>
-                </td>
-                <td id="TurnoPJ1">
-                    <div class="fondoVida">
-                        <div id="VidaPJ1"></div>
-                    </div>
-                </td>
-                <td>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </td>
-                <td id="EnemigoPJ1">
-                    <div class="fondoVida">
-                        <div id="VidaEnemigoPJ1"></div>
-                    </div>
-                </td>
-                <td id="EnemigoPJ2">
-                    <div class="fondoVida">
-                        <div id="VidaEnemigoPJ2"></div>
-                    </div>
-                </td>
-                <td id="EnemigoPJ3">
-                    <div class="fondoVida">
-                        <div id="VidaEnemigoPJ3"></div>
-                    </div>
-                </td>
-            </tr>
+                    </td>
+                    <td><img src="img/Espera.png" id="SelectPJ2" alt=" " width="40px " height="40px "></td>
+                    <td><img src="img/Espera.png" id="SelectPJ1" alt=" " width="40px " height="40px "></td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td><img src="img/Espera.png" id="SelectEnemigoPJ1" alt=" " width="40px " height="40px "></td>
+                    <td><img src="img/Espera.png" id="SelectEnemigoPJ2" alt=" " width="40px " height="40px "></td>
+                    <td><img src="img/Espera.png" id="SelectEnemigoPJ3" alt=" " width="40px " height="40px "></td>
+                </tr>
+                <tr>
+                    <td><img src="img/StickArquero2.png" id="PJ3" alt=" " width="110px " height="200px "></td>
+                    <td><img src="img/StickMago2.png" id="PJ2" alt=" " width="110px " height="200px "></td>
+                    <td><img src="img/StickGuerrero2.png" id="PJ1" alt=" " width="110px " height="200px "></td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td><img src="img/StickPaladin.png " id="EPJ1" alt=" " width="110px " height="200px "></td>
+                    <td><img src="img/StickAmazona.png " id="EPJ2" alt=" " width="110px " height="200px "></td>
+                    <td><img src="img/StickAsesino.png " id="EPJ1" alt=" " width="110px " height="200px "></td>
+                </tr>
+                <tr>
+                    <td id="TurnoPJ3">
+                        <div class="fondoVida">
+                            <div id="VidaPJ3"></div>
+                        </div>
+                    </td>
+                    <td id="TurnoPJ2">
+                        <div class="fondoVida">
+                            <div id="VidaPJ2"></div>
+                        </div>
+                    </td>
+                    <td id="TurnoPJ1">
+                        <div class="fondoVida">
+                            <div id="VidaPJ1"></div>
+                        </div>
+                    </td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td id="EnemigoPJ1">
+                        <div class="fondoVida">
+                            <div id="VidaEnemigoPJ1"></div>
+                        </div>
+                    </td>
+                    <td id="EnemigoPJ2">
+                        <div class="fondoVida">
+                            <div id="VidaEnemigoPJ2"></div>
+                        </div>
+                    </td>
+                    <td id="EnemigoPJ3">
+                        <div class="fondoVida">
+                            <div id="VidaEnemigoPJ3"></div>
+                        </div>
+                    </td>
+                </tr>
 
-        </table>
+            </table>
 
-        <table class="THabilidad">
+            <table class="THabilidad">
 
-            <tr>
-                <td rowspan="2">
-                    <div id="AtributosAliado">
+                <tr>
+                    <td rowspan="2">
+                        <div id="AtributosAliado">
 
-                    </div>
-                </td>
-                <td class="Habilidades">
-                    <div class="pjHabilidades">
-                        <img src="img/logo1.jpg " alt=" " width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ1','img/SelectEnemigo.png',event,'Descripción de la habilidad 1')" onmouseout=" ocultarhabilidad('SelectEnemigoPJ1','img/Espera.png')" style='display:table;'>
-                        <img src="img/logo1.jpg " alt=" " width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ2','img/SelectEnemigo.png',event,'Descripción de la habilidad 2')" onmouseout=" ocultarhabilidad('SelectEnemigoPJ2','img/Espera.png')" style='display:table;'>
-                        <img src="img/logo1.jpg " alt=" " width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ3','img/SelectEnemigo.png',event,'Descripción de la habilidad 3')" onmouseout=" ocultarhabilidad('SelectEnemigoPJ3','img/Espera.png')" style='display:table;'>
-                        <img src="img/logo1.jpg " alt=" " width="40px " height="40px" onmouseover="mostrarhabilidad('SelectPJ3','img/SelectEnemigo.png',event,'Descripción de la habilidad 4')" onmouseout=" ocultarhabilidad('SelectPJ3','img/Espera.png')" style='display:table;'>
-                    </div>
-                </td>
-                <td rowspan="2">
-                    <div id="atributosEnemigo">
+                        </div>
+                    </td>
+                    <td class="Habilidades">
+                        <div class="pjHabilidades">
+                            <img src="img/logo1.jpg " alt=" " width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ1','img/SelectEnemigo.png',event,'Descripción de la habilidad 1')" onmouseout=" ocultarhabilidad('SelectEnemigoPJ1','img/Espera.png')" style='display:table;'>
+                            <img src="img/logo1.jpg " alt=" " width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ2','img/SelectEnemigo.png',event,'Descripción de la habilidad 2')" onmouseout=" ocultarhabilidad('SelectEnemigoPJ2','img/Espera.png')" style='display:table;'>
+                            <img src="img/logo1.jpg " alt=" " width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ3','img/SelectEnemigo.png',event,'Descripción de la habilidad 3')" onmouseout=" ocultarhabilidad('SelectEnemigoPJ3','img/Espera.png')" style='display:table;'>
+                            <img src="img/logo1.jpg " alt=" " width="40px " height="40px" onmouseover="mostrarhabilidad('SelectPJ3','img/SelectEnemigo.png',event,'Descripción de la habilidad 4')" onmouseout=" ocultarhabilidad('SelectPJ3','img/Espera.png')" style='display:table;'>
+                        </div>
+                    </td>
+                    <td rowspan="2">
+                        <div id="atributosEnemigo">
 
-                    </div>
-                </td>
-            </tr>
+                        </div>
+                    </td>
+                </tr>
 
-            <tr>
+                <tr>
 
 
-                <td class="desc" align="center">
-                    <div id="descHabilidad"></div>
-                </td>
-            </tr>
-    </div>
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/juego.js "></script>
+                    <td class="desc">
+                        <div id="descHabilidad"></div>
+                    </td>
+                </tr>
+
+
+        </div>
+        <script src="js/jquery-3.3.1.js"></script>
+        <script src="js/juego.js "></script>
 
     </div>
 </body>
