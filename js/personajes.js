@@ -77,12 +77,12 @@ function ElegirPJ() {
         "</table>" +
         "</div>"
 
-    var boton = "<input id='Asignar' type='button' value='Asignar' onclick=ocultar()>"
-
+    var boton = "<input id='Asignar' type='button' value='Asignar' onclick='ocultar()'>"
 
     $("footer").before(contenido)
     $("footer").before(boton)
     $("#Eleccion").fadeOut(500)
+
 
     var descripciones = [
         "Descripción de la habilidad 1",
@@ -95,7 +95,6 @@ function ElegirPJ() {
             "mouseenter",
             function() {
                 event.preventDefault()
-
                 showdiv(event, descripciones[$(this).attr("id")[4] - 1]);
             }
         ),
@@ -107,11 +106,11 @@ function ElegirPJ() {
             }
         )
     )
-
-
 }
 
-// function ocultar() {
-//     document.getElementById('team').removeChild(document.getElementById("Personajes"))
 
-// }
+function ocultar() {
+    $("#Personajes").remove()
+    $("#Asignar").remove()
+    document.getElementById('Eleccion').style.display = ''; //vuelve a mostrar la div eleccion
+}

@@ -281,11 +281,75 @@ table {
     height: 150px;
 }
 
+.agregarClase input {
+    -webkit-appearance: none;
+    -moz-appearance: window;
+    -ms-appearance: window;
+    appearance: window;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+}
+
 .clases {
     margin: auto;
     width: 150px;
     height: 150px;
 }
+
+.PosicionPJ3+label::before {
+    top: 0;
+    display: inline-block;
+    background: url('../img/Agregar.png') no-repeat 0 0;
+    background-size: 150px 150px;
+    display: block;
+    width: 150px;
+    height: 150px;
+    content: '';
+    vertical-align: middle;
+}
+
+.PosicionPJ3:checked+label::before {
+    background: transparent url('../img/.png') no-repeat 0 0;
+    background-size: 150px 150px;
+}
+
+.PosicionPJ2+label::before {
+    top: 0;
+    display: inline-block;
+    background: url('../img/Agregar.png') no-repeat 0 0;
+    background-size: 150px 150px;
+    display: block;
+    width: 150px;
+    height: 150px;
+    content: '';
+    vertical-align: middle;
+}
+
+.PosicionPJ2:checked+label::before {
+    background: transparent url('../img/.png') no-repeat 0 0;
+    background-size: 150px 150px;
+}
+
+.PosicionPJ1+label::before {
+    top: 0;
+    display: inline-block;
+    background: url('../img/Agregar.png') no-repeat 0 0;
+    background-size: 150px 150px;
+    display: block;
+    width: 150px;
+    height: 150px;
+    content: '';
+    vertical-align: middle;
+}
+
+.PosicionPJ1:checked+label::before {
+    background: transparent url('../img/.png') no-repeat 0 0;
+    background-size: 150px 150px;
+}
+
+
+/* -------------------------------------------------------------------------------------- */
 
 .Paladin+label::before {
     top: 0;
@@ -405,8 +469,8 @@ table {
     background-repeat: no-repeat;
     position: relative;
     background-size: 1024px 500px;
-    width: 1024px;
-    height: 700px;
+    width: 1200px;
+    height: auto;
     margin: auto;
     margin-top: 30px;
     border: solid aliceblue;
@@ -480,13 +544,27 @@ table {
     width: 1024px;
     margin: auto;
     margin-top: 50px;
-    border: solid;
-    color: aliceblue;
+    /* border: solid;
+    color: aliceblue; */
 }
 
 .THabilidad td {
-    border: solid;
-    color: aliceblue;
+    /* border: solid;
+    color: aliceblue; */
+}
+
+.DHabilidad {
+    width: auto;
+    height: auto;
+    /* border: solid rgb(6, 139, 255); */
+}
+
+.antorcha {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    border: rebeccapurple solid;
+    bottom: 0px;
 }
 
 #atributosAliado {
@@ -529,7 +607,9 @@ table {
 /* table td {
     border: solid aliceblue;
 }
+ 
+
 
 div {
     border: solid rgb(6, 139, 255);
-} */
+}*/
