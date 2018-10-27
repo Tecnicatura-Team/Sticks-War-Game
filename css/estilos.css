@@ -24,6 +24,8 @@ footer {
     height: 45px;
     padding-bottom: 0%;
     text-align: center;
+    font-family: Comic Sans MS;
+    font-size: 15px;
 }
 
 .foote {
@@ -456,9 +458,9 @@ table {
 .Habilidades img {
     display: inline;
     float: left;
+    padding-left: 8px;
     /*  border: solid aliceblue;
      */
-    padding-left: 8px;
 }
 
 
@@ -467,13 +469,14 @@ table {
 .Juego {
     background: url("../img/batalla3.jpg");
     background-repeat: no-repeat;
-    position: relative;
     background-size: 1024px 500px;
+    background-position-x: 90px;
+    background-position-y: 30px;
     width: 1200px;
     height: auto;
     margin: auto;
     margin-top: 30px;
-    border: solid aliceblue;
+    border: solid rgba(255, 255, 255, 0);
 }
 
 .pjPartida {
@@ -481,16 +484,13 @@ table {
     height: 250px;
     margin: auto;
     margin-top: 200px;
-    position: relative;
-    /*  border: solid aliceblue;
-     */
+    /* border: solid aliceblue; */
 }
 
 .pjPartida td {
     padding: 0%;
     margin: 0%;
-    /*  border: solid aliceblue;
-     */
+    /* border: solid aliceblue; */
 }
 
 .fondoVida {
@@ -548,23 +548,16 @@ table {
     color: aliceblue; */
 }
 
-.THabilidad td {
-    /* border: solid;
-    color: aliceblue; */
-}
+
+/* .THabilidad td {
+    border: solid;
+    color: aliceblue;
+} */
 
 .DHabilidad {
     width: auto;
     height: auto;
     /* border: solid rgb(6, 139, 255); */
-}
-
-.antorcha {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    border: rebeccapurple solid;
-    bottom: 0px;
 }
 
 #atributosAliado {
@@ -608,8 +601,9 @@ table {
     border: solid aliceblue;
 }
  
+*/
 
 
-div {
+/* div {
     border: solid rgb(6, 139, 255);
-}*/
+} */
