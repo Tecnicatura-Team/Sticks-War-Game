@@ -68,17 +68,18 @@ function hiddenDiv() {
     document.getElementById('descHabilidad').style.display = 'none';
 }
 
-//limitar checkbox personajes
-function validacion(obj) {
-    limite = 3;
-    num = 0;
-    if (obj.checked) {
-        for (i = 0; ele = obj.form.elements[i]; i++)
-            if (ele.checked) num++;
-        if (num > limite)
-            obj.checked = false;
-    }
-}
+// //limitar checkbox personajes, usado en anterior pag personajes con los checkbox
+// function validacion(obj) {
+//     limite = 3;
+//     num = 0;
+//     if (obj.checked) {
+//         for (i = 0; ele = obj.form.elements[i]; i++)
+//             if (ele.checked) num++;
+//         if (num > limite)
+//             obj.checked = false;
+//     }
+// }
+
 //muestra las flechas sobre los pj y descripcion de habilidades
 function mostrarhabilidad(elemento, img, event, desc) {
     cargarPjJuego(elemento, img)

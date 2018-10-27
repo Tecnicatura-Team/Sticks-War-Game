@@ -24,10 +24,10 @@ footer {
     height: 45px;
     padding-bottom: 0%;
     text-align: center;
-    /* border-top: solid;
-    border-color: #930;   
-    border: solid;     
-     background-color: black;*/
+}
+
+.foote {
+    margin-top: 30px;
 }
 
 
@@ -157,10 +157,6 @@ input:focus {
     width: 300px;
     height: 300px;
     margin-bottom: 0%;
-    /* border-left: solid;
-    border-right: solid;
-    border-bottom: solid;
-    border: solid;*/
 }
 
 
@@ -218,14 +214,9 @@ input:focus {
 table {
     font-family: Comic Sans MS;
     color: aliceblue;
-    /* border: solid; */
     position: relative;
+    /* border: solid; */
 }
-
-
-/* table td {
-    border: solid aliceblue;
-} */
 
 .clases:hover {
     background: rgba(165, 42, 42, 0.11);
@@ -234,18 +225,22 @@ table {
 
 /*eleccion de personajes*/
 
+#descHabilidad {
+    color: aliceblue;
+}
+
 #cuerpoIndex,
 #cuerpoPJ,
 #cuerpoEquipo {
     width: 100%;
     height: 100%;
-    /* border: solid aqua; */
     position: relative;
+    /* border: solid aqua; */
 }
 
 .Eleccion {
     width: 1235px;
-    height: 550px;
+    height: 450px;
     position: relative;
     /* border: solid rgb(6, 139, 255); */
     margin: auto;
@@ -261,11 +256,19 @@ table {
 }
 
 .Personajes {
-    position: relative;
+    text-align: center;
+    font-family: Comic Sans MS;
     width: 1235;
-    height: 350;
-    margin-top: 20px;
+    height: 450;
+    margin-top: 50px;
+    color: aliceblue;
+    margin: auto;
+    justify-content: center;
     /* border: solid rgb(56, 155, 101); */
+}
+
+.Eclass {
+    margin: auto;
 }
 
 .Personajes input {
@@ -410,6 +413,8 @@ table {
 }
 
 .pjPartida {
+    width: 100px;
+    height: 250px;
     margin: auto;
     margin-top: 200px;
     position: relative;
@@ -510,12 +515,21 @@ table {
     text-align: center;
 }
 
+#Asignar {
+    margin-top: 50px;
+    margin: auto;
+    margin-left: 47.5%;
+}
 
-/* .BContinuar {
-    font-family: Comic Sans MS;
-    font-size: 15px;
-    text-decoration: none;
-    color: #fff;
-    border-radius: 10px 10px 10px 10px;
-    background-color: rgba(0, 0, 0, 0);
+.BContinuar {
+    margin-top: 50px;
+}
+
+
+/* table td {
+    border: solid aliceblue;
+}
+
+div {
+    border: solid rgb(6, 139, 255);
 } */
