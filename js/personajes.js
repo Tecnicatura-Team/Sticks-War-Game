@@ -11,7 +11,7 @@ function ElegirPJ(lugar) {
 
     var contenido =
         "<div class='Personajes' id='Personajes'>" +
-        "<h2>Elije un una clase</h2></br>" +
+        "<h2>Elije una clase</h2></br>" +
         "<br>" +
         "<table class='Eclass'>" +
         "<tr class='NomClases'>" +
@@ -50,6 +50,8 @@ function ElegirPJ(lugar) {
     $("footer").before(contenido)
     $("footer").before(boton)
     $("#Eleccion").fadeOut(500)
+    $("#Personajes").hide().fadeIn(4000) //efecto al crear el objeto
+
 
     detalleHabilidad()
 }
@@ -184,7 +186,9 @@ function descrip() {
         $(document).ready(
 
             $(".ver").click(
+                $(".statsObjeto").hide().fadeIn(500), //efecto al crear el objeto
                 $(".statsObjeto").animate({
+
                     height: '250px',
                     color: "#fff",
                     marginTop: "20px"
@@ -257,6 +261,7 @@ function Descrip2() {
         $(document).ready(
 
             $(".pj").click(
+                $(".statsHabilidad").hide().fadeIn(500), //efecto al crear el objeto
                 $(".statsHabilidad").animate({
                     height: '250px',
                     color: "#fff",

@@ -5,7 +5,7 @@
         private $host="localhost";
         private $user="root";
         private $password="";
-        private $database="test";
+        private $database="stickswardb";
         public function getStatus(){
             return $this->status;
         }

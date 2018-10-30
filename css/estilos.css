@@ -11,6 +11,15 @@ body {
     height: auto;
 }
 
+#cuerpoIndex,
+#cuerpoPJ,
+#cuerpoEquipo,
+#cuerpoJuego {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
 .bodyResto {
     background: url("../img/fondete2.jpg");
     background-repeat: no-repeat;
@@ -226,15 +235,6 @@ table {
 
 .clases:hover {
     background: rgba(165, 42, 42, 0.11);
-}
-
-#cuerpoIndex,
-#cuerpoPJ,
-#cuerpoEquipo,
-#cuerpoJuego {
-    width: 100%;
-    height: 100%;
-    position: relative;
 }
 
 
