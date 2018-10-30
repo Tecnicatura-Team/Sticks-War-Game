@@ -1,6 +1,8 @@
 crearlogin()
+$("#login").hide().fadeIn(2000) //efecto al crear el objeto
 
 function crearlogin() {
+
     var elemento = document.createElement('section')
     elemento.id = 'login'
     elemento.className = 'login'
@@ -27,6 +29,7 @@ function crearlogin() {
     elemento.innerHTML = contenido
     document.getElementById('contenido').appendChild(elemento)
     $("#iniciarsesion").on("click", mensajelogin())
+
 }
 
 
@@ -61,9 +64,12 @@ function cambiarir() {
     if (document.getElementById('login')) {
         document.getElementById('login').parentNode.removeChild(document.getElementById('login'))
         crearregistro()
+        $("#registro").hide().fadeIn(2000) //efecto al crear el objeto
+
     } else {
         document.getElementById('registro').parentNode.removeChild(document.getElementById('registro'))
         crearlogin()
+        $("#login").hide().fadeIn(2000) //efecto al crear el objeto
     }
 }
 
@@ -121,5 +127,3 @@ function mensajelogin() {
         }
     })
 }
-
-

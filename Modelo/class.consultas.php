@@ -54,12 +54,12 @@
                         // Consulta realizada con exito
                     }
                 }else{
-                    $this->error="La consulta sql esta vacia";
+                    $this->error="La consulta sql esta vacía";
                 }
                 
                 // echo "Numero: ".$numero;
             }else{
-                $this->error="Error en la conexion";
+                $this->error="Error en la conexión";
             }
         }
     }

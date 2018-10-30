@@ -1,4 +1,14 @@
-function ElegirPJ() {
+var elemento = []
+elemento["posicionPJ1"] = ""
+elemento["posicionPJ2"] = ""
+elemento["posicionPJ3"] = ""
+var posicion
+
+
+function ElegirPJ(lugar) {
+    posicion = $(lugar).attr("class")
+        // console.log(posicion)
+
     var contenido =
         "<div class='Personajes' id='Personajes'>" +
         "<h2>Elije un una clase</h2></br>" +
@@ -7,8 +17,8 @@ function ElegirPJ() {
         "<tr class='NomClases'>" +
         "<td style='color:aliceblue; text-align: center;'>Paladín</td>" +
         "<td style='color:aliceblue; text-align: center;'>Guerrero</td>" +
-        "<td style='color:aliceblue; text-align: center;'>Mago</td>" +
-        "<td style='color:aliceblue; text-align: center;'>Arquero</td>" +
+        "<td style='color:aliceblue; text-align: center;'>Sacerdotisa</td>" +
+        "<td style='color:aliceblue; text-align: center;'>Arquera</td>" +
         "<td style='color:aliceblue; text-align: center;'>Amazona</td>" +
         "<td style='color:aliceblue; text-align: center;'>Asesino</td>" +
         "</tr>" +
@@ -20,7 +30,7 @@ function ElegirPJ() {
         "<div class='clases'><input type='radio' id='Guerrero' class='pj' name='clases' value='Guerrero' onclick='Descrip2()'> <label></label></div>" +
         "</td>" +
         "<td>" +
-        "<div class='clases'><input type='radio' id='Mago' class='pj' name='clases' value='Mago' onclick='Descrip2()'> <label></label></div>" +
+        "<div class='clases'><input type='radio' id='Sacerdotisa' class='pj' name='clases' value='Sacerdotisa' onclick='Descrip2()'> <label></label></div>" +
         "</td>" +
         "<td>" +
         "<div class='clases'><input type='radio' id='Arquero' class='pj' name='clases' value='Arquero' onclick='Descrip2()'> <label></label></div>" +
@@ -48,7 +58,7 @@ function detalleHabilidad() {
 
     //descripciones de cada habilidad
     var descripciones = [
-            "Causa entre 80 - 180 de daño a un enemigo en la posicion ( 1 - 2 ) pero se disminuye 5% de precicion y 10% de daño a si misma (acumulable hasta 6 veces)",
+            "Causa entre 80 - 180 de daño a un enemigo en la posicion ( 1 - 2 ) pero se disminuye 5% de precision y 10% de daño a si misma (acumulable hasta 6 veces)",
             "Descripción de la habilidad 2",
             "Descripción de la habilidad 3",
             "Descripción de la habilidad 4"
@@ -59,19 +69,14 @@ function detalleHabilidad() {
             "mouseenter",
             function() {
                 event.preventDefault()
-                    // console.log("1")
-                    // showdiv(event, descripciones[$(this).attr("id")[4] - 1]);
-                    // $(".descHabilidad").html("estoy")
                 verDesc('descHabilidad', descripciones[$(this).attr("id")[4] - 1])
+
             }
         ),
         $(".imgH").on(
             "mouseleave",
             function() {
                 event.preventDefault()
-                    // console.log("2")
-                    // hiddenDiv();
-                    // $(".descHabilidad").html("bye")
                 ocultarDesc('descHabilidad')
             }
         )
@@ -88,11 +93,30 @@ function ocultarDesc(elemento) {
     $("." + elemento).html("")
 }
 
-
 function ocultar() {
+
+
+    $(".pj").each(function() {
+
+        if ($(this).is(":checked")) {
+            elemento[posicion] = $(this).attr("id")
+
+        }
+    })
+
+
     $("#Personajes").remove()
     $("#Asignar").remove()
     document.getElementById('Eleccion').style.display = ''; //vuelve a mostrar la div eleccion
+    //habilita los radio button para ver las estadisticas de los pj luego de agregarlos
+    for (var i = 1; i <= 3; i++) {
+        if (!elemento["posicionPJ" + i].length == 0) {
+            $("#ver" + i).css("display", "block")
+        } else {
+            console.log(i)
+        }
+    }
+
 }
 
 function descrip() {
@@ -101,7 +125,7 @@ function descrip() {
 
         "<table class='statsObjeto'>" +
         "<tr>" +
-        "<td class='stats' rowspan='2'>" +
+        "<td class='stats' rowspan='3'>" +
         "<div>" +
         "<table>" +
         "<tr>" +
@@ -139,7 +163,11 @@ function descrip() {
         "<img src='img/logo1.jpg' class='imgH' id='Aseh4' width='40px' height='40px' style='display:table;'>" +
         "</div>" +
         "</td>" +
-        "<td class='objeto' rowspan=2></td>" +
+        "<td class='objeto' rowspan='3'></td>" +
+        "</tr>" +
+        "<tr>" +
+        "<td class='NomHabilidad'>" +
+        "</td>" +
         "</tr>" +
         "<tr>" +
         "<td class='desc'>" +
@@ -161,12 +189,9 @@ function descrip() {
                     color: "#fff",
                     marginTop: "20px"
                 }, "slow")
-
             ))
-
     }
     detalleHabilidad()
-
 }
 
 function Descrip2() {
@@ -174,7 +199,7 @@ function Descrip2() {
     var contenido =
         "<table class='statsHabilidad'>" +
         "<tr>" +
-        "<td class='stats' rowspan='2'>" +
+        "<td class='stats' rowspan='3'>" +
         "<div>" +
         "<table>" +
         "<tr>" +
@@ -214,6 +239,10 @@ function Descrip2() {
         "</td>" +
         "</tr>" +
         "<tr>" +
+        "<td class='NomHabilidad'>" +
+        "</td>" +
+        "</tr>" +
+        "<tr>" +
         "<td class='desc'>" +
         "<div class='descHabilidad'>" +
         "</div>" +
@@ -233,7 +262,6 @@ function Descrip2() {
                     color: "#fff",
                     marginTop: "20px"
                 }, "slow")
-
             ))
     }
     detalleHabilidad()

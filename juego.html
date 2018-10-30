@@ -7,7 +7,7 @@
     <title>Juego</title>
 </head>
 
-<body background="img/fondete2.jpg" style="background-repeat:no-repeat; background-attachment:fixed; background-position:center; background-size: 100% 100% ">
+<body class="bodyResto">
     <div id="cuerpoJuego">
         <header>
             <section class="barra">
@@ -22,13 +22,11 @@
                         <li> <a href="equipo.html">Equipo</a></li>
                         <li><input class="closeB" type="button" value="Cerrar Sesión"></li>
                         <li> <label class="close">Nombre Usuario</label></li>
-
                     </ul>
                 </nav>
         </header>
 
         <div class="Juego">
-
             <table class="pjPartida">
                 <tr align="center">
                     <td>
@@ -91,35 +89,85 @@
 
             </table>
             <div class="DHabilidad">
-
-
                 <table class="THabilidad">
-
                     <tr>
-                        <td rowspan="2">
+                        <td rowspan="3">
                             <div id="AtributosAliado">
-
+                                <table>
+                                    <tr>
+                                        <td class="nomAttrib">Vida:</td>
+                                        <td class="valAttrib"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nomAttrib">Precisión: </td>
+                                        <td class="valAttrib"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nomAttrib">Evasión: </td>
+                                        <td class="valAttrib"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nomAttrib">Daño crítico: </td>
+                                        <td class="valAttrib"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nomAttrib">Resistencia: </td>
+                                        <td class="valAttrib"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nomAttrib">Modificador: </td>
+                                        <td class="valAttrib"></td>
+                                    </tr>
+                                </table>
                             </div>
                         </td>
                         <td class="Habilidades">
                             <div class="pjHabilidades">
-                                <img src="img/logo1.jpg " alt="habilidad" width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ1','img/SelectEnemigo.png',event,'Descripción de la habilidad 1')" onmouseout=" ocultarhabilidad('SelectEnemigoPJ1','img/Espera.png')"
-                                    style='display:table;'>
-                                <img src="img/logo1.jpg " alt="habilidad" width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ2','img/SelectEnemigo.png',event,'Descripción de la habilidad 2')" onmouseout=" ocultarhabilidad('SelectEnemigoPJ2','img/Espera.png')"
-                                    style='display:table;'>
-                                <img src="img/logo1.jpg " alt="habilidad" width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ3','img/SelectEnemigo.png',event,'Descripción de la habilidad 3')" onmouseout=" ocultarhabilidad('SelectEnemigoPJ3','img/Espera.png')"
-                                    style='display:table;'>
-                                <img src="img/logo1.jpg " alt="habilidad" width="40px " height="40px" onmouseover="mostrarhabilidad('SelectPJ3','img/SelectEnemigo.png',event,'Descripción de la habilidad 4')" onmouseout=" ocultarhabilidad('SelectPJ3','img/Espera.png')" style='display:table;'>
+                                <img src="img/logo1.jpg " alt="habilidad" class="imgH" id="Aseh1" width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ1','img/SelectEnemigo.png',this)" onmouseout=" ocultarhabilidad('SelectEnemigoPJ1','img/Espera.png')" style='display:table;'>
+                                <img src="img/logo1.jpg " alt="habilidad" class="imgH" id="Aseh2" width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ2','img/SelectEnemigo.png',this)" onmouseout=" ocultarhabilidad('SelectEnemigoPJ2','img/Espera.png')" style='display:table;'>
+                                <img src="img/logo1.jpg " alt="habilidad" class="imgH" id="Aseh3" width="40px " height="40px" onmouseover="mostrarhabilidad('SelectEnemigoPJ3','img/SelectEnemigo.png',this)" onmouseout=" ocultarhabilidad('SelectEnemigoPJ3','img/Espera.png')" style='display:table;'>
+                                <img src="img/logo1.jpg " alt="habilidad" class="imgH" id="Aseh4" width="40px " height="40px" onmouseover="mostrarhabilidad('SelectPJ3','img/SelectEnemigo.png',this)" onmouseout=" ocultarhabilidad('SelectPJ3','img/Espera.png')" style='display:table;'>
                             </div>
                         </td>
-                        <td rowspan="2">
+                        <td rowspan="3">
                             <div id="atributosEnemigo">
+                                <table>
+                                    <tr>
+                                        <td class="nomAttrib">Vida:</td>
+                                        <td class="valAttrib"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nomAttrib">Precisión: </td>
+                                        <td class="valAttrib"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nomAttrib">Evasión: </td>
+                                        <td class="valAttrib"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nomAttrib">Daño crítico: </td>
+                                        <td class="valAttrib"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nomAttrib">Resistencia: </td>
+                                        <td class="valAttrib"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="nomAttrib">Modificador: </td>
+                                        <td class="valAttrib"></td>
+                                    </tr>
+                                </table>
                             </div>
                         </td>
                     </tr>
                     <tr>
+                        <td class="NomHabilidad">
+                            nombre habilidad
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="desc">
-                            <div id="descHabilidad"></div>
+                            <div class="descHabilidad"></div>
                         </td>
                     </tr>
                 </table>
@@ -130,6 +178,7 @@
             </footer>
         </div>
         <script src="js/jquery-3.3.1.js"></script>
+        <script src="js/personajes.js "></script>
         <script src="js/juego.js "></script>
 
     </div>

@@ -5,24 +5,26 @@ function cargarPjJuego(elemento, img) {
 
 }
 
-//muestra las flechas sobre los pj y descripcion de habilidades
-function mostrarhabilidad(elemento, img, event, desc) {
-    cargarPjJuego(elemento, img)
-    showdiv(event, desc)
-}
+// //muestra las flechas sobre los pj y descripcion de habilidades
+// function mostrarhabilidad(elemento, img, event, desc) {
+//     cargarPjJuego(elemento, img)
+
+//     showdiv(event, desc)
+// }
 
 //oculta las flechas sobre los pj y descripcion de habilidades
 var turno = "SelectPJ3"
 
 function ocultarhabilidad(elemento, img) {
     cargarPjJuego(elemento, img)
-    hiddenDiv()
+        // hiddenDiv()
+    ocultarDesc('descHabilidad')
+
     if (turno == elemento) {
         cargarPjJuego(elemento, "img/SelectAliado.png")
     } else {
         cargarPjJuego(elemento, img)
     }
-
 }
 
 //carga las img sobre los pj
@@ -35,9 +37,19 @@ cargarPjJuego("SelectPJ2", "img/SelectAliado.png")
 cargarPjJuego("SelectPJ3", "img/SelectAliado.png") */
 
 //muestra turno de pj sobre el mismo
-function mostrarhabilidad(elemento, img, event, desc) {
+function mostrarhabilidad(elemento, img, habilidad) {
     cargarPjJuego(elemento, img)
-    showdiv(event, desc)
+        // showdiv(event, desc)
+
+    var descripciones = [
+        "Causa entre 80 - 180 de daño a un enemigo en la posicion ( 1 - 2 ) pero se disminuye 5% de precision y 10% de daño a si misma (acumulable hasta 6 veces)",
+        "Descripción de la habilidad 2",
+        "Descripción de la habilidad 3",
+        "Descripción de la habilidad 4"
+    ]
+    verDesc('descHabilidad', descripciones[$(habilidad).attr("id")[4] - 1])
+
+    // console.log($(habilidad).attr("id"))
 }
 
 //muestra img de turno
