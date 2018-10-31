@@ -17,4 +17,11 @@ io.sockets.on("connection", function(socket) {
         }
 
     })
+    socket.on("registro", function(data) {
+        if (data.menssage == true) {
+            io.sockets.emit("registroespera" + data.user[0] + data.user[1], data)
+        } else {
+            io.sockets.emit("registroerror" + data.user[0] + data.user[1], data)
+        }
+    })
 })

@@ -1,44 +1,6 @@
 var socket = io.connect("http://127.0.0.1:3700")
-    // function ajax(archivo, datos) {
-    //     // var resultado
-    //     $.ajax({
-    //         type: "POST",
-    //         url: archivo,
-    //         data: datos,
-    //         dataType: "JSON",
-    //         beforeSend: function() {
-    //             console.log("procesando informacion")
-    //         },
-    //         success: function(data) {
-    //             console.log("exito")
-    //                 // resultado = data
-    //             if (data == undefined || data == null || data == '') {
-    //                 console.log("data vacio")
-    //             } else {
-    //                 console.log(data)
-    //                     // console.log("contiene datos data")
-    //                     // resultado = data
-    //                 resultado = "holas"
 
-//             }
-
-//             // console.log(data)
-//             // var resultado = data
-//             // console.log(resultado)
-//             // return resultado
-//             // data = eval("(" + data + ")")
-//             // console.log("nombre: " + data["nombre"] + " contra: " + data["contraseña"])
-//         },
-//         error: function(vacio, error) {
-//             console.log(error)
-//                 // return error
-//         }
-//     });
-//     console.log(resultado)
-//         // console.log(resultado)
-//         // return resultado
-// }
-function ajax(archivo, datos) {
+function ajax(archivo, datos, evento) {
     // var resultado
     $.ajax({
         type: "POST",
@@ -59,7 +21,19 @@ function ajax(archivo, datos) {
                 // console.log(data.contraseña)
                 // console.log(data.estado)
                 // console.log(data)
-                socket.emit("logueo", eval("(" + data + ")"))
+                switch (evento) {
+                    case "login":
+                        socket.emit("logueo", eval("(" + data + ")"))
+                        break;
+                    case "registro":
+                        // console.log("datos php: " + data)
+                        socket.emit("registro", eval("(" + data + ")"))
+                        break;
+                    default:
+                        console.log("error en la funcion ajax.js")
+                        break;
+                }
+
             }
 
         },
@@ -68,7 +42,3 @@ function ajax(archivo, datos) {
         }
     })
 }
-
-// function devolver(datos) {
-//     this.resultado = 0;
-// }

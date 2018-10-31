@@ -18,7 +18,7 @@
         $respuesta["contrasena"]= $row["userpass"];
         $respuesta["estado"]=$row["estado"];
     }
-    if(count($respuesta)>0){
+    if($consulta->getColumnAffected()>0){
         session_start();
         $_SESSION["usuario"]=$respuesta;
     }
