@@ -158,7 +158,7 @@ function descrip() {
         "</div>" +
         "</td>" +
         "<td class='Habilidades'>" +
-        "<div>" +
+        "<div class='pjHabilidades'>" +
         "<img src='img/logo1.jpg' class='imgH' id='Aseh1' width='40px' height='40px' style='display:table;'>" +
         "<img src='img/logo1.jpg' class='imgH' id='Aseh2' width='40px' height='40px' style='display:table;'>" +
         "<img src='img/logo1.jpg' class='imgH' id='Aseh3' width='40px' height='40px' style='display:table;'>" +
@@ -234,7 +234,7 @@ function Descrip2() {
         "</div>" +
         "</td>" +
         "<td class='Habilidades'>" +
-        "<div>" +
+        "<div class='pjHabilidades'>" +
         "<img src='img/logo1.jpg' class='imgH' id='Aseh1' width='40px' height='40px' style='display:table;'>" +
         "<img src='img/logo1.jpg' class='imgH' id='Aseh2' width='40px' height='40px' style='display:table;'>" +
         "<img src='img/logo1.jpg' class='imgH' id='Aseh3' width='40px' height='40px' style='display:table;'>" +
