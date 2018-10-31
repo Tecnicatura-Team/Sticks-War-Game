@@ -10,7 +10,7 @@ function crearlogin() {
     var contenido =
         '<h2 class=\'subtitulo\'>Inicia sesión!</h2>' +
         '<br><br>' +
-        '<form method=\'post\' action=\'ValidarConexion.php\' id="form" align=\'center\'>' +
+        '<form  id="form" align=\'center\'>' +
         '<label class=\'labelc\' for=\'in\'>Ingrese su Nombre:</label> <br>' +
         '<input type=\'text\' id="nombre" name=\'Nombre\' >' +
         '<br>' +
@@ -40,9 +40,9 @@ function crearregistro() {
     var contenido =
         '<h2 class=\'subtitulo\'>Registrar nueva cuenta</h2>' +
         '<br><br>' +
-        '<form method="post" action="insert.php" id="form">' +
+        '<form  id="form">' +
         '<label class=\'labelc\' for=\'in\'>Ingrese el nombre de usuario:</label><br>' +
-        '<input type="text" name="RNombre">' +
+        '<input type="text" id="nombre" name="RNombre">' +
         '<br>' +
         '<br>' +
         '<label class=\'labelc\' for=\'ic\'>Ingrese una contraseña:</label><br>' +
@@ -65,6 +65,26 @@ function cambiarir() {
     if (document.getElementById('login')) {
         document.getElementById('login').parentNode.removeChild(document.getElementById('login'))
         crearregistro()
+        $("#registro").submit(function(e) {
+            e.preventDefault()
+            var contador = 0
+            nom = $("#nombre").val()
+            contra = $("#RContraseña").val()
+                // alert("registro enviado: " + nom + "; " + contra)
+            ajax("./Controlador/Registro.php", { nombre: nom, contrasena: contra }, "registro")
+            socket.on("registroespera" + nom + contra, function(data) {
+                if (contador == 0) {
+                    alert("registro exitoso")
+                    contador = 1
+                }
+            })
+            socket.on("registroerror" + nom + contra, function(data) {
+                if (contador == 0) {
+                    alert("registro fallido ya existe el usuario")
+                    contador = 1
+                }
+            })
+        })
         $("#registro").hide().fadeIn(2000) //efecto al crear el objeto
 
     } else {
@@ -141,7 +161,7 @@ $(document).ready(function() {
         nom = $("#nombre").val()
         contra = $("#pass").val()
             // console.log("nombre: " + nom + "; contraseña: " + contra)
-        ajax("./Controlador/Login.php", { nombre: nom, contrasena: contra })
+        ajax("./Controlador/Login.php", { nombre: nom, contrasena: contra }, "login")
             // console.log(resultado)
         socket.on("logueoespera" + nom + contra, function(data) {
 
@@ -161,6 +181,5 @@ $(document).ready(function() {
         })
         contador = 0
     })
-
 
 })
