@@ -24,9 +24,10 @@ function crearlogin() {
         '<br>' +
         '<input type=\'submit\' value=\'Iniciar Sesión\' id="iniciarsesion">' +
         '<input type=\'submit\' value=\'Recuperar mi Cuenta\' onclick=\'location="recuperar.php"\'>' +
-        '</form>' +
         '<br> <br>' +
-        '<input type=\'button\' onclick=\'cambiarir()\' value=\'¿Eres nuevo? Registrate ahora!\'>'
+        '<input type=\'button\' onclick=\'cambiarir()\' value=\'¿Eres nuevo? Registrate ahora!\'>' +
+        '</form>'
+
     elemento.innerHTML = contenido
     document.getElementById('contenido').appendChild(elemento)
     $("#iniciarsesion").on("click", mensajelogin())
