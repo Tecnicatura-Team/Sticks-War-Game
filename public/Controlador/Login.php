@@ -18,6 +18,8 @@
         $respuesta["contrasena"]= $row["userpass"];
         $respuesta["estado"]=$row["estado"];
     }
+    $_SESSION["usuario"]=$respuesta;
+    $respuesta["user"]=array($_POST["nombre"],$_POST["contrasena"]);
     echo json_encode($respuesta);
     // echo json_encode($respuesta);
     // echo json_encode($consulta->getResult());

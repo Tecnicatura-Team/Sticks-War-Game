@@ -58,6 +58,7 @@ function ajax(archivo, datos) {
                 // console.log(data)
                 // console.log(data.contraseña)
                 // console.log(data.estado)
+                // console.log(data)
                 socket.emit("logueo", eval("(" + data + ")"))
             }
 

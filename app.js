@@ -10,7 +10,11 @@ io.sockets.on("connection", function(socket) {
     // socket.emit("welcome", { menssage: "Bienvenido a Sticks War Game" })
     socket.on("logueo", function(data) {
         // console.log("llego los datos")
+        if (data.nombre) {
+            io.sockets.emit("logueoespera" + data.nombre + data.contrasena, data)
+        } else {
+            io.sockets.emit("logueoerror" + data.user[0] + data.user[1], false)
+        }
 
-        io.sockets.emit("logueoespera" + data.nombre + data.contrasena, { menssage: data })
     })
 })

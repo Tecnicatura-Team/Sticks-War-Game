@@ -137,14 +137,29 @@ $(document).ready(function() {
 
     $("#login").submit(function(e) {
         e.preventDefault()
+        var contador = 0
         nom = $("#nombre").val()
         contra = $("#pass").val()
             // console.log("nombre: " + nom + "; contraseña: " + contra)
         ajax("./Controlador/Login.php", { nombre: nom, contrasena: contra })
             // console.log(resultado)
         socket.on("logueoespera" + nom + contra, function(data) {
-            alert("Logueado")
+
+            // var contador = 0;
+            if (contador == 0) {
+                console.log(data)
+                alert("Logueado")
+                contador = 1
+            }
         })
+        socket.on("logueoerror" + nom + contra, function() {
+
+            if (contador == 0) {
+                alert("error de logueo")
+                contador = 1
+            }
+        })
+        contador = 0
     })
 
 
