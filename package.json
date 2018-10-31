@@ -1,0 +1,15 @@
+{
+    "name": "stickswargame",
+    "version": "1.0.0",
+    "description": "Juego de batallas por turno",
+    "dependencies": {
+        "socket.io": "latest",
+        "express": "latest",
+        "jade": "latest"
+    },
+    "contributors": [
+        "Sofelix",
+        "Cristian",
+        "Claudio"
+    ]
+}
