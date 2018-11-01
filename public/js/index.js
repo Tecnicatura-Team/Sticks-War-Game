@@ -4,10 +4,8 @@ $("#login").hide().fadeIn(2000) //efecto al crear el objeto
 
 function crearlogin() {
 
-    var elemento = document.createElement('section')
-    elemento.id = 'login'
-    elemento.className = 'login'
     var contenido =
+        '<div id="login" class="login">' +
         '<h2 class=\'subtitulo\'>Inicia sesión!</h2>' +
         '<br><br>' +
         '<form  id="form" align=\'center\'>' +
@@ -23,22 +21,19 @@ function crearlogin() {
         '<br>' +
         '<br>' +
         '<input type=\'submit\' value=\'Iniciar Sesión\' id="iniciarsesion">' +
-        '<input type=\'submit\' value=\'Recuperar mi Cuenta\' onclick=\'location="recuperar.php"\'>' +
         '<br> <br>' +
         '<input type=\'button\' onclick=\'cambiarir()\' value=\'¿Eres nuevo? Registrate ahora!\'>' +
-        '</form>'
-
-    elemento.innerHTML = contenido
-    document.getElementById('contenido').appendChild(elemento)
+        '</form>' +
+        '</div>'
+    $("footer").before(contenido)
     $("#iniciarsesion").on("click", mensajelogin())
 
 }
 
 
 function crearregistro() {
-    var elemento = document.createElement('section')
-    elemento.id = "registro"
     var contenido =
+        '<div class="registro" id="registro">' +
         '<h2 class=\'subtitulo\'>Registrar nueva cuenta</h2>' +
         '<br><br>' +
         '<form  id="form">' +
@@ -56,9 +51,9 @@ function crearregistro() {
         '<input type="submit" value="Crear cuenta" id="crearcuenta">' +
         '<br> <br>' +
         '<input type="button" onclick="cambiarir()" value="¿Ya tienes cuenta? Inicia sesión">' +
-        '</form>'
-    elemento.innerHTML = contenido
-    document.getElementById('contenido').appendChild(elemento)
+        '</form>' +
+        '</div>'
+    $("footer").before(contenido)
     $("#crearcuenta").on("click", compararpsw())
 }
 
@@ -71,17 +66,20 @@ function cambiarir() {
             var contador = 0
             nom = $("#nombre").val()
             contra = $("#RContraseña").val()
-                // alert("registro enviado: " + nom + "; " + contra)
+
             ajax("./Controlador/Registro.php", { nombre: nom, contrasena: contra }, "registro")
             socket.on("registroespera" + nom + contra, function(data) {
                 if (contador == 0) {
-                    alert("registro exitoso")
+
+                    $(".msj").html("<p style='color:green;'>Usuario registrado Correctamente</p>")
+
                     contador = 1
                 }
             })
             socket.on("registroerror" + nom + contra, function(data) {
                 if (contador == 0) {
-                    alert("registro fallido ya existe el usuario")
+                    $(".msj").html("La cuenta ingresada ya existe, intente nuevamente")
+
                     contador = 1
                 }
             })
@@ -94,6 +92,7 @@ function cambiarir() {
         $("#login").hide().fadeIn(2000) //efecto al crear el objeto
     }
 }
+
 
 function mostrarPassword() {
     var mostrarc = document.getElementById('mostrar')
@@ -120,12 +119,12 @@ function compararpsw() {
             RContraseña: {
                 required: "<br>     <div class='mensajes' > Este campo es requerido </div>",
                 minlength: "<br>    <div class='mensajes' > Se requiere que ingrese al menos 3 caracteres</div>",
-                maxlength: "<br>    <div class='mensajes' > Solo se puede ingresar 20 caracteres maximo </div>"
+                maxlength: "<br>    <div class='mensajes' > Solo se puede ingresar 20 caracteres máximo </div>"
             },
             RContraseña2: {
                 required: "<br>     <div class='mensajes'> Este campo es requerido </div>",
                 minlength: "<br>    <div class='mensajes'> Se requiere que ingrese al menos 3 caracteres</div>",
-                maxlength: "<br>    <div class='mensajes'> Solo se puede ingresar 20 caracteres maximo </div>",
+                maxlength: "<br>    <div class='mensajes'> Solo se puede ingresar 20 caracteres máximo </div>",
                 equalTo: "<br>      <div class='mensajes'> Las contraseñas no coinciden </div>"
             }
         }
@@ -168,15 +167,16 @@ $(document).ready(function() {
 
             // var contador = 0;
             if (contador == 0) {
-                console.log(data)
-                alert("Logueado")
+                location.href = "armarequipo.html"
+                    // console.log(data)
+                    // alert("Logueado")
                 contador = 1
             }
         })
         socket.on("logueoerror" + nom + contra, function() {
 
             if (contador == 0) {
-                alert("error de logueo")
+                $(".msj").html("Los datos ingresados son incorrectos, intente nuevamente")
                 contador = 1
             }
         })

@@ -52,7 +52,6 @@ function ElegirPJ(lugar) {
     $("#Eleccion").fadeOut(500)
     $("#Personajes").hide().fadeIn(4000) //efecto al crear el objeto
 
-
     detalleHabilidad()
 }
 

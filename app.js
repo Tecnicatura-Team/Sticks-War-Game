@@ -11,7 +11,7 @@ io.sockets.on("connection", function(socket) {
     socket.on("logueo", function(data) {
         // console.log("llego los datos")
         if (data.nombre) {
-            io.sockets.emit("logueoespera" + data.nombre + data.contrasena, data)
+            io.sockets.emit("logueoespera" + data.user[0] + data.user[1], data)
         } else {
             io.sockets.emit("logueoerror" + data.user[0] + data.user[1], false)
         }
