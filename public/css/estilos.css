@@ -137,11 +137,17 @@ input:focus {
     padding: 9px;
     margin-top: 0%;
     border-top: 0px;
-    border-bottom: 0;    
+    border-bottom: 0;
 }
-#closeB{
+
+#closeB {
     display: none;
 }
+
+.opPj {
+    display: none;
+}
+
 .menu>li:hover>ul {
     display: block;
 }
