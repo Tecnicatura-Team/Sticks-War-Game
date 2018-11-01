@@ -29,6 +29,10 @@ function ajax(archivo, datos, evento) {
                         // console.log("datos php: " + data)
                         socket.emit("registro", eval("(" + data + ")"))
                         break;
+                    case "mostrarnombre":
+                        // console.log(data)
+                        socket.emit("mostrarnombre", data)
+                        break;
                     default:
                         console.log("error en la funcion ajax.js")
                         break;
