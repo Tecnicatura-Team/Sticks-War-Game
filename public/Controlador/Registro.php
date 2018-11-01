@@ -1,7 +1,7 @@
 <?php
     require_once("../Modelo/class.consultas.php");
     $consulta=new Consultas();
-    $sql="insert into usuario(usernivel,userexp,usernombre,userpass,estado) values(1,0,?,?,'conectado')";
+    $sql="insert into usuario(usernivel,userexp,usernombre,userpass,estado) values(1,0,?,?,'desconectado')";
     $attr=array($_POST["nombre"],$_POST["contrasena"]);
     // echo json_encode($attr);
     $consulta->query($sql,$attr);
