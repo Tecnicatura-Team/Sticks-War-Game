@@ -18,11 +18,14 @@
         $respuesta["contrasena"]= $row["userpass"];
         $respuesta["estado"]=$row["estado"];
     }
-    // if($respuesta){
-        session_start();
+    session_start();
+     if($respuesta){
+        
         $_SESSION["usuario"]=$respuesta["nombre"];
     
-    // }
+     }else{
+        $_SESSION["usuario"]=false;
+     }
     $respuesta["user"]=array($_POST["nombre"],$_POST["contrasena"]);
     echo json_encode($respuesta);
     // echo json_encode($respuesta);
