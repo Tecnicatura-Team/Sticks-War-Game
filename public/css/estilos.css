@@ -74,7 +74,7 @@ input[type=password]:focus,
 [type=text]:focus,
 [type=submit],
 [type=button] {
-    cursor: pointer;
+    /* cursor: pointer; */
     font-family: Comic Sans MS;
     font-size: 15px;
     border-radius: 0px 10px 0px 10px;
@@ -137,9 +137,11 @@ input:focus {
     padding: 9px;
     margin-top: 0%;
     border-top: 0px;
-    border-bottom: 0;
+    border-bottom: 0;    
 }
-
+#closeB{
+    display: none;
+}
 .menu>li:hover>ul {
     display: block;
 }

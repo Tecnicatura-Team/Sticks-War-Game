@@ -26,9 +26,13 @@ io.sockets.on("connection", function(socket) {
     })
     socket.on("mostrarnombre", function(data) {
         if (data) {
+            // console.log("mostrarnu")
             io.sockets.emit("mostrarnu", data)
-        } else {
-            io.sockets.emit("mostrarnuerror", false)
         }
     })
+    // socket.on("cerrar", function(data) {
+        
+    //         io.sockets.emit("cerrarsesion"+data, data)
+        
+    // })
 })

@@ -168,6 +168,7 @@ function descrip() {
         "</tr>" +
         "<tr>" +
         "<td class='NomHabilidad'>" +
+        "nombre habilidad" +
         "</td>" +
         "</tr>" +
         "<tr>" +
