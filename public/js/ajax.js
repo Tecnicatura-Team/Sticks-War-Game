@@ -30,7 +30,7 @@ function ajax(archivo, datos, evento) {
                         socket.emit("registro", eval("(" + data + ")"))
                         break;
                     case "mostrarnombre":
-                        // console.log(data)
+                        console.log(data)
                         socket.emit("mostrarnombre", data)
                         break;
                     default:

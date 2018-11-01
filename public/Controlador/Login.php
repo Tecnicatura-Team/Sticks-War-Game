@@ -18,10 +18,11 @@
         $respuesta["contrasena"]= $row["userpass"];
         $respuesta["estado"]=$row["estado"];
     }
-    if($consulta->getColumnAffected()>0){
+    // if($respuesta){
         session_start();
-        $_SESSION["usuario"]=$respuesta;
-    }
+        $_SESSION["usuario"]=$respuesta["nombre"];
+    
+    // }
     $respuesta["user"]=array($_POST["nombre"],$_POST["contrasena"]);
     echo json_encode($respuesta);
     // echo json_encode($respuesta);
