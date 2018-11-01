@@ -24,4 +24,11 @@ io.sockets.on("connection", function(socket) {
             io.sockets.emit("registroerror" + data.user[0] + data.user[1], data)
         }
     })
+    socket.on("mostrarnombre", function(data) {
+        if (data) {
+            io.sockets.emit("mostrarnu", data)
+        } else {
+            io.sockets.emit("mostrarnuerror", false)
+        }
+    })
 })
