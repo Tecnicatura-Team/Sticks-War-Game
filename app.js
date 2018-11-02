@@ -15,9 +15,14 @@ io.sockets.on("connection", function(socket) {
         // console.log("logueoerror" + data.trim().toUpperCase().replace(/"/g, ""))
         // console.log(data.user[0])
         // console.log(data.usuario.id)
-        if (data.usuario.nombre) {
+        if (data.usuario.estado) {
+            if (data.usuario.estado.trim() == "desconectado") {
+                io.sockets.emit("logueoespera" + data.user[0].trim().toUpperCase().replace(/"/g, ""), data)
+            } else {
+                io.sockets.emit("logueoerror" + data.user[0].trim().toUpperCase().replace(/"/g, ""), data.usuario.estado.trim())
+            }
             // console.log("se logueo")
-            io.sockets.emit("logueoespera" + data.user[0].trim().toUpperCase().replace(/"/g, ""), data)
+
         } else {
             // console.log("no se logueo")
             io.sockets.emit("logueoerror" + data.user[0].trim().toUpperCase().replace(/"/g, ""), false)
