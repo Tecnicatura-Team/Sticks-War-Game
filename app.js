@@ -13,11 +13,14 @@ io.sockets.on("connection", function(socket) {
         // console.log("logueoespera" + data.trim().toUpperCase().replace(/"/g, ""))
         // console.log("llego los datos")
         // console.log("logueoerror" + data.trim().toUpperCase().replace(/"/g, ""))
-        console.log(data)
-        if (data.trim()) {
-            io.sockets.emit("logueoespera" + data.trim().toUpperCase().replace(/"/g, ""), data)
+        // console.log(data.user[0])
+        // console.log(data.usuario.id)
+        if (data.usuario.nombre) {
+            // console.log("se logueo")
+            io.sockets.emit("logueoespera" + data.user[0].trim().toUpperCase().replace(/"/g, ""), data)
         } else {
-            io.sockets.emit("logueoerror" + data.trim().toUpperCase().replace(/"/g, ""), false)
+            // console.log("no se logueo")
+            io.sockets.emit("logueoerror" + data.user[0].trim().toUpperCase().replace(/"/g, ""), false)
         }
     })
     socket.on("registro", function(data) {

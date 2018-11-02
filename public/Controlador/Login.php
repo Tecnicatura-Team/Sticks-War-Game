@@ -26,12 +26,13 @@
      }else{
         $_SESSION["usuario"]=false;
      }
-     $datos=array();
-     $datos["datos"]=$respuesta;
+     $datos=["usuario"=>$respuesta,"user"=>array($_POST["nombre"],$_POST["contrasena"])];
+    //  $datos["usuario"]=array($_POST["nombre"],$_POST["contrasena"]);
+    //  $datos["respuesta"]=$respuesta["nombre"]?true:false;
 
-    $respuesta["user"]=array($_POST["nombre"],$_POST["contrasena"]);
-    $datos["user"]=$respuesta;
-    echo json_encode($_SESSION["usuario"]["nombre"]);
+    // $respuesta["user"]=array($_POST["nombre"],$_POST["contrasena"]);
+    // $datos["user"]=$respuesta;
+    echo json_encode($datos);
     // echo json_encode($respuesta);
     // echo json_encode($consulta->getResult());
     // echo json_encode($consulta->getColumnAffected());
