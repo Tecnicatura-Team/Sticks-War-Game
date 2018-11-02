@@ -21,7 +21,8 @@ function mostrarnombre() {
             $(".opPj").css("display", "block")
             $("#closeB").css("display", "block")
             $(".close").html(data.replace(/"/g, ''))
-                // alert("Lleno")
+
+            // alert("Lleno")
         } else {
 
             $(".opPj").css("display", "none")
@@ -34,6 +35,7 @@ function mostrarnombre() {
 function cerrarsesion() {
 
     ajax("./Controlador/CerrarSesion.php", true, "cerrarsesion")
+
     location.href = "index.html"
         // var nom =  $(".close").html()
         // socket.on("cerrarsesion"+nom, function(data) {
