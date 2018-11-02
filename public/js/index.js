@@ -166,19 +166,24 @@ $(document).ready(function() {
 
         socket.on("logueoespera" + nom.toUpperCase(), function(data) {
 
-            // var contador = 0;
-            if (contador == 0) {
-                location.href = "armarequipo.html"
-                    // console.log(data)
-                    // alert("Logueado")
-                contador = 1
-            }
-        })
-        console.log("logueoerror" + nom.toUpperCase())
-        socket.on("logueoerror" + nom.toUpperCase(), function() {
+                // var contador = 0;
+                if (contador == 0) {
+                    location.href = "armarequipo.html"
+                        // console.log(data)
+                        // alert("Logueado")
+                    contador = 1
+                }
+            })
+            // console.log("logueoerror" + nom.toUpperCase())
+        socket.on("logueoerror" + nom.toUpperCase(), function(data) {
 
             if (contador == 0) {
-                $(".msj").html("Los datos ingresados son incorrectos, intente nuevamente")
+                if (data == false) {
+                    $(".msj").html("Los datos ingresados son incorrectos, intente nuevamente")
+                } else {
+                    $(".msj").html("El usuario ingresado ya esta conectado")
+                }
+
                 contador = 1
             }
         })
