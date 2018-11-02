@@ -17,11 +17,13 @@ function mostrarnombre() {
 
         // console.log(data.trim().length)
         if (data.trim()) {
+            $(".opIndex").css("display", "none")
             $(".opPj").css("display", "block")
             $("#closeB").css("display", "block")
             $(".close").html(data.replace(/"/g, ''))
                 // alert("Lleno")
         } else {
+
             $(".opPj").css("display", "none")
                 // console.log("vacio")
         }

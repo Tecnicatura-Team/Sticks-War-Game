@@ -255,6 +255,10 @@ table {
     background: rgba(165, 42, 42, 0.11);
 }
 
+.agregarClase {
+    border-radius: 20%;
+}
+
 
 /*eleccion de personajes*/
 
@@ -312,6 +316,7 @@ table {
     margin: auto;
     width: 150px;
     height: 150px;
+    border-radius: 20%;
 }
 
 .PosicionPJ3+label::before {
@@ -724,6 +729,15 @@ table {
 .ver:checked+label::before {
     background: transparent url('../img/detalles.png') no-repeat 0 0;
     background-size: 40px 30px;
+}
+
+.versus {
+    text-align: center;
+    margin: auto;
+    color: aliceblue;
+    position: absolute;
+    width: 100%;
+    margin-top: 30px;
 }
 
 
