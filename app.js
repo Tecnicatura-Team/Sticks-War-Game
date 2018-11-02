@@ -9,13 +9,16 @@ var io = require("socket.io").listen(app.listen(port))
 io.sockets.on("connection", function(socket) {
     // socket.emit("welcome", { menssage: "Bienvenido a Sticks War Game" })
     socket.on("logueo", function(data) {
+        // console.log("app.js: " + data)
+        // console.log("logueoespera" + data.trim().toUpperCase().replace(/"/g, ""))
         // console.log("llego los datos")
-        if (data.nombre) {
-            io.sockets.emit("logueoespera" + data.user[0] + data.user[1], data)
+        // console.log("logueoerror" + data.trim().toUpperCase().replace(/"/g, ""))
+        console.log(data)
+        if (data.trim()) {
+            io.sockets.emit("logueoespera" + data.trim().toUpperCase().replace(/"/g, ""), data)
         } else {
-            io.sockets.emit("logueoerror" + data.user[0] + data.user[1], false)
+            io.sockets.emit("logueoerror" + data.trim().toUpperCase().replace(/"/g, ""), false)
         }
-
     })
     socket.on("registro", function(data) {
         if (data.menssage == true) {
@@ -25,14 +28,14 @@ io.sockets.on("connection", function(socket) {
         }
     })
     socket.on("mostrarnombre", function(data) {
-        if (data) {
-            // console.log("mostrarnu")
-            io.sockets.emit("mostrarnu", data)
-        }
-    })
-    // socket.on("cerrar", function(data) {
-        
+            if (data) {
+                // console.log("mostrarnu")
+                io.sockets.emit("mostrarnu", data)
+            }
+        })
+        // socket.on("cerrar", function(data) {
+
     //         io.sockets.emit("cerrarsesion"+data, data)
-        
+
     // })
 })

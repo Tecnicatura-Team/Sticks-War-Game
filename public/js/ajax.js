@@ -23,7 +23,8 @@ function ajax(archivo, datos, evento) {
                 // console.log(data)
                 switch (evento) {
                     case "login":
-                        socket.emit("logueo", eval("(" + data + ")"))
+                        // console.log("ajax: " + data)
+                        socket.emit("logueo", data)
                         break;
                     case "registro":
                         // console.log("datos php: " + data)
@@ -31,11 +32,14 @@ function ajax(archivo, datos, evento) {
                         break;
                     case "mostrarnombre":
                         // console.log(data)
-                        socket.emit("mostrarnombre", data.replace(/"/g,""))
+                        socket.emit("mostrarnombre", data.replace(/"/g, ""))
                         break;
-                    // case "cerrarsesion":
-                    // socket.emit("cerrar",data.replace(/"/g,''))
-                    // break;
+                        // case "cerrarsesion":
+                        // socket.emit("cerrar",data.replace(/"/g,''))
+                        // break;
+                    case "crearclases":
+                        // console.log(data)
+                        break;
                     default:
                         console.log("error en la funcion ajax.js")
                         break;

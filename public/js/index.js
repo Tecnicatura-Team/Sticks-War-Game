@@ -161,9 +161,10 @@ $(document).ready(function() {
         nom = $("#nombre").val()
         contra = $("#pass").val()
             // console.log("nombre: " + nom + "; contraseña: " + contra)
+            // console.log("logueoespera" + nom.toUpperCase())
         ajax("./Controlador/Login.php", { nombre: nom, contrasena: contra }, "login")
-            // console.log(resultado)
-        socket.on("logueoespera" + nom + contra, function(data) {
+
+        socket.on("logueoespera" + nom.toUpperCase(), function(data) {
 
             // var contador = 0;
             if (contador == 0) {
@@ -173,7 +174,8 @@ $(document).ready(function() {
                 contador = 1
             }
         })
-        socket.on("logueoerror" + nom + contra, function() {
+        console.log("logueoerror" + nom.toUpperCase())
+        socket.on("logueoerror" + nom.toUpperCase(), function() {
 
             if (contador == 0) {
                 $(".msj").html("Los datos ingresados son incorrectos, intente nuevamente")

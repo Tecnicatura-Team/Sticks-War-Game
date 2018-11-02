@@ -271,3 +271,10 @@ function Descrip2() {
     }
     detalleHabilidad()
 }
+
+function cargarClases() {
+
+    ajax("./Controlador/CrearClases.php", true, "crearclases")
+
+
+}

@@ -21,13 +21,17 @@
     session_start();
      if($respuesta){
         
-        $_SESSION["usuario"]=$respuesta["nombre"];
+        $_SESSION["usuario"]=$respuesta;
     
      }else{
         $_SESSION["usuario"]=false;
      }
+     $datos=array();
+     $datos["datos"]=$respuesta;
+
     $respuesta["user"]=array($_POST["nombre"],$_POST["contrasena"]);
-    echo json_encode($respuesta);
+    $datos["user"]=$respuesta;
+    echo json_encode($_SESSION["usuario"]["nombre"]);
     // echo json_encode($respuesta);
     // echo json_encode($consulta->getResult());
     // echo json_encode($consulta->getColumnAffected());
