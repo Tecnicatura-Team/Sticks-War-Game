@@ -70,8 +70,12 @@ footer {
 
 /*botones y campos*/
 
-input[type=password]:focus,
+input
+/* [type=password]:focus, */
+
 [type=text]:focus,
+[type=text],
+[type=password],
 [type=submit],
 [type=button] {
     /* cursor: pointer; */
@@ -81,6 +85,7 @@ input[type=password]:focus,
     background-color: rgba(0, 0, 0, 0.356);
     border-color: brown;
     color: aliceblue;
+    text-align: center;
 }
 
 input:focus {
