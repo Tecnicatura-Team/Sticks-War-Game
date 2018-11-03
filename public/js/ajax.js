@@ -30,10 +30,10 @@ function ajax(archivo, datos, evento) {
                         // console.log("datos php: " + data)
                         socket.emit("registro", eval("(" + data + ")"))
                         break;
-                    case "mostrarnombre":
+                        // case "mostrarnombre":
                         // console.log(data)
-                        socket.emit("mostrarnombre", data.replace(/"/g, ""))
-                        break;
+                        // socket.emit("mostrarnombre", data.replace(/"/g, ""))
+                        // break;
                         // case "cerrarsesion":
                         // socket.emit("cerrar",data.replace(/"/g,''))
                         // break;

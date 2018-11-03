@@ -9,27 +9,39 @@ $(document).ready(
     // $("#pepe").click(alert("hola"))
 
 function mostrarnombre() {
-    ajax("./Controlador/MostrarNombre.php", true, "mostrarnombre")
-        // $("#closeB").hide()
-    socket.on("mostrarnu", function(data) {
+    // ajax("./Controlador/MostrarNombre.php", true, "mostrarnombre")
+    // $("#closeB").hide()
+    $.ajax({
+            type: "POST",
+            url: "./Controlador/MostrarNombre.php",
+            async: false,
+            success: function(data) {
+                console.log(data)
+                if (data.replace(/"/g, '').trim()) {
+                    $(".opIndex").css("display", "none")
+                    $(".opPj").css("display", "block")
+                    $("#closeB").css("display", "block")
+                    $(".close").html(data.replace(/"/g, ''))
+
+                    // alert("Lleno")
+                } else {
+
+                    $(".opPj").css("display", "none")
+                        // console.log("vacio")
+                }
+            },
+            error: function(vacion, error) {
+                console.log(error)
+            }
+        })
+        // socket.on("mostrarnu", function(data) {
         // console.log(data)
         // console.log("'"+data.trim()+"'")
 
-        // console.log(data.trim().length)
-        if (data.trim()) {
-            $(".opIndex").css("display", "none")
-            $(".opPj").css("display", "block")
-            $("#closeB").css("display", "block")
-            $(".close").html(data.replace(/"/g, ''))
+    // console.log(data.trim().length)
 
-            // alert("Lleno")
-        } else {
 
-            $(".opPj").css("display", "none")
-                // console.log("vacio")
-        }
-
-    })
+    // })
 }
 
 function cerrarsesion() {
