@@ -48,7 +48,7 @@ function ajax(archivo, datos, evento) {
                         socket.emit("eobtenerclases", datos)
                         break;
                     case "obtenerhabilidades":
-                        var datos = eval("(" + data + ")")
+                        // var datos = eval("(" + data + ")")
                         console.log(eval("(" + data + ")"))
                             // console.log(data["habilidad"])
                         break;

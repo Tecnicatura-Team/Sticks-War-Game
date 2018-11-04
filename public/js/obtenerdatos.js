@@ -1,6 +1,7 @@
 var socket = io.connect("http://127.0.0.1:3700")
 var claseid
 var clases
+obtenerHabilidades()
 
 function obtenerclases() {
     // console.log($(".close").html().trim())
