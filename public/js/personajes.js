@@ -65,22 +65,25 @@ function detalleHabilidad() {
             "Descripción de la habilidad 4"
         ]
         //al pasar el mouse sobre cada habilidad ejecuta una funcion especifica
-    $(document).ready(
-        $(".imgH").on(
-            "mouseenter",
-            function() {
-                event.preventDefault()
-                verDesc('descHabilidad', descripciones[$(this).attr("id")[4] - 1])
+    $(document).ready(function() {
+            obtenerclases()
+            $(".imgH").on(
+                "mouseenter",
+                function() {
+                    event.preventDefault()
+                    verDesc('descHabilidad', descripciones[$(this).attr("id")[4] - 1])
 
-            }
-        ),
-        $(".imgH").on(
-            "mouseleave",
-            function() {
-                event.preventDefault()
-                ocultarDesc('descHabilidad')
-            }
-        )
+                }
+            )
+            $(".imgH").on(
+                "mouseleave",
+                function() {
+                    event.preventDefault()
+                    ocultarDesc('descHabilidad')
+                }
+            )
+        }
+
     )
 }
 

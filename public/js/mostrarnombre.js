@@ -16,7 +16,7 @@ function mostrarnombre() {
             url: "./Controlador/MostrarNombre.php",
             async: false,
             success: function(data) {
-                console.log(data)
+                // console.log(data)
                 if (data.replace(/"/g, '').trim()) {
                     $(".opIndex").css("display", "none")
                     $(".opPj").css("display", "block")
