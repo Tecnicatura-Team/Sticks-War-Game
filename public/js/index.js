@@ -45,7 +45,7 @@ function crearregistro() {
         '<input type="password" name="RContraseña" id="RContraseña">' +
         '<br>' +
         '<br>' +
-        '<label class=\'labelc\' for=\'rc\'>Repetir Contraseña:</label><br>' +
+        '<label class=\'labelc\' for=\'rc\'>Repita la Contraseña:</label><br>' +
         '<input type="password" name="RContraseña2" id="RContraseña2">' +
         '<br><br>' +
         '<input type="submit" value="Crear cuenta" id="crearcuenta">' +
