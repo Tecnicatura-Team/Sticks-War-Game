@@ -324,6 +324,10 @@ table {
     border-radius: 20%;
 }
 
+.clases input {
+    position: relative;
+}
+
 .PosicionPJ3+label::before {
     top: 0;
     display: inline-block;
@@ -378,10 +382,10 @@ table {
 
 /* -------------------------------------------------------------------------------------- */
 
-#Paladin+label::before {
+
+/* #Paladin+label::before {
     top: 0;
     display: inline-block;
-    background: url('../img/Paladin.png') no-repeat 0 0;
     background-size: 150px 150px;
     display: block;
     width: 150px;
@@ -391,14 +395,16 @@ table {
 }
 
 #Paladin:checked+label::before {
-    background: transparent url('../img/Paladin2.png') no-repeat 0 0;
-    background-size: 150px 150px;
-}
+    /* background: transparent url('../img/Paladin2.png') no-repeat 0 0; 
 
-#Guerrero+label::before {
+ background-size: 150px 150px;
+
+} */
+
+
+/* #Guerrero+label::before {
     top: 0;
     display: inline-block;
-    background: url('../img/Guerrero.png') no-repeat 0 0;
     background-size: 150px 150px;
     display: block;
     width: 150px;
@@ -406,16 +412,14 @@ table {
     content: '';
     vertical-align: middle;
 }
-
 #Guerrero:checked+label::before {
-    background: transparent url('../img/Guerrero2.png') no-repeat 0 0;
+     background: transparent url('../img/Guerrero2.png') no-repeat 0 0; 
+    
     background-size: 150px 150px;
 }
-
-#Sacerdotisa+label::before {
+/* #Sacerdotisa+label::before {
     top: 0;
     display: inline-block;
-    background: url('../img/Sacerdotisa.png') no-repeat 0 0;
     background-size: 150px 150px;
     display: block;
     width: 150px;
@@ -423,62 +427,61 @@ table {
     content: '';
     vertical-align: middle;
 }
-
 #Sacerdotisa:checked+label::before {
-    background: transparent url('../img/Sacerdotisa2.png') no-repeat 0 0;
+     background: transparent url('../img/Sacerdotisa2.png') no-repeat 0 0; 
+    
     background-size: 150px 150px;
-}
+} 
 
-#Arquero+label::before {
+/* 
+#Arquera+label::before {
     top: 0;
     display: inline-block;
-    background: url('../img/Arquero.png') no-repeat 0 0;
     background-size: 150px 150px;
     display: block;
     width: 150px;
     height: 150px;
     content: '';
     vertical-align: middle;
-}
-
-#Arquero:checked+label::before {
-    background: transparent url('../img/Arquero2.png') no-repeat 0 0;
+} 
+#Arquera:checked+label::before {
+     background: transparent url('../img/Arquero2.png') no-repeat 0 0; 
+    
     background-size: 150px 150px;
 }
 
-#Amazona+label::before {
+/* #Amazona+label::before {
     top: 0;
     display: inline-block;
-    background: url('../img/Amazona.png') no-repeat 0 0;
     background-size: 150px 150px;
     display: block;
     width: 150px;
     height: 150px;
     content: '';
     vertical-align: middle;
-}
+} */
 
-#Amazona:checked+label::before {
-    background: transparent url('../img/Amazona2.png') no-repeat 0 0;
+
+/* #Amazona:checked+label::before {
+     background: transparent url('../img/Amazona2.png') no-repeat 0 0; 
+    
     background-size: 150px 150px;
 }
-
-#Asesino+label::before {
+/* #Asesino+label::before { 
     top: 0;
     display: inline-block;
-    background: url('../img/Asesino.png') no-repeat 0 0;
     background-size: 150px 150px;
     display: block;
     width: 150px;
     height: 150px;
     content: '';
     vertical-align: middle;
-}
-
+} 
 #Asesino:checked+label::before {
-    background: transparent url('../img/Asesino2.png') no-repeat 0 0;
+    /* background: transparent url('../img/Asesino2.png') no-repeat 0 0; 
+    
     background-size: 150px 150px;
-}
+}*/
 
 .Habilidades {
     width: 100%;
@@ -745,8 +748,7 @@ table {
     margin-top: 30px;
 }
 
-
-/* table {
+table {
     border: solid rgb(92, 170, 238);
 }
 
@@ -756,4 +758,4 @@ table td {
 
 div {
     border: solid rgb(6, 139, 255);
-} */
+}

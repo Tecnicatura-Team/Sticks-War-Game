@@ -33,7 +33,7 @@ function ElegirPJ(lugar) {
         "<div class='clases'><input type='radio' id='Sacerdotisa' class='pj' name='clases' value='Sacerdotisa' onclick='Descrip2()'> <label></label></div>" +
         "</td>" +
         "<td>" +
-        "<div class='clases'><input type='radio' id='Arquero' class='pj' name='clases' value='Arquero' onclick='Descrip2()'> <label></label></div>" +
+        "<div class='clases'><input type='radio' id='Arquera' class='pj' name='clases' value='Arquera' onclick='Descrip2()'> <label></label></div>" +
         "</td>" +
         "<td>" +
         "<div class='clases'><input type='radio' id='Amazona' class='pj' name='clases' value='Amazona' onclick='Descrip2()'> <label></label></div>" +
@@ -90,7 +90,10 @@ function detalleHabilidad() {
 
 //muestra las descripciones de las habilidades
 function verDesc(elemento, descripcion) {
+    console.log(clases)
     $("." + elemento).html(descripcion)
+
+
 }
 //oculta las descripciones de las habilidades
 function ocultarDesc(elemento) {
@@ -116,8 +119,6 @@ function ocultar() {
     for (var i = 1; i <= 3; i++) {
         if (!elemento["posicionPJ" + i].length == 0) {
             $("#ver" + i).css("display", "block")
-        } else {
-            console.log(i)
         }
     }
 
@@ -134,23 +135,23 @@ function descrip() {
         "<table>" +
         "<tr>" +
         "<td class='nomAttrib'>Vida:</td>" +
-        "<td class='valAttrib'></td>" +
+        "<td class='vidamaxima'></td>" +
         "</tr>" +
         "<tr>" +
         "<td class='nomAttrib'>Precisión: </td>" +
-        "<td class='valAttrib'></td>" +
+        "<td class='precision'></td>" +
         "</tr>" +
         "<tr>" +
         "<td class='nomAttrib'>Evasión: </td>" +
-        "<td class='valAttrib'></td>" +
+        "<td class='provevasion'></td>" +
         "</tr>" +
         "<tr>" +
         "<td class='nomAttrib'>Daño crítico: </td>" +
-        "<td class='valAttrib'></td>" +
+        "<td class='provcritico'></td>" +
         "</tr>" +
         "<tr>" +
         "<td class='nomAttrib'>Resistencia: </td>" +
-        "<td class='valAttrib'></td>" +
+        "<td class='reddamage'></td>" +
         "</tr>" +
         "<tr>" +
         "<td class='nomAttrib'>Modificador de daño: </td>" +
@@ -211,25 +212,24 @@ function Descrip2() {
         "<table>" +
         "<tr>" +
         "<td class='nomAttrib'>Vida:</td>" +
-        "<td class='valAttrib'></td>" +
+        "<td class='vidamaxima'></td>" +
         "</tr>" +
         "<tr>" +
         "<td class='nomAttrib'>Precisión: </td>" +
-        "<td class='valAttrib'></td>" +
+        "<td class='precision'></td>" +
         "</tr>" +
         "<tr>" +
         "<td class='nomAttrib'>Evasión: </td>" +
-        "<td class='valAttrib'></td>" +
+        "<td class='provevasion'></td>" +
         "</tr>" +
         "<tr>" +
         "<td class='nomAttrib'>Daño crítico: </td>" +
-        "<td class='valAttrib'></td>" +
+        "<td class='provcritico'></td>" +
         "</tr>" +
         "<tr>" +
         "<td class='nomAttrib'>Resistencia: </td>" +
-        "<td class='valAttrib'></td>" +
+        "<td class='reddamage'></td>" +
         "</tr>" +
-        "<tr>" +
         "<td class='nomAttrib'>Modificador: </td>" +
         "<td class='valAttrib'></td>" +
         "</tr>" +
