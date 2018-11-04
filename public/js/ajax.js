@@ -37,8 +37,15 @@ function ajax(archivo, datos, evento) {
                         // case "cerrarsesion":
                         // socket.emit("cerrar",data.replace(/"/g,''))
                         // break;
-                    case "crearclases":
+                        // 
+                        // case "crearclases":
                         // console.log(data)
+                        // break;
+                        // 
+                    case "obtenerclases":
+                        var datos = eval("(" + data + ")")
+                            // console.log(eval("(" + data + ")"))
+                        socket.emit("eobtenerclases", datos)
                         break;
                     default:
                         console.log("error en la funcion ajax.js")
