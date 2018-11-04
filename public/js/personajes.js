@@ -72,6 +72,7 @@ function detalleHabilidad() {
                 function() {
                     event.preventDefault()
                     verDesc('descHabilidad', descripciones[$(this).attr("id")[4] - 1])
+                    obtenerHabilidades()
 
                 }
             )
@@ -90,7 +91,6 @@ function detalleHabilidad() {
 
 //muestra las descripciones de las habilidades
 function verDesc(elemento, descripcion) {
-    console.log(clases)
     $("." + elemento).html(descripcion)
 
 
@@ -230,7 +230,7 @@ function Descrip2() {
         "<td class='nomAttrib'>Resistencia: </td>" +
         "<td class='reddamage'></td>" +
         "</tr>" +
-        "<td class='nomAttrib'>Modificador: </td>" +
+        "<td class='nomAttrib'>Modificador de daño: </td>" +
         "<td class='valAttrib'></td>" +
         "</tr>" +
         "</table>" +
