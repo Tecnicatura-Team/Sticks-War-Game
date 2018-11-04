@@ -9,7 +9,7 @@ $resultado=array();
 
 $resultado=array("usuario" => $_SESSION["usuario"]["nombre"],"habilidad"=>$consulta->getResult());
 
- echo json_encode($resultado["habilidad"])
+ echo json_encode()
 
 // echo json_encode($consulta->getColumnAffected())
 

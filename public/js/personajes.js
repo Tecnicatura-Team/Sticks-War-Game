@@ -4,6 +4,9 @@ elemento["posicionPJ2"] = ""
 elemento["posicionPJ3"] = ""
 var posicion
 
+$(document).ready(
+    selectClase()
+)
 
 function ElegirPJ(lugar) {
     posicion = $(lugar).attr("class")
@@ -109,6 +112,9 @@ function ocultar() {
             elemento[posicion] = $(this).attr("id")
 
         }
+
+
+
     })
 
 
@@ -119,9 +125,48 @@ function ocultar() {
     for (var i = 1; i <= 3; i++) {
         if (!elemento["posicionPJ" + i].length == 0) {
             $("#ver" + i).css("display", "block")
-        }
-    }
+            console.log(elemento["posicionPJ" + i])
+            console.log(claseid[elemento["posicionPJ" + i]])
+            $(".posicionPJ" + i).css({
 
+                "background": "url(" + clases[claseid[elemento["posicionPJ" + i]]]["direiconoclas"] + ") no-repeat",
+                "top": "0",
+                "display": "inline-block",
+                "background-size": "150px 150px",
+                "display": "block",
+                "width": "150px",
+                "height": "150px",
+                "content": "''",
+                "vertical-align": "middle"
+
+            })
+
+        }
+
+    }
+}
+
+function selectClase() {
+    for (var i = 1; i <= 3; i++) {
+        if (elemento["posicionPJ" + i] == "") {
+            $(".posicionPJ" + i).css({
+
+                "background": "url(./img/Agregar" + i + ".png) no-repeat",
+                "top": "0",
+                "display": "inline-block",
+                "background-size": "150px 150px",
+                "display": "block",
+                "width": "150px",
+                "height": "150px",
+                "content": "''",
+                "vertical-align": "middle"
+
+            })
+        }
+
+
+
+    }
 }
 
 function descrip() {
@@ -154,7 +199,7 @@ function descrip() {
         "<td class='reddamage'></td>" +
         "</tr>" +
         "<tr>" +
-        "<td class='nomAttrib'>Modificador de daño: </td>" +
+        "<td class='nomAttrib'>Modificador: </td>" +
         "<td class='valAttrib'></td>" +
         "</tr>" +
         "</table>" +
@@ -230,7 +275,7 @@ function Descrip2() {
         "<td class='nomAttrib'>Resistencia: </td>" +
         "<td class='reddamage'></td>" +
         "</tr>" +
-        "<td class='nomAttrib'>Modificador de daño: </td>" +
+        "<td class='nomAttrib'>Modificador: </td>" +
         "<td class='valAttrib'></td>" +
         "</tr>" +
         "</table>" +

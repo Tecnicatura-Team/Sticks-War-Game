@@ -312,7 +312,7 @@ table {
     -moz-appearance: window;
     -ms-appearance: window;
     appearance: window;
-    position: absolute;
+    position: relative;
     width: 150px;
     height: 150px;
 }
@@ -328,7 +328,8 @@ table {
     position: relative;
 }
 
-.PosicionPJ3+label::before {
+
+/* .PosicionPJ3+label::before {
     top: 0;
     display: inline-block;
     background: url('../img/Agregar3.png') no-repeat 0 0;
@@ -338,14 +339,16 @@ table {
     height: 150px;
     content: '';
     vertical-align: middle;
-}
+} */
 
-.PosicionPJ3:checked+label::before {
+
+/* .PosicionPJ3:checked+label::before {
     background: transparent url('../img/.png') no-repeat 0 0;
     background-size: 150px 150px;
-}
+} */
 
-.PosicionPJ2+label::before {
+
+/* .PosicionPJ2+label::before {
     top: 0;
     display: inline-block;
     background: url('../img/Agregar2.png') no-repeat 0 0;
@@ -355,14 +358,16 @@ table {
     height: 150px;
     content: '';
     vertical-align: middle;
-}
+} */
 
-.PosicionPJ2:checked+label::before {
+
+/* .PosicionPJ2:checked+label::before {
     background: transparent url('../img/.png') no-repeat 0 0;
     background-size: 150px 150px;
-}
+} */
 
-.PosicionPJ1+label::before {
+
+/* .PosicionPJ1+label::before {
     top: 0;
     display: inline-block;
     background: url('../img/Agregar1.png') no-repeat 0 0;
@@ -372,116 +377,13 @@ table {
     height: 150px;
     content: '';
     vertical-align: middle;
-}
+} */
 
-.PosicionPJ1:checked+label::before {
+
+/* .PosicionPJ1:checked+label::before {
     background: transparent url('../img/.png') no-repeat 0 0;
     background-size: 150px 150px;
-}
-
-
-/* -------------------------------------------------------------------------------------- */
-
-
-/* #Paladin+label::before {
-    top: 0;
-    display: inline-block;
-    background-size: 150px 150px;
-    display: block;
-    width: 150px;
-    height: 150px;
-    content: '';
-    vertical-align: middle;
-}
-
-#Paladin:checked+label::before {
-    /* background: transparent url('../img/Paladin2.png') no-repeat 0 0; 
-
- background-size: 150px 150px;
-
 } */
-
-
-/* #Guerrero+label::before {
-    top: 0;
-    display: inline-block;
-    background-size: 150px 150px;
-    display: block;
-    width: 150px;
-    height: 150px;
-    content: '';
-    vertical-align: middle;
-}
-#Guerrero:checked+label::before {
-     background: transparent url('../img/Guerrero2.png') no-repeat 0 0; 
-    
-    background-size: 150px 150px;
-}
-/* #Sacerdotisa+label::before {
-    top: 0;
-    display: inline-block;
-    background-size: 150px 150px;
-    display: block;
-    width: 150px;
-    height: 150px;
-    content: '';
-    vertical-align: middle;
-}
-#Sacerdotisa:checked+label::before {
-     background: transparent url('../img/Sacerdotisa2.png') no-repeat 0 0; 
-    
-    background-size: 150px 150px;
-} 
-
-/* 
-#Arquera+label::before {
-    top: 0;
-    display: inline-block;
-    background-size: 150px 150px;
-    display: block;
-    width: 150px;
-    height: 150px;
-    content: '';
-    vertical-align: middle;
-} 
-#Arquera:checked+label::before {
-     background: transparent url('../img/Arquero2.png') no-repeat 0 0; 
-    
-    background-size: 150px 150px;
-}
-
-/* #Amazona+label::before {
-    top: 0;
-    display: inline-block;
-    background-size: 150px 150px;
-    display: block;
-    width: 150px;
-    height: 150px;
-    content: '';
-    vertical-align: middle;
-} */
-
-
-/* #Amazona:checked+label::before {
-     background: transparent url('../img/Amazona2.png') no-repeat 0 0; 
-    
-    background-size: 150px 150px;
-}
-/* #Asesino+label::before { 
-    top: 0;
-    display: inline-block;
-    background-size: 150px 150px;
-    display: block;
-    width: 150px;
-    height: 150px;
-    content: '';
-    vertical-align: middle;
-} 
-#Asesino:checked+label::before {
-    /* background: transparent url('../img/Asesino2.png') no-repeat 0 0; 
-    
-    background-size: 150px 150px;
-}*/
 
 .Habilidades {
     width: 100%;
@@ -597,7 +499,7 @@ table {
 .DHabilidad {
     margin: auto;
     width: 100%;
-    height: 260px;
+    height: 380px;
 }
 
 .NomHabilidad {
@@ -674,7 +576,7 @@ table {
 }
 
 .statsHabilidad .stats {
-    width: 310px;
+    width: 400px;
 }
 
 .statsHabilidad .habilidades {
@@ -702,7 +604,7 @@ table {
 }
 
 .stats div {
-    width: 300px;
+    width: 400px;
     height: auto;
     margin: auto;
 }
@@ -748,7 +650,8 @@ table {
     margin-top: 30px;
 }
 
-table {
+
+/* table {
     border: solid rgb(92, 170, 238);
 }
 
@@ -758,4 +661,4 @@ table td {
 
 div {
     border: solid rgb(6, 139, 255);
-}
+} */

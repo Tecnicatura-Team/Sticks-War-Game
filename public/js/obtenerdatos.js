@@ -9,7 +9,7 @@ function obtenerclases() {
         clases = data["clases"]
         for (var i = 0; i < data["clases"].length; i++) {
 
-            $("#" + data["clases"][i]["clasenombre"].trim()).after().css({
+            $("#" + data["clases"][i]["clasenombre"].trim()).css({
 
                 "background": "url(" + data["clases"][i]["direiconoclas"].trim() + ") no-repeat",
                 "top": "0",
