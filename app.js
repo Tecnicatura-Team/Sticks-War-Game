@@ -29,18 +29,18 @@ io.sockets.on("connection", function(socket) {
         }
     })
     socket.on("registro", function(data) {
-        if (data.menssage == true) {
-            io.sockets.emit("registroespera" + data.user[0] + data.user[1], data)
-        } else {
-            io.sockets.emit("registroerror" + data.user[0] + data.user[1], data)
-        }
-    })
-    socket.on("mostrarnombre", function(data) {
-            if (data) {
-                // console.log("mostrarnu")
-                io.sockets.emit("mostrarnu", data)
+            if (data.menssage == true) {
+                io.sockets.emit("registroespera" + data.user[0] + data.user[1], data)
+            } else {
+                io.sockets.emit("registroerror" + data.user[0] + data.user[1], data)
             }
         })
+        // socket.on("mostrarnombre", function(data) {
+        // if (data) {
+        // console.log("mostrarnu")
+        // io.sockets.emit("mostrarnu", data)
+        // }
+        // })
         // socket.on("cerrar", function(data) {
 
     //         io.sockets.emit("cerrarsesion"+data, data)
