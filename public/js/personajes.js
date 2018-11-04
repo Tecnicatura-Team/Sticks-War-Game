@@ -92,6 +92,7 @@ function detalleHabilidad() {
 }
 
 
+
 //muestra las descripciones de las habilidades
 function verDesc(elemento, descripcion) {
     $("." + elemento).html(descripcion)
@@ -125,8 +126,8 @@ function ocultar() {
     for (var i = 1; i <= 3; i++) {
         if (!elemento["posicionPJ" + i].length == 0) {
             $("#ver" + i).css("display", "block")
-            console.log(elemento["posicionPJ" + i])
-            console.log(claseid[elemento["posicionPJ" + i]])
+                // console.log(elemento["posicionPJ" + i])
+                // console.log(claseid[elemento["posicionPJ" + i]])
             $(".posicionPJ" + i).css({
 
                 "background": "url(" + clases[claseid[elemento["posicionPJ" + i]]]["direiconoclas"] + ") no-repeat",
@@ -163,9 +164,6 @@ function selectClase() {
 
             })
         }
-
-
-
     }
 }
 
@@ -235,6 +233,7 @@ function descrip() {
         $(document).ready(
 
             $(".ver").click(
+                caracteristicas(),
                 $(".statsObjeto").hide().fadeIn(500), //efecto al crear el objeto
                 $(".statsObjeto").animate({
 
@@ -245,6 +244,7 @@ function descrip() {
             ))
     }
     detalleHabilidad()
+
 }
 
 function Descrip2() {
@@ -325,4 +325,26 @@ function cargarClases() {
     ajax("./Controlador/CrearClases.php", true, "crearclases")
 
 
+}
+
+function caracteristicas() {
+
+    if ($(".ver").is(":checked")) {
+
+        $(".vidamaxima").html(clases[claseid[elemento["posicionPJ" + $(".ver:checked").val()]]]["vidamaxima"].trim())
+        $(".precision").html(clases[claseid[elemento["posicionPJ" + $(".ver:checked").val()]]]["precision"].trim())
+        $(".provevasion").html(clases[claseid[elemento["posicionPJ" + $(".ver:checked").val()]]]["provevasion"].trim())
+        $(".provcritico").html(clases[claseid[elemento["posicionPJ" + $(".ver:checked").val()]]]["provcritico"].trim())
+        $(".reddamage").html(clases[claseid[elemento["posicionPJ" + $(".ver:checked").val()]]]["reddamage"].trim())
+
+        // console.log(clases[claseid[elemento["posicionPJ" + $(".ver:checked").val()]]]["precision"].trim())
+
+        // console.log(clases[claseid[elemento["posicionPJ" + $(".ver:checked").val()]]]["provevasion"].trim())
+
+        // console.log(clases[claseid[elemento["posicionPJ" + $(".ver:checked").val()]]]["provcritico"].trim())
+
+        // console.log(clases[claseid[elemento["posicionPJ" + $(".ver:checked").val()]]]["reddamage"].trim())
+
+
+    }
 }

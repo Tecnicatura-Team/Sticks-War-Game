@@ -45,6 +45,13 @@ function obtenerclases() {
     })
 }
 
+
+
+
+
+
+
+
 function obtenerHabilidades() {
     ajax("./Controlador/ObtenerHabilidades.php", false, "obtenerhabilidades")
 }
