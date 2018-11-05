@@ -1,0 +1,76 @@
+Insert into buffdebuff (buffdebufftipo, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 0, 0, 0, 0, 0);
+Insert into buffdebuff (buffdebufftipo, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 0, 0, 0, 5, 0);
+Insert into buffdebuff (buffdebufftipo, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 0, 15, 0, 0, 0);
+Insert into buffdebuff (buffdebufftipo, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 0, 0, 0, 5, 5);
+Insert into buffdebuff (buffdebufftipo, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 10, 0, 0, 0, 5);
+Insert into buffdebuff (buffdebufftipo, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 0, -5, 0, 20, 0);
+Insert into buffdebuff (buffdebufftipo, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 15, 0, 0, 0, 10);
+Insert into buffdebuff (buffdebufftipo, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 10, 0, 0, 10, 15);
+Insert into buffdebuff (buffdebufftipo, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 0, 5, 0, 25, 0);
+
+
+Insert into clase (clasenombre, direcimagen, direiconoclas01, direiconoclas02, vidamaxima, presicion, provevacion, provcritico, reddamage) values ('Paladin', 'img/clase/StickPaladin.png', 'img/iconoclase/Paladin.png', 'img/iconoclase/Paladin2.png', 1000, 70, 10, 15, 30);
+Insert into clase (clasenombre, direcimagen, direiconoclas01, direiconoclas02, vidamaxima, presicion, provevacion, provcritico, reddamage) values ('Guerrero', 'img/clase/StickGuerrero.png', 'img/iconoclase/Guerrero.png', 'img/iconoclase/Guerrero2.png', 800, 80, 15, 15, 20);
+Insert into clase (clasenombre, direcimagen, direiconoclas01, direiconoclas02, vidamaxima, presicion, provevacion, provcritico, reddamage) values ('Amazona', 'img/clase/StickAmazona.png', 'img/iconoclase/Amazona.png', 'img/iconoclase/Amazona2.png', 800, 80, 10, 20, 10);
+Insert into clase (clasenombre, direcimagen, direiconoclas01, direiconoclas02, vidamaxima, presicion, provevacion, provcritico, reddamage) values ('Arquera', 'img/clase/StickArquera.png', 'img/iconoclase/Arquera.png', 'img/iconoclase/Arquera2.png', 800, 90, 20, 20, 5);
+Insert into clase (clasenombre, direcimagen, direiconoclas01, direiconoclas02, vidamaxima, presicion, provevacion, provcritico, reddamage) values ('Sacerdotisa', 'img/clase/StickSacerdotisa.png', 'img/iconoclase/Sacerdotisa.png', 'img/iconoclase/Sacerdotisa2.png', 800, 70, 10, 10, 15);
+Insert into clase (clasenombre, direcimagen, direiconoclas01, direiconoclas02, vidamaxima, presicion, provevacion, provcritico, reddamage) values ('Asesino', 'img/clase/StickAsesino.png', 'img/iconoclase/Asesino.png', 'img/iconoclase/Asesino2.png', 750, 85, 35, 20, 5);
+
+
+Insert into posicion (buffdebuffid) values (1);
+Insert into posicion (buffdebuffid) values (2);
+Insert into posicion (buffdebuffid) values (3);
+
+
+Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ("Sin Objeto", " - - - - ", 1, "imagen/objeto/sin objeto");
+Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ("Hacha de Leñador", "Mediocre", 4, "imagen/objeto/hacha de leñador");
+Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ("Arco Simple", "Comun", 5, "imagen/objeto/arco simple");
+Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ("Armadura Pesada", "Comun", 6, "imagen/objeto/Armadura Pesada");
+Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ("Arco Largo", "Buena", 7, "imagen/objeto/arco largo");
+Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ("Arco Compuesto", "raro", 8, "imagen/objeto/arco compuesto");
+Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ("Armadura de Miltil", "raro", 9, "imagen/objeto/armadura de miltril");
+
+
+insert into usuario (usernivel, userexp, usernombre, userpass) values (10,  190, "Barba", "cristian");
+insert into usuario (usernivel, userexp, usernombre, userpass) values (8,  170, "Sofelix", "santiago");
+insert into usuario (usernivel, userexp, usernombre, userpass) values (11,  205, "Corbus", "claudio");
+
+
+Insert into partida (jugador1id, jugador2id, ganadorid) values (1, 3, 3);
+Insert into partida (jugador1id, jugador2id, ganadorid) values (2, 3, 3);
+Insert into partida (jugador1id, jugador2id) values (1, 2);
+
+
+Insert into objeto (objetotipo, objetopertenece) values (1, 1);
+Insert into objeto (objetotipo, objetopertenece) values (2, 1);
+Insert into objeto (objetotipo, objetopertenece) values (2, 1);
+Insert into objeto (objetotipo, objetopertenece) values (4, 1);
+Insert into objeto (objetotipo, objetopertenece) values (5, 1);
+
+
+Insert into objeto (objetotipo, objetopertenece) values (1, 2);
+Insert into objeto (objetotipo, objetopertenece) values (2, 2);
+Insert into objeto (objetotipo, objetopertenece) values (4, 2);
+Insert into objeto (objetotipo, objetopertenece) values (3, 2);
+Insert into objeto (objetotipo, objetopertenece) values (3, 2);
+
+
+Insert into objeto (objetotipo, objetopertenece) values (1, 3);
+Insert into objeto (objetotipo, objetopertenece) values (2, 3);
+Insert into objeto (objetotipo, objetopertenece) values (3, 3);
+Insert into objeto (objetotipo, objetopertenece) values (4, 3);
+Insert into objeto (objetotipo, objetopertenece) values (5, 3);
+Insert into objeto (objetotipo, objetopertenece) values (5, 3);
+
+
+Insert into personaje (personajeclase, objetoid, personajeposicion, personajepertenece, vidaactual) values (1, 4, 1, 1, 920);
+Insert into personaje (personajeclase, objetoid, personajeposicion, personajepertenece, vidaactual) values (2, 6, 2, 1, 620);
+Insert into personaje (personajeclase, objetoid, personajeposicion, personajepertenece, vidaactual) values (2, 5, 3, 1, 710);
+
+Insert into personaje (personajeclase, objetoid, personajeposicion, personajepertenece, vidaactual) values (3, 10, 1, 2, 530);
+Insert into personaje (personajeclase, objetoid, personajeposicion, personajepertenece, vidaactual) values (2, 11, 2, 2, 710);
+Insert into personaje (personajeclase, objetoid, personajeposicion, personajepertenece, vidaactual) values (3, 9, 3, 2, 790);
+
+
+
+

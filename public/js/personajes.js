@@ -23,7 +23,7 @@ function ElegirPJ(lugar) {
         "<td style='color:aliceblue; text-align: center;'>Sacerdotisa</td>" +
         "<td style='color:aliceblue; text-align: center;'>Arquera</td>" +
         "<td style='color:aliceblue; text-align: center;'>Amazona</td>" +
-        "<td style='color:aliceblue; text-align: center;'>Asesino</td>" +
+        "<td style='color:aliceblue; text-align: center;'>Bufón</td>" +
         "</tr>" +
         "<tr>" +
         "<td>" +
@@ -42,7 +42,7 @@ function ElegirPJ(lugar) {
         "<div class='clases'><input type='radio' id='Amazona' class='pj' name='clases' value='Amazona' onclick='Descrip2()'> <label></label></div>" +
         "</td>" +
         "<td>" +
-        "<div class='clases'><input type='radio' id='Asesino' class='pj' name='clases' value='Asesino' onclick='Descrip2()'> <label></label></div>" +
+        "<div class='clases'><input type='radio' id='Bufon' class='pj' name='clases' value='Bufon' onclick='Descrip2()'> <label></label></div>" +
         "</td>" +
         "</tr>" +
         "</table>" +
@@ -275,9 +275,9 @@ function Descrip2() {
         "<td class='nomAttrib'>Resistencia: </td>" +
         "<td class='reddamage'></td>" +
         "</tr>" +
-        "<td class='nomAttrib'>Modificador: </td>" +
-        "<td class='valAttrib'></td>" +
-        "</tr>" +
+        // "<td class='nomAttrib'>Modificador: </td>" +
+        // "<td class='valAttrib'></td>" +
+        // "</tr>" +
         "</table>" +
         "</div>" +
         "</td>" +

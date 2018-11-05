@@ -1,0 +1,26 @@
+HABILIDADES PALADIN
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (1, 'Golpe Potente', 'imagen/icono/paladin01', 'imagen/imagen/paladin01', 'Causa entre 50 - 90 de daño a un enemigo en la posicion ( 1 - 2 ) ');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (1, 'Plegaria a Dios', 'imagen/icono/paladin02', 'imagen/imagen/paladin02', 'Te curas entre 20 - 60 puntos de vida y aumenta 5% de precisión y 10% de daño  (acumulable hasta 2 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (1, 'Bajo la Bandera Santa', 'imagen/icono/paladin03', 'imagen/imagen/paladin03', 'Aumenta un 5% la resistencia y un 5% de daño a todos los aliados (acumulable hasta 3 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (1, 'Denunciar a los Infieles', 'imagen/icono/paladin04', 'imagen/imagen/paladin04', 'Disminuye un 10% la evasión y un 15% el daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)');
+
+
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 4, 5, 0, 0, 0, 10);
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 3, 0, 0, 0, 5, 5);
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, presicion, provevacion, provcritico, reddamage, moddamage) values ("debuff", 2, 0, -10, 0, 0, -15);
+
+
+Insert into objetivoshabilidad (habilidadid, posicionid) values (1, 1);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (1, 2);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (4, 1);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (4, 2);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (4, 3);
+
+
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (2, 10, "lanzador");
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (3, 11, "nosotros");
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (4, 12, "enemigo");
+
+
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (1, "enemigo", -50, -90);
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (2, "lanzador", 20, 60);

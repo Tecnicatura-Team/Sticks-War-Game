@@ -1,0 +1,32 @@
+HABILIDADES AMAZONA
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (3, 'Arremetida Violenta', 'imagen/icono/amazona01', 'imagen/imagen/Amazona01', 'Causa entre 80 - 180 puntos de daño a un enemigo en la posición ( 1 - 2 ) pero disminuye un 5% la precisión y  un 10% el daño a si misma (acumulable hasta 6 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (3, 'Golpe Sanginario', 'imagen/icono/amazona02', 'imagen/imagen/Amazona02', 'Causa entre 40 - 80 puntos de daño a un enemigo en la posición ( 1 - 2 ) y te curas entre 10 - 30 puntos de vida');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (3, 'Canalizar el Odio', 'imagen/icono/amazona03', 'imagen/imagen/amazona03', 'Te curas entre 20 - 60 puntos de vida y aumenta un 5% la precisión y un 10% el daño a si mismo (acumulable hasta 4 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (3, 'Mirada Asesina', 'imagen/icono/amazona04', 'imagen/imagen/Amazona04', 'Disminuye un 10% de precisión y un 15% de daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)');
+
+
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, presicion, provevacion, provcritico, reddamage, moddamage) values ("debuff", 6, -5, 0, 0, 0, -10);
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 4, 5, 0, 0, 0, 10);
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, presicion, provevacion, provcritico, reddamage, moddamage) values ("debuff", 2, -10, 0, 0, 0, -15);
+
+
+Insert into objetivoshabilidad (habilidadid, posicionid) values (9, 1);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (9, 2);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (10, 1);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (10, 2);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (12, 1);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (12, 2);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (12, 3);
+
+
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (9, 16, "lanzador");
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (11, 17, "lanzador");
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (12, 18, "enemigo");
+
+
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (9, "enemigo", -80, -180);
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (10, "enemigo", -40, -80);
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (10, "lanzador", 10, 30);
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (11, "lanzador", 20, 60);
+
+

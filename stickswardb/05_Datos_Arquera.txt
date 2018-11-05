@@ -1,0 +1,27 @@
+HABILIDADES ARQUERA
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (4, "Tiro a Quemarropa", "imagen/icono/arquera1.png", "imagen/imagen/arquera1.png", "Causa entre 60 - 120 de daño a un enemigo en la posicion ( 1 )");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (4, "Tiro a la Pierna", "imagen/icono/arquera2.png", "imagen/imagen/arquera2.png", "Causa entre 20 - 70 de daño a un enemigo en la posicion ( 1 - 2 - 3 ) y disminuye 15% de evacion (acumulable hasta 3 veces)");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (4, "Agudizar sentidos", "imagen/icono/arquera3.png", "imagen/imagen/arquera3.png", "Aumenta 15% de presicion y 10% de daño a si misma (acumulable hasta 4 veces)");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (4, "Tiro a la Cabeza", "imagen/icono/arquera4.png", "imagen/imagen/arquera4.png", "Causa entre 60 - 140 de daño a un enemigo en la posicion ( 2 - 3 ) pero se disminuye 10% de precicion a si misma (acumulable hasta 6 veces)");
+
+
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, presicion, provevacion, provcritico, reddamage, moddamage) values ("debuff", 3, 0, -15, 0, 0, 0);
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 4, 15, 0, 0, 0, 10);
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, presicion, provevacion, provcritico, reddamage, moddamage) values ("debuff", 6, -10, 0, 0, 0, 0);
+
+Insert into objetivoshabilidad (habilidadid, posicionid) values (13, 1);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (14, 1);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (14, 2);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (14, 3);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (16, 2);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (16, 3);
+
+
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (14, 19, "enemigo");
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (15, 20, "lanzador");
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (16, 21, "lanzador");
+
+
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (13, "enemigo", -60, -120);
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (14, "enemigo", -20, -70);
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (16, "enemigo", -80, -120);

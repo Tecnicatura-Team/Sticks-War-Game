@@ -1,0 +1,19 @@
+HABILIDADES SACERDOTISA
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (5, 'Curación Divina', 'imagen/icono/sacerdotisa1', 'imagen/imagen/sacerdotisa1', 'Cura entre 10 - 40 puntos de vida todos los aliados');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (5, 'Dios nos Guía', 'imagen/icono/sacerdotisa2', 'imagen/imagen/sacerdotisa2', 'Aumenta un 5% de precisión y un 5% de daño a todos los aliados (acumulable hasta 3 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (5, 'Dios es Nuestro Escudo', 'imagen/icono/sacerdotisa3', 'imagen/imagen/sacerdotisa3', 'Aumenta un 5% de evasión y un 5% la resistencia de todos los aliados (acumulable hasta 3 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (5, 'Castigo Divino', 'imagen/icono/sacerdotisa4', 'imagen/imagen/sacerdotisa4', 'Causa entre 30 - 70 puntos de daño a un enemigo en la posición ( 1 - 2 - 3 ) y te curas entre 10 - 30 de vida');
+
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, presicion, provevacion, provcritico, reddamage, moddamage) values ("debuff", 3, 5, 0, 0, 0, 5);
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, presicion, provevacion, provcritico, reddamage, moddamage) values ("buff", 3, 0, 5, 0, 5, 0);
+
+Insert into objetivoshabilidad (habilidadid, posicionid) values (20, 1);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (20, 2);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (20, 3);
+
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (18, 22, "nosotros");
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (19, 23, "nosotros");
+
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (17, "nosotros", 10, 40);
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (20, "enemigo", -30, -70);
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (20, "lanzador", 10, 30);

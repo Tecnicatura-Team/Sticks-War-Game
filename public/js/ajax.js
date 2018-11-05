@@ -51,9 +51,10 @@ function ajax(archivo, datos, evento) {
                         // var datos = eval("(" + data + ")")
                         console.log(eval("(" + data + ")"))
                             // console.log(data["habilidad"])
+                            // console.log(data)
                         break;
                     default:
-                        console.log("error en la funcion ajax.js")
+                        console.log("Error en la funcion ajax.js")
                         break;
                 }
 

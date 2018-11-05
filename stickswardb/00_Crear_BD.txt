@@ -1,0 +1,128 @@
+create database stickswardb;
+
+create table usuario( 
+userid integer auto_increment primary key,
+usernivel integer not null,
+userexp integer not null,
+usernombre varchar(40) not null unique,
+userpass varchar(40) not null,
+estado enum('conectado', 'buscando partida', 'en partida', 'desconectado') default 'desconectado'
+);
+
+create table partida( 
+partidaid integer auto_increment primary key,
+partidafecha timestamp,
+jugador1id integer not null,
+jugador2id integer not null, 
+ganadorid integer,
+constraint jugador1 foreign key (jugador1id) references usuario (userid),
+constraint jugador2 foreign key (jugador2id) references usuario (userid),
+constraint ganador foreign key (ganadorid) references usuario (userid)
+);
+
+create table clase( 
+claseid integer auto_increment primary key,
+clasenombre varchar(40) not null unique,
+direcimagen varchar(40) not null,
+direiconoclas01 varchar(40) not null,
+direiconoclas02 varchar(40) not null,
+vidamaxima integer not null,
+presicion integer not null,
+provevacion integer not null,
+provcritico integer not null,
+reddamage integer not null
+);
+
+create table buffdebuff( 
+buffdebuffid integer auto_increment primary key,
+buffdebufftipo enum('buff', 'debuff', 'mixto') not null,
+vidaextra integer default 0,
+maxacumulaciones integer,
+presicion integer default 0,
+provevacion integer default 0,
+provcritico integer default 0,
+reddamage integer default 0,
+moddamage integer default 0
+);
+
+create table posicion( 
+posicionid integer auto_increment primary key,
+buffdebuffid integer not null,
+constraint bdposicion foreign key (buffdebuffid) references buffdebuff (buffdebuffid)
+);
+
+create table habilidad( 
+habilidadid integer auto_increment primary key,
+habilidadclase integer not null,
+habilidadnombre varchar(40) not null,
+direcicono varchar(40) not null,
+direcimagen varchar(40) not null,
+descripcion varchar(300) not null,
+constraint habclase foreign key (habilidadclase) references clase (claseid)
+);
+
+create table objetivoshabilidad( 
+habilidadid integer, 
+posicionid integer,
+primary key (habilidadid, posicionid),
+constraint habobjetivo foreign key (habilidadid) references habilidad (habilidadid),
+constraint posobjetivo foreign key (posicionid) references posicion (posicionid)
+);
+
+Create table buffdebuffhabilidad(
+habilidadid integer,
+buffdebuffid integer,
+objetivo enum ('lanzador', 'enemigo', 'nosotros'),
+primary key (habilidadid, buffdebuffid, objetivo),
+constraint bdhabilidad foreign key (buffdebuffid) references buffdebuff (buffdebuffid),
+constraint habilidadbd foreign key (habilidadid) references habilidad (habilidadid)
+);
+
+Create table danocuracionhabilidad(
+habilidadid integer,
+objetivo enum ('lanzador', 'enemigo', 'nosotros'),
+minimo integer not null,
+maximo integer not null,
+primary key (habilidadid, objetivo),
+constraint habilidaddc foreign key (habilidadid) references habilidad (habilidadid)
+);
+
+Create table tipoobjeto(
+tipoobjetoid integer auto_increment primary key,
+nombre varchar(20) not null,
+calidad varchar(20) not null,
+buffid integer,
+direcimagen varchar(50) not null,
+constraint buffid foreign key (buffid) references buffdebuff (buffdebuffid)
+);
+
+Create table objeto(
+objetoid integer auto_increment primary key,
+objetotipo integer not null,
+objetopertenece integer not null,
+constraint objtipo foreign key (objetotipo) references tipoobjeto (tipoobjetoid),
+constraint objpertenece foreign key (objetopertenece) references usuario (userid)
+);
+
+create table personaje( 
+personajeid integer auto_increment primary key,
+personajeclase integer not null,
+objetoid integer,
+personajeposicion integer not null,
+personajepertenece integer not null,
+vidaactual integer not null,
+constraint perclase foreign key (personajeclase) references clase (claseid),
+constraint objetoequipa foreign key (objetoid) references objeto (objetoid),
+constraint perposicion foreign key (personajeposicion) references posicion (posicionid),
+constraint perpertenece foreign key (personajepertenece) references usuario (userid)
+);
+
+create table personajesufrebd (
+personajeid integer,
+buffdebuffid integer,
+tiemporestante integer default 3,
+acumulaciones integer default 1,
+primary key (personajeid, buffdebuffid),
+constraint bdsufre foreign key (buffdebuffid) references buffdebuff (buffdebuffid),
+constraint personajesufre foreign key (personajeid) references personaje (personajeid)
+);
