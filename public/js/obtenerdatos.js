@@ -1,7 +1,8 @@
 var socket = io.connect("http://127.0.0.1:3700")
 var claseid
 var clases
-obtenerHabilidades()
+var habilidades
+
 
 function obtenerclases() {
     // console.log($(".close").html().trim())
@@ -47,12 +48,15 @@ function obtenerclases() {
 }
 
 
-
-
-
-
-
-
+//muestra las descripciones de las habilidades
 function obtenerHabilidades() {
     ajax("./Controlador/ObtenerHabilidades.php", false, "obtenerhabilidades")
+
+    // $("." + elemento).html(descripcion)
+
+    socket.on("obtenerhabilidad" + $(".close").html().trim(), function(data) {
+        habilidades = data["habilidad"]
+
+    })
+
 }

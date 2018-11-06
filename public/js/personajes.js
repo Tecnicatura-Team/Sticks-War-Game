@@ -4,6 +4,8 @@ elemento["posicionPJ2"] = ""
 elemento["posicionPJ3"] = ""
 var posicion
 
+obtenerHabilidades()
+
 $(document).ready(
     selectClase()
 )
@@ -74,7 +76,7 @@ function detalleHabilidad() {
                 "mouseenter",
                 function() {
                     event.preventDefault()
-                    verDesc('descHabilidad', descripciones[$(this).attr("id")[4] - 1])
+                    verDesc(this, descripciones[$(this).attr("id")[1] - 1])
                     obtenerHabilidades()
 
                 }
@@ -95,8 +97,26 @@ function detalleHabilidad() {
 
 //muestra las descripciones de las habilidades
 function verDesc(elemento, descripcion) {
-    $("." + elemento).html(descripcion)
+    // $("." + elemento).html(descripcion)
+    var habilidad = $(elemento).attr("id")[1]
+    var habilidadcd = new Array()
+    var clase = ($(".pj").is(":checked")) ? $(".pj:checked").val() : false
 
+    if (clase) {
+        var contadorhabilidad = 1
+        for (var i = 0; i < habilidades.length; i++) {
+            if (habilidades[i]["habilidadclase"] == clases[claseid[clase]]["claseid"]) {
+                habilidadcd[contadorhabilidad] = { "nombre": habilidades[i]["habilidadnombre"], "descripcion": habilidades[i]["descripcion"] }
+
+                contadorhabilidad += 1
+            }
+        }
+        $(".NomHabilidad").html(habilidadcd[habilidad]["nombre"])
+        $(".descHabilidad").html(habilidadcd[habilidad]["descripcion"])
+
+    }
+
+    // console.log(elemento)
 
 }
 //oculta las descripciones de las habilidades
@@ -205,10 +225,10 @@ function descrip() {
         "</td>" +
         "<td class='Habilidades'>" +
         "<div class='pjHabilidades'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='Aseh1' width='40px' height='40px' style='display:table;'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='Aseh2' width='40px' height='40px' style='display:table;'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='Aseh3' width='40px' height='40px' style='display:table;'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='Aseh4' width='40px' height='40px' style='display:table;'>" +
+        "<img src='img/logo1.jpg' class='imgH' id='h1' width='40px' height='40px' style='display:table;'>" +
+        "<img src='img/logo1.jpg' class='imgH' id='h2' width='40px' height='40px' style='display:table;'>" +
+        "<img src='img/logo1.jpg' class='imgH' id='h3' width='40px' height='40px' style='display:table;'>" +
+        "<img src='img/logo1.jpg' class='imgH' id='h4' width='40px' height='40px' style='display:table;'>" +
         "</div>" +
         "</td>" +
         "<td class='objeto' rowspan='3'></td>" +
@@ -249,6 +269,7 @@ function descrip() {
 
 function Descrip2() {
     $(".statsHabilidad").remove()
+
     var contenido =
         "<table class='statsHabilidad'>" +
         "<tr>" +
@@ -283,10 +304,10 @@ function Descrip2() {
         "</td>" +
         "<td class='Habilidades'>" +
         "<div class='pjHabilidades'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='Aseh1' width='40px' height='40px' style='display:table;'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='Aseh2' width='40px' height='40px' style='display:table;'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='Aseh3' width='40px' height='40px' style='display:table;'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='Aseh4' width='40px' height='40px' style='display:table;'>" +
+        "<img src='img/logo1.jpg' class='imgH' id='h1' width='40px' height='40px' style='display:table;'>" +
+        "<img src='img/logo1.jpg' class='imgH' id='h2' width='40px' height='40px' style='display:table;'>" +
+        "<img src='img/logo1.jpg' class='imgH' id='h3' width='40px' height='40px' style='display:table;'>" +
+        "<img src='img/logo1.jpg' class='imgH' id='h4' width='40px' height='40px' style='display:table;'>" +
         "</div>" +
         "</td>" +
         "</tr>" +
@@ -302,6 +323,11 @@ function Descrip2() {
         "</tr>" +
         "</table>"
 
+    // ----------------------------------------------------------------------------------------
+
+
+
+    // -----------------------------------------------------------------------------------
     if ($(".statsHabilidad").length == 0) {
         $(".Eclass").after(contenido)
 
