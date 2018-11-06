@@ -50,4 +50,8 @@ io.sockets.on("connection", function(socket) {
     //         io.sockets.emit("cerrarsesion"+data, data)
 
     // })
+    socket.on("obtenerhabilidad", function(data) {
+
+        io.sockets.emit("obtenerhabilidad" + data["usuario"].trim(), data)
+    })
 })

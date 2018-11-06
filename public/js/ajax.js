@@ -48,10 +48,11 @@ function ajax(archivo, datos, evento) {
                         socket.emit("eobtenerclases", datos)
                         break;
                     case "obtenerhabilidades":
-                        var datos = eval("(" + data + ")")
+                        // var datos = eval("(" + data + ")")
+                        socket.emit("obtenerhabilidad", eval("(" + data + ")"))
                             // console.log(eval("(" + data + ")"))
                             // console.log(data["habilidad"])
-                        console.log(datos["habilidad"][0]["habilidadnombre"])
+                            // console.log(datos["habilidad"][0]["habilidadnombre"])
                         break;
                     default:
                         console.log("Error en la funcion ajax.js")
