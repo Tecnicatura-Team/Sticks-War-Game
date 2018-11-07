@@ -71,7 +71,7 @@ function detalleHabilidad(pj) {
                 "mouseenter",
                 function() {
                     event.preventDefault()
-                    verDesc(this, ($(".pj").is(":checked")) ? $(".pj:checked").val() : false)
+                    verDesc($(this).attr("id")[1], ($(".pj").is(":checked")) ? $(".pj:checked").val() : false)
                     obtenerHabilidades()
 
                 }
@@ -94,7 +94,7 @@ function detalleHabilidad(pj) {
 //muestra las descripciones de las habilidades
 function verDesc(ele1, ele2) {
     // $("." + elemento).html(descripcion)
-    var habilidad = $(ele1).attr("id")[1]
+    var habilidad = ele1
     var habilidadcd = new Array()
     var clase = ele2
         // ($(".pj").is(":checked")) ? $(".pj:checked").val() : false
@@ -220,6 +220,7 @@ function descrip(ele) {
 
     if (clase) {
         imghabilidad(clase, "ha")
+            // verDesc(, clase)
     }
 
 
@@ -285,8 +286,12 @@ function descrip(ele) {
         $(".BContinuar").before(contenido)
             //aplica efecto chidori
         $(document).ready(
-
-            $(".ver").click(
+            $(".imgH").mouseenter(function(e) {
+                e.preventDefault()
+                console.log($(this).attr("id"))
+                console.log(clase)
+                verDesc($(this).attr("id")[2], clase)
+            }), $(".ver").click(
                 caracteristicas(),
                 $(".statsObjeto").hide().fadeIn(500), //efecto al crear el objeto
                 $(".statsObjeto").animate({
