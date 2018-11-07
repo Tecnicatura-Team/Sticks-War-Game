@@ -1,0 +1,44 @@
+HABILIDADES BUFON
+------------------------------------------------
+------------------------------------------------
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (6, "Puñalada Trapera", "img/habilidadicono/Bufon1.png", "imagen/imagen/Bufon01.png", "Causa entre 60 - 90 puntos de daño a un enemigo en la posición ( 1 - 2 ) ");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (6, "Melodia Alegre", "img/habilidadicono/Bufon2.png", "imagen/imagen/Bufon02.png", "Aumenta un 5% de precisión y un 5% de daño a todos los aliados (acumulable hasta 3 veces)");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (6, "Melodia Jobial", "img/habilidadicono/Bufon3.png", "imagen/imagen/Bufon03.png", "Aumenta un 5% de precisión y un 5% de daño crítico a todos los aliados (acumulable hasta 3 veces)");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (6, "Golpe Decisivo", "img/habilidadicono/Bufon4.png", "imagen/imagen/Bufon04.png", "Causa entre 120 - 200 puntos de daño a un enemigo en la posición ( 1 ) pero disminuye un 20% de daño a si mismo (acumulable hasta 4 veces)");
+
+
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("buff", 3, 5, 0, 0, 0, 5);
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("buff", 3, 0, 5, 0, 0, 5);
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("debuff", 4, 0, 0, 0, 0, -20);
+
+
+Insert into objetivoshabilidad (habilidadid, posicionid) values (21, 1);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (21, 2);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (24, 1);
+
+
+
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (22, 24, "nosotros");
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (23, 25, "nosotros");
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (24, 26, "lanzador");
+
+
+
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (21, "enemigo", -60, -90);
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (24, "enemigo", -120, -200);
+
+
+------------------------------
+create view estadisticaspersonaje as
+select p.personajeid as personajeid, c.vidamaxima as vidamaxima, c.`precision` as `precision`, c.provevacion as provevacion, c.provcritico as provcritico, c.reddamage as reddamage, 100 as moddamage from clase c, personaje p where p.personajeclase = c.claseid union
+select p.personajeid, bd.vidaextra, bd.`precision`, bd.provevacion, bd.provcritico, bd.reddamage, bd.moddamage from buffdebuff as bd, tipoobjeto as tob, objeto as ob, personaje as p where tob.buffid = bd.buffdebuffid and tob.tipoobjetoid = ob.objetotipo and ob.objetoid = p.objetoid union
+select pe.personajeid, bd.vidaextra, bd.`precision`, bd.provevacion, bd.provcritico, bd.reddamage, bd.moddamage from buffdebuff bd, posicion po, personaje pe where po.buffdebuffid = bd.buffdebuffid and po.posicionid = pe.personajeposicion  union
+select p.personajeid, bd.vidaextra, bd.`precision`*s.acumulaciones, bd.provevacion*s.acumulaciones, bd.provcritico*s.acumulaciones, bd.reddamage*s.acumulaciones, bd.moddamage*s.acumulaciones from buffdebuff bd, personaje p, personajesufrebd s where
+p.personajeid = s.personajeid and s.buffdebuffid = bd.buffdebuffid
+---------------
+---------------
+select  sum(vidaextra), sum(`precision`), sum(provevacion), sum(provcritico), sum(reddamage), sum(moddamage) from estadisticaspersonaje where personajeid=xxx group by personajeid
+
+pone objeto vacio al crear un usuario
+create trigger lol after INSERT on usuario for each row insert into objeto(objetotipo,objetopertenece) values(1,new.userid)
+

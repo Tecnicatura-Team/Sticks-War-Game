@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2018 a las 22:30:20
+-- Tiempo de generación: 07-11-2018 a las 02:07:09
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `buffdebuff` (
   `reddamage` int(11) DEFAULT '0',
   `moddamage` int(11) DEFAULT '0',
   PRIMARY KEY (`buffdebuffid`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `buffdebuff`
@@ -71,7 +71,10 @@ INSERT INTO `buffdebuff` (`buffdebuffid`, `buffdebufftipo`, `vidaextra`, `maxacu
 (20, 'buff', 0, 4, 15, 0, 0, 0, 10),
 (21, 'debuff', 0, 6, -10, 0, 0, 0, 0),
 (22, 'debuff', 0, 3, 5, 0, 0, 0, 5),
-(23, 'buff', 0, 3, 0, 5, 0, 5, 0);
+(23, 'buff', 0, 3, 0, 5, 0, 5, 0),
+(24, 'buff', 0, 3, 5, 0, 0, 0, 5),
+(25, 'buff', 0, 3, 0, 5, 0, 0, 5),
+(26, 'debuff', 0, 4, 0, 0, 0, 0, -20);
 
 -- --------------------------------------------------------
 
@@ -106,7 +109,10 @@ INSERT INTO `buffdebuffhabilidad` (`habilidadid`, `buffdebuffid`, `objetivo`) VA
 (15, 20, 'lanzador'),
 (16, 21, 'lanzador'),
 (18, 22, 'nosotros'),
-(19, 23, 'nosotros');
+(19, 23, 'nosotros'),
+(22, 24, 'nosotros'),
+(23, 25, 'nosotros'),
+(24, 26, 'lanzador');
 
 -- --------------------------------------------------------
 
@@ -140,7 +146,7 @@ INSERT INTO `clase` (`claseid`, `clasenombre`, `direcimagen`, `direiconoclas`, `
 (3, 'Amazona', 'img/clase/StickAmazona.png', 'img/iconoclase/Amazona.png', 'img/iconoclase/Amazona2.png', 800, 80, 10, 20, 10),
 (4, 'Arquera', 'img/clase/StickArquera.png', 'img/iconoclase/Arquera.png', 'img/iconoclase/Arquera2.png', 800, 90, 20, 20, 5),
 (5, 'Sacerdotisa', 'img/clase/StickSacerdotisa.png', 'img/iconoclase/Sacerdotisa.png', 'img/iconoclase/Sacerdotisa2.png', 800, 70, 10, 10, 15),
-(6, 'Asesino', 'img/clase/StickAsesino.png', 'img/iconoclase/Asesino.png', 'img/iconoclase/Asesino2.png', 750, 85, 35, 20, 5);
+(6, 'Bufon', 'img/clase/StickBufon.png', 'img/iconoclase/Bufon.png', 'img/iconoclase/Bufon2.png', 750, 85, 35, 20, 5);
 
 -- --------------------------------------------------------
 
@@ -175,7 +181,9 @@ INSERT INTO `danocuracionhabilidad` (`habilidadid`, `objetivo`, `minimo`, `maxim
 (16, 'enemigo', -80, -120),
 (17, 'nosotros', 10, 40),
 (20, 'lanzador', 10, 30),
-(20, 'enemigo', -30, -70);
+(20, 'enemigo', -30, -70),
+(21, 'enemigo', -60, -90),
+(24, 'enemigo', -120, -200);
 
 -- --------------------------------------------------------
 
@@ -193,33 +201,37 @@ CREATE TABLE IF NOT EXISTS `habilidad` (
   `descripcion` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`habilidadid`),
   KEY `habclase` (`habilidadclase`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `habilidad`
 --
 
 INSERT INTO `habilidad` (`habilidadid`, `habilidadclase`, `habilidadnombre`, `direcicono`, `direcimagen`, `descripcion`) VALUES
-(1, 1, 'Golpe Potente', 'imagen/icono/paladin01', 'imagen/imagen/paladin01', 'Causa entre 50 - 90 de daño a un enemigo en la posicion ( 1 - 2 ) '),
-(2, 1, 'Plegaria a Dios', 'imagen/icono/paladin02', 'imagen/imagen/paladin02', 'Te curas entre 20 - 60 puntos de vida y aumenta 5% de precisión y 10% de daño  (acumulable hasta 2 veces)'),
-(3, 1, 'Bajo la Bandera Santa', 'imagen/icono/paladin03', 'imagen/imagen/paladin03', 'Aumenta un 5% la resistencia y un 5% de daño a todos los aliados (acumulable hasta 3 veces)'),
-(4, 1, 'Denunciar a los Infieles', 'imagen/icono/paladin04', 'imagen/imagen/paladin04', 'Disminuye un 10% la evasión y un 15% el daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)'),
-(5, 2, 'Golpe Devastador', 'imagen/icono/guerrero01', 'imagen/imagen/guerrero01', 'Causa entre 50 - 110 puntos de daño a un enemigo en la posición ( 1 - 2 )'),
-(6, 2, 'Golpe Demoledor', 'imagen/icono/guerrero02', 'imagen/imagen/guerrero02', 'Causa entre 20 - 50 puntos de daño a un enemigo en la posición ( 1 - 2 ) y le disminuye un 5% la resistencia y un 10% el daño (acumulable hasta 2 veces)'),
-(7, 2, 'Grito de Guerra', 'imagen/icono/guerrero03', 'imagen/imagen/guerrero03', 'Aumenta un 5% la precisión y 5% de daño a todos los aliados (acumulable hasta 3 veces)'),
-(8, 2, 'Intimidar Enemigo', 'imagen/icono/guerrero04', 'imagen/imagen/guerrero04', 'Disminuye un 15% la precisión y 10% de daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)'),
-(9, 3, 'Arremetida Violenta', 'imagen/icono/amazona01', 'imagen/imagen/Amazona01', 'Causa entre 80 - 180 puntos de daño a un enemigo en la posición ( 1 - 2 ) pero disminuye un 5% la precisión y  un 10% el daño a si misma (acumulable hasta 6 veces)'),
-(10, 3, 'Golpe Sanginario', 'imagen/icono/amazona02', 'imagen/imagen/Amazona02', 'Causa entre 40 - 80 puntos de daño a un enemigo en la posición ( 1 - 2 ) y te curas entre 10 - 30 puntos de vida'),
-(11, 3, 'Canalizar el Odio', 'imagen/icono/amazona03', 'imagen/imagen/amazona03', 'Te curas entre 20 - 60 puntos de vida y aumenta un 5% la precisión y un 10% el daño a si mismo (acumulable hasta 4 veces)'),
-(12, 3, 'Mirada Asesina', 'imagen/icono/amazona04', 'imagen/imagen/Amazona04', 'Disminuye un 10% de precisión y un 15% de daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)'),
-(13, 4, 'Tiro a Quemarropa', 'imagen/icono/arquera1.png', 'imagen/imagen/arquera1.png', 'Causa entre 60 - 120 de daño a un enemigo en la posicion ( 1 )'),
-(14, 4, 'Tiro a la Pierna', 'imagen/icono/arquera2.png', 'imagen/imagen/arquera2.png', 'Causa entre 20 - 70 de daño a un enemigo en la posicion ( 1 - 2 - 3 ) y disminuye 15% de evacion (acumulable hasta 3 veces)'),
-(15, 4, 'Agudizar sentidos', 'imagen/icono/arquera3.png', 'imagen/imagen/arquera3.png', 'Aumenta 15% de `precision` y 10% de daño a si misma (acumulable hasta 4 veces)'),
-(16, 4, 'Tiro a la Cabeza', 'imagen/icono/arquera4.png', 'imagen/imagen/arquera4.png', 'Causa entre 60 - 140 de daño a un enemigo en la posicion ( 2 - 3 ) pero se disminuye 10% de precicion a si misma (acumulable hasta 6 veces)'),
-(17, 5, 'Curación Divina', 'imagen/icono/sacerdotisa1', 'imagen/imagen/sacerdotisa1', 'Cura entre 10 - 40 puntos de vida todos los aliados'),
-(18, 5, 'Dios nos Guía', 'imagen/icono/sacerdotisa2', 'imagen/imagen/sacerdotisa2', 'Aumenta un 5% de precisión y un 5% de daño a todos los aliados (acumulable hasta 3 veces)'),
-(19, 5, 'Dios es Nuestro Escudo', 'imagen/icono/sacerdotisa3', 'imagen/imagen/sacerdotisa3', 'Aumenta un 5% de evasión y un 5% la resistencia de todos los aliados (acumulable hasta 3 veces)'),
-(20, 5, 'Castigo Divino', 'imagen/icono/sacerdotisa4', 'imagen/imagen/sacerdotisa4', 'Causa entre 30 - 70 puntos de daño a un enemigo en la posición ( 1 - 2 - 3 ) y te curas entre 10 - 30 de vida');
+(1, 1, 'Golpe Potente', 'img/habilidadicono/paladin1.png', 'img/habilidadicono/paladin1.png', 'Causa entre 50 - 90 de daño a un enemigo en la posicion ( 1 - 2 ) '),
+(2, 1, 'Plegaria a Dios', 'img/habilidadicono/paladin2.png', 'img/habilidadicono/paladin2.png', 'Te curas entre 20 - 60 puntos de vida y aumenta 5% de precisión y 10% de daño  (acumulable hasta 2 veces)'),
+(3, 1, 'Bajo la Bandera Santa', 'img/habilidadicono/paladin3.png', 'img/habilidadicono/paladin3.png', 'Aumenta un 5% la resistencia y un 5% de daño a todos los aliados (acumulable hasta 3 veces)'),
+(4, 1, 'Denunciar a los Infieles', 'img/habilidadicono/paladin4.png', 'img/habilidadicono/paladin4.png', 'Disminuye un 10% la evasión y un 15% el daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)'),
+(5, 2, 'Golpe Devastador', 'img/habilidadicono/guerrero1.png', 'img/habilidadicono/guerrero1.png', 'Causa entre 50 - 110 puntos de daño a un enemigo en la posición ( 1 - 2 )'),
+(6, 2, 'Golpe Demoledor', 'img/habilidadicono/guerrero2.png', 'img/habilidadicono/guerrero2.png', 'Causa entre 20 - 50 puntos de daño a un enemigo en la posición ( 1 - 2 ) y le disminuye un 5% la resistencia y un 10% el daño (acumulable hasta 2 veces)'),
+(7, 2, 'Grito de Guerra', 'img/habilidadicono/guerrero3.png', 'img/habilidadicono/guerrero3.png', 'Aumenta un 5% la precisión y 5% de daño a todos los aliados (acumulable hasta 3 veces)'),
+(8, 2, 'Intimidar Enemigo', 'img/habilidadicono/guerrero4.png', 'img/habilidadicono/guerrero4.png', 'Disminuye un 15% la precisión y 10% de daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)'),
+(9, 3, 'Arremetida Violenta', 'img/habilidadicono/Amazona1.png', 'img/habilidadicono/Amazona1.png', 'Causa entre 80 - 180 puntos de daño a un enemigo en la posición ( 1 - 2 ) pero disminuye un 5% la precisión y  un 10% el daño a si misma (acumulable hasta 6 veces)'),
+(10, 3, 'Golpe Sanginario', 'img/habilidadicono/Amazona2.png', 'img/habilidadicono/amazona2.png', 'Causa entre 40 - 80 puntos de daño a un enemigo en la posición ( 1 - 2 ) y te curas entre 10 - 30 puntos de vida'),
+(11, 3, 'Canalizar el Odio', 'img/habilidadicono/Amazona3.png', 'img/habilidadicono/amazona3.png', 'Te curas entre 20 - 60 puntos de vida y aumenta un 5% la precisión y un 10% el daño a si mismo (acumulable hasta 4 veces)'),
+(12, 3, 'Mirada Asesina', 'img/habilidadicono/Amazona4.png', 'img/habilidadicono/amazona4.png', 'Disminuye un 10% de precisión y un 15% de daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)'),
+(13, 4, 'Tiro a Quemarropa', 'img/habilidadicono/arquera1.png', 'img/habilidadicono/arquera1.png', 'Causa entre 60 - 120 de daño a un enemigo en la posicion ( 1 )'),
+(14, 4, 'Tiro a la Pierna', 'img/habilidadicono/arquera2.png', 'img/habilidadicono/arquera2.png', 'Causa entre 20 - 70 de daño a un enemigo en la posicion ( 1 - 2 - 3 ) y disminuye 15% de evacion (acumulable hasta 3 veces)'),
+(15, 4, 'Agudizar sentidos', 'img/habilidadicono/arquera3.png', 'img/habilidadicono/arquera3.png', 'Aumenta 15% de `precision` y 10% de daño a si misma (acumulable hasta 4 veces)'),
+(16, 4, 'Tiro a la Cabeza', 'img/habilidadicono/arquera4.png', 'img/habilidadicono/arquera4.png', 'Causa entre 60 - 140 de daño a un enemigo en la posicion ( 2 - 3 ) pero se disminuye 10% de precicion a si misma (acumulable hasta 6 veces)'),
+(17, 5, 'Curación Divina', 'img/habilidadicono/sacerdotisa1.png', 'img/habilidadicono/sacerdotisa1.png', 'Cura entre 10 - 40 puntos de vida todos los aliados'),
+(18, 5, 'Dios nos Guía', 'img/habilidadicono/sacerdotisa2.png', 'img/habilidadicono/sacerdotisa2.png', 'Aumenta un 5% de precisión y un 5% de daño a todos los aliados (acumulable hasta 3 veces)'),
+(19, 5, 'Dios es Nuestro Escudo', 'img/habilidadicono/sacerdotisa3.png', 'img/habilidadicono/sacerdotisa3.png', 'Aumenta un 5% de evasión y un 5% la resistencia de todos los aliados (acumulable hasta 3 veces)'),
+(20, 5, 'Castigo Divino', 'img/habilidadicono/sacerdotisa4.png', 'img/habilidadicono/sacerdotisa4.png', 'Causa entre 30 - 70 puntos de daño a un enemigo en la posición ( 1 - 2 - 3 ) y te curas entre 10 - 30 de vida'),
+(21, 6, 'Puñalada Trapera', 'img/habilidadicono/Bufon1.png', 'imagen/imagen/Bufon01.png', 'Causa entre 60 - 90 puntos de daño a un enemigo en la posición ( 1 - 2 ) '),
+(22, 6, 'Melodia Alegre', 'img/habilidadicono/Bufon2.png', 'imagen/imagen/Bufon02.png', 'Aumenta un 5% de precisión y un 5% de daño a todos los aliados (acumulable hasta 3 veces)'),
+(23, 6, 'Melodia Jobial', 'img/habilidadicono/Bufon3.png', 'imagen/imagen/Bufon03.png', 'Aumenta un 5% de precisión y un 5% de daño crítico a todos los aliados (acumulable hasta 3 veces)'),
+(24, 6, 'Golpe Decisivo', 'img/habilidadicono/Bufon4.png', 'imagen/imagen/Bufon04.png', 'Causa entre 120 - 200 puntos de daño a un enemigo en la posición ( 1 ) pero disminuye un 20% de daño a si mismo (acumulable hasta 4 veces)');
 
 -- --------------------------------------------------------
 
@@ -267,7 +279,10 @@ INSERT INTO `objetivoshabilidad` (`habilidadid`, `posicionid`) VALUES
 (16, 3),
 (20, 1),
 (20, 2),
-(20, 3);
+(20, 3),
+(21, 1),
+(21, 2),
+(24, 1);
 
 -- --------------------------------------------------------
 
@@ -429,13 +444,13 @@ CREATE TABLE IF NOT EXISTS `tipoobjeto` (
 --
 
 INSERT INTO `tipoobjeto` (`tipoobjetoid`, `nombre`, `calidad`, `buffid`, `direcimagen`) VALUES
-(1, 'Sin Objeto', ' - - - - ', 1, 'imagen/objeto/sin objeto'),
-(2, 'Hacha de Leñador', 'Mediocre', 4, 'imagen/objeto/hacha de leñador'),
-(3, 'Arco Simple', 'Comun', 5, 'imagen/objeto/arco simple'),
-(4, 'Armadura Pesada', 'Comun', 6, 'imagen/objeto/Armadura Pesada'),
-(5, 'Arco Largo', 'Buena', 7, 'imagen/objeto/arco largo'),
-(6, 'Arco Compuesto', 'raro', 8, 'imagen/objeto/arco compuesto'),
-(7, 'Armadura de mithril', 'raro', 9, 'imagen/objeto/armadura de mithril');
+(1, 'Sin Objeto', ' - - - - ', 1, 'img/objetos/sinObjeto.png'),
+(2, 'Hacha de Leñador', 'Mediocre', 4, 'img/objetos/hachaDeleñador.png'),
+(3, 'Arco Simple', 'Comun', 5, 'img/objetos/arcoSimple.png'),
+(4, 'Armadura Pesada', 'Comun', 6, 'img/objetos/armaduraPesada.png'),
+(5, 'Arco Largo', 'Buena', 7, 'img/objetos/arcoLargo.png'),
+(6, 'Arco Compuesto', 'raro', 8, 'img/objetos/arcoCompuesto.png'),
+(7, 'Armadura de mithril', 'raro', 9, 'img/objetos/armaduraDeMithril.png');
 
 -- --------------------------------------------------------
 
@@ -460,7 +475,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`userid`, `usernivel`, `userexp`, `usernombre`, `userpass`, `estado`) VALUES
-(1, 10, 190, 'Barba', 'cristian', 'desconectado'),
+(1, 10, 190, 'Barba', 'cristian', 'conectado'),
 (2, 8, 170, 'Sofelix', 'santiago', 'desconectado'),
 (3, 11, 205, 'Corbus', 'claudio', 'desconectado');
 

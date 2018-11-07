@@ -199,10 +199,10 @@ Insert into personaje (personajeclase, objetoid, personajeposicion, personajeper
 Insert into personaje (personajeclase, objetoid, personajeposicion, personajepertenece, vidaactual) values (3, 9, 3, 2, 790);
 
 
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (1, 'Golpe Potente', 'imagen/icono/paladin01', 'img/habilidadicono/paladin1.png', 'Causa entre 50 - 90 de daño a un enemigo en la posicion ( 1 - 2 )');
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (1, 'Plegaria a Dios', 'imagen/icono/paladin02', 'img/habilidadicono/paladin2.png', 'Te curas entre 20 - 60 puntos de vida y aumenta 5% de precisión y 10% de daño  (acumulable hasta 2 veces)');
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (1, 'Bajo la Bandera Santa', 'imagen/icono/paladin03', 'img/habilidadicono/paladin3.png', 'Aumenta un 5% la resistencia y un 5% de daño a todos los aliados (acumulable hasta 3 veces)');
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (1, 'Denunciar a los Infieles', 'imagen/icono/paladin04', 'img/habilidadicono/paladin4.png', 'Disminuye un 10% la evasión y un 15% el daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (1, 'Golpe Potente', 'img/habilidadicono/paladin1.png', 'img/habilidadicono/paladin1.png', 'Causa entre 50 - 90 de daño a un enemigo en la posicion ( 1 - 2 )');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (1, 'Plegaria a Dios', 'img/habilidadicono/paladin2.png', 'img/habilidadicono/paladin2.png', 'Te curas entre 20 - 60 puntos de vida y aumenta 5% de precisión y 10% de daño  (acumulable hasta 2 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (1, 'Bajo la Bandera Santa', 'img/habilidadicono/paladin3.png', 'img/habilidadicono/paladin3.png', 'Aumenta un 5% la resistencia y un 5% de daño a todos los aliados (acumulable hasta 3 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (1, 'Denunciar a los Infieles', 'img/habilidadicono/paladin4.png', 'img/habilidadicono/paladin4.png', 'Disminuye un 10% la evasión y un 15% el daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)');
 
 
 Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("buff", 4, 5, 0, 0, 0, 10);
@@ -225,10 +225,10 @@ Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (4,
 Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (1, "enemigo", -50, -90);
 Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (2, "lanzador", 20, 60);
 
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (2, 'Golpe Devastador', 'imagen/icono/guerrero01', 'img/habilidadicono/guerrero1.png', 'Causa entre 50 - 110 puntos de daño a un enemigo en la posición ( 1 - 2 )');
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (2, 'Golpe Demoledor', 'imagen/icono/guerrero02', 'img/habilidadicono/guerrero2.png', 'Causa entre 20 - 50 puntos de daño a un enemigo en la posición ( 1 - 2 ) y le disminuye un 5% la resistencia y un 10% el daño (acumulable hasta 2 veces)');
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (2, 'Grito de Guerra', 'imagen/icono/guerrero03', 'img/habilidadicono/guerrero3.png', 'Aumenta un 5% la precisión y 5% de daño a todos los aliados (acumulable hasta 3 veces)');
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (2, 'Intimidar Enemigo', 'imagen/icono/guerrero04', 'img/habilidadicono/guerrero4.png', 'Disminuye un 15% la precisión y 10% de daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (2, 'Golpe Devastador', 'img/habilidadicono/guerrero1.png', 'img/habilidadicono/guerrero1.png', 'Causa entre 50 - 110 puntos de daño a un enemigo en la posición ( 1 - 2 )');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (2, 'Golpe Demoledor', 'img/habilidadicono/guerrero2.png', 'img/habilidadicono/guerrero2.png', 'Causa entre 20 - 50 puntos de daño a un enemigo en la posición ( 1 - 2 ) y le disminuye un 5% la resistencia y un 10% el daño (acumulable hasta 2 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (2, 'Grito de Guerra', 'img/habilidadicono/guerrero3.png', 'img/habilidadicono/guerrero3.png', 'Aumenta un 5% la precisión y 5% de daño a todos los aliados (acumulable hasta 3 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (2, 'Intimidar Enemigo', 'img/habilidadicono/guerrero4.png', 'img/habilidadicono/guerrero4.png', 'Disminuye un 15% la precisión y 10% de daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)');
 
 Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("debuff", 3, 0, 0, 0, -5, -10);
 Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("buff", 3, 5, 0, 0, 0, 5); 
@@ -253,10 +253,10 @@ Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values
 Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (6, "enemigo", -20, -50);
 
 
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (3, 'Arremetida Violenta', 'imagen/icono/amazona01', 'img/habilidadicono/Amazona1.png', 'Causa entre 80 - 180 puntos de daño a un enemigo en la posición ( 1 - 2 ) pero disminuye un 5% la precisión y  un 10% el daño a si misma (acumulable hasta 6 veces)');
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (3, 'Golpe Sanginario', 'imagen/icono/amazona02', 'img/habilidadicono/amazona2.png', 'Causa entre 40 - 80 puntos de daño a un enemigo en la posición ( 1 - 2 ) y te curas entre 10 - 30 puntos de vida');
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (3, 'Canalizar el Odio', 'imagen/icono/amazona03', 'img/habilidadicono/amazona3.png', 'Te curas entre 20 - 60 puntos de vida y aumenta un 5% la precisión y un 10% el daño a si mismo (acumulable hasta 4 veces)');
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (3, 'Mirada Asesina', 'imagen/icono/amazona04', 'img/habilidadicono/amazona4.png', 'Disminuye un 10% de precisión y un 15% de daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (3, 'Arremetida Violenta', 'img/habilidadicono/amazona1.png', 'img/habilidadicono/Amazona1.png', 'Causa entre 80 - 180 puntos de daño a un enemigo en la posición ( 1 - 2 ) pero disminuye un 5% la precisión y  un 10% el daño a si misma (acumulable hasta 6 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (3, 'Golpe Sanginario', 'img/habilidadicono/amazona2.png', 'img/habilidadicono/amazona2.png', 'Causa entre 40 - 80 puntos de daño a un enemigo en la posición ( 1 - 2 ) y te curas entre 10 - 30 puntos de vida');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (3, 'Canalizar el Odio', 'img/habilidadicono/amazona3.png', 'img/habilidadicono/amazona3.png', 'Te curas entre 20 - 60 puntos de vida y aumenta un 5% la precisión y un 10% el daño a si mismo (acumulable hasta 4 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (3, 'Mirada Asesina', 'img/habilidadicono/amazona4.png', 'img/habilidadicono/amazona4.png', 'Disminuye un 10% de precisión y un 15% de daño a un enemigo en la posición ( 1 - 2 - 3 ) (acumulable 1 sola vez)');
 
 
 Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("debuff", 6, -5, 0, 0, 0, -10);
@@ -283,10 +283,10 @@ Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values
 Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (10, "lanzador", 10, 30);
 Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (11, "lanzador", 20, 60);
 
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (4, "Tiro a Quemarropa", "imagen/icono/arquera1.png", 'img/habilidadicono/arquera1.png', "Causa entre 60 - 120 de daño a un enemigo en la posicion ( 1 )");
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (4, "Tiro a la Pierna", "imagen/icono/arquera2.png", 'img/habilidadicono/arquera2.png', "Causa entre 20 - 70 de daño a un enemigo en la posicion ( 1 - 2 - 3 ) y disminuye 15% de evacion (acumulable hasta 3 veces)");
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (4, "Agudizar sentidos", "imagen/icono/arquera3.png", 'img/habilidadicono/arquera3.png', "Aumenta 15% de `precision` y 10% de daño a si misma (acumulable hasta 4 veces)");
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (4, "Tiro a la Cabeza", "imagen/icono/arquera4.png", 'img/habilidadicono/arquera4.png', "Causa entre 60 - 140 de daño a un enemigo en la posicion ( 2 - 3 ) pero se disminuye 10% de precicion a si misma (acumulable hasta 6 veces)");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (4, "Tiro a Quemarropa", "img/habilidadicono/arquera1.png", 'img/habilidadicono/arquera1.png', "Causa entre 60 - 120 de daño a un enemigo en la posicion ( 1 )");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (4, "Tiro a la Pierna", "img/habilidadicono/arquera2.png", 'img/habilidadicono/arquera2.png', "Causa entre 20 - 70 de daño a un enemigo en la posicion ( 1 - 2 - 3 ) y disminuye 15% de evacion (acumulable hasta 3 veces)");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (4, "Agudizar sentidos", "img/habilidadicono/arquera3.png", 'img/habilidadicono/arquera3.png', "Aumenta 15% de `precision` y 10% de daño a si misma (acumulable hasta 4 veces)");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (4, "Tiro a la Cabeza", "img/habilidadicono/arquera4.png", 'img/habilidadicono/arquera4.png', "Causa entre 60 - 140 de daño a un enemigo en la posicion ( 2 - 3 ) pero se disminuye 10% de precicion a si misma (acumulable hasta 6 veces)");
 
 
 Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("debuff", 3, 0, -15, 0, 0, 0);
@@ -310,10 +310,10 @@ Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values
 Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (14, "enemigo", -20, -70);
 Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (16, "enemigo", -80, -120);
 
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (5, 'Curación Divina', 'imagen/icono/sacerdotisa1', 'img/habilidadicono/sacerdotisa1.png', 'Cura entre 10 - 40 puntos de vida todos los aliados');
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (5, 'Dios nos Guía', 'imagen/icono/sacerdotisa2', 'img/habilidadicono/sacerdotisa2.png', 'Aumenta un 5% de precisión y un 5% de daño a todos los aliados (acumulable hasta 3 veces)');
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (5, 'Dios es Nuestro Escudo', 'imagen/icono/sacerdotisa3', 'img/habilidadicono/sacerdotisa3.png', 'Aumenta un 5% de evasión y un 5% la resistencia de todos los aliados (acumulable hasta 3 veces)');
-Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (5, 'Castigo Divino', 'imagen/icono/sacerdotisa4', 'img/habilidadicono/sacerdotisa4.png', 'Causa entre 30 - 70 puntos de daño a un enemigo en la posición ( 1 - 2 - 3 ) y te curas entre 10 - 30 de vida');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (5, 'Curación Divina', 'img/habilidadicono/sacerdotisa1.png', 'img/habilidadicono/sacerdotisa1.png', 'Cura entre 10 - 40 puntos de vida todos los aliados');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (5, 'Dios nos Guía', 'img/habilidadicono/sacerdotisa2.png', 'img/habilidadicono/sacerdotisa2.png', 'Aumenta un 5% de precisión y un 5% de daño a todos los aliados (acumulable hasta 3 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (5, 'Dios es Nuestro Escudo', 'img/habilidadicono/sacerdotisa3.png', 'img/habilidadicono/sacerdotisa3.png', 'Aumenta un 5% de evasión y un 5% la resistencia de todos los aliados (acumulable hasta 3 veces)');
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (5, 'Castigo Divino', 'img/habilidadicono/sacerdotisa4.png', 'img/habilidadicono/sacerdotisa4.png', 'Causa entre 30 - 70 puntos de daño a un enemigo en la posición ( 1 - 2 - 3 ) y te curas entre 10 - 30 de vida');
 
 Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("debuff", 3, 5, 0, 0, 0, 5);
 Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("buff", 3, 0, 5, 0, 5, 0);
@@ -328,3 +328,30 @@ Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (19
 Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (17, "nosotros", 10, 40);
 Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (20, "enemigo", -30, -70);
 Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (20, "lanzador", 10, 30);
+
+
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (6, "Puñalada Trapera", "img/habilidadicono/Bufon1.png", "imagen/imagen/Bufon01.png", "Causa entre 60 - 90 puntos de daño a un enemigo en la posición ( 1 - 2 ) ");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (6, "Melodia Alegre", "img/habilidadicono/Bufon2.png", "imagen/imagen/Bufon02.png", "Aumenta un 5% de precisión y un 5% de daño a todos los aliados (acumulable hasta 3 veces)");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (6, "Melodia Jobial", "img/habilidadicono/Bufon3.png", "imagen/imagen/Bufon03.png", "Aumenta un 5% de precisión y un 5% de daño crítico a todos los aliados (acumulable hasta 3 veces)");
+Insert into habilidad (habilidadclase, habilidadnombre, direcicono, direcimagen, descripcion) values (6, "Golpe Decisivo", "img/habilidadicono/Bufon4.png", "imagen/imagen/Bufon04.png", "Causa entre 120 - 200 puntos de daño a un enemigo en la posición ( 1 ) pero disminuye un 20% de daño a si mismo (acumulable hasta 4 veces)");
+
+
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("buff", 3, 5, 0, 0, 0, 5);
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("buff", 3, 0, 5, 0, 0, 5);
+Insert into buffdebuff (buffdebufftipo, maxacumulaciones, `precision`, provevasion, provcritico, reddamage, moddamage) values ("debuff", 4, 0, 0, 0, 0, -20);
+
+
+Insert into objetivoshabilidad (habilidadid, posicionid) values (21, 1);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (21, 2);
+Insert into objetivoshabilidad (habilidadid, posicionid) values (24, 1);
+
+
+
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (22, 24, "nosotros");
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (23, 25, "nosotros");
+Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (24, 26, "lanzador");
+
+
+
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (21, "enemigo", -60, -90);
+Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (24, "enemigo", -120, -200);

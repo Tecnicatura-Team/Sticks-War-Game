@@ -60,23 +60,18 @@ function ElegirPJ(lugar) {
     detalleHabilidad()
 }
 
-function detalleHabilidad() {
+function detalleHabilidad(pj) {
 
     //descripciones de cada habilidad
-    var descripciones = [
-            "Causa entre 80 - 180 de daño a un enemigo en la posicion ( 1 - 2 ) pero se disminuye 5% de precision y 10% de daño a si misma (acumulable hasta 6 veces)",
-            "Descripción de la habilidad 2",
-            "Descripción de la habilidad 3",
-            "Descripción de la habilidad 4"
-        ]
-        //al pasar el mouse sobre cada habilidad ejecuta una funcion especifica
+
+    //al pasar el mouse sobre cada habilidad ejecuta una funcion especifica
     $(document).ready(function() {
             obtenerclases()
             $(".imgH").on(
                 "mouseenter",
                 function() {
                     event.preventDefault()
-                    verDesc(this, descripciones[$(this).attr("id")[1] - 1])
+                    verDesc(this, ($(".pj").is(":checked")) ? $(".pj:checked").val() : false)
                     obtenerHabilidades()
 
                 }
@@ -86,6 +81,7 @@ function detalleHabilidad() {
                 function() {
                     event.preventDefault()
                     ocultarDesc('descHabilidad')
+                    ocultarDesc('NomHabilidad')
                 }
             )
         }
@@ -96,11 +92,12 @@ function detalleHabilidad() {
 
 
 //muestra las descripciones de las habilidades
-function verDesc(elemento, descripcion) {
+function verDesc(ele1, ele2) {
     // $("." + elemento).html(descripcion)
-    var habilidad = $(elemento).attr("id")[1]
+    var habilidad = $(ele1).attr("id")[1]
     var habilidadcd = new Array()
-    var clase = ($(".pj").is(":checked")) ? $(".pj:checked").val() : false
+    var clase = ele2
+        // ($(".pj").is(":checked")) ? $(".pj:checked").val() : false
 
     if (clase) {
         var contadorhabilidad = 1
@@ -119,6 +116,37 @@ function verDesc(elemento, descripcion) {
     // console.log(elemento)
 
 }
+
+function imghabilidad(clase, ele) {
+    if ($) {
+
+    }
+    $(document).ready(function() {
+        var habilidadcd = new Array()
+            // var clase = ($(".pj").is(":checked")) ? $(".pj:checked").val() : false
+
+        if (clase) {
+            var contadorhabilidad = 1
+            for (var i = 0; i < habilidades.length; i++) {
+                if (habilidades[i]["habilidadclase"] == clases[claseid[clase]]["claseid"]) {
+                    habilidadcd[contadorhabilidad] = { "img": habilidades[i]["direcicono"] }
+
+                    // console.log(habilidadcd[contadorhabilidad]["img"])
+                    console.log("#h" + contadorhabilidad + " img: " + habilidadcd[contadorhabilidad]["img"])
+
+                    $("#" + ele + contadorhabilidad).attr("src", habilidadcd[contadorhabilidad]["img"])
+
+                    contadorhabilidad += 1
+                }
+            }
+
+        }
+    });
+
+}
+
+
+
 //oculta las descripciones de las habilidades
 function ocultarDesc(elemento) {
     $("." + elemento).html("")
@@ -133,8 +161,6 @@ function ocultar() {
             elemento[posicion] = $(this).attr("id")
 
         }
-
-
 
     })
 
@@ -187,8 +213,16 @@ function selectClase() {
     }
 }
 
-function descrip() {
+function descrip(ele) {
     $(".statsObjeto").remove()
+
+    var clase = elemento["posicionPJ" + ($(ele).val())]
+
+    if (clase) {
+        imghabilidad(clase, "ha")
+    }
+
+
     var contenido =
 
         "<table class='statsObjeto'>" +
@@ -225,10 +259,10 @@ function descrip() {
         "</td>" +
         "<td class='Habilidades'>" +
         "<div class='pjHabilidades'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='h1' width='40px' height='40px' style='display:table;'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='h2' width='40px' height='40px' style='display:table;'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='h3' width='40px' height='40px' style='display:table;'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='h4' width='40px' height='40px' style='display:table;'>" +
+        "<img src='' class='imgH' id='ha1' width='40px' height='40px' style='display:table;'>" +
+        "<img src='' class='imgH' id='ha2' width='40px' height='40px' style='display:table;'>" +
+        "<img src='' class='imgH' id='ha3' width='40px' height='40px' style='display:table;'>" +
+        "<img src='' class='imgH' id='ha4' width='40px' height='40px' style='display:table;'>" +
         "</div>" +
         "</td>" +
         "<td class='objeto' rowspan='3'></td>" +
@@ -270,6 +304,12 @@ function descrip() {
 function Descrip2() {
     $(".statsHabilidad").remove()
 
+    // var clase = ($(".pj").is(":checked")) ? $(".pj:checked").val() : false
+
+    if ($(".pj").is(":checked")) {
+        imghabilidad($(".pj:checked").val(), "h")
+    }
+
     var contenido =
         "<table class='statsHabilidad'>" +
         "<tr>" +
@@ -304,10 +344,10 @@ function Descrip2() {
         "</td>" +
         "<td class='Habilidades'>" +
         "<div class='pjHabilidades'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='h1' width='40px' height='40px' style='display:table;'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='h2' width='40px' height='40px' style='display:table;'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='h3' width='40px' height='40px' style='display:table;'>" +
-        "<img src='img/logo1.jpg' class='imgH' id='h4' width='40px' height='40px' style='display:table;'>" +
+        "<img src='' class='imgH' id='h1' width='40px' height='40px' style='display:table;'>" +
+        "<img src='' class='imgH' id='h2' width='40px' height='40px' style='display:table;'>" +
+        "<img src='' class='imgH' id='h3' width='40px' height='40px' style='display:table;'>" +
+        "<img src='' class='imgH' id='h4' width='40px' height='40px' style='display:table;'>" +
         "</div>" +
         "</td>" +
         "</tr>" +
