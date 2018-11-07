@@ -132,7 +132,7 @@ function imghabilidad(clase, ele) {
                     habilidadcd[contadorhabilidad] = { "img": habilidades[i]["direcicono"] }
 
                     // console.log(habilidadcd[contadorhabilidad]["img"])
-                    console.log("#h" + contadorhabilidad + " img: " + habilidadcd[contadorhabilidad]["img"])
+                    // console.log("#h" + contadorhabilidad + " img: " + habilidadcd[contadorhabilidad]["img"])
 
                     $("#" + ele + contadorhabilidad).attr("src", habilidadcd[contadorhabilidad]["img"])
 
@@ -153,8 +153,8 @@ function ocultarDesc(elemento) {
 }
 
 function ocultar() {
-
-
+    $(".statsObjeto").remove()
+    $(".ver").prop("checked", false)
     $(".pj").each(function() {
 
         if ($(this).is(":checked")) {
@@ -270,7 +270,6 @@ function descrip(ele) {
         "</tr>" +
         "<tr>" +
         "<td class='NomHabilidad'>" +
-        "nombre habilidad" +
         "</td>" +
         "</tr>" +
         "<tr>" +
@@ -288,8 +287,8 @@ function descrip(ele) {
         $(document).ready(
             $(".imgH").mouseenter(function(e) {
                 e.preventDefault()
-                console.log($(this).attr("id"))
-                console.log(clase)
+                    // console.log($(this).attr("id"))
+                    // console.log(clase)
                 verDesc($(this).attr("id")[2], clase)
             }), $(".ver").click(
                 caracteristicas(),

@@ -475,7 +475,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`userid`, `usernivel`, `userexp`, `usernombre`, `userpass`, `estado`) VALUES
-(1, 10, 190, 'Barba', 'cristian', 'conectado'),
+(1, 10, 190, 'Barba', 'cristian', 'desconectado'),
 (2, 8, 170, 'Sofelix', 'santiago', 'desconectado'),
 (3, 11, 205, 'Corbus', 'claudio', 'desconectado');
 
