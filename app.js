@@ -51,7 +51,12 @@ io.sockets.on("connection", function(socket) {
 
     // })
     socket.on("obtenerhabilidad", function(data) {
-
         io.sockets.emit("obtenerhabilidad" + data["usuario"].trim(), data)
+    })
+
+    socket.on("obtenerobjeto", function(data) {
+        io.sockets.emit("obtenerobjeto" + data["usuario"].trim(), data)
+            // alert("socket")
+        console.log("app")
     })
 })

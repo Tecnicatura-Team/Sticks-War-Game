@@ -5,7 +5,8 @@ elemento["posicionPJ3"] = ""
 var posicion
 
 obtenerHabilidades()
-
+obtenerObjetos()
+cargarObjeto()
 $(document).ready(
     selectClase()
 )
@@ -118,9 +119,7 @@ function verDesc(ele1, ele2) {
 }
 
 function imghabilidad(clase, ele) {
-    if ($) {
 
-    }
     $(document).ready(function() {
         var habilidadcd = new Array()
             // var clase = ($(".pj").is(":checked")) ? $(".pj:checked").val() : false
@@ -141,7 +140,7 @@ function imghabilidad(clase, ele) {
             }
 
         }
-    });
+    })
 
 }
 
@@ -213,6 +212,55 @@ function selectClase() {
     }
 }
 
+function cargarObjeto() {
+    $(document).ready(function() {
+        var cargaobjetos = new Array()
+            // var contadorobjeto = 1
+            // console.log("cantidad objetos:" + objetos.length)
+        if (objetos) {
+            for (var i = 0; i < objetos.length; i++) {
+
+                // console.log(objetos[i]["direcimagen"])
+                // console.log(objetos[i]["direcimagen2"])
+                // console.log(objetos[i]["descripcion"])
+
+                // if (objetos[i]["tipoobjetoid"] == [i]) {
+                //     console.log("resultado: " + objetos[i]["tipoobjetoid"])
+                //     cargaobjetos[contadorobjeto] = { "img": objetos[i]["direcimagen"] }  
+                // contadorobjeto += 1
+                // }
+                var boto = "<img src='" + objetos[i]["direcimagen"] + "' id='objeto" + i + "' width='40px' height='40px' onclick='elegirObjeto(this)' >"
+                $(".imgObjeto").append(boto)
+
+            }
+        }
+    })
+}
+
+function elegirObjeto(elemento) {
+
+    for (var i = 0; i < objetos.length; i++) {
+        if (i == $(elemento).attr("id")[6]) {
+            // carta la nueva img para el objeto seleccionado
+            // $(elemento).attr("src", objetos[$(elemento).attr("id")[6]]["direcimagen2"])
+
+            $("#objeto" + i).attr("src", objetos[$(elemento).attr("id")[6]]["direcimagen2"])
+
+            console.log("elemento clic " + i + " " + objetos[$(elemento).attr("id")[6]]["direcimagen2"])
+
+        } else {
+
+            // imagen por defecto
+            // $(elemento).attr("src", objetos[i]["direcimagen"])
+            $("#objeto" + i).attr("src", objetos[i]["direcimagen"])
+            console.log("else " + i + " " + objetos[i]["direcimagen"])
+
+        }
+
+    }
+}
+
+
 function descrip(ele) {
     $(".statsObjeto").remove()
 
@@ -220,6 +268,7 @@ function descrip(ele) {
 
     if (clase) {
         imghabilidad(clase, "ha")
+        cargarObjeto()
             // verDesc(, clase)
     }
 
@@ -251,10 +300,10 @@ function descrip(ele) {
         "<td class='nomAttrib'>Resistencia: </td>" +
         "<td class='reddamage'></td>" +
         "</tr>" +
-        "<tr>" +
-        "<td class='nomAttrib'>Modificador: </td>" +
-        "<td class='valAttrib'></td>" +
-        "</tr>" +
+        // "<tr>" +
+        // "<td class='nomAttrib'>Modificador: </td>" +
+        // "<td class='valAttrib'></td>" +
+        // "</tr>" +
         "</table>" +
         "</div>" +
         "</td>" +
@@ -266,7 +315,16 @@ function descrip(ele) {
         "<img src='' class='imgH' id='ha4' width='40px' height='40px' style='display:table;'>" +
         "</div>" +
         "</td>" +
-        "<td class='objeto' rowspan='3'></td>" +
+        "<td rowspan='3'>" +
+        // "<div class='divobjeto'>" +
+        "<table class='objeto'>" +
+        "<tr><td colspan=2><div class='imgObjeto'></div></td></tr>" +
+        "<tr><td>Nombre:</td><td class='nomObjeto'></td></tr>" +
+        "<tr><td>Rareza:</td><td class='rarObjeto'></td></tr>" +
+        "<tr><td colspan=2><div class='descripObjeto'></div ></td></tr>" +
+        "</table>" +
+        // "</div>" +
+        "</td>" +
         "</tr>" +
         "<tr>" +
         "<td class='NomHabilidad'>" +

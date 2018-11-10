@@ -90,7 +90,9 @@ tipoobjetoid integer auto_increment primary key,
 nombre varchar(20) not null,
 calidad varchar(20) not null,
 buffid integer,
+descripcion varchar(100) default null,
 direcimagen varchar(50) not null,
+direcimagen2 varchar(50) not null,
 constraint buffid foreign key (buffid) references buffdebuff (buffdebuffid)
 );
 
@@ -149,13 +151,13 @@ Insert into posicion (buffdebuffid) values (2);
 Insert into posicion (buffdebuffid) values (3);
 
 
-Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ('Sin Objeto', ' - - - - ', 1, 'img/objeto/sinObjeto.png');
-Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ('Hacha de Leñador', 'Mediocre', 4, 'img/objeto/hachaDeleñador.png');
-Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ('Arco Simple', 'Comun', 5, 'img/objeto/arcoSimple.png');
-Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ('Armadura Pesada', 'Comun', 6, 'img/objeto/armaduraPesada.png');
-Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ('Arco Largo', 'Buena', 7, 'img/objeto/arcoLargo.png');
-Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ('Arco Compuesto', 'raro', 8, 'img/objeto/arcoCompuesto.png');
-Insert into tipoobjeto (nombre, calidad, buffid, direcimagen) values ('Armadura de mithril', 'raro', 9, 'img/objeto/armaduraDeMithril.png');
+Insert into tipoobjeto (nombre, calidad, buffid, direcimagen, direcimagen2) values ('Sin Objeto', ' - - - - ', 1, 'img/objeto/sinObjeto.png', 'img/objeto/sinObjeto2.png');
+Insert into tipoobjeto (nombre, calidad, buffid, descripcion, direcimagen, direcimagen2) values ('Hacha de Leñador', 'Mediocre', 4, 'Aumenta la resistencia y  el daño en 5 puntos','img/objeto/hachaDeleñador.png','img/objeto/hachaDeleñador2.png');
+Insert into tipoobjeto (nombre, calidad, buffid, descripcion, direcimagen, direcimagen2) values ('Arco Simple', 'Comun', 5, 'Aumenta la precisión en 10 puntos y el daño en 5 puntos', 'img/objeto/arcoSimple.png', 'img/objeto/arcoSimple2.png');
+Insert into tipoobjeto (nombre, calidad, buffid, descripcion, direcimagen, direcimagen2) values ('Armadura Pesada', 'Comun', 6, 'Disminuye 5 puntos la evasión y aumenta la resistencia en 20 puntos', 'img/objeto/armaduraPesada.png', 'img/objeto/armaduraPesada2.png');
+Insert into tipoobjeto (nombre, calidad, buffid, descripcion, direcimagen, direcimagen2) values ('Arco Largo', 'Buena', 7, 'Aumenta la precisión en 15 puntos y el daño en  10 puntos', 'img/objeto/arcoLargo.png', 'img/objeto/arcoLargo2.png');
+Insert into tipoobjeto (nombre, calidad, buffid, descripcion, direcimagen, direcimagen2) values ('Arco Compuesto', 'raro', 8, 'Aumenta la precisión y al resistencia en 10 puntos y el daño en 15 puntos', 'img/objeto/arcoCompuesto.png', 'img/objeto/arcoCompuesto2.png');
+Insert into tipoobjeto (nombre, calidad, buffid, descripcion, direcimagen, direcimagen2) values ('Armadura de mithril', 'raro', 9, 'Aumenta en 5 puntos la evasión y en 25 puntos  la resistencia',  'img/objeto/armaduraDeMithril.png',  'img/objeto/armaduraDeMithril2.png');
 
 
 insert into usuario (usernivel, userexp, usernombre, userpass) values (10,  190, "Barba", "cristian");
