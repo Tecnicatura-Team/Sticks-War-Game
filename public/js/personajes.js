@@ -232,6 +232,7 @@ function cargarObjeto() {
                 var boto = "<img src='" + objetos[i]["direcimagen"] + "' id='objeto" + i + "' width='40px' height='40px' onclick='elegirObjeto(this)' >"
                 $(".imgObjeto").append(boto)
 
+
             }
         }
     })
@@ -246,15 +247,17 @@ function elegirObjeto(elemento) {
 
             $("#objeto" + i).attr("src", objetos[$(elemento).attr("id")[6]]["direcimagen2"])
 
-            console.log("elemento clic " + i + " " + objetos[$(elemento).attr("id")[6]]["direcimagen2"])
+            $(".nomObjeto").html(objetos[i]["nombre"])
+            $(".rarObjeto").html(objetos[i]["calidad"])
+            $(".descripObjeto").html(objetos[i]["descripcion"])
+
+            // console.log("elemento clic " + i + " " + objetos[$(elemento).attr("id")[6]]["direcimagen2"])
 
         } else {
-
             // imagen por defecto
             // $(elemento).attr("src", objetos[i]["direcimagen"])
             $("#objeto" + i).attr("src", objetos[i]["direcimagen"])
-            console.log("else " + i + " " + objetos[i]["direcimagen"])
-
+                // console.log("else " + i + " " + objetos[i]["direcimagen"])
         }
 
     }
@@ -268,9 +271,8 @@ function descrip(ele) {
 
     if (clase) {
         imghabilidad(clase, "ha")
-        cargarObjeto()
-            // verDesc(, clase)
     }
+    cargarObjeto()
 
 
     var contenido =
@@ -316,14 +318,15 @@ function descrip(ele) {
         "</div>" +
         "</td>" +
         "<td rowspan='3'>" +
-        // "<div class='divobjeto'>" +
+        "<div class='divobjeto'>" +
         "<table class='objeto'>" +
         "<tr><td colspan=2><div class='imgObjeto'></div></td></tr>" +
+        "<tr><td colspan=2><div class='espacio'></div ></td></tr>" +
         "<tr><td>Nombre:</td><td class='nomObjeto'></td></tr>" +
         "<tr><td>Rareza:</td><td class='rarObjeto'></td></tr>" +
         "<tr><td colspan=2><div class='descripObjeto'></div ></td></tr>" +
         "</table>" +
-        // "</div>" +
+        "</div>" +
         "</td>" +
         "</tr>" +
         "<tr>" +
