@@ -2,11 +2,18 @@ var elemento = []
 elemento["posicionPJ1"] = ""
 elemento["posicionPJ2"] = ""
 elemento["posicionPJ3"] = ""
+
+elemento["objeto1"] = 1
+elemento["objeto2"] = 1
+elemento["objeto3"] = 1
+
+
 var posicion
 
 obtenerHabilidades()
 obtenerObjetos()
-cargarObjeto()
+
+
 $(document).ready(
     selectClase()
 )
@@ -212,54 +219,62 @@ function selectClase() {
     }
 }
 
-function cargarObjeto() {
+function cargarObjeto(num) {
+
     $(document).ready(function() {
-        var cargaobjetos = new Array()
-            // var contadorobjeto = 1
-            // console.log("cantidad objetos:" + objetos.length)
+
+        // var contadorobjeto = 1
+        // console.log("cantidad objetos:" + objetos.length)
         if (objetos) {
             for (var i = 0; i < objetos.length; i++) {
 
-                // console.log(objetos[i]["direcimagen"])
-                // console.log(objetos[i]["direcimagen2"])
-                // console.log(objetos[i]["descripcion"])
 
-                // if (objetos[i]["tipoobjetoid"] == [i]) {
-                //     console.log("resultado: " + objetos[i]["tipoobjetoid"])
-                //     cargaobjetos[contadorobjeto] = { "img": objetos[i]["direcimagen"] }  
-                // contadorobjeto += 1
-                // }
-                var boto = "<img src='" + objetos[i]["direcimagen"] + "' id='objeto" + i + "' width='40px' height='40px' onclick='elegirObjeto(this)' >"
+                var boto = "<img src='" + objetos[i]["direcimagen"] + "' id='objeto" + i + "' width='40px' height='40px' onclick='elegirObjeto(" + num + ",this,true)' >"
                 $(".imgObjeto").append(boto)
-
-
             }
+            elegirObjeto(num, "", false)
         }
     })
 }
 
-function elegirObjeto(elemento) {
-
-    for (var i = 0; i < objetos.length; i++) {
-        if (i == $(elemento).attr("id")[6]) {
-            // carta la nueva img para el objeto seleccionado
-            // $(elemento).attr("src", objetos[$(elemento).attr("id")[6]]["direcimagen2"])
-
-            $("#objeto" + i).attr("src", objetos[$(elemento).attr("id")[6]]["direcimagen2"])
-
-            $(".nomObjeto").html(objetos[i]["nombre"])
-            $(".rarObjeto").html(objetos[i]["calidad"])
-            $(".descripObjeto").html(objetos[i]["descripcion"])
-
-            // console.log("elemento clic " + i + " " + objetos[$(elemento).attr("id")[6]]["direcimagen2"])
-
-        } else {
-            // imagen por defecto
-            // $(elemento).attr("src", objetos[i]["direcimagen"])
-            $("#objeto" + i).attr("src", objetos[i]["direcimagen"])
-                // console.log("else " + i + " " + objetos[i]["direcimagen"])
+function elegirObjeto(elem, obj, fun) {
+    if (fun) {
+        // console.log("no es un numero")
+        for (var i = 0; i < objetos.length; i++) {
+            if (i == $(obj).attr("id")[6]) {
+                elemento["objeto" + elem] = objetos[i]["tipoobjetoid"]
+                    // carta la nueva img para el objeto seleccionado
+                    // $(elemento).attr("src", objetos[$(elemento).attr("id")[6]]["direcimagen2"])
+                $("#objeto" + i).attr("src", objetos[$(obj).attr("id")[6]]["direcimagen2"])
+                $(".nomObjeto").html(objetos[i]["nombre"])
+                $(".rarObjeto").html(objetos[i]["calidad"])
+                $(".descripObjeto").html(objetos[i]["descripcion"])
+                    // console.log("elemento clic " + i + " " + objetos[$(elemento).attr("id")[6]]["direcimagen2"])
+            } else {
+                // imagen por defecto
+                // $(elemento).attr("src", objetos[i]["direcimagen"])
+                $("#objeto" + i).attr("src", objetos[i]["direcimagen"])
+                    // console.log("else " + i + " " + objetos[i]["direcimagen"])
+            }
         }
 
+    } else {
+
+        for (var i = 0; i < objetos.length; i++) {
+            if (objetos[i]["tipoobjetoid"] == elemento["objeto" + elem]) {
+
+                $("#objeto" + i).attr("src", objetos[i]["direcimagen2"])
+                $(".nomObjeto").html(objetos[i]["nombre"])
+                $(".rarObjeto").html(objetos[i]["calidad"])
+                $(".descripObjeto").html(objetos[i]["descripcion"])
+                    // console.log(objetos[i])
+            } else {
+                // imagen por defecto
+                // $(elemento).attr("src", objetos[i]["direcimagen"])
+                $("#objeto" + i).attr("src", objetos[i]["direcimagen"])
+                    // console.log("else " + i + " " + objetos[i]["direcimagen"])
+            }
+        }
     }
 }
 
@@ -272,7 +287,7 @@ function descrip(ele) {
     if (clase) {
         imghabilidad(clase, "ha")
     }
-    cargarObjeto()
+    cargarObjeto($(ele).val())
 
 
     var contenido =
