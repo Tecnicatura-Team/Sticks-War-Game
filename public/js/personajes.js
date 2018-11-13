@@ -169,8 +169,7 @@ function ocultar() {
         }
 
     })
-
-
+    $(".cuerpoCarga").remove()
     $("#Personajes").remove()
     $("#Asignar").remove()
     document.getElementById('Eleccion').style.display = ''; //vuelve a mostrar la div eleccion
@@ -493,4 +492,21 @@ function caracteristicas() {
 
 
     }
+}
+
+
+// pantalla de carga
+function Cargando() {
+
+    var contenido =
+        "<div class='cuerpoCarga'>" +
+        "<div class='imgcarga'>" +
+        "</div>" +
+        "<input class='cancelar' type='button' value='Cancelar' onclick='ocultar()'>" +
+        "</div>"
+
+
+    $("footer").before(contenido)
+    $("#Eleccion").fadeOut(500)
+    $(".cuerpoCarga").hide().fadeIn(4000)
 }
