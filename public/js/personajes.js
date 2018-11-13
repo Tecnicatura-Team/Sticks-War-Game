@@ -498,15 +498,21 @@ function caracteristicas() {
 // pantalla de carga
 function Cargando() {
 
-    var contenido =
-        "<div class='cuerpoCarga'>" +
-        "<div class='imgcarga'>" +
-        "</div>" +
-        "<input class='cancelar' type='button' value='Cancelar' onclick='ocultar()'>" +
-        "</div>"
+    if (elemento["posicionPJ1"] != "" && elemento["posicionPJ2"] != "" && elemento["posicionPJ3"] != "") {
+        var contenido =
+            "<div class='cuerpoCarga'>" +
+            "<div class='imgcarga'>" +
+            "</div>" +
+            "<input class='cancelar' type='button' value='Cancelar' onclick='ocultar()'>" +
+            "</div>"
 
 
-    $("footer").before(contenido)
-    $("#Eleccion").fadeOut(500)
-    $(".cuerpoCarga").hide().fadeIn(4000)
+        $("footer").before(contenido)
+        $("#Eleccion").fadeOut(500)
+        $(".cuerpoCarga").hide().fadeIn(4000)
+    } else {
+        alert("Debe seleccionar los 3 personajes para poder entrar en combate!.")
+    }
+
+
 }
