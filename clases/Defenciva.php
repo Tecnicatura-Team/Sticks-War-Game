@@ -1,5 +1,5 @@
 <?php
-
+include_once "Habilidad.php";
 class Defenciva extends Habilidad{
     
     // CONSTRUCTOR

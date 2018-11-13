@@ -6,19 +6,19 @@ class PersonajeEnemigo extends Personaje{
     
     public function __construct($VB, $P, $E, $C, $R, $VA, $D, $MD, $PID) {
         parent::__construct($VB, $P, $E, $C, $R, $VA, $D, $MD);
-        $this -> PersonajeID = $PID;
+        $this->PersonajeID = $PID;
     }
     
     // GETS
     
     Public Function GetPersonajeID(){
-        Return $this -> PersonajeID;
+        return $this->PersonajeID;
     }
     
     //SETS
         
     Public Function SetPersonajeID($ID){
-        $this -> PersonajeID = $ID;
+        $this->PersonajeID = $ID;
     }
       
 }

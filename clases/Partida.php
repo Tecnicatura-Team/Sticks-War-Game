@@ -9,37 +9,37 @@ class Partida {
     // CONSTRUCTOR
     
     public function __construct($P, $J, $C){
-         $this -> PartidaID = $P;
-         $this -> Jugador = $J;
-         $this -> Contrincante = $C;
+         $this->PartidaID = $P;
+         $this->Jugador = $J;
+         $this->Contrincante = $C;
     }
     
     // GETS
     
     Public Function GetPartidaID(){
-        Return $this -> PartidaID;
+        return $this->PartidaID;
     }
        
     Public Function GetJugador(){
-        Return $this -> Jugador;
+        return $this->Jugador;
     }
     
      Public Function GetContrincante(){
-        Return $this -> Contrincante;
+        return $this->Contrincante;
     }
     
     //SETS
         
     Public Function SetPartidaID($P){
-        $this -> PartidaID = $P;
+        $this->PartidaID = $P;
     }
     
     Public Function SetJugador($J){
-        $this -> Jugador = $J;
+        $this->Jugador = $J;
     }
     
     Public Function SetContrincante($C){
-        $this -> Contrincante = $C;
+        $this->Contrincante = $C;
     }
             
 }

@@ -10,18 +10,18 @@ class Ofensiva extends Habilidad{
     
     public function __construct($N, $DIco, $DImg, $Des, $PO) {
         parent::__construct($N, $DIco, $DImg, $Des);
-        $this -> PosicionesObjetivos = $PO;
+        $this->PosicionesObjetivos = $PO;
     }
     
     // GETS
     
     Public Function GetPosicionesObjetivos(){
-        Return $this -> PosicionesObjetivos;
+        return $this->PosicionesObjetivos;
     }
     
      //SETS
         
     Public Function SetPosicionesObjetivos($PO){
-        $this -> PosicionesObjetivos = $PO;
+        $this->PosicionesObjetivos = $PO;
     }
 }

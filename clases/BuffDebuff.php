@@ -8,17 +8,17 @@ class BuffDebuff extends Efecto{
     
     public function __construct($O, $B) {
         parent::__construct($O);
-        $this -> BuffDebuffID = $B;
+        $this->BuffDebuffID = $B;
     }
     
     // GETS
     Public Function GetBuffDebuffID(){
-        Return $this -> BuffDebuffID;
+        return $this->BuffDebuffID;
     }
     
      //SETS
         
     Public Function SetBuffDebuffID($B){
-        $this -> BuffDebuffID = $B;
+        $this->BuffDebuffID = $B;
     }
 }

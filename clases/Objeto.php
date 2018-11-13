@@ -1,5 +1,5 @@
 <?php
-include_once 'EstadisticasBasicas';
+include_once 'EstadisticasBasicas.php';
 
     class objeto extends EstadisticasBasicas{
         private $TipoObjetoID;
@@ -12,53 +12,53 @@ include_once 'EstadisticasBasicas';
         
         public function __construct($V, $P, $E, $Cr, $R, $T, $N, $Dir, $Dañ, $Cal){
             parent::__construct($V, $P, $E, $C, $R);
-            $this -> TipoObjetoID = $T;
-            $this -> Nombre = $N;
-            $this -> DirImagen = $Dir;
-            $this -> ModDaño = $Dañ;
-            $this -> Calidad = $Cal;
+            $this->TipoObjetoID = $T;
+            $this->Nombre = $N;
+            $this->DirImagen = $Dir;
+            $this->ModDaño = $Dañ;
+            $this->Calidad = $Cal;
         }
         
         // GETS
         Public Function GetTipoObjeto(){
-            Return $this -> TipoObjetoID;
+            return $this->TipoObjetoID;
         }
         
         Public Function GetNombre(){
-            Return $this -> Nombre;
+            return $this->Nombre;
         }
         
         Public Function GetDirImagen(){
-            Return $this -> DirImagen;
+            return $this->DirImagen;
         }
         
         Public Function GetModDaño(){
-            Return $this -> ModDaño;
+            return $this->ModDaño;
         }
         
         Public Function GetCalidad(){
-            Return $this -> Calidad;
+            return $this->Calidad;
         }
         
         //SETS
         
         Public Function SetTipoObjeto($T){
-            $this -> TipoObjetoID = $T;
+            $this->TipoObjetoID = $T;
         }
         
         Public Function SetNombre($N){
-            $this -> Nombre = $N;
+            $this->Nombre = $N;
         }
         
         Public Function SetDirImagen($D){
-            $this -> DirImagen = $D;
+            $this->DirImagen = $D;
         }
         
         Public Function SetModDaño($D){
-            $this -> ModDaño = $D;
+            $this->ModDaño = $D;
         }
         
         Public Function SetCalidad($Cal){
-            $this -> Calidad = $Cal;
+            $this->Calidad = $Cal;
         }
     }

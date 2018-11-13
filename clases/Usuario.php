@@ -7,37 +7,37 @@ class Usuario {
     
     // CONSTRUCTOR   
     public function __construct($U, $N, $L) {
-        $this -> UsuarioID = $U;
-        $this -> Nombre = $N;
-        $this -> Nivel = $L;
+        $this->UsuarioID = $U;
+        $this->Nombre = $N;
+        $this->Nivel = $L;
     }
     
     // GETS
     
     Public Function GetUsuarioID(){
-        Return $this -> UsuarioID;
+        return $this->UsuarioID;
     }
     
     Public Function GetNombre(){
-        Return $this -> Nombre;
+        return $this->Nombre;
     }
     
     Public Function GetNivel(){
-        Return $this -> Nivel;
+        return $this->Nivel;
     }
     
     //SETS
         
     Public Function SetUsuarioID($U){
-        $this -> UsuarioID = $U;
+        $this->UsuarioID = $U;
     }
     
     Public Function SetNombre($N){
-        $this -> Nombre = $N;
+        $this->Nombre = $N;
     }
     
     Public Function SetNivel($L){
-        $this -> Nivel = $L;
+        $this->Nivel = $L;
     }
         
 }

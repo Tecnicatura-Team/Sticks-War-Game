@@ -5,27 +5,27 @@ class TieneEfecto {
     private $Efecto;
     
     public function __construct($O, $E) {
-        $this -> Objetivo = $O;
-        $this -> Efecto = $E;
+        $this->Objetivo = $O;
+        $this->Efecto = $E;
     }
     
     // GETS
     
     Public Function GetObjetivo(){
-        Return $this -> Objetivo;
+        return $this->Objetivo;
     }
     
     Public Function GetEfecto(){
-        Return $this -> Efecto;
+        return $this->Efecto;
     }
     
     //SETS
         
     Public Function SetObjetivo($O){
-        $this -> Objetivo = $O;
+        $this->Objetivo = $O;
     }
         
     Public Function SetEfecto($E){
-        $this -> Efecto = $E;
+        $this->Efecto = $E;
     }
 }

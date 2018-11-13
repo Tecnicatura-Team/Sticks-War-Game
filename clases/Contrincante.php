@@ -2,25 +2,25 @@
 include_once 'Usuario.php';
 include_once 'PersonajeEnemigo.php';
 
-class Contrincante extends usuario {
+class Contrincante extends Usuario {
     private $Personajes;
     
     // CONSTRUCTOR
     
-    public function __construct($P){
+    public function __construct($U, $N, $L, $P){
         parent::__construct($U, $N, $L);
-        $this -> Personajes = $P;
+        $this->Personajes = $P;
     }
     
     // GETS
     
     Public Function GetPersonajes(){
-        Return $this -> Personajes;
+        return $this->Personajes;
     }
     
      //SETS
         
     Public Function SetPersonajes($P){
-        $this -> Personajes = $P;
+        $this->Personajes = $P;
     }
 }

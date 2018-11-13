@@ -5,18 +5,18 @@ class Posicion {
     
     // CONSTRUCTOR
     public function __construct($P) {
-        $this -> posicionID = $P;
+        $this->posicionID = $P;
     }
     
      // GETS
     
     Public Function GetPosicion(){
-        Return $this -> posicionID;
+        return $this->posicionID;
     }
     
      //SETS
     
     Public Function SetPosicion($P){
-        $this -> posicionID = $P;
+        $this->posicionID = $P;
     }
 }

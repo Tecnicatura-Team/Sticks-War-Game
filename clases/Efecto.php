@@ -6,19 +6,19 @@ class Efecto {
     // CONSTRUCTOR
     
     public function __construct($O){
-        $this -> objetivo = $O;
+        $this->objetivo = $O;
     }
     
     // GETS
     
     Public Function GetObjetivo(){
-        Return $this -> objetivo;
+        return $this->objetivo;
     }
     
      //SETS
         
     Public Function SetObjetivo($O){
-        $this -> objetivo = $O;
+        $this->objetivo = $O;
     }
         
 }

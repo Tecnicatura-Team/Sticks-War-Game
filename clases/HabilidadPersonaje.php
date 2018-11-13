@@ -9,18 +9,18 @@ class HabilidadPersonaje extends Habilidad{
     
     public function __construct($N, $DIco, $DImg, $Des, $E) {
         parent::__construct($N, $DIco, $DImg, $Des);
-        $this -> Efectos = $E;
+        $this->Efectos = $E;
     }
     
     // GETS
     
     Public Function GetEfectos(){
-        Return $this -> Efectos;
+        return $this->Efectos;
     }
     
     //SETS
     
     Public Function SetEfectos($E){
-        $this -> Efectos = $E;
+        $this->Efectos = $E;
     }
 }

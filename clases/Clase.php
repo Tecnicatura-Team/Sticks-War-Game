@@ -14,56 +14,56 @@ class Clase extends EstadisticasBasicas{
     
     public function __construct( $V, $P, $E, $C, $R, $ID, $N, $D01, $D02, $H){
         parent::__construct($V, $P, $E, $C, $R);
-        $this -> ClaseID = $ID;
-        $this -> Nombre = $N;
-        $this -> DirIcono01 = $D01;
-        $this -> DirIcono02 = $D02;
-        $this -> Habilidades = $H;
+        $this->ClaseID = $ID;
+        $this->Nombre = $N;
+        $this->DirIcono01 = $D01;
+        $this->DirIcono02 = $D02;
+        $this->Habilidades = $H;
 
     }
     
     // GETS
     
     Public Function GetClaseID(){
-        Return $this -> ClaseID;
+        return $this->ClaseID;
     }
     
     Public Function GetNombre(){
-        Return $this -> nombre;
+        return $this->Nombre;
     }
     
     Public Function GetDirIcono01(){
-        Return $this -> DirIcono01;
+        return $this->DirIcono01;
     }
     
     Public Function GetDirIcono02(){
-        Return $this -> DirIcono02;
+        return $this->DirIcono02;
     }
     
     Public Function GetHabilidades(){
-        Return $this -> Habilidades;
+        return $this->Habilidades;
     }
     
     //SETS
         
     Public Function SetClaseID($ID){
-        $this -> ClaseID = $ID;
+        $this->ClaseID = $ID;
     }
     
     Public Function SetNombre($N){
-        $this -> Nombre = $N;
+        $this->Nombre = $N;
     }
     
     Public Function SetDirIcono01($D01){
-        $this -> DirIcono01 = $D01;
+        $this->DirIcono01 = $D01;
     }
     
     Public Function SetDirIcono02($D02){
-        $this -> DirIcono02 = $D02;
+        $this->DirIcono02 = $D02;
     }
     
     Public Function SetHabilidades($H){
-        $this -> Habilidades = $H;
+        $this->Habilidades = $H;
     }
     
 }
