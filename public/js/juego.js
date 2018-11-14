@@ -41,15 +41,7 @@ function mostrarhabilidad(elemento, img, habilidad) {
     cargarPjJuego(elemento, img)
         // showdiv(event, desc)
 
-    var descripciones = [
-        "Causa entre 80 - 180 de daño a un enemigo en la posicion ( 1 - 2 ) pero se disminuye 5% de precision y 10% de daño a si misma (acumulable hasta 6 veces)",
-        "Descripción de la habilidad 2",
-        "Descripción de la habilidad 3",
-        "Descripción de la habilidad 4"
-    ]
-    verDesc('descHabilidad', descripciones[$(habilidad).attr("id")[4] - 1])
 
-    // console.log($(habilidad).attr("id"))
 }
 
 //muestra img de turno

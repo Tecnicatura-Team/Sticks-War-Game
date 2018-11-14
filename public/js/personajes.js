@@ -506,6 +506,7 @@ function Cargando() {
             "<input class='cancelar' type='button' value='Cancelar' onclick='ocultar()'>" +
             "</div>"
 
+        ajax("./Controlador/GuardarPosicionesPJ.php", { Jugador1: { posicionPJ1: elemento["posicionPJ1"], posicionPJ2: elemento["posicionPJ2"], posicionPJ3: elemento["posicionPJ3"], objeto1: elemento["objeto1"], objeto2: elemento["objeto2"], objeto3: elemento["objeto3"] } }, "guardarposicionespj")
 
         $("footer").before(contenido)
         $("#Eleccion").fadeOut(500)

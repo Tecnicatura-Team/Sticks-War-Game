@@ -1,7 +1,7 @@
 <?php
 
 include_once 'EstadisticasBasicas.php';
-include_once 'Habilidad.php';
+// include_once 'Habilidad.php';
 
 class Clase extends EstadisticasBasicas{
     private $ClaseID;

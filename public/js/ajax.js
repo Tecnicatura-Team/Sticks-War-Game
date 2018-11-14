@@ -57,7 +57,11 @@ function ajax(archivo, datos, evento) {
                     case "obtenerobjetos":
                         socket.emit("obtenerobjeto", eval("(" + data + ")"))
                             // console.log(eval("(" + data + ")"))
-                        console.log("ajax")
+                            // console.log("ajax")
+                        break;
+                    case "guardarposicionespj":
+
+                        console.log(eval("(" + data + ")"))
                         break;
                     default:
                         console.log("Error en la funcion ajax.js")

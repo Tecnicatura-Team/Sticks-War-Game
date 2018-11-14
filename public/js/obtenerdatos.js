@@ -71,7 +71,7 @@ function obtenerObjetos() {
 
 
         // console.log(data["objeto"])
-        console.log("obtenerobjetos obtenerdatosjs")
+        // console.log("obtenerobjetos obtenerdatosjs")
 
     })
 

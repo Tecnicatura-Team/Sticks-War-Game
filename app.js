@@ -57,6 +57,6 @@ io.sockets.on("connection", function(socket) {
     socket.on("obtenerobjeto", function(data) {
         io.sockets.emit("obtenerobjeto" + data["usuario"].trim(), data)
             // alert("socket")
-        console.log("app")
+            // console.log("app")
     })
 })

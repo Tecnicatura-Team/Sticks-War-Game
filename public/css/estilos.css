@@ -670,14 +670,14 @@ table {
 }
 
 .imgcarga {
-    width: 300px;
-    height: 300px;
+    width: 600px;
+    height: 350px;
     display: inline-block;
-    background: url('../img/descarga.jpg') no-repeat 0 0;
-    background-size: 300px 300px;
+    background: url('../img/carga.gif') no-repeat 0 0;
+    background-size: 600px 350px;
     display: block;
     margin: auto;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .versus {
