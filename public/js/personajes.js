@@ -13,12 +13,6 @@ var posicion
 obtenerHabilidades()
 obtenerObjetos()
 
-// socket.on("inicioPartida" + $(".close").html().trim(), function(data) {
-//     console.log("inició partida: ")
-// })
-socket.on("partidaIniciada" + $(".close").html().trim(), function(data) {
-    console.log("inició partida: ")
-})
 
 $(document).ready(
     selectClase()
@@ -528,3 +522,11 @@ function Cargando() {
 
 
 }
+
+socket.on("partidaIniciada" + $(".close").html().trim(), function(data) {
+
+    ajax("./Controlador/DatosOponente.php", { "datos": { "usuario": data["usuario"], "usuario2": { "usuario": data["usuario2"]["usuario"], "posiciones": data["usuario2"]["posiciones"] } } }, "datosoponente")
+
+
+    // console.log("")
+})

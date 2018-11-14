@@ -66,12 +66,12 @@ function ajax(archivo, datos, evento) {
 
                             socket.emit("partidaIniciada", eval("(" + data + ")"))
                         }
-                        //  else {
-                        //     console.log("'" + resp["usuario"] + "'")
 
-
-                        // }
-                        // alert(eval("(" + data + ")"))
+                        break;
+                    case "datosoponente":
+                        var resp = eval("(" + data + ")")
+                        socket.emit("datosoponente", { "usuario": resp["usuario"], "usuario2": resp["usuario2"], "posiciones": { posicionPJ1: elemento["posicionPJ1"], posicionPJ2: elemento["posicionPJ2"], posicionPJ3: elemento["posicionPJ3"], objeto1: elemento["objeto1"], objeto2: elemento["objeto2"], objeto3: elemento["objeto3"] } })
+                            // console.log()
                         break;
                     case "cancelarbusqueda":
                         // console.log(data)

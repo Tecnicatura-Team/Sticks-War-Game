@@ -61,11 +61,15 @@ io.sockets.on("connection", function(socket) {
     })
 
     socket.on("partidaIniciada", function(data) {
-        console.log("encontro: '" + data["usuario"] + "'")
+        // console.log("encontro: '" + data["usuario"] + "'")
         io.sockets.emit("partidaIniciada" + data["usuario"], data)
 
     })
 
-
+    socket.on("datosoponente", function(data) {
+        // var datos = eval("(" + data + ")")
+        console.log("datos me: " + data["usuario"])
+        console.log("datos oponente: " + data["usuario2"])
+    })
 
 })
