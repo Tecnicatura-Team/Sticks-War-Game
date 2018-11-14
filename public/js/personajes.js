@@ -169,6 +169,9 @@ function ocultar() {
         }
 
     })
+
+    ajax("./Controlador/CancelarBusqueda.php", true, "cancelarbusqueda")
+
     $(".cuerpoCarga").remove()
     $("#Personajes").remove()
     $("#Asignar").remove()

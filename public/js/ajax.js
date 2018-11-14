@@ -61,7 +61,10 @@ function ajax(archivo, datos, evento) {
                         break;
                     case "guardarposicionespj":
 
-                        console.log(eval("(" + data + ")"))
+                        alert(eval("(" + data + ")"))
+                        break;
+                    case "cancelarbusqueda":
+                        // console.log(data)
                         break;
                     default:
                         console.log("Error en la funcion ajax.js")

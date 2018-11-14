@@ -6,13 +6,16 @@
         private $columnasafectadas;
         public function getResult(){
             return $this->resultado;
+            //devuelve el resultado de la consulta
         }
         public function getError(){
             return $this->error;
         }
         public function getColumnAffected(){
             return $this->columnasafectadas;
+            //devuelve el numero de columnas afectadas
         }
+        //ejecuta la consulta
         public function query($sql,$valores){
             // creando la conexion
             $modelo=new Conexion();
