@@ -13,6 +13,12 @@ var posicion
 obtenerHabilidades()
 obtenerObjetos()
 
+// socket.on("inicioPartida" + $(".close").html().trim(), function(data) {
+//     console.log("inició partida: ")
+// })
+socket.on("partidaIniciada" + $(".close").html().trim(), function(data) {
+    console.log("inició partida: ")
+})
 
 $(document).ready(
     selectClase()
@@ -171,6 +177,8 @@ function ocultar() {
     })
 
     ajax("./Controlador/CancelarBusqueda.php", true, "cancelarbusqueda")
+
+
 
     $(".cuerpoCarga").remove()
     $("#Personajes").remove()

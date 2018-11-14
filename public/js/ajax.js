@@ -60,8 +60,18 @@ function ajax(archivo, datos, evento) {
                             // console.log("ajax")
                         break;
                     case "guardarposicionespj":
+                        var resp = eval("(" + data + ")")
+                        if (resp["res"]) {
+                            console.log("encontro partida")
 
-                        alert(eval("(" + data + ")"))
+                            socket.emit("partidaIniciada", eval("(" + data + ")"))
+                        }
+                        //  else {
+                        //     console.log("'" + resp["usuario"] + "'")
+
+
+                        // }
+                        // alert(eval("(" + data + ")"))
                         break;
                     case "cancelarbusqueda":
                         // console.log(data)

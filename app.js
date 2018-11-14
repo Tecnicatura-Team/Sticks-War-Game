@@ -59,4 +59,13 @@ io.sockets.on("connection", function(socket) {
             // alert("socket")
             // console.log("app")
     })
+
+    socket.on("partidaIniciada", function(data) {
+        console.log("encontro: '" + data["usuario"] + "'")
+        io.sockets.emit("partidaIniciada" + data["usuario"], data)
+
+    })
+
+
+
 })
