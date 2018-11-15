@@ -28,9 +28,10 @@ $user2=$consultas->getResult();
 if($consultas->getColumnAffected()>0){
 
     $_SESSION["Jugador2"]=$user2[0];    
-    $idusuario1=(INTEGER)$_SESSION["usuario"]["id"];
-    $idusuario2=(INTEGER)$user2[0]["userid"];
-    $sql="insert into partida(jugador1id,jugador2id) values($idusuario1,$idusuario2)";
+    // $idusuario1=(INTEGER)$_SESSION["usuario"]["id"];
+    // $idusuario2=(INTEGER)$user2[0]["userid"];
+    // $sql="insert into partida(jugador1id,jugador2id) values($idusuario1,$idusuario2)";
+    $sql="insert into partida(jugador1id,jugador2id) values(".$_SESSION["usuario"]["id"].",".$user2[0]["userid"].")";
     $consultas->query($sql,array());
     // echo $_SESSION["usuario"]["id"];
     // echo $user2[0]["userid"];
