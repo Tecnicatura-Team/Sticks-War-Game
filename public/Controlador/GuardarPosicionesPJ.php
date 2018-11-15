@@ -6,7 +6,7 @@ session_start();
 $consultas= new Consultas();
 
 
-$_SESSION["PosicionesJugador1"]=$_POST["Jugador1"];
+// $_SESSION["PosicionesJugador1"]=$_POST["Jugador1"];
 
 //cambia el estado del usuario a "buscando partida"
 $sql="update usuario set estado='buscando partida' where usernombre=?";
@@ -50,8 +50,9 @@ if($consultas->getColumnAffected()>0){
     3,".$_SESSION["usuario"]["id"].",(select vidamaxima from clase where clasenombre='".$_POST["Jugador1"]["posicionPJ3"]."'))";
 
 //   echo $sql;
-
     $consultas->query($sql, array());
+
+
 
     //cambia el estado a "en partida" del jugador 2 (contrincante) con el cual se realizara la partida
     $sql="update usuario set estado='en partida' where usernombre=?";
