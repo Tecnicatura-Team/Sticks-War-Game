@@ -60,13 +60,13 @@ function ajax(archivo, datos, evento) {
                             // console.log("ajax")
                         break;
                     case "guardarposicionespj":
-                        var resp = eval("(" + data + ")")
-                        if (resp["res"]) {
+                        // var resp = eval("(" + data + ")")
+                        // if (resp["res"]) {
 
 
-                            socket.emit("partidaIniciada", resp)
-                        }
-
+                        //     socket.emit("partidaIniciada", resp)
+                        // }
+                        console.log(data)
                         break;
                     case "datosoponente":
 

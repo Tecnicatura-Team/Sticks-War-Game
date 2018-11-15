@@ -29,7 +29,12 @@ if($consultas->getColumnAffected()>0){
 
     $_SESSION["Jugador2"]=$user2[0];    
     
+    $sql="insert into partida (jugador1id,jugador2id) values("+$_SESSION["usuario"]["id"]+","+$user2[0]["userid"]+" ) ";
+    $consultas->query($sql,array());
 
+    echo $_SESSION["usuario"]["id"];
+    echo $user2[0]["userid"];
+    
     //cambia el estado a "en partida" del jugador 2 (contrincante) con el cual se realizara la partida
     $sql="update usuario set estado='en partida' where usernombre=?";
     $attr=array($user2[0]["usernombre"]);
@@ -44,7 +49,7 @@ if($consultas->getColumnAffected()>0){
     //envía al usuario contrincante el aviso de que están en partida
     $respuesta=array("usuario"=>$user2[0]["usernombre"], "res"=>true, "usuario2"=>$_SESSION["usuario"]["nombre"]);
     // echo $_SESSION["usuario"]["nombre"];
-    echo json_encode($respuesta);
+    // echo json_encode($respuesta);
 }else{
 //si no encuentra a ningún usuario en estado "buscando partida"
 
