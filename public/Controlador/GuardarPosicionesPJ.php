@@ -27,7 +27,7 @@ $user2=$consultas->getResult();
 //si encuentra a 1 usuario o más en estado "buscando partida"
 if($consultas->getColumnAffected()>0){
 
-    $_SESSION["Jugador2"]["usuario"]=$user2[0];    
+    $_SESSION["Jugador2"]=$user2[0];    
     
 
     //cambia el estado a "en partida" del jugador 2 (contrincante) con el cual se realizara la partida
@@ -42,8 +42,8 @@ if($consultas->getColumnAffected()>0){
     $_SESSION["usuario"]["estado"]="en partida";
 
     //envía al usuario contrincante el aviso de que están en partida
-    $respuesta=array("usuario"=>$user2[0]["usernombre"], "res"=>true, "usuario2"=>array("usuario"=>$_SESSION["usuario"]["nombre"], "posiciones"=>$_POST["Jugador1"]));
-
+    $respuesta=array("usuario"=>$user2[0]["usernombre"], "res"=>true, "usuario2"=>$_SESSION["usuario"]["nombre"]);
+    // echo $_SESSION["usuario"]["nombre"];
     echo json_encode($respuesta);
 }else{
 //si no encuentra a ningún usuario en estado "buscando partida"

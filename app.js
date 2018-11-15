@@ -66,10 +66,10 @@ io.sockets.on("connection", function(socket) {
 
     })
 
-    socket.on("datosoponente", function(data) {
-        // var datos = eval("(" + data + ")")
-        console.log("datos me: " + data["usuario"])
-        console.log("datos oponente: " + data["usuario2"])
-    })
+    // socket.on("datosoponente", function(data) {
+    //     // var datos = eval("(" + data + ")")
+    //     console.log("datos me: " + data["usuario"])
+    //     console.log("datos oponente: " + data["usuario2"])
+    // })
 
 })

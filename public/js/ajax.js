@@ -62,16 +62,18 @@ function ajax(archivo, datos, evento) {
                     case "guardarposicionespj":
                         var resp = eval("(" + data + ")")
                         if (resp["res"]) {
-                            console.log("encontro partida")
 
-                            socket.emit("partidaIniciada", eval("(" + data + ")"))
+
+                            socket.emit("partidaIniciada", resp)
                         }
 
                         break;
                     case "datosoponente":
-                        var resp = eval("(" + data + ")")
-                        socket.emit("datosoponente", { "usuario": resp["usuario"], "usuario2": resp["usuario2"], "posiciones": { posicionPJ1: elemento["posicionPJ1"], posicionPJ2: elemento["posicionPJ2"], posicionPJ3: elemento["posicionPJ3"], objeto1: elemento["objeto1"], objeto2: elemento["objeto2"], objeto3: elemento["objeto3"] } })
-                            // console.log()
+
+                        // console.log(data)
+                        // var resp = eval("(" + data + ")")
+                        // socket.emit("datosoponente", { "usuario": resp["usuario"], "usuario2": resp["usuario2"], "posiciones": { posicionPJ1: elemento["posicionPJ1"], posicionPJ2: elemento["posicionPJ2"], posicionPJ3: elemento["posicionPJ3"], objeto1: elemento["objeto1"], objeto2: elemento["objeto2"], objeto3: elemento["objeto3"] } })
+                        // console.log()
                         break;
                     case "cancelarbusqueda":
                         // console.log(data)
