@@ -67,6 +67,7 @@ function ajax(archivo, datos, evento) {
                             socket.emit("partidaIniciada", resp)
                         }
                         // console.log(data)
+
                         break;
                     case "datosoponente":
 

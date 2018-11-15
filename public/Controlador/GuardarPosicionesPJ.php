@@ -31,11 +31,28 @@ if($consultas->getColumnAffected()>0){
     // $idusuario1=(INTEGER)$_SESSION["usuario"]["id"];
     // $idusuario2=(INTEGER)$user2[0]["userid"];
     // $sql="insert into partida(jugador1id,jugador2id) values($idusuario1,$idusuario2)";
+
     $sql="insert into partida(jugador1id,jugador2id) values(".$_SESSION["usuario"]["id"].",".$user2[0]["userid"].")";
     $consultas->query($sql,array());
+
     // echo $_SESSION["usuario"]["id"];
     // echo $user2[0]["userid"];
     
+    $sql="insert into personaje (personajeclase,objetoid,personajeposicion,personajepertenece,vidaactual) 
+    values
+    ((select claseid from clase where clasenombre='".$_POST["Jugador1"]["posicionPJ1"]."'),".$_POST["Jugador1"]["objeto1"].",
+    1,".$_SESSION["usuario"]["id"].",(select vidamaxima from clase where clasenombre='".$_POST["Jugador1"]["posicionPJ1"]."')),
+
+    ((select claseid from clase where clasenombre='".$_POST["Jugador1"]["posicionPJ2"]."'),".$_POST["Jugador1"]["objeto2"].",
+    2,".$_SESSION["usuario"]["id"].",(select vidamaxima from clase where clasenombre='".$_POST["Jugador1"]["posicionPJ2"]."')),
+
+    ((select claseid from clase where clasenombre='".$_POST["Jugador1"]["posicionPJ3"]."'),".$_POST["Jugador1"]["objeto3"].",
+    3,".$_SESSION["usuario"]["id"].",(select vidamaxima from clase where clasenombre='".$_POST["Jugador1"]["posicionPJ3"]."'))";
+
+//   echo $sql;
+
+    $consultas->query($sql, array());
+
     //cambia el estado a "en partida" del jugador 2 (contrincante) con el cual se realizara la partida
     $sql="update usuario set estado='en partida' where usernombre=?";
     $attr=array($user2[0]["usernombre"]);
