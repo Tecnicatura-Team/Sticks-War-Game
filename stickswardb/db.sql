@@ -1,3 +1,5 @@
+create database stickswardb;
+use stickswardb;
 create table usuario( 
 userid integer auto_increment primary key,
 usernivel integer not null,

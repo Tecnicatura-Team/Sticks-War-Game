@@ -94,7 +94,7 @@ class Funciones{
     }
 
     function cargarHabilidadesPersonaje($idclase){
-
+        $consultas= new Consultas();
         $sql="select habilidadid from habilidad where habilidadclase=?";
         $consultas->query($sql,array($idclase));
         $resultado=$consultas->getResult();
@@ -108,7 +108,7 @@ class Funciones{
         return $habilidades;
     }
         function cargarPersonajeAliado($idpersonaje){
-
+            $consultas= new Consultas();
             $sql="select c.claseid, c.direcimagen, p.personajeposicion from clase c, personaje p where p.personajeclase=c.claseid and p.personajeid=?";
             $consultas->query($sql,array($idpersonaje));            
             $resultado1=$consultas->getResult();
@@ -126,7 +126,7 @@ class Funciones{
         }
 
         function cargarPersonajeEnemigo($idpersonaje){
-
+            $consultas= new Consultas();
             $sql="select c.claseid, c.direcimagen, p.personajeposicion from clase c, personaje p where p.personajeclase=c.claseid and p.personajeid=?";
             $consultas->query($sql,array($idpersonaje));            
             $resultado1=$consultas->getResult();
@@ -146,6 +146,7 @@ class Funciones{
 
         function cargarJugador($usuarioid){
             //id, nombre ,level, experiencia, personajesA
+            $consultas= new Consultas();
             $sql="select userid, usernivel, userexp, usernombre from usuario where userid=?";
             $consultas->query($sql,array($usuarioid));            
             $resultado1=$consultas->getResult();
@@ -165,6 +166,7 @@ class Funciones{
 
 
         function cargarContrincante($usuarioid){
+            $consultas= new Consultas();
             //id, nombre ,level, experiencia, personajesA
             $sql="select userid, usernivel, usernombre from usuario where userid=?";
             $consultas->query($sql,array($usuarioid));            
@@ -184,18 +186,18 @@ class Funciones{
         }
 
         function cargarPartida($usuarioid){
-
-        $sql="select partidaid as partidaid, jugador1id as jugador, jugador2id as contrincante from partida where jugador1id=? and ganadorid is null 
+            $consultas= new Consultas();
+            $sql="select partidaid as partidaid, jugador1id as jugador, jugador2id as contrincante from partida where jugador1id=? and ganadorid is null 
             union
             select partidaid, jugador2id, jugador1id from partida where jugador2id=? and ganadorid is null"; 
 
-         $consultas->query($sql,array($usuarioid,$usuarioid));            
-         $resultado=$consultas->getResult();
+            $consultas->query($sql,array($usuarioid,$usuarioid));            
+            $resultado=$consultas->getResult();
 
                 
-        $partida= new Partida($resultado[0]["partidaid"],$this->cargarJugador($resultado[0]["jugador"]), $this->cargarContrincante($resultado[0]["contrincante"]));
+            $partida= new Partida($resultado[0]["partidaid"],$this->cargarJugador($resultado[0]["jugador"]), $this->cargarContrincante($resultado[0]["contrincante"]));
         
-        return $partida;
+            return $partida;
         }
 
 
