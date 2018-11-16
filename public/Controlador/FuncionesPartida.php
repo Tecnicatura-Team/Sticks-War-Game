@@ -195,7 +195,7 @@ class Funciones{
                 
         $partida= new Partida($resultado[0]["partidaid"],$this->cargarJugador($resultado[0]["jugador"]), $this->cargarContrincante($resultado[0]["contrincante"]));
         
-        return $partida
+        return $partida;
         }
 
 
