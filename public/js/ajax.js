@@ -23,7 +23,7 @@ function ajax(archivo, datos, evento) {
                 // console.log(data)
                 switch (evento) {
                     case "login":
-                        // console.log("ajax: " + data)
+                        console.log("ajax: " + data)
                         socket.emit("logueo", eval("(" + data + ")"))
                         break;
                     case "registro":

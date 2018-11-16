@@ -8,7 +8,7 @@
     // echo $_POST["nombre"];
     // echo $_POST["contraseña"];
     // echo json_encode("hola");
-    $sql="select userid,usernombre,userpass,estado from usuario where usernombre=? and userpass=?";
+    $sql="select * from usuario where usernombre=? and userpass=?";
     $attr=array($_POST["nombre"],$_POST["contrasena"]);
     $consulta->query($sql,$attr);
     $respuesta=array();
