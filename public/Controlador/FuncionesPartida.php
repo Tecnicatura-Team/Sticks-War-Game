@@ -79,14 +79,14 @@ class Funciones{
             $consultas->query($sql,array($idhabilidad));
             $resultado=$consultas->getResult();
 
-            $habilidad= new Defensiva($resultado[0]["habilidadnombre"],$resultado[0]["direcicono"],$resultado[0]["direcimagen"],$resultado[0]["descripcion"],cargarEfectos($idhabilidad));
+            $habilidad= new Defensiva($resultado[0]["habilidadnombre"],$resultado[0]["direcicono"],$resultado[0]["direcimagen"],$resultado[0]["descripcion"],$this->cargarEfectos($idhabilidad));
         }else{
 
             $sql="select habilidadid, habilidadnombre, direcicono,direcimagen,descripcion from habilidad where habilidadid=?";
             $consultas->query($sql,array($idhabilidad));
             $resultado=$consultas->getResult();
 
-            $habilidad= new Ofensiva($resultado[0]["habilidadnombre"],$resultado[0]["direcicono"],$resultado[0]["direcimagen"],$resultado[0]["descripcion"],cargarEfectos($idhabilidad), cargarObjetivosHabilidad($idhabilidad));
+            $habilidad= new Ofensiva($resultado[0]["habilidadnombre"],$resultado[0]["direcicono"],$resultado[0]["direcimagen"],$resultado[0]["descripcion"],$this->cargarEfectos($idhabilidad), $this->cargarObjetivosHabilidad($idhabilidad));
                
         }  
         return $habilidad;     
@@ -102,7 +102,7 @@ class Funciones{
         $habilidades=array();
 
         for($i=0; $i<count($resultado); $i++){
-            $habilidades[]= cargarHabilidad($resultado[$i]["habilidadid"]); 
+            $habilidades[]= $this->cargarHabilidad($resultado[$i]["habilidadid"]); 
         
         }
         return $habilidades;
@@ -120,7 +120,7 @@ class Funciones{
                 // (VidaBase, Precision, Evasion, Critico, Resistencia, PersonajeID, VidaActual, DirImagen, Posicion, ModDaño, Habilidades)
             $personaje=new PersonajeAliado($resultado2[0]["vidamaxima"], $resultado2[0]["precisionn"], $resultado2[0]["provevasion"],
              $resultado2[0]["provcritico"],$resultado2[0]["reddamage"], $resultado2[0]["personajeid"], $resultado2[0]["vidamaxima"],
-              $resultado1[0]["direcimagen"],$resultado1[0]["personajeposicion"], $resultado2[0]["moddamage"], cargarHabilidadesPersonaje($resultado1[0]["claseid"]));
+              $resultado1[0]["direcimagen"],$resultado1[0]["personajeposicion"], $resultado2[0]["moddamage"], $this->cargarHabilidadesPersonaje($resultado1[0]["claseid"]));
 
               return $personaje;
         }
@@ -156,9 +156,9 @@ class Funciones{
 
             $jugador=new Jugador($resultado1[0]["userid"],$resultado1[0]["usernombre"],$resultado1[0]["usernivel"],
             $resultado1[0]["userexp"],array(
-                cargarPersonajeAliado($resultado2[0]["personajeid"]),
-                cargarPersonajeAliado($resultado2[1]["personajeid"]),
-                cargarPersonajeAliado($resultado2[2]["personajeid"])
+                $this->cargarPersonajeAliado($resultado2[0]["personajeid"]),
+                $this->cargarPersonajeAliado($resultado2[1]["personajeid"]),
+                $this->cargarPersonajeAliado($resultado2[2]["personajeid"])
             ));
            return $jugador;
         }
@@ -176,9 +176,9 @@ class Funciones{
 
             $contrincante=new Contrincante($resultado1[0]["userid"],$resultado1[0]["usernombre"],$resultado1[0]["usernivel"],
             array(
-                cargarPersonajeEnemigo($resultado2[0]["personajeid"]),
-                cargarPersonajeEnemigo($resultado2[1]["personajeid"]),
-                cargarPersonajeEnemigo($resultado2[2]["personajeid"])
+                $this->cargarPersonajeEnemigo($resultado2[0]["personajeid"]),
+                $this->cargarPersonajeEnemigo($resultado2[1]["personajeid"]),
+                $this->cargarPersonajeEnemigo($resultado2[2]["personajeid"])
             ));
            return $contrincante;
         }
@@ -193,8 +193,9 @@ class Funciones{
          $resultado=$consultas->getResult();
 
                 
-        $partida= new Partida($resultado[0]["partidaid"],cargarJugador($resultado[0]["jugador"]), cargarContrincante($resultado[0]["contrincante"]));
-
+        $partida= new Partida($resultado[0]["partidaid"],$this->cargarJugador($resultado[0]["jugador"]), $this->cargarContrincante($resultado[0]["contrincante"]));
+        
+        return $partida
         }
 
 
