@@ -2,29 +2,19 @@
 include_once 'Personaje.php';
 include_once 'HabilidadPersonaje.php';
 
-class PersonajeAliado extends Personaje{
-    private $PersonajeID;    
+class PersonajeAliado extends Personaje{  
     private $ObjetoID;
     private $Habilidades;
     
     // CONSTRUCTOR
     
-    public function __construct($ID, $D, $VM, $VA, $P, $E, $C, $R, $MD, $PID, $OID, $H) {
-        parent::__construct($ID, $D, $VM, $VA, $P, $E, $C, $R, $MD);
-        $this->PersonajeID = $PID;
+    public function __construct($VB, $P, $E, $C, $R, $PID, $VA, $D, $MD, $OID, $H) {
+        parent::__construct($VB, $P, $E, $C, $R, $PID, $VA, $D, $MD);
         $this->ObjetoID = $OID;
         $this->Habilidades = $H;
     }
     
     // GETS
-    
-    Public Function GetPersonajeID(){
-        return $this->PersonajeID;
-    }
-    
-    Public Function GetClaseID(){
-        return $this->ClaseID;
-    }
     
      Public Function GetObjetoID(){
         return $this->ObjetoID;
@@ -35,14 +25,6 @@ class PersonajeAliado extends Personaje{
     }
     
      //SETS
-    
-     Public Function SetPersonajeID($ID){
-        $this->PersonajeID = $ID;
-    }
-        
-    Public Function SetClaseID($CID){
-        $this->ClaseID = $CID;
-    }
     
     Public Function SetObjetoID($OID){
         $this->ObjetoID = $OID;
