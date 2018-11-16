@@ -7,8 +7,8 @@ class PersonajeAliado extends Personaje{
     
     // CONSTRUCTOR
     
-    public function __construct($VB, $P, $E, $C, $R, $PID, $VA, $D, $MD, $H) {
-        parent::__construct($VB, $P, $E, $C, $R, $PID, $VA, $D, $MD);
+    public function __construct($VB, $P, $E, $C, $R, $PID, $VA, $D, $Pos, $MD, $H) {
+        parent::__construct($VB, $P, $E, $C, $R, $PID, $VA, $D, $Pos, $MD);
         $this->Habilidades = $H;
     }
     

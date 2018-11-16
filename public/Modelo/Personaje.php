@@ -5,14 +5,16 @@ class Personaje extends EstadisticasBasicas{
     private $PersonajeID;    
     private $VidaActual;
     private $DirImagen;
+    private $Posicion
     private $ModDaño;
     
     // CONSTRUCTOR
     
-    public function __construct($VB, $P, $E, $C, $R, $PID, $VA, $D, $MD){
+    public function __construct($VB, $P, $E, $C, $R, $PID, $VA, $D, $Pos, $MD){
         parent::__construct($VB, $P, $E, $C, $R);
         $this->VidaActual = $VA;
         $this->DirImagen = $D;
+        $this->Posicion = $Pos
         $this->ModDaño = $MD;
     }
     
@@ -28,6 +30,10 @@ class Personaje extends EstadisticasBasicas{
     
     Public Function GetDirImagen(){
         return $this->DirImagen;
+    }
+
+    Public Function GetPosicion(){
+        return $this->Posicion;
     }
      
     Public Function GetModDaño(){
@@ -46,6 +52,10 @@ class Personaje extends EstadisticasBasicas{
     
     Public Function SetDirImagen($D){
         $this->DirImagen = $D;
+    }
+
+    Public Function SetPosicion($Pos){
+        $this->Posicion = $Pos;
     }
     
     Public Function SetModDaño($MD){

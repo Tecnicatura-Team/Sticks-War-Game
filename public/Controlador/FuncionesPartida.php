@@ -1,11 +1,14 @@
 <?php
 INCLUDE_ONCE "../Modelo/class.consultas.php";
-INCLUDE_ONCE "../Modelo/Usuario.php";
+INCLUDE_ONCE "../Modelo/Jugador.php";
+INCLUDE_ONCE "../Modelo/Contrincante.php";
 INCLUDE_ONCE "../Modelo/Partida.php";
 INCLUDE_ONCE "../Modelo/DañoCuracion.php";
 INCLUDE_ONCE "../Modelo/BuffDebuff.php";
 INCLUDE_ONCE "../Modelo/Ofensiva.php";
 INCLUDE_ONCE "../Modelo/Defensiva.php";
+INCLUDE_ONCE "../Modelo/PersonajeAliado.php";
+INCLUDE_ONCE "../Modelo/PersonajeEnemigo.php";
 
 class Funciones{
     
@@ -106,7 +109,7 @@ class Funciones{
     }
         function cargarPersonajeAliado($idpersonaje){
 
-            $sql="select c.claseid, c.direcimagen from clase c, personaje p where p.personajeclase=c.claseid and p.personajeid=?";
+            $sql="select c.claseid, c.direcimagen, p.personajeposicion from clase c, personaje p where p.personajeclase=c.claseid and p.personajeid=?";
             $consultas->query($sql,array($idpersonaje));            
             $resultado1=$consultas->getResult();
 
@@ -114,17 +117,17 @@ class Funciones{
             $consultas->query($sql,array($idpersonaje));            
             $resultado2=$consultas->getResult();
     
-                // (VidaBase, Precision, Evasion, Critico, Resistencia, PersonajeID, VidaActual, DirImagen, ModDaño, Habilidades)
+                // (VidaBase, Precision, Evasion, Critico, Resistencia, PersonajeID, VidaActual, DirImagen, Posicion, ModDaño, Habilidades)
             $personaje=new PersonajeAliado($resultado2[0]["vidamaxima"], $resultado2[0]["precisionn"], $resultado2[0]["provevasion"],
              $resultado2[0]["provcritico"],$resultado2[0]["reddamage"], $resultado2[0]["personajeid"], $resultado2[0]["vidamaxima"],
-              $resultado1[0]["direcimagen"],$resultado2[0]["moddamage"], cargarHabilidadesPersonaje($resultado1[0]["claseid"]));
+              $resultado1[0]["direcimagen"],$resultado1[0]["personajeposicion"], $resultado2[0]["moddamage"], cargarHabilidadesPersonaje($resultado1[0]["claseid"]));
 
               return $personaje;
         }
 
         function cargarPersonajeEnemigo($idpersonaje){
 
-            $sql="select c.claseid, c.direcimagen from clase c, personaje p where p.personajeclase=c.claseid and p.personajeid=?";
+            $sql="select c.claseid, c.direcimagen, p.personajeposicion from clase c, personaje p where p.personajeclase=c.claseid and p.personajeid=?";
             $consultas->query($sql,array($idpersonaje));            
             $resultado1=$consultas->getResult();
 
@@ -135,7 +138,7 @@ class Funciones{
                 // (VidaBase, Precision, Evasion, Critico, Resistencia, PersonajeID, VidaActual, DirImagen, ModDaño, Habilidades)
             $personaje=new PersonajeEnemigo($resultado2[0]["vidamaxima"], $resultado2[0]["precisionn"], $resultado2[0]["provevasion"],
              $resultado2[0]["provcritico"],$resultado2[0]["reddamage"], $resultado2[0]["personajeid"], $resultado2[0]["vidamaxima"],
-              $resultado1[0]["direcimagen"],$resultado2[0]["moddamage"]);
+              $resultado1[0]["direcimagen"],$resultado1[0]["personajeposicion"], $resultado2[0]["moddamage"]);
 
               return $personaje;
         }

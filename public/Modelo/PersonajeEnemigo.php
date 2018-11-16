@@ -6,8 +6,8 @@ class PersonajeEnemigo extends Personaje{
     
      // CONSTRUCTOR
      
-    public function __construct($VB, $P, $E, $C, $R, $VA, $D, $MD, $PID) {
-        parent::__construct($VB, $P, $E, $C, $R, $PID, $VA, $D, $MD);
+    public function __construct($VB, $P, $E, $C, $R, $PID, $VA, $D, $Pos, $MD) {
+        parent::__construct($VB, $P, $E, $C, $R, $PID, $VA, $D, $Pos, $MD);
     }
     
     // GETS
