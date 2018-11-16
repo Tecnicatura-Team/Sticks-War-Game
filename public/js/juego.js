@@ -1,3 +1,27 @@
+var socket = io.connect("http://127.0.0.1:3700")
+
+cargaNombrePartida()
+
+function cargaNombrePartida() {
+
+    ajax("./Controlador/CargarVersusPartida.php", false, "cargarversuspartida")
+
+    socket.on("cargarversuspartida" + $(".close").html().trim(), function(data) {
+        //carga el nombre de los usuarios en la partida
+        $("#v1").html(data["jugador1"])
+        $("#v2").html(data["jugador2"])
+    })
+
+}
+
+
+
+
+
+
+
+
+
 function cargarPjJuego(elemento, img) {
     //es para cargar los personajes en la pagina juego desde al bd y cargarlos en en src de las img
     $("#" + elemento).attr("src", img)

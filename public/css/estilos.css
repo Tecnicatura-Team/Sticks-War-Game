@@ -481,20 +481,20 @@ table {
 
 .THabilidad {
     position: relative;
-    width: 900px;
+    width: 600px;
     height: auto;
     margin: auto;
     margin-top: 30px;
 }
 
 .THabilidad td {
-    width: 300;
+    width: 300px;
     height: auto;
 }
 
 .DHabilidad {
     margin: auto;
-    width: 100%;
+    width: 650px;
     height: 380px;
 }
 
@@ -503,14 +503,15 @@ table {
 }
 
 #atributosAliado {
-    width: 350px;
+    width: 300px;
     height: auto;
 }
 
-#atributosEnemigo {
-    width: 350px;
+
+/* #atributosEnemigo {
+    width: 300px;
     height: auto;
-}
+} */
 
 
 /* barra de habilidades */

@@ -72,4 +72,10 @@ io.sockets.on("connection", function(socket) {
     //     console.log("datos oponente: " + data["usuario2"])
     // })
 
+    socket.on("cargarversuspartida", function(data) {
+        // console.log("encontro: '" + data["usuario"] + "'")
+        io.sockets.emit("cargarversuspartida" + data["jugador1"], data)
+
+    })
+
 })

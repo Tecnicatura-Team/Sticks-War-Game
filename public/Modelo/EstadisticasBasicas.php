@@ -3,14 +3,14 @@
 class EstadisticasBasicas {
 
     private $VidaBase;
-    private $Presicion;
+    private $Precision;
     private $Evasion;
     private $Critico;
     private $Resistencia;
     
     public function __construct($V, $P, $E, $C, $R){
         $this->VidaBase = $V;
-        $this->Presicion = $P;
+        $this->Precision = $P;
         $this->Evasion = $E;
         $this->Critico = $C;
         $this->Resistencia = $R;
@@ -22,8 +22,8 @@ class EstadisticasBasicas {
             return $this->VidaExtra;
         }
         
-        Public Function GetPresicion(){
-            return $this->Presicion;
+        Public Function GetPrecision(){
+            return $this->Precision;
         }
         
         Public Function GetEvasion(){
@@ -44,8 +44,8 @@ class EstadisticasBasicas {
             $this->VidaExtra = $V;
         }
         
-        Public Function SetPresicion($P){
-            $this->Presicion = $P;
+        Public Function SetPrecision($P){
+            $this->Precision = $P;
         }
         
         Public Function SetEvasion($E){

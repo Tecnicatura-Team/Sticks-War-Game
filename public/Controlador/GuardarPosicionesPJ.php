@@ -65,8 +65,10 @@ if($consultas->getColumnAffected()>0){
     $consultas->query($sql,$attr);    
     $_SESSION["usuario"]["estado"]="en partida";
 
+    $_SESSION["jugadorNumero"]=1;
+
     //envía al usuario contrincante el aviso de que están en partida
-    $respuesta=array("usuario"=>$user2[0]["usernombre"], "res"=>true, "usuario2"=>$_SESSION["usuario"]["nombre"]);
+    $respuesta=array("usuario"=>$user2[0]["usernombre"], "res"=>true, "usuario2"=>$_SESSION["usuario"]["nombre"], "jugadorNumero"=>$_SESSION["jugadorNumero"]+1);
     // echo $_SESSION["usuario"]["nombre"];
     echo json_encode($respuesta);
 }else{

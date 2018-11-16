@@ -19,7 +19,9 @@ $user2=$consultas->getResult();
 // print_r($user2[0]);
 
 $_SESSION["Jugador2"]=$user2[0]; 
+$_SESSION["jugadorNumero"]=2;
 
+// echo $_SESSION["jugadorNumero"];
 // echo $user2[0];
 //  $_SESSION["Jugador2"]["PosicionesJugador2"]=$datos["usuario2"]["posiciones"]; 
 // echo json_encode($datos["usuario2"]);

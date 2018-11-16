@@ -63,21 +63,26 @@ function ajax(archivo, datos, evento) {
                         var resp = eval("(" + data + ")")
                         if (resp["res"]) {
 
-
                             socket.emit("partidaIniciada", resp)
+                            window.location.href = "juego.html"
+                                // $(location).attr("href","juego.html")
                         }
                         // console.log(data)
 
                         break;
                     case "datosoponente":
 
-                        // console.log(data)
-                        // var resp = eval("(" + data + ")")
-                        // socket.emit("datosoponente", { "usuario": resp["usuario"], "usuario2": resp["usuario2"], "posiciones": { posicionPJ1: elemento["posicionPJ1"], posicionPJ2: elemento["posicionPJ2"], posicionPJ3: elemento["posicionPJ3"], objeto1: elemento["objeto1"], objeto2: elemento["objeto2"], objeto3: elemento["objeto3"] } })
-                        // console.log()
+                        alert(data)
+                            // $(location).attr("href", "juego.html")
+                            // console.log()
                         break;
                     case "cancelarbusqueda":
                         // console.log(data)
+                        break;
+                    case "cargarversuspartida":
+
+                        socket.emit("cargarversuspartida", eval("(" + data + ")"))
+
                         break;
                     default:
                         console.log("Error en la funcion ajax.js")

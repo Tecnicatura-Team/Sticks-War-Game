@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -26,7 +27,7 @@
             </section>
         </header>
         <div class="versus">
-            <label>Barba </label><label> VS </label><label> Sofelix</label>
+            <label id="v1"></label><label>. / VS \ .</label><label id="v2"></label>
         </div>
         <div class="Juego">
             <table class="pjPartida">
@@ -42,15 +43,15 @@
                     <td><img src="img/Espera.png" id="SelectEnemigoPJ3" alt="espera" width="40px " height="40px "></td>
                 </tr>
                 <tr>
-                    <td><img src="img/StickArquero2.png" id="PJ3" alt="stickpj" width="110px " height="200px "></td>
-                    <td><img src="img/StickSacerdotisa2.png" id="PJ2" alt="stickpj" width="110px " height="200px "></td>
-                    <td><img src="img/StickGuerrero2.png" id="PJ1" alt="stickpj" width="110px " height="200px "></td>
+                    <td><img src="" id="PJ3" alt="stickpj" width="110px " height="200px "></td>
+                    <td><img src="" id="PJ2" alt="stickpj" width="110px " height="200px "></td>
+                    <td><img src="" id="PJ1" alt="stickpj" width="110px " height="200px "></td>
                     <td>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
-                    <td><img src="img/StickPaladin.png " id="EPJ1" alt="stickpj" width="110px " height="200px "></td>
-                    <td><img src="img/StickAmazona.png " id="EPJ2" alt="stickpj" width="110px " height="200px "></td>
-                    <td><img src="img/StickAsesino.png " id="EPJ1" alt="stickpj" width="110px " height="200px "></td>
+                    <td><img src="" id="EPJ1" alt="stickpj" width="110px " height="200px "></td>
+                    <td><img src="" id="EPJ2" alt="stickpj" width="110px " height="200px "></td>
+                    <td><img src="" id="EPJ3" alt="stickpj" width="110px " height="200px "></td>
                 </tr>
                 <tr>
                     <td id="TurnoPJ3">
@@ -96,40 +97,40 @@
                             Estadísticas Aliadas
                         </td>
                         <td></td>
-                        <td>
-                            Estadísticas Enemigas
-                        </td>
+                        <!-- <td>
+                             Estadísticas Enemigas 
+                        </td> -->
                     </tr>
                     <tr>
                         <td rowspan="3">
-                            <div id="AtributosAliado">
-                                <table>
-                                    <tr>
-                                        <td class="nomAttrib">Vida:</td>
-                                        <td class="valAttrib"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="nomAttrib">Precisión: </td>
-                                        <td class="valAttrib"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="nomAttrib">Evasión: </td>
-                                        <td class="valAttrib"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="nomAttrib">Daño crítico: </td>
-                                        <td class="valAttrib"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="nomAttrib">Resistencia: </td>
-                                        <td class="valAttrib"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="nomAttrib">Modificador: </td>
-                                        <td class="valAttrib"></td>
-                                    </tr>
-                                </table>
-                            </div>
+                            <!-- <div id="AtributosAliado"> -->
+                            <table>
+                                <tr>
+                                    <td class="nomAttrib">Vida:</td>
+                                    <td class="valAttrib"></td>
+                                </tr>
+                                <tr>
+                                    <td class="nomAttrib">Precisión: </td>
+                                    <td class="valAttrib"></td>
+                                </tr>
+                                <tr>
+                                    <td class="nomAttrib">Evasión: </td>
+                                    <td class="valAttrib"></td>
+                                </tr>
+                                <tr>
+                                    <td class="nomAttrib">Daño crítico: </td>
+                                    <td class="valAttrib"></td>
+                                </tr>
+                                <tr>
+                                    <td class="nomAttrib">Resistencia: </td>
+                                    <td class="valAttrib"></td>
+                                </tr>
+                                <tr>
+                                    <td class="nomAttrib">Modificador: </td>
+                                    <td class="valAttrib"></td>
+                                </tr>
+                            </table>
+                            <!-- </div> -->
                         </td>
                         <td class="Habilidades">
                             <div class="pjHabilidades">
@@ -139,7 +140,7 @@
                                 <img src="img/logo1.jpg " alt="habilidad" class="imgH" id="Aseh4" width="40px " height="40px" onmouseover="mostrarhabilidad('SelectPJ3','img/SelectEnemigo.png',this)" onmouseout=" ocultarhabilidad('SelectPJ3','img/Espera.png')" style='display:table;'>
                             </div>
                         </td>
-                        <td rowspan="3">
+                        <!-- <td rowspan="3">
                             <div id="atributosEnemigo">
                                 <table>
                                     <tr>
@@ -168,14 +169,16 @@
                                     </tr>
                                 </table>
                             </div>
-                        </td>
+                        </td> -->
                     </tr>
                     <tr>
+
                         <td class="NomHabilidad">
                             nombre habilidad
                         </td>
                     </tr>
                     <tr>
+
                         <td class="desc">
                             <div class="descHabilidad"></div>
                         </td>
