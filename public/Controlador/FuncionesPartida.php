@@ -166,7 +166,7 @@ class Funciones{
 
         function cargarContrincante($usuarioid){
             //id, nombre ,level, experiencia, personajesA
-            $sql="select userid, usernivel, userexp, usernombre from usuario where userid=?";
+            $sql="select userid, usernivel, usernombre from usuario where userid=?";
             $consultas->query($sql,array($usuarioid));            
             $resultado1=$consultas->getResult();
 
@@ -175,7 +175,7 @@ class Funciones{
             $resultado2=$consultas->getResult();
 
             $contrincante=new Contrincante($resultado1[0]["userid"],$resultado1[0]["usernombre"],$resultado1[0]["usernivel"],
-            $resultado1[0]["userexp"],array(
+            array(
                 cargarPersonajeEnemigo($resultado2[0]["personajeid"]),
                 cargarPersonajeEnemigo($resultado2[1]["personajeid"]),
                 cargarPersonajeEnemigo($resultado2[2]["personajeid"])
