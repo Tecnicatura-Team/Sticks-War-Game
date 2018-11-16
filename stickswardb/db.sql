@@ -357,3 +357,8 @@ Insert into buffdebuffhabilidad (habilidadid, buffdebuffid, objetivo) values (24
 
 Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (21, "enemigo", -60, -90);
 Insert into danocuracionhabilidad (habilidadid, objetivo, minimo, maximo) values (24, "enemigo", -120, -200);
+
+
+
+
+
