@@ -43,7 +43,7 @@ class Funciones{
                $efectos[]= new BuffDebuff( $resultado[$i]["objetivo"], $resultado[$i]["buffdebuffid"]);
           }
            return $efectos;
-               }  
+            }  
 
     function cargarObjetivosHabilidad($idhabilidad){
 

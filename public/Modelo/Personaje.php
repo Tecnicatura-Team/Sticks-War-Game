@@ -11,7 +11,6 @@ class Personaje extends EstadisticasBasicas{
     
     public function __construct($VB, $P, $E, $C, $R, $PID, $VA, $D, $MD){
         parent::__construct($VB, $P, $E, $C, $R);
-        private $PersonajeID;    
         $this->VidaActual = $VA;
         $this->DirImagen = $D;
         $this->ModDaño = $MD;
