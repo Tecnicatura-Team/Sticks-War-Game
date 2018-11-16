@@ -1,15 +1,15 @@
 <?php
-include_once 'Habilidad.php';
+include_once 'HabilidadPersonaje.php';
 include_once 'Posicion.php';
 
-class Ofensiva extends Habilidad{
+class Ofensiva extends HabilidadPersonaje{
     
     private  $PosicionesObjetivos;
     
     // CONSTRUCTOR
     
-    public function __construct($N, $DIco, $DImg, $Des, $PO) {
-        parent::__construct($N, $DIco, $DImg, $Des);
+    public function __construct($N, $DIco, $DImg, $Des,$E, $PO) {
+        parent::__construct($N, $DIco, $DImg, $Des, $E);
         $this->PosicionesObjetivos = $PO;
     }
     

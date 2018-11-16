@@ -3,16 +3,15 @@ include_once 'Personaje.php';
 include_once 'HabilidadPersonaje.php';
 
 class PersonajeAliado extends Personaje{
-    private $PersonajeID;
-    private $ClaseID;
+    private $PersonajeID;    
     private $ObjetoID;
     private $Habilidades;
     
     // CONSTRUCTOR
     
-    public function __construct($ID, $D, $VM, $VA, $P, $E, $C, $R, $MD, $CID, $OID, $H) {
+    public function __construct($ID, $D, $VM, $VA, $P, $E, $C, $R, $MD, $PID, $OID, $H) {
         parent::__construct($ID, $D, $VM, $VA, $P, $E, $C, $R, $MD);
-        $this->ClaseID = $CID;
+        $this->PersonajeID = $PID;
         $this->ObjetoID = $OID;
         $this->Habilidades = $H;
     }
