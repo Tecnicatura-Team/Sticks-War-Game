@@ -18,6 +18,7 @@
         $respuesta["contrasena"]= $row["userpass"];
         $respuesta["estado"]=$row["estado"];
         $respuesta["nivel"]=$row["usernivel"];
+        $respuesta["experiencia"]=$row["userexp"];
     }
     session_start();
      if($respuesta){

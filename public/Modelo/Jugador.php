@@ -1,18 +1,18 @@
 <?php
 include_once 'Usuario.php';
 include_once 'PersonajeAliado.php';
-include_once 'Objeto.php';
 
 class Jugador extends Usuario{
     private $Experiencia;
     private $PersonajesAliados;
-    private $Objetos;
+    
     
     // CONSTRUCTOR
     
-    public function __construct($U, $N, $L, $E) {
+    public function __construct($U, $N, $L, $E, $PA) {
         parent::__construct($U, $N, $L);
         $this->Experiencia = $E;
+        $this->PersonajesAliados=$PA;
     }
     
     // GETS
@@ -23,11 +23,7 @@ class Jugador extends Usuario{
     Public Function GetPersonajesAliados(){
         return $this->PersonajesAliados;
     }
-    
-    Public Function GetObjetos(){
-        return $this->Objetos;
-    }
-    
+           
      //SETS
         
     Public Function SetExperiencia($E){
@@ -37,9 +33,6 @@ class Jugador extends Usuario{
     Public Function SetPersonajesAliados($PA){
         $this->PersonajesAliados = $PA;
     }  
-    
-    Public Function SetObjetos($O){
-        $this->Objetos = $O;
-    }   
+     
         
 }
