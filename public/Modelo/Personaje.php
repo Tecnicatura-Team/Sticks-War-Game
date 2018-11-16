@@ -5,7 +5,7 @@ class Personaje extends EstadisticasBasicas{
     private $PersonajeID;    
     private $VidaActual;
     private $DirImagen;
-    private $Posicion
+    private $Posicion;
     private $ModDaño;
     
     // CONSTRUCTOR
@@ -14,7 +14,7 @@ class Personaje extends EstadisticasBasicas{
         parent::__construct($VB, $P, $E, $C, $R);
         $this->VidaActual = $VA;
         $this->DirImagen = $D;
-        $this->Posicion = $Pos
+        $this->Posicion = $Pos;
         $this->ModDaño = $MD;
     }
     
