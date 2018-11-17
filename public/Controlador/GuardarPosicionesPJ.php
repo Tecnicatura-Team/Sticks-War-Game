@@ -1,5 +1,6 @@
 <?php
 require_once("../Modelo/class.consultas.php");
+require_once("FuncionesPartida.php");
 session_start();
 
 //crea instancia de la clase consulta (una "copia")
@@ -52,8 +53,6 @@ if($consultas->getColumnAffected()>0){
 //   echo $sql;
     $consultas->query($sql, array());
 
-
-
     //cambia el estado a "en partida" del jugador 2 (contrincante) con el cual se realizara la partida
     $sql="update usuario set estado='en partida' where usernombre=?";
     $attr=array($user2[0]["usernombre"]);
@@ -71,6 +70,10 @@ if($consultas->getColumnAffected()>0){
     $respuesta=array("usuario"=>$user2[0]["usernombre"], "res"=>true, "usuario2"=>$_SESSION["usuario"]["nombre"], "jugadorNumero"=>$_SESSION["jugadorNumero"]+1);
     // echo $_SESSION["usuario"]["nombre"];
     echo json_encode($respuesta);
+    
+    $funciones=new Funciones();
+    $_SESSION["Partida"]=$funciones->cargarPartida($_SESSION["usuario"]["id"]);
+
 }else{
 //si no encuentra a ningún usuario en estado "buscando partida"
 

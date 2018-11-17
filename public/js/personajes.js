@@ -519,8 +519,6 @@ function Cargando() {
     } else {
         alert("Debe seleccionar los 3 personajes para poder entrar en combate!.")
     }
-
-
 }
 
 socket.on("partidaIniciada" + $(".close").html().trim(), function(data) {

@@ -19,7 +19,7 @@ class EstadisticasBasicas {
         // GETS
         
         Public Function GetVidaExtra(){
-            return $this->VidaExtra;
+            return $this->VidaBase;
         }
         
         Public Function GetPrecision(){
@@ -41,7 +41,7 @@ class EstadisticasBasicas {
         //SET
         
         Public Function SetVidaExtra($V){
-            $this->VidaExtra = $V;
+            $this->VidaBase = $V;
         }
         
         Public Function SetPrecision($P){

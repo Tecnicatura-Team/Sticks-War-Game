@@ -5,13 +5,14 @@ class Partida {
     private $PartidaID;
     private $Jugador;
     private $Contrincante;
-    
+    private $Turno;
     // CONSTRUCTOR
     
-    public function __construct($P, $J, $C){
+    public function __construct($P, $J, $C, $T){
          $this->PartidaID = $P;
          $this->Jugador = $J;
          $this->Contrincante = $C;
+         $this->Turno = $T; 
     }
     
     // GETS
@@ -27,6 +28,9 @@ class Partida {
      Public Function GetContrincante(){
         return $this->Contrincante;
     }
+    Public Function GetTurno(){
+        return $this->Turno;
+    }
     
     //SETS
         
@@ -40,6 +44,9 @@ class Partida {
     
     Public Function SetContrincante($C){
         $this->Contrincante = $C;
+    }
+    Public Function SetTurno($T){
+        $this->Turno = $T;
     }
             
 }

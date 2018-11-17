@@ -14,13 +14,13 @@ class Contrincante extends Usuario {
     
     // GETS
     
-    Public Function GetPersonajes(){
+    Public Function GetPersonajesEnemigos(){
         return $this->Personajes;
     }
     
      //SETS
         
-    Public Function SetPersonajes($P){
+    Public Function SetPersonajesEnemigos($P){
         $this->Personajes = $P;
     }
 }

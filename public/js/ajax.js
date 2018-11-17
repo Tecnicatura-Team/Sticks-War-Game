@@ -84,6 +84,10 @@ function ajax(archivo, datos, evento) {
                         socket.emit("cargarversuspartida", eval("(" + data + ")"))
 
                         break;
+                    case "cargarpartida":
+                        console.log(JSON.parse(data))
+                        console.log(data)
+                        break;
                     default:
                         console.log("Error en la funcion ajax.js")
                         break;

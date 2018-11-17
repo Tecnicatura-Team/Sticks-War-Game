@@ -4,7 +4,7 @@ cargaNombrePartida()
 
 function cargaNombrePartida() {
 
-    ajax("./Controlador/CargarVersusPartida.php", false, "cargarversuspartida")
+    ajax("./Controlador/CargarFunciones.php", false, "cargarversuspartida")
 
     socket.on("cargarversuspartida" + $(".close").html().trim(), function(data) {
         //carga el nombre de los usuarios en la partida
@@ -12,7 +12,11 @@ function cargaNombrePartida() {
         $("#v2").html(data["jugador2"])
     })
 
+    ajax("./Controlador/CargarPartida.php", false, "cargarpartida")
+
+
 }
+
 
 
 
