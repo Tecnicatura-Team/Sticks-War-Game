@@ -3,5 +3,6 @@
 require_once("FuncionesPartida.php");
 $prueba=new Funciones();
 $prueba->cargarversus();
-$prueba->cargarPartida(1);
+
+print_r($prueba->cargarPartida(1));
 ?>
