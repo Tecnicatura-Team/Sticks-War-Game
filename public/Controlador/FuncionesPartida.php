@@ -113,7 +113,11 @@ class Funciones{
             $consultas->query($sql,array($idpersonaje));            
             $resultado1=$consultas->getResult();
 
+<<<<<<< HEAD
             $sql="select personajeid, sum(vidamaxima) as vidamaxima, sum(precisionn) as precisionn, sum(provevasion) as provevasion, sum(provcritico) as provcritico, sum(reddamage) as reddamage, sum(moddamage) as moddamage from estadisticaspersonaje where personajeid=? group by personajeid";
+=======
+            $sql="select personajeid, sum(vidamaxima) as vidamaxima, sum(precisionn) as presicionn, sum(provevasion) as provevasion, sum(provcritico) as provcritico, sum(reddamage) as reddamage, sum(moddamage) as moddamage from estadisticaspersonaje where personajeid=? group by personajeid";
+>>>>>>> origin/cristian
             $consultas->query($sql,array($idpersonaje));            
             $resultado2=$consultas->getResult();
     
@@ -131,7 +135,11 @@ class Funciones{
             $consultas->query($sql,array($idpersonaje));            
             $resultado1=$consultas->getResult();
 
+<<<<<<< HEAD
             $sql="select personajeid, sum(vidamaxima) as vidamaxima, sum(precisionn) as precisionn, sum(provevasion) as provevasion, sum(provcritico) as provcritico, sum(reddamage) as reddamage, sum(moddamage) as moddamage from estadisticaspersonaje where personajeid=? group by personajeid";
+=======
+            $sql="select personajeid, sum(vidamaxima) as vidamaxima, sum(precisionn) as presicionn, sum(provevasion) as provevasion, sum(provcritico) as provcritico, sum(reddamage) as reddamage, sum(moddamage) as moddamage from estadisticaspersonaje where personajeid=? group by personajeid";
+>>>>>>> origin/cristian
             $consultas->query($sql,array($idpersonaje));            
             $resultado2=$consultas->getResult();
     
