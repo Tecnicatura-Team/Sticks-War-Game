@@ -10,4 +10,19 @@ p.personajeid = s.personajeid and s.buffdebuffid = bd.buffdebuffid;
 select personajeid, sum(vidamaxima), sum(precisionn), sum(provevasion), sum(provcritico), sum(reddamage), sum(moddamage) from estadisticaspersonaje group by personajeid;
 
 
-
+DELIMITER $$ 
+create procedure agregarBDPersonaje(IN perID integer,IN bdID integer) 
+BEGIN
+IF EXISTS(select personajeid from personajesufrebd where personajeid = perID and buffdebuffid = bdID) 
+THEN
+IF EXISTS(SELECT acumulaciones FROM personajesufrebd WHERE personajeid = perID AND buffdebuffid = bdID AND acumulaciones IN (SELECT maxacumulaciones FROM buffdebuff WHERE buffdebuffid = bdID))
+THEN
+update personajesufrebd set tiemporestante = 3 where personajeid = perID and buffdebuffid = bdID;
+ELSE
+update personajesufrebd set tiemporestante = 3, acumulaciones = acumulaciones + 1 where personajeid = perID and buffdebuffid = bdID;
+END IF;
+ELSE
+insert into personajesufrebd (personajeid, buffdebuffid) values (perID, bdID);
+END IF;
+END $$ 
+DELIMITER ;;
