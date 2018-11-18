@@ -85,5 +85,10 @@ io.sockets.on("connection", function(socket) {
         // console.log("enviando partida nueva")
         io.sockets.emit("recargarestadisticas" + data["Jugador"]["Nombre"], data)
     })
+    socket.on("asignarganador", function(data) {
+        // console.log("enviando partida nueva")
+        // console.log("Gano: " + data.replace(/"/g, "").trim())
+        io.sockets.emit("ganador" + data.replace(/"/g, "").trim(), data)
+    })
 
 })

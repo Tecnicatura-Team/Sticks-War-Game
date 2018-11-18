@@ -96,10 +96,11 @@ function ajax(archivo, datos, evento) {
                         socket.emit("recargarestadisticas", eval("(" + data + ")"))
                         break;
                     case "borrarpersonajes":
-                        alert("se borraron personajes del perdedor")
+
                         break;
                     case "asignarganador":
-                        alert("Se setea como ganador al contrincante")
+                        // console.log("Ganador: " + data)
+                        socket.emit("asignarganador", data)
                         break;
                     default:
                         console.log("Error en la funcion ajax.js")
