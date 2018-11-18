@@ -12,7 +12,7 @@ function cargaNombrePartida() {
         $("#v2").html(data["jugador2"])
     })
 
-    ajax("./Controlador/CargarPartida.php", false, "cargarpartida")
+    ajax("./Controlador/Partidacargar.php", false, "partidacargar")
 
 
 }

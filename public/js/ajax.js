@@ -60,6 +60,7 @@ function ajax(archivo, datos, evento) {
                             // console.log("ajax")
                         break;
                     case "guardarposicionespj":
+                        // console.log(eval("(" + data + ")"))
                         var resp = eval("(" + data + ")")
                         if (resp["res"]) {
 
@@ -72,22 +73,24 @@ function ajax(archivo, datos, evento) {
                         break;
                     case "datosoponente":
 
-                        alert(data)
-                            // $(location).attr("href", "juego.html")
-                            // console.log()
+                        // console.log(eval("(" + data + ")"))
+                        // $(location).attr("href", "juego.html")
+                        // console.log()
                         break;
                     case "cancelarbusqueda":
                         // console.log(data)
                         break;
                     case "cargarversuspartida":
-
+                        console.log(eval("(" + data + ")"))
                         socket.emit("cargarversuspartida", eval("(" + data + ")"))
 
                         break;
-                    case "cargarpartida":
-                        console.log(JSON.parse(data))
-                        console.log(data)
+                    case "partidacargar":
+                        // console.log(data)
+                        // console.log(JSON.parse(data))
+                        // console.log(data)
                         break;
+
                     default:
                         console.log("Error en la funcion ajax.js")
                         break;

@@ -72,7 +72,7 @@ if($consultas->getColumnAffected()>0){
     echo json_encode($respuesta);
     
     $funciones=new Funciones();
-    $_SESSION["Partida"]=$funciones->cargarPartida($_SESSION["usuario"]["id"]);
+    // $_SESSION["Partida"]=$funciones->cargarPartida($_SESSION["usuario"]["id"]);
 
 }else{
 //si no encuentra a ningún usuario en estado "buscando partida"

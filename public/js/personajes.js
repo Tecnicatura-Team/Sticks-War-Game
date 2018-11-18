@@ -524,7 +524,7 @@ function Cargando() {
 socket.on("partidaIniciada" + $(".close").html().trim(), function(data) {
     // console.log("llego partida")
     // console.log({ "datos": { "usuario": data["usuario"], "usuario2": data["usuario2"] } })
-
+    // console.log(JSON.parse(elemento))
     ajax("./Controlador/DatosOponente.php", { "datos": { "usuario": data["usuario"], "usuario2": data["usuario2"], "posiciones": { posicionPJ1: elemento["posicionPJ1"], posicionPJ2: elemento["posicionPJ2"], posicionPJ3: elemento["posicionPJ3"], objeto1: elemento["objeto1"], objeto2: elemento["objeto2"], objeto3: elemento["objeto3"] } } }, "datosoponente")
 
     $(location).attr("href", "juego.html")

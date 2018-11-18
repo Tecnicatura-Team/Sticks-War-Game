@@ -182,7 +182,7 @@ public function cargarObjetivosHabilidad($idhabilidad){
             $consultas= new Consultas();
             $sql="select partidaid as partidaid, jugador1id as jugador, jugador2id as contrincante from partida where jugador1id=? and ganadorid is null"; 
             $consultas->query($sql,array($usuarioid));           
-            
+            // echo $consultas->getColumnAffected();
             if($consultas->getColumnAffected()==0){
                 $turno="contrincante";
 
@@ -253,7 +253,7 @@ public function cargarObjetivosHabilidad($idhabilidad){
             return $partida;
         }
       
-
+       
 
 
 }//fin clase

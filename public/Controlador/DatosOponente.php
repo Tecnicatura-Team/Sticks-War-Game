@@ -1,6 +1,6 @@
 <?php
 require_once("../Modelo/class.consultas.php");
-require_once("FuncionesPartida.php");
+// require_once("FuncionesPartida.php");
 session_start();
 
 //crea instancia de la clase consulta (una "copia")
@@ -41,11 +41,12 @@ values
 
 //  print_r($datos);
  
-// $consultas->query($sql, array());
+$consultas->query($sql, array());
 
 // echo $_POST["usuario2"]
 
-$funciones=new Funciones();
-$_SESSION["Partida"]=$funciones->cargarPartida($_SESSION["usuario"]["id"]);
+// $funciones=new Funciones();
+// echo json_encode($datos,JSON_UNESCAPED_UNICODE);
+// $_SESSION["Partida"]=$funciones->cargarPartida($_SESSION["usuario"]["id"]);
 
 ?>
