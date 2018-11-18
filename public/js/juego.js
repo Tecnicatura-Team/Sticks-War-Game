@@ -20,11 +20,40 @@ function cargaNombrePartida() {
             recargarEstadisticas(Partida)
         })
         // console.log("ganador" + $(".close").html().trim())
+
+
     socket.on("ganador" + $(".close").html().trim(), function(data) {
+
+
+        contenido =
+            "<div>" +
+            "<label id='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
+            "<input type='button' value='Aceptar' onclick='finPartida()'>" +
+            "</div>"
+
+        $(".Juego").fadeOut(500)
+        $(".versus").fadeOut(500)
+        $("footer").before(contenido)
+
 
         alert("Ganaste")
     })
+    socket.on("perdedor" + $(".close").html().trim(), function(data) {
 
+        contenido =
+            "<div>" +
+            "<label id='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
+            //finPartida() está en juego.js
+            "<input type='button' value='Aceptar' onclick='finPartida()'>" +
+            "</div>"
+
+
+        $(".Juego").fadeOut(500)
+        $(".versus").fadeOut(500)
+        $("footer").before(contenido)
+
+        alert("perdiste prro")
+    })
 
     function recargarEstadisticas(Partida) {
 
@@ -34,12 +63,14 @@ function cargaNombrePartida() {
                 // console.log(Partida)
         })
     }
-
-
-
-
 }
 
+function finPartida() {
+
+    //falta borrar datos de ambos jugadores
+
+    location.href = "armarequipo.html"
+}
 
 
 
