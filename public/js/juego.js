@@ -13,10 +13,10 @@ function cargaNombrePartida() {
     })
 
     ajax("./Controlador/Partidacargar.php", false, "partidacargar")
-    socket.on("partidacargar" + $(".close").html().trim(), function(data) {
-        //carga el nombre de los usuarios en la partida
-        Partida = data
-    })
+        // socket.on("partidacargar" + $(".close").html().trim(), function(data) {
+        //     //carga el nombre de los usuarios en la partida
+        //     Partida = data
+        // })
 
 
 }
