@@ -26,3 +26,13 @@ insert into personajesufrebd (personajeid, buffdebuffid) values (perID, bdID);
 END IF;
 END $$ 
 DELIMITER ;;
+DELIMITER $$ 
+create procedure pasarturnopersonaje(IN perID integer) 
+BEGIN
+
+update personajesufrebd set tiemporestante = tiemporestante - 1 where personajeid = perID;
+
+delete from personajesufrebd where personajeid = perID and tiemporestante = 0;
+
+END $$ 
+DELIMITER ;;
