@@ -200,8 +200,8 @@ public function cargarObjetivosHabilidad($idhabilidad){
         }
 
         public function recargarEstaististicasPJ($partida){   
-
-            
+            $toutf8=new classarray();
+            $consultas= new Consultas();
             for($i=0; $i<3; $i++){
 
                 $sql="select personajeid, sum(vidamaxima) as vidamaxima, sum(precisionn) as precisionn, sum(provevasion) as provevasion, sum(provcritico) as provcritico, sum(reddamage) as reddamage, sum(moddamage) as moddamage from estadisticaspersonaje where personajeid=? group by personajeid";
@@ -218,18 +218,18 @@ public function cargarObjetivosHabilidad($idhabilidad){
            
            
                 $sql="select vidaactual, personajeposicion from personaje where personajeid =?";
-                $consultas->query($sql,array($personajes[$i]->GetPersonajeID()));            
+                $consultas->query($sql,array($partida["Jugador"]["Personajes"][$i]["ID"]));            
                 $resultado2=$toutf8->utf8Arraydoble($consultas->getResult()) ;
            
-                $partida["Jugador"]["Personajes"][$i]["Posicion"]=$resultado1[0]["personajeposicion"];
-                $partida["Jugador"]["Personajes"][$i]["VidaActual"]=$resultado1[0]["vidaactual"];
+                $partida["Jugador"]["Personajes"][$i]["Posicion"]=$resultado2[0]["personajeposicion"];
+                $partida["Jugador"]["Personajes"][$i]["VidaActual"]=$resultado2[0]["vidaactual"];
            
             }
 
             for($i=0; $i<3; $i++){
 
                 $sql="select personajeid, sum(vidamaxima) as vidamaxima, sum(precisionn) as precisionn, sum(provevasion) as provevasion, sum(provcritico) as provcritico, sum(reddamage) as reddamage, sum(moddamage) as moddamage from estadisticaspersonaje where personajeid=? group by personajeid";
-                $consultas->query($sql,array($partida["Jugador"]["Personajes"][$i]["ID"])); 
+                $consultas->query($sql,array($partida["Contrincante"]["Personajes"][$i]["ID"])); 
 
                 $resultado1=$toutf8->utf8Arraydoble($consultas->getResult()) ;
 
@@ -242,11 +242,11 @@ public function cargarObjetivosHabilidad($idhabilidad){
            
            
                 $sql="select vidaactual, personajeposicion from personaje where personajeid =?";
-                $consultas->query($sql,array($personajes[$i]->GetPersonajeID()));            
+                $consultas->query($sql,array($partida["Contrincante"]["Personajes"][$i]["ID"]));            
                 $resultado2=$toutf8->utf8Arraydoble($consultas->getResult()) ;
            
-                $partida["Contrincante"]["Personajes"][$i]["Posicion"]=$resultado1[0]["personajeposicion"];
-                $partida["Contrincante"]["Personajes"][$i]["VidaActual"]=$resultado1[0]["vidaactual"];
+                $partida["Contrincante"]["Personajes"][$i]["Posicion"]=$resultado2[0]["personajeposicion"];
+                $partida["Contrincante"]["Personajes"][$i]["VidaActual"]=$resultado2[0]["vidaactual"];
            
             }
 

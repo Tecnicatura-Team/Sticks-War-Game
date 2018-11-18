@@ -17,13 +17,16 @@ function cargaNombrePartida() {
         //carga el nombre de los usuarios en la partida
         Partida = data
             // console.log(Partida);
+        recargarEstadisticas(Partida)
     })
 
 
     function recargarEstadisticas(Partida) {
 
         ajax("./Controlador/RecargarEstadisticas.php", { datos: Partida }, "recargarestadisticas")
-
+        socket.on("recargarestadisticas" + $(".close").html().trim(), function(data) {
+            Partida = data
+        })
     }
 
 

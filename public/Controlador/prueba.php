@@ -8,7 +8,7 @@ session_start();
 // $prueba->cargarversus();
 $prueba=new PartidaJS();
 
-print_r($prueba->cargarPartida($_SESSION["usuario"]["id"]));
+print_r($prueba->recargarEstaististicasPJ($_SESSION["Partida"]));
 
 // print_r($_SESSION["Partida"]);
 ?>
