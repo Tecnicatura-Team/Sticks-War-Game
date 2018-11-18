@@ -78,11 +78,15 @@ io.sockets.on("connection", function(socket) {
 
     })
     socket.on("partidacargar", function(data) {
+<<<<<<< HEAD
         io.sockets.emit("partidacargar" + data["Jugador"]["Nombre"], data)
     })
 
     socket.on("recargarestadisticas", function(data) {
         io.sockets.emit("recargarestadisticas" + data["Jugador"]["Nombre"], data)
+=======
+        io.sockets.emit("partidacargar" + data["Jugador"]["Nombre"].trim(), data)
+>>>>>>> origin/cristian
     })
 
 })
