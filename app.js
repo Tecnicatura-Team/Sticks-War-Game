@@ -82,6 +82,7 @@ io.sockets.on("connection", function(socket) {
     })
 
     socket.on("recargarestadisticas", function(data) {
+        // console.log("enviando partida nueva")
         io.sockets.emit("recargarestadisticas" + data["Jugador"]["Nombre"], data)
     })
 
