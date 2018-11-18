@@ -73,12 +73,12 @@ io.sockets.on("connection", function(socket) {
     // })
 
     socket.on("cargarversuspartida", function(data) {
-            // console.log("encontro: '" + data["usuario"] + "'")
-            io.sockets.emit("cargarversuspartida" + data["jugador1"], data)
+        // console.log("encontro: '" + data["usuario"] + "'")
+        io.sockets.emit("cargarversuspartida" + data["jugador1"], data)
 
-        })
-        // socket.on("partidacargar", function(data) {
-        //     io.sockets.emit("partidacargar" + nombre, data)
-        // })
+    })
+    socket.on("partidacargar", function(data) {
+        io.sockets.emit("partidacargar" + data["Jugador"]["Nombre"].trim(), data)
+    })
 
 })
