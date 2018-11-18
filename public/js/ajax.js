@@ -91,7 +91,9 @@ function ajax(archivo, datos, evento) {
                         // console.log(JSON.parse(data))
                         // console.log(data)
                         break;
-
+                    case "recargarestadisticas":
+                        console.log(eval("(" + data + ")"))
+                        break;
                     default:
                         console.log("Error en la funcion ajax.js")
                         break;

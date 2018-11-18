@@ -78,7 +78,11 @@ io.sockets.on("connection", function(socket) {
 
     })
     socket.on("partidacargar", function(data) {
-        io.sockets.emit("partidacargar" + nombre, data)
+        io.sockets.emit("partidacargar" + data["Jugador"]["Nombre"], data)
+    })
+
+    socket.on("recargarestadisticas", function(data) {
+        io.sockets.emit("recargarestadisticas" + data["Jugador"]["Nombre"], data)
     })
 
 })

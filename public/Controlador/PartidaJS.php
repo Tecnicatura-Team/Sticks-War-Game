@@ -147,7 +147,7 @@ public function cargarObjetivosHabilidad($idhabilidad){
             $resultado2=$toutf8->utf8Arraydoble($consultas->getResult()) ;
 
             $jugador=array("ID"=>$resultado1[0]["userid"],"Nombre"=>$resultado1[0]["usernombre"],"Nivel"=>$resultado1[0]["usernivel"],
-            "Experiencia"=>$resultado1[0]["userexp"],"Personajes"=>array(
+            "Experiencia"=>$resultado1[0]["userexp"],"TurnoPersonaje"=>0,"Personajes"=>array(
                 $this->cargarPersonajeAliado($resultado2[0]["personajeid"]),
                 $this->cargarPersonajeAliado($resultado2[1]["personajeid"]),
                 $this->cargarPersonajeAliado($resultado2[2]["personajeid"])
