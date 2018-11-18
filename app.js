@@ -77,5 +77,8 @@ io.sockets.on("connection", function(socket) {
         io.sockets.emit("cargarversuspartida" + data["jugador1"], data)
 
     })
+    socket.on("partidacargar", function(data) {
+        io.sockets.emit("partidacargar" + nombre, data)
+    })
 
 })

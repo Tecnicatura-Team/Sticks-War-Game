@@ -86,7 +86,8 @@ function ajax(archivo, datos, evento) {
 
                         break;
                     case "partidacargar":
-                        // console.log(data)
+                        // console.log(eval("(" + data + ")"))
+                        socket.emit("partidacargar", eval("(" + data + ")"));
                         // console.log(JSON.parse(data))
                         // console.log(data)
                         break;

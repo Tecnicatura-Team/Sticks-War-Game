@@ -1,5 +1,5 @@
 var socket = io.connect("http://127.0.0.1:3700")
-
+var Partida
 cargaNombrePartida()
 
 function cargaNombrePartida() {
@@ -13,6 +13,10 @@ function cargaNombrePartida() {
     })
 
     ajax("./Controlador/Partidacargar.php", false, "partidacargar")
+    socket.on("partidacargar" + $(".close").html().trim(), function(data) {
+        //carga el nombre de los usuarios en la partida
+        Partida = data
+    })
 
 
 }
