@@ -46,11 +46,15 @@ function mostrarnombre() {
 
 function cerrarsesion() {
 
+    // ajax("./Controlador/BorrarPersonajes.php", true, "borrarpersonajes")
+    // ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Contrincante"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
+    // alert("vas a borrar todo")
+
     ajax("./Controlador/CerrarSesion.php", true, "cerrarsesion")
 
-    location.href = "index.html"
-        // var nom =  $(".close").html()
-        // socket.on("cerrarsesion"+nom, function(data) {
+    // location.href = "index.html"
+    // var nom =  $(".close").html()
+    // socket.on("cerrarsesion"+nom, function(data) {
 
     // })
 
