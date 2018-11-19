@@ -1,6 +1,6 @@
 <?php
 require_once("../Modelo/class.consultas.php");
-require_once("FuncionesPartida.php");
+// require_once("FuncionesPartida.php");
 session_start();
 
 //crea instancia de la clase consulta (una "copia")
@@ -71,7 +71,7 @@ if($consultas->getColumnAffected()>0){
     // echo $_SESSION["usuario"]["nombre"];
     echo json_encode($respuesta);
     
-    $funciones=new Funciones();
+    // $funciones=new Funciones();
     // $_SESSION["Partida"]=$funciones->cargarPartida($_SESSION["usuario"]["id"]);
 
 }else{

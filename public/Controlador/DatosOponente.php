@@ -1,6 +1,6 @@
 <?php
 require_once("../Modelo/class.consultas.php");
-// require_once("FuncionesPartida.php");
+require_once("PartidaJS.php");
 session_start();
 
 //crea instancia de la clase consulta (una "copia")
@@ -45,8 +45,8 @@ $consultas->query($sql, array());
 
 // echo $_POST["usuario2"]
 
-// $funciones=new Funciones();
+$funciones=new PartidaJS();
 // echo json_encode($datos,JSON_UNESCAPED_UNICODE);
-// $_SESSION["Partida"]=$funciones->cargarPartida($_SESSION["usuario"]["id"]);
+$_SESSION["Partida"]=$funciones->cargarPartida($_SESSION["usuario"]["id"]);
 
 ?>

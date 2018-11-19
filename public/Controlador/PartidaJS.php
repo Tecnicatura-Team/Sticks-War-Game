@@ -178,6 +178,7 @@ public function cargarObjetivosHabilidad($idhabilidad){
 
         public function cargarPartida($usuarioid){
             $turno;
+            // session_start();
 
             $consultas= new Consultas();
             $sql="select partidaid as partidaid, jugador1id as jugador, jugador2id as contrincante from partida where jugador1id=? and ganadorid is null"; 
@@ -195,7 +196,7 @@ public function cargarObjetivosHabilidad($idhabilidad){
             $toutf8=new classarray();
             $resultado=$toutf8->utf8Arraydoble($consultas->getResult());                
             $partida=array("ID"=>$resultado[0]["partidaid"],"Jugador"=>$this->cargarJugador($resultado[0]["jugador"]),"Contrincante"=>$this->cargarContrincante($resultado[0]["contrincante"]),"Turno"=>$turno);
-        
+            $_SESSION["Partida"]=$partida;
             return $partida;
         }
 
