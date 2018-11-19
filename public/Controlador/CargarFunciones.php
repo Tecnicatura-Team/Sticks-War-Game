@@ -1,6 +1,6 @@
 <?php
-INCLUDE_ONCE "./FuncionesPartida.php";
-$funciones=new Funciones();
+INCLUDE_ONCE "./CargarDatos.php";
+$funciones=new Datos();
 
 $funciones->cargarversus();
 ?>
