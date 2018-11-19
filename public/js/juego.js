@@ -22,31 +22,40 @@ function cargaNombrePartida() {
         // console.log("ganador" + $(".close").html().trim())
 
 
+
     socket.on("ganador" + $(".close").html().trim(), function(data) {
 
-
         contenido =
-            "<div>" +
-            "<label id='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
+            "<div class='finPartida'>" +
+            "<div class='ganador'>" +
+            // "<div>" +
+            // "<label class='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
+            // "</div>" +
+            // "<br>" +
             "<input type='button' value='Aceptar' onclick='finPartida()'>" +
+            "</div>" +
             "</div>"
+
+        ajax("./Controlador/BorrarPersonajes.php", { datos: Partida["Jugador"]["ID"] }, "borrarpersonajes")
 
         $(".Juego").fadeOut(500)
         $(".versus").fadeOut(500)
         $("footer").before(contenido)
-
 
         alert("Ganaste")
     })
     socket.on("perdedor" + $(".close").html().trim(), function(data) {
 
         contenido =
-            "<div>" +
-            "<label id='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
-            //finPartida() está en juego.js
+            "<div class='finPartida'>" +
+            "<div class='perdedor'>" +
+            // "<label class='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
+            // "<br>" +
             "<input type='button' value='Aceptar' onclick='finPartida()'>" +
+            "</div>" +
             "</div>"
 
+        ajax("./Controlador/BorrarPersonajes.php", { datos: Partida["Jugador"]["ID"] }, "borrarpersonajes")
 
         $(".Juego").fadeOut(500)
         $(".versus").fadeOut(500)

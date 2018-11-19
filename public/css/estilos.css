@@ -698,6 +698,38 @@ table {
     margin-top: 20px;
 } */
 
+.finPartida {
+    width: 100%;
+    height: 500px;
+    text-align: center;
+}
+
+.ganador {
+    width: 600px;
+    height: 350px;
+    display: inline-block;
+    background: url('../img/victoria.png') no-repeat 0 0;
+    background-size: 600px 350px;
+    margin-top: 75px;
+}
+
+.perdedor {
+    width: 600px;
+    height: 350px;
+    display: inline-block;
+    background: url('../img/derrota.png') no-repeat 0 0;
+    background-size: 600px 350px;
+    margin-top: 75px;
+}
+
+.ganador input {
+    margin-top: 300px;
+}
+
+.perdedor input {
+    margin-top: 300px;
+}
+
 
 /* table {
     border: solid rgb(92, 170, 238);
