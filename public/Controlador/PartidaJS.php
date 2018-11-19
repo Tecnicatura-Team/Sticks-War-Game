@@ -223,7 +223,10 @@ public function cargarObjetivosHabilidad($idhabilidad){
            
                 $partida["Jugador"]["Personajes"][$i]["Posicion"]=$resultado2[0]["personajeposicion"];
                 $partida["Jugador"]["Personajes"][$i]["VidaActual"]=$resultado2[0]["vidaactual"];
-           
+                $personajes=array();
+                for ($i=0; $i < count($partida["Jugador"]["Personajes"]); $i++) { 
+                   $personajes[$partida["Jugador"]["Personajes"][$i]["Posicion"]-1]=$partida["Jugador"]["Personajes"][$i];
+                }
             }
 
             for($i=0; $i<3; $i++){
@@ -247,7 +250,10 @@ public function cargarObjetivosHabilidad($idhabilidad){
            
                 $partida["Contrincante"]["Personajes"][$i]["Posicion"]=$resultado2[0]["personajeposicion"];
                 $partida["Contrincante"]["Personajes"][$i]["VidaActual"]=$resultado2[0]["vidaactual"];
-           
+                $personajes=array();
+                for ($i=0; $i < count($partida["Contrincante"]["Personajes"]); $i++) { 
+                   $personajes[$partida["Contrincante"]["Personajes"][$i]["Posicion"]-1]=$partida["Contrincante"]["Personajes"][$i];
+                }
             }
 
             return $partida;

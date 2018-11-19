@@ -60,7 +60,7 @@ function cargaNombrePartida() {
         ajax("./Controlador/RecargarEstadisticas.php", { datos: Partida }, "recargarestadisticas")
         socket.on("recargarestadisticas" + $(".close").html().trim(), function(data) {
             Partida = data
-                // console.log(Partida)
+            console.log(Partida)
         })
     }
 }
