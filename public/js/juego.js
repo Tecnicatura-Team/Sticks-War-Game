@@ -2,6 +2,28 @@ var socket = io.connect("http://127.0.0.1:3700")
 var Partida
 cargaNombrePartida()
 
+function test() {
+    recargarEstadisticas(Partida)
+    cargarBatalla()
+        //     contenido =
+        //         "<div class='finPartida'>" +
+        //         "<div class='ganador'>" +
+        //         // "<div>" +
+        //         // "<label class='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
+        //         // "</div>" +
+        //         // "<br>" +
+        //         "<input type='button' value='Aceptar' onclick='finPartida()'>" +
+        //         "</div>" +
+        //         "</div>"
+
+    //     // ajax("./Controlador/BorrarPersonajes.php", { datos: Partida["Jugador"]["ID"] }, "borrarpersonajes")
+
+    //     $(".Juego").fadeOut(500)
+    //     $(".versus").fadeOut(500)
+    //     $("footer").before(contenido)
+}
+
+// ---------------------------------------------------------------------------------
 
 function cargaNombrePartida() {
 
@@ -26,7 +48,7 @@ function cargaNombrePartida() {
 
 
     socket.on("ganador" + $(".close").html().trim(), function(data) {
-
+        ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
         contenido =
             "<div class='finPartida'>" +
             "<div class='ganador'>" +
@@ -47,7 +69,7 @@ function cargaNombrePartida() {
         alert("Ganaste")
     })
     socket.on("perdedor" + $(".close").html().trim(), function(data) {
-
+        ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
         contenido =
             "<div class='finPartida'>" +
             "<div class='perdedor'>" +
@@ -113,13 +135,13 @@ function ocultarhabilidad(elemento, img) {
 }
 
 //carga las img sobre los pj
-/* cargarPjJuego("SelectPJ3", "img/SelectAliado.png")
-cargarPjJuego("SelectPJ2", "img/SelectAliado.png")
-cargarPjJuego("SelectPJ1", "img/SelectAliado.png")
+// cargarPjJuego("SelectPJ3", "img/SelectAliado.png")
+// cargarPjJuego("SelectPJ2", "img/SelectAliado.png")
+// cargarPjJuego("SelectPJ1", "img/SelectAliado.png")
 
-cargarPjJuego("SelectPJ1", "img/SelectAliado.png")
-cargarPjJuego("SelectPJ2", "img/SelectAliado.png")
-cargarPjJuego("SelectPJ3", "img/SelectAliado.png") */
+// cargarPjJuego("SelectPJ1", "img/SelectAliado.png")
+// cargarPjJuego("SelectPJ2", "img/SelectAliado.png")
+// cargarPjJuego("SelectPJ3", "img/SelectAliado.png")
 
 //muestra turno de pj sobre el mismo
 function mostrarhabilidad(elemento, img, habilidad) {
@@ -147,7 +169,7 @@ function vida(elemento) {
 }
 
 //variación de la vida con el daño recibido
-variacionVida("VidaPJ1", "20")
+variacionVida("VidaPJ1", "50")
 
 function variacionVida(elemento, actual) {
     $("#" + elemento).css("width", actual)

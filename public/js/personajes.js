@@ -301,6 +301,7 @@ function descrip(ele) {
         "<td class='stats' rowspan='3'>" +
         "<div>" +
         "<table>" +
+        "<caption>Estadísticas</caption>" +
         "<tr>" +
         "<td class='nomAttrib'>Vida:</td>" +
         "<td class='vidamaxima'></td>" +
@@ -400,6 +401,7 @@ function Descrip2() {
         "<td class='stats' rowspan='3'>" +
         "<div>" +
         "<table>" +
+        "<caption>Estadísticas</caption>" +
         "<tr>" +
         "<td class='nomAttrib'>Vida:</td>" +
         "<td class='vidamaxima'></td>" +
@@ -463,7 +465,7 @@ function Descrip2() {
                 $(".statsHabilidad").animate({
                     height: '250px',
                     color: "#fff",
-                    marginTop: "20px"
+                    marginTop: "5px"
                 }, "slow")
             ))
     }
@@ -517,7 +519,7 @@ function Cargando() {
         $("#Eleccion").fadeOut(500)
         $(".cuerpoCarga").hide().fadeIn(4000)
     } else {
-        alert("Debe seleccionar los 3 personajes para poder entrar en combate!.")
+        alert("Debe asignar los 3 personajes a sus posiciónes para poder entrar en combate!.")
     }
 }
 

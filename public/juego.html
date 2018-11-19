@@ -26,8 +26,16 @@
                 </nav>
             </section>
         </header>
+        <!-- boton para testear la partida iamgen victoria derrota -->
+        <div>
+            <input type="button" value="testear" onclick=test()>
+        </div>
+        <!-- ----------------------------------------------------------- -->
         <div class="versus">
-            <label id="v1"></label><label>. / VS \ .</label><label id="v2"></label>
+            <!-- <br>
+            <label id="v1">asdsad</label><img src="img/Espera.png" width="40px" height="10px">asdsadsadasd<label id="v2"></label> -->
+            <div class="aliadoNombre"><label id="v1"></label></div>
+            <div class="enemigoNombre"><label id="v2"></label></div>
         </div>
         <div class="Juego">
             <table class="pjPartida">
@@ -36,7 +44,7 @@
                     <td><img src="img/Espera.png" id="SelectPJ2" alt="espera" width="40px " height="40px "></td>
                     <td><img src="img/Espera.png" id="SelectPJ1" alt="espera" width="40px " height="40px "></td>
                     <td>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
                     <td><img src="img/Espera.png" id="SelectEnemigoPJ1" alt="espera" width="40px " height="40px "></td>
                     <td><img src="img/Espera.png" id="SelectEnemigoPJ2" alt="espera" width="40px " height="40px "></td>
@@ -47,7 +55,7 @@
                     <td><img src="" id="PJ2" alt="stickpj" width="110px " height="200px "></td>
                     <td><img src="" id="PJ1" alt="stickpj" width="110px " height="200px "></td>
                     <td>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
                     </td>
                     <td><img src="" id="EPJ1" alt="stickpj" width="110px " height="200px "></td>
                     <td><img src="" id="EPJ2" alt="stickpj" width="110px " height="200px "></td>
@@ -70,7 +78,7 @@
                         </div>
                     </td>
                     <td>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
                     </td>
                     <td id="EnemigoPJ1">
                         <div class="fondoVida">
@@ -92,19 +100,20 @@
             </table>
             <div class="DHabilidad">
                 <table class="THabilidad">
-                    <tr>
+                    <!-- <tr>
                         <td>
                             Estadísticas Aliadas
                         </td>
                         <td></td>
-                        <!-- <td>
+                         <td>
                              Estadísticas Enemigas 
                         </td> -->
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td rowspan="3">
                             <!-- <div id="AtributosAliado"> -->
                             <table>
+                                <caption>Estadísticas Aliadas</caption>
                                 <tr>
                                     <td class="nomAttrib">Vida:</td>
                                     <td class="valAttrib"></td>

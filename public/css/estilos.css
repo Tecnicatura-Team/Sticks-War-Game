@@ -282,7 +282,7 @@ table {
     text-align: center;
     font-family: Comic Sans MS;
     width: 1235;
-    height: 570px;
+    height: 550px;
     margin-top: 50px;
     color: aliceblue;
     margin: auto;
@@ -382,9 +382,9 @@ table {
 } */
 
 .Habilidades {
-    width: 384px;
+    width: 100%;
     height: 50px;
-    display: block;
+    /* display: block; */
 }
 
 .Habilidades img {
@@ -402,7 +402,7 @@ table {
 .descHabilidad {
     margin-top: 10px;
     color: aliceblue;
-    height: 120px;
+    height: 145px;
     display: block;
     width: 370px;
 }
@@ -413,8 +413,8 @@ table {
 .Juego {
     background: url("../img/batalla3.jpg");
     background-repeat: no-repeat;
-    background-size: 1024px 500px;
-    background-position-x: 90px;
+    background-size: 900px 400px;
+    background-position: center;
     background-position-y: 10px;
     width: 1200px;
     height: auto;
@@ -426,7 +426,7 @@ table {
     width: 100px;
     height: 250px;
     margin: auto;
-    margin-top: 170px;
+    margin-top: 80px;
 }
 
 .pjPartida td {
@@ -485,7 +485,7 @@ table {
     width: 100%;
     height: auto;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .THabilidad td {
@@ -495,7 +495,7 @@ table {
 
 .DHabilidad {
     margin: auto;
-    width: 600px;
+    width: 610px;
     height: auto;
 }
 
@@ -564,6 +564,7 @@ table {
 
 .statsHabilidad .stats {
     width: 300px;
+    text-align: left;
 }
 
 .statsHabilidad .habilidades {
@@ -684,12 +685,44 @@ table {
 }
 
 .versus {
-    text-align: center;
+    /* text-align: center; */
     margin: auto;
     color: aliceblue;
     position: absolute;
     width: 100%;
-    margin-top: 30px;
+    height: 60px;
+    margin-top: 15px;
+    display: inline-block;
+    background: url('../img/vsTurnoJugador.png') no-repeat 0 0;
+    background-size: 400px 50px;
+    background-position: center;
+    background-position-y: 5px;
+}
+
+
+/* 
+.aliado,
+.enemigo {
+    position: absolute;
+    margin-top: 15px;
+} */
+
+.aliadoNombre {
+    font-family: Comic Sans MS;
+    position: absolute;
+    margin-top: 15px;
+    text-align: right;
+    width: 200px;
+    margin-left: 450px;
+}
+
+.enemigoNombre {
+    font-family: Comic Sans MS;
+    position: absolute;
+    margin-top: 15px;
+    text-align: left;
+    width: 200px;
+    margin-left: 705px;
 }
 
 
@@ -705,20 +738,20 @@ table {
 }
 
 .ganador {
-    width: 600px;
-    height: 350px;
+    width: 350px;
+    height: 400px;
     display: inline-block;
     background: url('../img/victoria.png') no-repeat 0 0;
-    background-size: 600px 350px;
-    margin-top: 75px;
+    background-size: 350px 400px;
+    margin-top: 40px;
 }
 
 .perdedor {
-    width: 600px;
-    height: 350px;
+    width: 350px;
+    height: 400px;
     display: inline-block;
     background: url('../img/derrota.png') no-repeat 0 0;
-    background-size: 600px 350px;
+    background-size: 350px 400px;
     margin-top: 75px;
 }
 
@@ -747,6 +780,11 @@ table td {
 
 div {
     border: solid rgb(6, 139, 255);
+} */
+
+
+/* img {
+    border: solid rgb(115, 159, 197);
 }
 
 input {

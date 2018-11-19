@@ -15,5 +15,4 @@ if($_SESSION["usuario"]["estado"] != "conectado"){
     $_SESSION["usuario"]["estado"]="conectado";
 
 }
-
 ?>
