@@ -2,6 +2,7 @@ var socket = io.connect("http://127.0.0.1:3700")
 var Partida
 cargaNombrePartida()
 
+
 function cargaNombrePartida() {
 
     ajax("./Controlador/CargarFunciones.php", false, "cargarversuspartida")
@@ -18,6 +19,7 @@ function cargaNombrePartida() {
             Partida = data
                 // console.log(Partida);
             recargarEstadisticas(Partida)
+            cargarBatalla()
         })
         // console.log("ganador" + $(".close").html().trim())
 
@@ -80,14 +82,6 @@ function finPartida() {
 
     location.href = "armarequipo.html"
 }
-
-
-
-
-
-
-
-
 
 function cargarPjJuego(elemento, img) {
     //es para cargar los personajes en la pagina juego desde al bd y cargarlos en en src de las img
@@ -158,3 +152,28 @@ variacionVida("VidaPJ1", "20")
 function variacionVida(elemento, actual) {
     $("#" + elemento).css("width", actual)
 }
+
+
+function cargarBatalla() {
+
+    if (Partida) {
+        console.log(Partida)
+        $("#PJ3").attr("src", Partida["Jugador"]["Personajes"][2]["Imagen"])
+        $("#PJ2").attr("src", Partida["Jugador"]["Personajes"][1]["Imagen"])
+        $("#PJ1").attr("src", Partida["Jugador"]["Personajes"][0]["Imagen"])
+
+        $("#EPJ1").attr("src", Partida["Contrincante"]["Personajes"][0]["Imagen"])
+        $("#EPJ2").attr("src", Partida["Contrincante"]["Personajes"][1]["Imagen"])
+        $("#EPJ3").attr("src", Partida["Contrincante"]["Personajes"][2]["Imagen"])
+
+    } else {
+        console.log("no carga partida")
+    }
+
+    // console.log(Partida)
+    console.log("cargado")
+
+}
+// $(document).ready(function() {
+//     cargarBatalla()
+// })

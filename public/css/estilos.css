@@ -730,6 +730,12 @@ table {
     margin-top: 300px;
 }
 
+#EPJ1,
+#EPJ2,
+#EPJ3 {
+    -webkit-transform: scaleX(-1);
+}
+
 
 /* table {
     border: solid rgb(92, 170, 238);
