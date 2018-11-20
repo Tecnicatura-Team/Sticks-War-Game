@@ -90,12 +90,21 @@ io.sockets.on("connection", function(socket) {
         // console.log("Gano: " + data.replace(/"/g, "").trim())
         io.sockets.emit("ganador" + data.replace(/"/g, "").trim(), data)
     })
+    socket.on("asignarperdedor", function(data) {
+        io.sockets.emit("perdedor" + data.replace(/"/g, "").trim(), data)
+    })
 
     socket.on("pasarturno", function(data) {
         // console.log("enviando partida nueva")
         // console.log("Gano: " + data.replace(/"/g, "").trim())
         io.sockets.emit("pasarturno" + data["receptor"].replace(/"/g, "").trim(), data)
     })
+    socket.on("dispararfinpartida", function(data) {
+        // console.log("enviando partida nueva")
+        // console.log("Gano: " + data.replace(/"/g, "").trim())
+        io.sockets.emit("dispararfinpartida" + data["usuario"].replace(/"/g, "").trim(), data)
+    })
+
 
 
 

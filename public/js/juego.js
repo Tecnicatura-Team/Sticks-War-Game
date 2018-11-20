@@ -186,10 +186,10 @@ function cargarBatalla() {
                 variacionVida("VidaEnemigoPJ" + i, parseInt(Math.round(porcentajeVida)))
             }
         }
-        console.log(Partida)
+        // console.log(Partida)
         var TurnoPersonaje = parseInt(Partida["Jugador"]["TurnoPersonaje"])
 
-        console.log("variable: " + TurnoPersonaje)
+        // console.log("variable: " + TurnoPersonaje)
 
         for (i = 0; i < 4; i++) {
 
@@ -239,7 +239,7 @@ function cargarBatalla() {
 
 
     } else {
-        console.log("no carga partida")
+        // console.log("no carga partida")
     }
 
     // console.log(Partida)
@@ -290,18 +290,10 @@ function pasarTurno() {
 }
 
 socket.on("pasarturno" + $(".close").html().trim(), function(data) {
+
     var contador = 0
     if (contador == 0) {
-
-        alert("llego el turno")
-
-        Partida["Turno"] = "jugador"
-
-        var TurnoPersonaje = parseInt(Partida["Jugador"]["TurnoPersonaje"])
-        if (Partida["Jugador"]["Personajes"][TurnoPersonaje]["VidaActual"] == 0) {
-            pasarTurno()
-        }
-        cargarBatalla()
+        dispararFinPartida()
         contador += 1
     }
 
@@ -310,10 +302,28 @@ socket.on("pasarturno" + $(".close").html().trim(), function(data) {
 
 function dispararFinPartida() {
 
-    ajax("./Controlador/DispararFinPartida.php", { datos: Partida["Jugador"]["ID"] }, "dispararfinpartida")
+    ajax("./Controlador/DispararFinPartida.php", { ID: Partida["Jugador"]["ID"] }, "dispararfinpartida")
 
     socket.on("dispararfinpartida" + $(".close").html().trim(), function(data) {
 
+        var contador = 0
+        if (contador == 0) {
+            if (data["respuesta"]) {
+                socket.emit("asignarganador", Partida["Contrincante"]["Nombre"])
+                socket.emit("asignarperdedor", Partida["Jugador"]["Nombre"])
+            } else {
+                alert("llego el turno")
+
+                Partida["Turno"] = "jugador"
+
+                var TurnoPersonaje = parseInt(Partida["Jugador"]["TurnoPersonaje"])
+                if (Partida["Jugador"]["Personajes"][TurnoPersonaje]["VidaActual"] == 0) {
+                    pasarTurno()
+                }
+                cargarBatalla()
+            }
+            contador += 1
+        }
 
     })
 }

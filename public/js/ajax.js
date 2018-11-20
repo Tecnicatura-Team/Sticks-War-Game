@@ -23,7 +23,7 @@ function ajax(archivo, datos, evento) {
                 // console.log(data)
                 switch (evento) {
                     case "login":
-                        console.log("ajax: " + data)
+                        // console.log("ajax: " + data)
                         socket.emit("logueo", eval("(" + data + ")"))
                         break;
                     case "registro":
@@ -90,6 +90,7 @@ function ajax(archivo, datos, evento) {
                         socket.emit("partidacargar", eval("(" + data + ")"));
                         // console.log(JSON.parse(data))
                         // console.log(data)
+
                         break;
                     case "recargarestadisticas":
                         // console.log(eval("(" + data + ")"))
@@ -101,6 +102,9 @@ function ajax(archivo, datos, evento) {
                     case "asignarganador":
                         // console.log("Ganador: " + data)
                         socket.emit("asignarganador", data)
+                        break;
+                    case "dispararfinpartida":
+                        socket.emit("dispararfinpartida", eval("(" + data + ")"))
                         break;
                     default:
                         console.log("Error en la funcion ajax.js")
