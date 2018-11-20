@@ -1,5 +1,6 @@
 var socket = io.connect("http://127.0.0.1:3700")
 var Partida
+    // var PartidaEnCurso = false
 cargaNombrePartida()
 
 function cargaNombrePartida() {
@@ -16,7 +17,9 @@ function cargaNombrePartida() {
     socket.on("partidacargar" + $(".close").html().trim(), function(data) {
             //carga el nombre de los usuarios en la partida
             Partida = data
-                // console.log(Partida)
+                // PartidaEnCurso = true
+
+            // console.log(Partida)
             recargarEstadisticas(Partida)
             cargarBatalla()
         })
@@ -25,6 +28,7 @@ function cargaNombrePartida() {
 
 
     socket.on("ganador" + $(".close").html().trim(), function(data) {
+        // PartidaEnCurso = false
         ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
         contenido =
             "<div class='finPartida'>" +
@@ -43,9 +47,11 @@ function cargaNombrePartida() {
         $(".versus").fadeOut(500)
         $("footer").before(contenido)
 
-        alert("Ganaste")
+
+        // alert("Ganaste")
     })
     socket.on("perdedor" + $(".close").html().trim(), function(data) {
+        PartidaEnCurso = false
         ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
         contenido =
             "<div class='finPartida'>" +
@@ -62,7 +68,7 @@ function cargaNombrePartida() {
         $(".versus").fadeOut(500)
         $("footer").before(contenido)
 
-        alert("perdiste prro")
+        // alert("perdiste prro")
     })
 }
 
@@ -231,8 +237,20 @@ function cargarBatalla() {
                 "display": "inline-block",
             })
 
-
-
+        } else {
+            $(".versus").css({
+                "background": "url(./img/vsTurnoContrincante.png) no-repeat 0 0",
+                "background-size": "400px 50px",
+                "background-position": "center",
+                "background-position-y": "5px",
+                "margin": "auto",
+                "color": "aliceblue",
+                "position": "absolute",
+                "width": "100% ",
+                "height": "60px",
+                "margin - top": "15px",
+                "display": "inline-block",
+            })
 
         }
 
@@ -285,7 +303,7 @@ function pasarTurno() {
     cargarBatalla()
 
     socket.emit("pasarturno", { "receptor": Partida["Contrincante"]["Nombre"] })
-    alert("pasa turno")
+        // alert("pasa turno")
 
 }
 
@@ -312,7 +330,7 @@ function dispararFinPartida() {
                 socket.emit("asignarganador", Partida["Contrincante"]["Nombre"])
                 socket.emit("asignarperdedor", Partida["Jugador"]["Nombre"])
             } else {
-                alert("llego el turno")
+                // alert("llego el turno")
 
                 Partida["Turno"] = "jugador"
 

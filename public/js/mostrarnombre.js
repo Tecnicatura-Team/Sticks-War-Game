@@ -48,7 +48,7 @@ function cerrarsesion() {
     if (Partida) {
         ajax("./Controlador/BorrarPersonajes.php", { datos: Partida["Jugador"]["ID"] }, "borrarpersonajes")
         ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Contrincante"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
-        alert("vas a borrar todo")
+            // alert("vas a borrar todo")
     }
 
 
