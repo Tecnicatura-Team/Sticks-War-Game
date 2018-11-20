@@ -104,6 +104,10 @@ io.sockets.on("connection", function(socket) {
         // console.log("Gano: " + data.replace(/"/g, "").trim())
         io.sockets.emit("dispararfinpartida" + data["usuario"].replace(/"/g, "").trim(), data)
     })
+    socket.on("ejecutareventocontrincante", function(data) {
+        // console.log("ejecutareventocontrincante" + data["usuario"].replace(/"/g, "").trim())
+        io.sockets.emit("ejecutareventocontrincante" + data["usuario"].replace(/"/g, "").trim(), data)
+    })
 
 
 

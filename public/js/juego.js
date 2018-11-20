@@ -265,6 +265,14 @@ function cargarBatalla() {
     // variacionVida("VidaPJ1", 50)
 }
 
+function ejecutareventocontrincante(datos) {
+    alert(datos)
+
+}
+
+function ejecutareventojugador(datos) {
+    alert(datos)
+}
 $(document).ready(function() {
 
     $("#h0").on("click", function(e) {
@@ -348,10 +356,30 @@ function dispararFinPartida() {
 
 
 function clickearHabilidad(numeroHabilidad) {
+
+    var personajeturno = Partida["Jugador"]["TurnoPersonaje"]
+    if (Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"] == null) {
+        datos = "habilidad defensiva"
+        socket.emit("ejecutareventocontrincante", { usuario: Partida["Contrincante"]["Nombre"], evento: datos })
+
+    } else {
+        datos = "habilidad ofensiva"
+        socket.emit("ejecutareventocontrincante", { usuario: Partida["Contrincante"]["Nombre"], evento: datos })
+    }
+
+
     pasarTurno()
         // Partida["Turno"] = "contrincante"
         // console.log("habilidad: " + numeroHabilidad)
 }
+
+// console.log(Partida["Jugador"]["Nombre"])
+socket.on("ejecutareventocontrincante" + $(".close").html().trim(), function(data) {
+    console.log("se ejecuto")
+    ejecutareventocontrincante(data["evento"])
+})
+
+
 
 function desmarcarEnemigos() {
 
