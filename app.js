@@ -91,4 +91,14 @@ io.sockets.on("connection", function(socket) {
         io.sockets.emit("ganador" + data.replace(/"/g, "").trim(), data)
     })
 
+    socket.on("pasarturno", function(data) {
+        // console.log("enviando partida nueva")
+        // console.log("Gano: " + data.replace(/"/g, "").trim())
+        io.sockets.emit("pasarturno" + data["receptor"].replace(/"/g, "").trim(), data)
+    })
+
+
+
+
+
 })

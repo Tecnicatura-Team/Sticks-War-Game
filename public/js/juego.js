@@ -97,19 +97,19 @@ function cargarPjJuego(elemento, img) {
 // }
 
 //oculta las flechas sobre los pj y descripcion de habilidades
-var turno = "SelectPJ3"
+// var turno = "SelectPJ3"
 
-function ocultarhabilidad(elemento, img) {
-    cargarPjJuego(elemento, img)
-        // hiddenDiv()
-    ocultarDesc('descHabilidad')
+// function ocultarhabilidad(elemento, img) {
+//     cargarPjJuego(elemento, img)
+//         // hiddenDiv()
+//     ocultarDesc('descHabilidad')
 
-    if (turno == elemento) {
-        cargarPjJuego(elemento, "img/SelectAliado.png")
-    } else {
-        cargarPjJuego(elemento, img)
-    }
-}
+//     if (turno == elemento) {
+//         cargarPjJuego(elemento, "img/SelectAliado.png")
+//     } else {
+//         cargarPjJuego(elemento, img)
+//     }
+// }
 
 //carga las img sobre los pj
 // cargarPjJuego("SelectPJ3", "img/SelectAliado.png")
@@ -121,17 +121,15 @@ function ocultarhabilidad(elemento, img) {
 // cargarPjJuego("SelectPJ3", "img/SelectAliado.png")
 
 //muestra turno de pj sobre el mismo
-function mostrarhabilidad(elemento, img, habilidad) {
-    cargarPjJuego(elemento, img)
-        // showdiv(event, desc)
-
-
-}
+// function mostrarhabilidad(elemento, img, habilidad) {
+//     cargarPjJuego(elemento, img)
+//         // showdiv(event, desc)
+//     }
 
 //muestra img de turno
 cargarPjJuego("SelectPJ3", "img/SelectAliado.png")
 
-//barras de vida aliados
+//barras de vida color
 vida("VidaPJ0")
 vida("VidaPJ1")
 vida("VidaPJ2")
@@ -140,13 +138,11 @@ vida("VidaEnemigoPJ0")
 vida("VidaEnemigoPJ1")
 vida("VidaEnemigoPJ2")
 
-
 function vida(elemento) {
     $("#" + elemento).css("background-color", "rgba(0, 128, 0, 0.70)")
 }
 
 //variación de la vida con el daño recibido
-// variacionVida("VidaPJ1", "50")
 
 function variacionVida(elemento, actual) {
     // console.log(actual)
@@ -157,7 +153,7 @@ function variacionVida(elemento, actual) {
 function cargarBatalla() {
 
     if (Partida) {
-        console.log("entro if")
+        // console.log("entro if")
         var porcentajeVida = 0;
         for (i = 0; i < 3; i++) {
             if (Partida["Jugador"]["Personajes"][i]["VidaActual"] == 0) {
@@ -188,9 +184,59 @@ function cargarBatalla() {
                     //varia la vida del pj en la partida
                 porcentajeVida = (100 / Partida["Contrincante"]["Personajes"][i]["VidaMaxima"]) * Partida["Contrincante"]["Personajes"][i]["VidaActual"]
                 variacionVida("VidaEnemigoPJ" + i, parseInt(Math.round(porcentajeVida)))
-
             }
         }
+        console.log(Partida)
+        var TurnoPersonaje = parseInt(Partida["Jugador"]["TurnoPersonaje"])
+
+        console.log("variable: " + TurnoPersonaje)
+
+        for (i = 0; i < 4; i++) {
+
+            $("#h" + i).attr("src", Partida["Jugador"]["Personajes"][TurnoPersonaje]["Habilidades"][i]["Icono"])
+
+        }
+
+        $(".aliadovida").html(Partida["Jugador"]["Personajes"][TurnoPersonaje]["VidaActual"])
+        $(".aliadoprecision").html(Partida["Jugador"]["Personajes"][TurnoPersonaje]["Precision"])
+        $(".aliadoevasion").html(Partida["Jugador"]["Personajes"][TurnoPersonaje]["Evasion"])
+        $(".aliadocritico").html(Partida["Jugador"]["Personajes"][TurnoPersonaje]["Critico"])
+        $(".aliadoresistencia").html(Partida["Jugador"]["Personajes"][TurnoPersonaje]["Resistencia"])
+        $(".aliadomod").html(Partida["Jugador"]["Personajes"][TurnoPersonaje]["ModificadorDaño"])
+
+
+        $("#SelectPJ0").attr("src", "img/Espera.png")
+        $("#SelectPJ1").attr("src", "img/Espera.png")
+        $("#SelectPJ2").attr("src", "img/Espera.png")
+
+        desmarcarEnemigos()
+
+
+        if (Partida["Turno"] == "jugador") {
+            $("#SelectPJ" + TurnoPersonaje).attr("src", "img/SelectAliado.png")
+                // $(".versus").attr("src", "img/vsTurnoJugador.png")
+
+
+            $(".versus").css({
+                "background": "url(./img/vsTurnoJugador.png) no-repeat 0 0",
+                "background-size": "400px 50px",
+                "background-position": "center",
+                "background-position-y": "5px",
+                "margin": "auto",
+                "color": "aliceblue",
+                "position": "absolute",
+                "width": "100% ",
+                "height": "60px",
+                "margin - top": "15px",
+                "display": "inline-block",
+            })
+
+
+
+
+        }
+
+
 
     } else {
         console.log("no carga partida")
@@ -200,9 +246,92 @@ function cargarBatalla() {
     // console.log("cargado")
     // variacionVida("VidaPJ1", 50)
 }
-// $(document).ready(function() {
-//     cargarBatalla()
-// })
+
+$(document).ready(function() {
+
+    $("#h0").on("click", function(e) {
+        if (Partida["Turno"] == "jugador") {
+            clickearHabilidad(0)
+        }
+    })
+    $("#h1").on("click", function(e) {
+        if (Partida["Turno"] == "jugador") {
+            clickearHabilidad(1)
+        }
+    })
+    $("#h2").on("click", function(e) {
+        if (Partida["Turno"] == "jugador") {
+            clickearHabilidad(2)
+        }
+    })
+    $("#h3").on("click", function(e) {
+        if (Partida["Turno"] == "jugador") {
+            clickearHabilidad(3)
+        }
+    })
+
+})
+
+
+function pasarTurno() {
+    Partida["Turno"] = "contrincante"
+
+    Partida["Jugador"]["TurnoPersonaje"] = parseInt(Partida["Jugador"]["TurnoPersonaje"]) + 1
+
+    if (Partida["Jugador"]["TurnoPersonaje"] == 3) {
+        Partida["Jugador"]["TurnoPersonaje"] = 0
+    }
+
+    cargarBatalla()
+
+    socket.emit("pasarturno", { "receptor": Partida["Contrincante"]["Nombre"] })
+    alert("pasa turno")
+
+}
+
+socket.on("pasarturno" + $(".close").html().trim(), function(data) {
+    var contador = 0
+    if (contador == 0) {
+
+        alert("llego el turno")
+
+        Partida["Turno"] = "jugador"
+
+        var TurnoPersonaje = parseInt(Partida["Jugador"]["TurnoPersonaje"])
+        if (Partida["Jugador"]["Personajes"][TurnoPersonaje]["VidaActual"] == 0) {
+            pasarTurno()
+        }
+        cargarBatalla()
+        contador += 1
+    }
+
+})
+
+
+function dispararFinPartida() {
+
+    ajax("./Controlador/DispararFinPartida.php", { datos: Partida["Jugador"]["ID"] }, "dispararfinpartida")
+
+    socket.on("dispararfinpartida" + $(".close").html().trim(), function(data) {
+
+
+    })
+}
+
+
+function clickearHabilidad(numeroHabilidad) {
+    pasarTurno()
+        // Partida["Turno"] = "contrincante"
+        // console.log("habilidad: " + numeroHabilidad)
+}
+
+function desmarcarEnemigos() {
+
+    $("#SelectEnemigoPJ0").attr("src", "img/Espera.png")
+    $("#SelectEnemigoPJ1").attr("src", "img/Espera.png")
+    $("#SelectEnemigoPJ2").attr("src", "img/Espera.png")
+}
+
 
 function test() {
     recargarEstadisticas()
