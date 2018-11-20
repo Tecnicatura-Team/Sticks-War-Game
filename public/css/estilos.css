@@ -441,6 +441,12 @@ table {
     height: 10px;
 }
 
+#VidaPJ0 {
+    width: 100%;
+    height: 10px;
+    border-radius: 10px 7px 8px 2px;
+}
+
 #VidaPJ1 {
     width: 100%;
     height: 10px;
@@ -453,7 +459,7 @@ table {
     border-radius: 10px 7px 8px 2px;
 }
 
-#VidaPJ3 {
+#VidaEnemigoPJ0 {
     width: 100%;
     height: 10px;
     border-radius: 10px 7px 8px 2px;
@@ -466,12 +472,6 @@ table {
 }
 
 #VidaEnemigoPJ2 {
-    width: 100%;
-    height: 10px;
-    border-radius: 10px 7px 8px 2px;
-}
-
-#VidaEnemigoPJ3 {
     width: 100%;
     height: 10px;
     border-radius: 10px 7px 8px 2px;
@@ -763,9 +763,9 @@ table {
     margin-top: 300px;
 }
 
+#EPJ0,
 #EPJ1,
-#EPJ2,
-#EPJ3 {
+#EPJ2 {
     -webkit-transform: scaleX(-1);
 }
 

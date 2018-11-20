@@ -140,12 +140,12 @@ Insert into buffdebuff (buffdebufftipo, `precision`, provevasion, provcritico, r
 Insert into buffdebuff (buffdebufftipo, `precision`, provevasion, provcritico, reddamage, moddamage) values ("buff", 0, 5, 0, 25, 0);
 
 
-Insert into clase (clasenombre, direcimagen, direiconoclas, direiconoclas2, vidamaxima, `precision`, provevasion, provcritico, reddamage) values ('Paladin', 'img/clase/StickPaladin.png', 'img/iconoclase/Paladin.png', 'img/iconoclase/Paladin2.png', 1000, 70, 10, 15, 30);
-Insert into clase (clasenombre, direcimagen, direiconoclas, direiconoclas2, vidamaxima, `precision`, provevasion, provcritico, reddamage) values ('Guerrero', 'img/clase/StickGuerrero.png', 'img/iconoclase/Guerrero.png', 'img/iconoclase/Guerrero2.png', 800, 80, 15, 15, 20);
-Insert into clase (clasenombre, direcimagen, direiconoclas, direiconoclas2, vidamaxima, `precision`, provevasion, provcritico, reddamage) values ('Amazona', 'img/clase/StickAmazona.png', 'img/iconoclase/Amazona.png', 'img/iconoclase/Amazona2.png', 800, 80, 10, 20, 10);
-Insert into clase (clasenombre, direcimagen, direiconoclas, direiconoclas2, vidamaxima, `precision`, provevasion, provcritico, reddamage) values ('Arquera', 'img/clase/StickArquera.png', 'img/iconoclase/Arquera.png', 'img/iconoclase/Arquera2.png', 800, 90, 20, 20, 5);
-Insert into clase (clasenombre, direcimagen, direiconoclas, direiconoclas2, vidamaxima, `precision`, provevasion, provcritico, reddamage) values ('Sacerdotisa', 'img/clase/StickSacerdotisa.png', 'img/iconoclase/Sacerdotisa.png', 'img/iconoclase/Sacerdotisa2.png', 800, 70, 10, 10, 15);
-Insert into clase (clasenombre, direcimagen, direiconoclas, direiconoclas2, vidamaxima, `precision`, provevasion, provcritico, reddamage) values ('Bufon', 'img/clase/StickBufon.png', 'img/iconoclase/Bufon.png', 'img/iconoclase/Bufon2.png', 750, 85, 35, 20, 5);
+Insert into clase (clasenombre, direcimagen, direiconoclas, direiconoclas2, vidamaxima, `precision`, provevasion, provcritico, reddamage) values ('Paladin', 'img/clase/StickPaladin', 'img/iconoclase/Paladin.png', 'img/iconoclase/Paladin2.png', 1000, 70, 10, 15, 30);
+Insert into clase (clasenombre, direcimagen, direiconoclas, direiconoclas2, vidamaxima, `precision`, provevasion, provcritico, reddamage) values ('Guerrero', 'img/clase/StickGuerrero', 'img/iconoclase/Guerrero.png', 'img/iconoclase/Guerrero2.png', 800, 80, 15, 15, 20);
+Insert into clase (clasenombre, direcimagen, direiconoclas, direiconoclas2, vidamaxima, `precision`, provevasion, provcritico, reddamage) values ('Amazona', 'img/clase/StickAmazona', 'img/iconoclase/Amazona.png', 'img/iconoclase/Amazona2.png', 800, 80, 10, 20, 10);
+Insert into clase (clasenombre, direcimagen, direiconoclas, direiconoclas2, vidamaxima, `precision`, provevasion, provcritico, reddamage) values ('Arquera', 'img/clase/StickArquera', 'img/iconoclase/Arquera.png', 'img/iconoclase/Arquera2.png', 800, 90, 20, 20, 5);
+Insert into clase (clasenombre, direcimagen, direiconoclas, direiconoclas2, vidamaxima, `precision`, provevasion, provcritico, reddamage) values ('Sacerdotisa', 'img/clase/StickSacerdotisa', 'img/iconoclase/Sacerdotisa.png', 'img/iconoclase/Sacerdotisa2.png', 800, 70, 10, 10, 15);
+Insert into clase (clasenombre, direcimagen, direiconoclas, direiconoclas2, vidamaxima, `precision`, provevasion, provcritico, reddamage) values ('Bufon', 'img/clase/StickBufon', 'img/iconoclase/Bufon.png', 'img/iconoclase/Bufon2.png', 750, 85, 35, 20, 5);
 
 
 Insert into posicion (buffdebuffid) values (1);

@@ -215,7 +215,7 @@ public function cargarObjetivosHabilidad($idhabilidad){
                 $partida["Jugador"]["Personajes"][$i]["Critico"]=$resultado1[0]["provcritico"];
                 $partida["Jugador"]["Personajes"][$i]["Resistencia"]=$resultado1[0]["reddamage"];
                 $partida["Jugador"]["Personajes"][$i]["ModificadorDaño"]=$resultado1[0]["moddamage"];
-                $partida["Jugador"]["Personajes"][$i]["ModificadorDaño"]=$resultado1[0]["moddamage"];
+                // $partida["Jugador"]["Personajes"][$i]["ModificadorDaño"]=$resultado1[0]["moddamage"];
            
            
                 $sql="select vidaactual, personajeposicion from personaje where personajeid =?";
@@ -224,10 +224,7 @@ public function cargarObjetivosHabilidad($idhabilidad){
            
                 $partida["Jugador"]["Personajes"][$i]["Posicion"]=$resultado2[0]["personajeposicion"];
                 $partida["Jugador"]["Personajes"][$i]["VidaActual"]=$resultado2[0]["vidaactual"];
-                $personajes=array();
-                for ($i=0; $i < count($partida["Jugador"]["Personajes"]); $i++) { 
-                   $personajes[$partida["Jugador"]["Personajes"][$i]["Posicion"]-1]=$partida["Jugador"]["Personajes"][$i];
-                }
+                // $personajes=array();               
             }
 
             for($i=0; $i<3; $i++){
@@ -242,7 +239,7 @@ public function cargarObjetivosHabilidad($idhabilidad){
                 $partida["Contrincante"]["Personajes"][$i]["Critico"]=$resultado1[0]["provcritico"];
                 $partida["Contrincante"]["Personajes"][$i]["Resistencia"]=$resultado1[0]["reddamage"];
                 $partida["Contrincante"]["Personajes"][$i]["ModificadorDaño"]=$resultado1[0]["moddamage"];
-                $partida["Contrincante"]["Personajes"][$i]["ModificadorDaño"]=$resultado1[0]["moddamage"];
+                // $partida["Contrincante"]["Personajes"][$i]["ModificadorDaño"]=$resultado1[0]["moddamage"];
            
            
                 $sql="select vidaactual, personajeposicion from personaje where personajeid =?";
@@ -250,13 +247,23 @@ public function cargarObjetivosHabilidad($idhabilidad){
                 $resultado2=$toutf8->utf8Arraydoble($consultas->getResult()) ;
            
                 $partida["Contrincante"]["Personajes"][$i]["Posicion"]=$resultado2[0]["personajeposicion"];
-                $partida["Contrincante"]["Personajes"][$i]["VidaActual"]=$resultado2[0]["vidaactual"];
-                $personajes=array();
-                for ($i=0; $i < count($partida["Contrincante"]["Personajes"]); $i++) { 
-                   $personajes[$partida["Contrincante"]["Personajes"][$i]["Posicion"]-1]=$partida["Contrincante"]["Personajes"][$i];
-                }
+                $partida["Contrincante"]["Personajes"][$i]["VidaActual"]=$resultado2[0]["vidaactual"];               
+                
             }
+            $personajes=array();
 
+            for ($i=0; $i < count($partida["Jugador"]["Personajes"]); $i++) { 
+                $personajes[(INTEGER)$partida["Jugador"]["Personajes"][$i]["Posicion"]-1]=$partida["Jugador"]["Personajes"][$i];
+             }
+             $partida["Jugador"]["Personajes"]=$personajes;
+
+             for ($i=0; $i < count($partida["Contrincante"]["Personajes"]); $i++) { 
+                $personajes[(INTEGER)$partida["Contrincante"]["Personajes"][$i]["Posicion"]-1]=$partida["Contrincante"]["Personajes"][$i];
+             }             
+             $partida["Contrincante"]["Personajes"]=$personajes;
+
+             $_SESSION["Partida"]=$partida;
+             
             return $partida;
         }
       

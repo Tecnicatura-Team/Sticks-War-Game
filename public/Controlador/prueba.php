@@ -1,6 +1,10 @@
 <?php
+
+
+
+
 // require_once("FuncionesPartida.php");
-// require_once("PartidaJS.php");
+require_once("PartidaJS.php");
 // require_once("../Modelo/class.consultas.php");
 // $consultas= new Consultas();
 // $idper=$_POST["personaje"];
@@ -19,8 +23,10 @@
 // session_start();
 // $prueba=new Funciones();
 // $prueba->cargarversus();
-// $prueba=new PartidaJS();
+$prueba=new PartidaJS();
+$test=$prueba->cargarPartida(4);
 
+print_r($prueba->recargarEstaististicasPJ($test));
 // print_r($prueba->recargarEstaististicasPJ($_SESSION["Partida"]));
 
 // print_r($_SESSION["Partida"]);
