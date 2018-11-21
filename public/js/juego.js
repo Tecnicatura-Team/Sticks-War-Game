@@ -346,7 +346,7 @@ function clickearEnemigo(numeroEnemigo) {
         if (ListaEfectos[i]["Tipo"] == null) {
             //a quien afecta la habilidad, lanzador nosotros o enemigo            
             if (ListaEfectos[i]["Objetivo"] == "lanzador") {
-                afectarVida(Partida["Jugador"]["Personajes"][personajeturno]["ID"], sortear(ListaEfectos[i]["Minimo"], ListaEfectos[i]["Maximo"]))
+                afectarVida(Partida["Jugador"]["Personajes"][personajeTurno]["ID"], sortear(ListaEfectos[i]["Minimo"], ListaEfectos[i]["Maximo"]))
             } else {
 
                 var alPrecision = Partida["Jugador"]["Personajes"][personajeTurno]["Precision"]
@@ -357,7 +357,7 @@ function clickearEnemigo(numeroEnemigo) {
                 var dmaximo = ListaEfectos[i]["Maximo"]
 
                 afectarVida(idEnemigo, dañarEnemigo(alPrecision, alModDamage, enEvasion, enResistencia, dminimo, dmaximo))
-
+                recargarEstadisticas(Partida)
             }
         } else {
             if (ListaEfectos[i]["Objetivo"] == "lanzador") {
@@ -373,14 +373,37 @@ function clickearEnemigo(numeroEnemigo) {
 }
 
 function dañarEnemigo(alPrecision, alModDamage, enEvasion, enResistencia, dminimo, dmaximo) {
-
-    var provAcierto = alPrecision - enEvasion
-    if (provAcierto >= sortear(0, 100)) {
+    // console.log("Precision: " + alPrecision + " evacion: " + enEvasion + " moddaño: " + alModDamage + " resistencio: " + enResistencia + " dañominimo: " + dminimo + " dañomaximo: " + dmaximo)
+    // var provAcierto = alPrecision - enEvasion
+    // if (provAcierto >= sortear(0, 100)) {
+    //     var porcentajeDaño = alModDamage - enResistencia
+    //     var daño = sortear(dminimo, dmaximo)
+    //     if (porcentajeDaño < 0) {
+    //         porcentajeDaño = 0
+    //     }
+    //     return daño * (porcentajeDaño / 100)
+    // } else {
+    //     return 0
+    // }
+    var asiertooponente
+    var asierto = (sortear(1, 100) <= alPrecision) ? true : false
+    var evadido = (sortear(1, 100) <= enEvasion) ? true : false
+    if (asierto && !evadido) {
+        asiertooponente = true
+    } else {
+        asiertooponente = false
+    }
+    // console.log(asiertooponente)
+    if (asiertooponente) {
         var porcentajeDaño = alModDamage - enResistencia
-        var daño = sortear(dminimo, dmaximo)
+        console.log(porcentajeDaño)
+        var daño = sortear(parseInt(dminimo), parseInt(dmaximo))
         if (porcentajeDaño < 0) {
             porcentajeDaño = 0
         }
+        // console.log(daño)
+        // console.log(sortear(1, 10))
+        // console.log(daño * (porcentajeDaño / 100))
         return daño * (porcentajeDaño / 100)
     } else {
         return 0
