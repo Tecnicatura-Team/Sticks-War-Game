@@ -13,7 +13,7 @@ class PartidaJS{
         $consultas->query($sql,array($idhabilidad));
         $toutf8=new classarray();
         $resultado=$toutf8->utf8Arraydoble($consultas->getResult()) ;
-
+        
         $efectos=array();
 
         //array daño curacion
@@ -22,13 +22,13 @@ class PartidaJS{
        }  
 
       //carga los efectos de buff/debuff
-        $sql="select objetivo, buffdebuffid from buffdebuffhabilidad where habilidadid=?";
+        $sql="select objetivo, buffdebuffid, buffdebufftipo from buffdebuffhabilidad where habilidadid=?";
         $consultas->query($sql,array($idhabilidad));
         $toutf8=new classarray();
         $resultado=$toutf8->utf8Arraydoble($consultas->getResult()) ;          
        
        for($i=0; $i<count($resultado); $i++){
-           $efectos[]=array("Objetivo"=>$resultado[$i]["objetivo"],"BuffDebuffID"=>$resultado[$i]["buffdebuffid"]);
+           $efectos[]=array("Objetivo"=>$resultado[$i]["objetivo"],"ID"=>$resultado[$i]["buffdebuffid"] ,"Tipo"=>$resultado[$i]["buffdebufftipo"] );
       }
        return $efectos;
 }  
@@ -147,7 +147,7 @@ public function cargarObjetivosHabilidad($idhabilidad){
             $resultado2=$toutf8->utf8Arraydoble($consultas->getResult()) ;
 
             $jugador=array("ID"=>$resultado1[0]["userid"],"Nombre"=>$resultado1[0]["usernombre"],"Nivel"=>$resultado1[0]["usernivel"],
-            "Experiencia"=>$resultado1[0]["userexp"],"TurnoPersonaje"=>0,"Personajes"=>array(
+            "Experiencia"=>$resultado1[0]["userexp"],"TurnoPersonaje"=>0,"HabilidadSelect"=>null,"Personajes"=>array(
                 $this->cargarPersonajeAliado($resultado2[0]["personajeid"]),
                 $this->cargarPersonajeAliado($resultado2[1]["personajeid"]),
                 $this->cargarPersonajeAliado($resultado2[2]["personajeid"])
@@ -167,7 +167,7 @@ public function cargarObjetivosHabilidad($idhabilidad){
             $consultas->query($sql,array($usuarioid));            
             $resultado2=$toutf8->utf8Arraydoble($consultas->getResult()) ;
 
-            $contrincante=array("ID"=>$resultado1[0]["userid"],"Nombre"=>$resultado1[0]["usernombre"],"Nivel"=>$resultado1[0]["usernivel"],
+            $contrincante=array("ID"=>$resultado1[0]["userid"],"Nombre"=>$resultado1[0]["usernombre"],"Nivel"=>$resultado1[0]["usernivel"],"TurnoPersonaje"=>0,
             "Personajes"=>array(
                 $this->cargarPersonajeEnemigo($resultado2[0]["personajeid"]),
                 $this->cargarPersonajeEnemigo($resultado2[1]["personajeid"]),

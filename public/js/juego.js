@@ -161,6 +161,7 @@ function cargarBatalla() {
     if (Partida) {
         // console.log("entro if")
         var porcentajeVida = 0;
+        Partida["Jugador"]["HabilidadSelect"] = null
         for (i = 0; i < 3; i++) {
             if (Partida["Jugador"]["Personajes"][i]["VidaActual"] == 0) {
 
@@ -219,7 +220,7 @@ function cargarBatalla() {
 
 
         if (Partida["Turno"] == "jugador") {
-            $("#SelectPJ" + TurnoPersonaje).attr("src", "img/SelectAliado.png")
+            $("#SelectPJ" + TurnoPersonaje).attr("src", "img/TurnoAliado.png")
                 // $(".versus").attr("src", "img/vsTurnoJugador.png")
 
 
@@ -238,6 +239,8 @@ function cargarBatalla() {
             })
 
         } else {
+            $("#SelectEnemigoPJ" + Partida["Contrincante"]["TurnoPersonaje"]).attr("src", "img/TurnoEnemigo.png")
+
             $(".versus").css({
                 "background": "url(./img/vsTurnoContrincante.png) no-repeat 0 0",
                 "background-size": "400px 50px",
@@ -266,12 +269,12 @@ function cargarBatalla() {
 }
 
 function ejecutareventocontrincante(datos) {
-    alert(datos)
+    // alert(datos)
 
 }
 
 function ejecutareventojugador(datos) {
-    alert(datos)
+    // alert(datos)
 }
 $(document).ready(function() {
 
@@ -321,6 +324,12 @@ socket.on("pasarturno" + $(".close").html().trim(), function(data) {
     if (contador == 0) {
         dispararFinPartida()
         contador += 1
+
+        Partida["Contrincante"]["TurnoPersonaje"] = parseInt(Partida["Contrincante"]["TurnoPersonaje"]) + 1
+
+        if (Partida["Contrincante"]["TurnoPersonaje"] == 3) {
+            Partida["Contrincante"]["TurnoPersonaje"] = 0
+        }
     }
 
 })
@@ -359,7 +368,26 @@ function clickearHabilidad(numeroHabilidad) {
 
     var personajeturno = Partida["Jugador"]["TurnoPersonaje"]
     if (Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"] == null) {
-        datos = "habilidad defensiva"
+        Partida["Jugador"]["HabilidadSelect"] == null
+        var DatosEvento = array()
+        var ListaEfectos = Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["Efectos"]
+        for (i = 0; i < count(ListaEfectos); i++) {
+            //verifica si el efecto es daño o buff
+            if (ListaEfectos[i]["Tipo"] == null) {
+                //a quien afecta la habilidad, lanzador nosotros o enemigo
+                if (ListaEfectos[i]["Objetivo"] == "lanzador") {
+
+                }
+            }
+        }
+
+        // Objetivo Minimo Maximo - Objetivo ID Tipo
+
+
+
+
+
+
         socket.emit("ejecutareventocontrincante", { usuario: Partida["Contrincante"]["Nombre"], evento: datos })
 
     } else {
@@ -380,6 +408,16 @@ socket.on("ejecutareventocontrincante" + $(".close").html().trim(), function(dat
 })
 
 
+function afectarVida(idpersonaje, cambiovida) {
+
+    ajax("./Controlador/AfectarVida.php", idpersonaje.array(), "afectarvida")
+
+
+}
+
+function asignarBuffoPersonaje(idpersonaje, idbuff) {
+
+}
 
 function desmarcarEnemigos() {
 

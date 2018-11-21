@@ -106,6 +106,9 @@ function ajax(archivo, datos, evento) {
                     case "dispararfinpartida":
                         socket.emit("dispararfinpartida", eval("(" + data + ")"))
                         break;
+                    case "afectarvida":
+
+                        break;
                     default:
                         console.log("Error en la funcion ajax.js")
                         break;
