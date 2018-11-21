@@ -64,7 +64,7 @@ if($dc>0){
     }
 }
 }
-echo "se ejecutó<br>";
-echo $idper."<br>";
-echo $dc;
+// echo "se ejecutó<br>";
+// echo $idper."<br>";
+// echo $dc;
 ?>
