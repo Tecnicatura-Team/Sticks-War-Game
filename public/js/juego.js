@@ -301,8 +301,120 @@ $(document).ready(function() {
         }
     })
 
+    // ---------------------------------------------------------------------
+
+
+    //para clickear al enemigo 
+
+    $("#EPJ0").on("click", function(e) {
+
+        if ((Partida["Jugador"]["HabilidadSelect"] !== null) && esSeleccionable(1) && estaVivo(0)) {
+            clickearEnemigo(0)
+
+        }
+    })
+
+    $("#EPJ1").on("click", function(e) {
+        if ((Partida["Jugador"]["HabilidadSelect"] !== null) && esSeleccionable(2) && estaVivo(1)) {
+            clickearEnemigo(1)
+
+        }
+    })
+
+    $("#EPJ2").on("click", function(e) {
+        if ((Partida["Jugador"]["HabilidadSelect"] !== null) && esSeleccionable(3) && estaVivo(2)) {
+            clickearEnemigo(2)
+
+        }
+    })
+
 })
 
+function clickearEnemigo(numeroEnemigo) {
+
+    var DatosEventoJugador = new Array()
+    var DatosEventoContrincante = new Array()
+    var tipohabilidad = "versus"
+    var personajeTurno = Partida["Jugador"]["TurnoPersonaje"]
+    var numeroHabilidad = Partida["Jugador"]["HabilidadSelect"]
+    var ListaEfectos = Partida["Jugador"]["Personajes"][personajeTurno]["Habilidades"][numeroHabilidad]["Efectos"]
+
+    var idEnemigo = Partida["Contrincante"]["Personajes"][numeroEnemigo]["ID"]
+
+    for (i = 0; i < ListaEfectos.length; i++) {
+        //verifica si el efecto es daño o buff
+        if (ListaEfectos[i]["Tipo"] == null) {
+            //a quien afecta la habilidad, lanzador nosotros o enemigo            
+            if (ListaEfectos[i]["Objetivo"] == "lanzador") {
+                afectarVida(Partida["Jugador"]["Personajes"][personajeturno]["ID"], sortear(ListaEfectos[i]["Minimo"], ListaEfectos[i]["Maximo"]))
+            } else {
+
+                var alPrecision = Partida["Jugador"]["Personajes"][personajeTurno]["Precision"]
+                var alModDamage = Partida["Jugador"]["Personajes"][personajeTurno]["ModificadorDaño"]
+                var enEvasion = Partida["Contrincante"]["Personajes"][numeroEnemigo]["Evasion"]
+                var enResistencia = Partida["Contrincante"]["Personajes"][numeroEnemigo]["Resistencia"]
+                var dminimo = ListaEfectos[i]["Minimo"]
+                var dmaximo = ListaEfectos[i]["Maximo"]
+
+                afectarVida(idEnemigo, dañarEnemigo(alPrecision, alModDamage, enEvasion, enResistencia, dminimo, dmaximo))
+
+            }
+        } else {
+            if (ListaEfectos[i]["Objetivo"] == "lanzador") {
+                asignarBuffoPersonaje(Partida["Jugador"]["Personajes"][personajeTurno]["ID"], ListaEfectos[i]["ID"])
+            } else {
+                asignarBuffoPersonaje(Partida["Contrincante"]["Personajes"][numeroEnemigo]["ID"], ListaEfectos[i]["ID"])
+
+            }
+        }
+    }
+    pasarTurno()
+
+}
+
+function dañarEnemigo(alPrecision, alModDamage, enEvasion, enResistencia, dminimo, dmaximo) {
+
+    var provAcierto = alPrecision - enEvasion
+    if (provAcierto >= sortear(0, 100)) {
+        var porcentajeDaño = alModDamage - enResistencia
+        var daño = sortear(dminimo, dmaximo)
+        if (porcentajeDaño < 0) {
+            porcentajeDaño = 0
+        }
+        return daño * (porcentajeDaño / 100)
+    } else {
+        return 0
+    }
+
+}
+
+function estaVivo(numeroPersonaje) {
+    if (Partida["Contrincante"]["Personajes"][numeroPersonaje]["VidaActual"] == 0) {
+        return false
+    } else {
+        return true
+    }
+}
+
+function esSeleccionable(numeroPersonaje) {
+
+    var seleccionable = false
+
+    if (Partida["Jugador"]["HabilidadSelect"] !== null) {
+
+        var personajeTurno = Partida["Jugador"]["TurnoPersonaje"]
+        var numeroHabilidad = Partida["Jugador"]["HabilidadSelect"]
+
+        var objetivos = Partida["Jugador"]["Personajes"][personajeTurno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"]
+
+        for (i = 0; i < objetivos.length; i++) {
+            if (parseInt(numeroPersonaje) == parseInt(objetivos[i]["PosicionID"])) {
+                seleccionable = true
+            }
+        }
+    }
+    return seleccionable
+}
 
 function pasarTurno() {
     Partida["Turno"] = "contrincante"
@@ -403,11 +515,6 @@ function clickearHabilidad(numeroHabilidad) {
         }
 
         // Objetivo Minimo Maximo - Objetivo ID Tipo
-
-
-
-
-
 
         socket.emit("ejecutareventocontrincante", { usuario: Partida["Contrincante"]["Nombre"], evento: "pepe" })
         pasarTurno()

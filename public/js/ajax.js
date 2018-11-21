@@ -107,7 +107,7 @@ function ajax(archivo, datos, evento) {
                         socket.emit("dispararfinpartida", eval("(" + data + ")"))
                         break;
                     case "afectarvida":
-
+                        // console.log(data)
                         break;
                     case "asignarbuffo":
 

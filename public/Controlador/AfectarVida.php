@@ -1,18 +1,18 @@
 <?php
 require_once("../Modelo/class.consultas.php");
 $consultas= new Consultas();
-$idper=$_POST["personaje"];
-$dc=$_POST["vida"];
+$idper=(INTEGER)$_POST["personaje"];
+$dc=(INTEGER)$_POST["vida"];
 // $idper=10;
 // $dc=-50;
-$sql="select vidaactual from personaje where personajeid=?";
+$sql="select vidaactual as vidaactual from personaje where personajeid=?";
 $consultas->query($sql,array($idper));
 $resultado=$consultas->getResult();
 $vidaactual=((integer)$resultado[0]["vidaactual"]);
 
 $vidaresultante=$vidaactual + $dc;
 
-if($dc>0){
+if($dc>0){    
     $sql="select sum(vidamaxima) as vidamaxima from estadisticaspersonaje where personajeid=? group by personajeid";
     $consultas->query($sql,array($idper));
     $resultado=$consultas->getResult();
@@ -20,13 +20,15 @@ if($dc>0){
     if($vidamaxima>$vidaresultante){
         $sql="update personaje set vidaactual = ? where personajeid=?";
         $consultas->query($sql,array($vidaresultante,$idper));
-    }else{
+    }else{        
         $sql="update personaje set vidaactual = ? where personajeid=?";
         $consultas->query($sql,array($vidamaxima,$idper));
     }
     
 }else{
     
+    if($vidaactual>0){       
+       
     if( $vidaresultante > 0 ){
         $sql="update personaje set vidaactual = ? where personajeid=?";
         $consultas->query($sql,array($vidaresultante,$idper));
@@ -43,7 +45,7 @@ if($dc>0){
     $personajes=$consultas->getResult();
     $posicion = 1;
     for ($i=0; $i < count($personajes); $i++) { 
-        echo (integer)$personajes[$i]["vidaactual"]."<br>";
+        // echo (integer)$personajes[$i]["vidaactual"]."<br>";
         if((integer)$personajes[$i]["vidaactual"]!==0){
           
             $sql="update personaje set personajeposicion=? where personajeid=?";
@@ -60,6 +62,9 @@ if($dc>0){
         $posicion++;
         }
     }
-    
 }
+}
+// echo "se ejecutó<br>";
+// echo $idper."<br>";
+// echo $dc;
 ?>
