@@ -411,6 +411,7 @@ function clickearHabilidad(numeroHabilidad) {
         pasarTurno()
     } else {
         var personajeturno = Partida["Jugador"]["TurnoPersonaje"]
+            // afectarVida(10, -50)
         var NroObjetivos = Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"].length
         desmarcarEnemigos()
         Partida["Jugador"]["HabilidadSelect"] = numeroHabilidad
