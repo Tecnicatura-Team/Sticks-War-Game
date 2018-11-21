@@ -468,20 +468,81 @@ function desmarcarEnemigos() {
 function test() {
     recargarEstadisticas()
     cargarBatalla()
-        //     contenido =
-        //         "<div class='finPartida'>" +
-        //         "<div class='ganador'>" +
-        //         // "<div>" +
-        //         // "<label class='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
-        //         // "</div>" +
-        //         // "<br>" +
-        //         "<input type='button' value='Aceptar' onclick='finPartida()'>" +
-        //         "</div>" +
-        //         "</div>"
+    cargarPeleaTurno()
 
-    //     // ajax("./Controlador/BorrarPersonajes.php", { datos: Partida["Jugador"]["ID"] }, "borrarpersonajes")
+}
 
-    //     $(".Juego").fadeOut(500)
-    //     $(".versus").fadeOut(500)
-    //     $("footer").before(contenido)
+function cargarPeleaTurno() {
+
+    contenido =
+        "<div class='transparencia'>" +
+        "<div class='afectados'>" +
+        // "<img src='img/batalla3.jpg' class='fondoPelea ' width='1010px ' height='450px '>" +
+        "<table class='tabAfectados'>" +
+        "<tr>" +
+        "<td>" +
+        "<div class='accion'><label></label> </div>" +
+        "<img src='img/clase/StickAmazonaNormal.png' id='PJ2' alt='stickpj' width='150px' height='280px'></td>" +
+        "<td>" +
+        "<div class='accion'><label></label> </div>" +
+        "<img src='img/clase/StickAmazonaNormal.png' id='PJ1' alt='stickpj' width='150px' height='280px'></td>" +
+        "<td>" +
+        "<div class='accion'><label></label> </div>" +
+        "<img src='img/clase/StickAmazonaNormal.png' id='PJ0' alt='stickpj' width='150px' height='280px'></td>" +
+
+        "<td>" +
+        "<img src='img/Espera.png' alt='espacio vacio' width='80px' height='200px'>" +
+        "</td>" +
+
+        "<td>" +
+        "<div class='accion'><label>bloqueado</label> </div>" +
+        "<img src='img/clase/StickAmazonaNormal.png' id='EPJ0' alt='stickpj' width='150px' height='280px'></td>" +
+        "<td>" +
+        "<div class='accion'><label>contraataque</label> </div>" +
+        "<img src='img/clase/StickAmazonaNormal.png' id='EPJ1' alt='stickpj' width='150px' height='280px'></td>" +
+        "<td>" +
+        "<div class='accion'><label>Evadido</label> </div>" +
+        "<img src='img/clase/StickAmazonaNormal.png' id='EPJ2' alt='stickpj' width='150px' height='280px'></td>" +
+        "</tr>" +
+        "<tr>" +
+        "<td id='TurnoPJ3'>" +
+        "<div class='fondoVida'>" +
+        "<div id='VidaPJ2'></div>" +
+        "</div>" +
+        "</td>" +
+        "<td id='TurnoPJ2'>" +
+        "<div class='fondoVida'>" +
+        "<div id='VidaPJ1'></div>" +
+        "</div>" +
+        "</td>" +
+        "<td id='TurnoPJ1'>" +
+        "<div class='fondoVida'>" +
+        "<div id='VidaPJ0'></div>" +
+        "</div>" +
+        "</td>" +
+        "<td>" +
+        "</td>" +
+        "<td id='EnemigoPJ1'>" +
+        "<div class='fondoVida'>" +
+        "<div id='VidaEnemigoPJ0'></div>" +
+        "</div>" +
+        "</td>" +
+        "<td id='EnemigoPJ2'>" +
+        "<div class='fondoVida'>" +
+        "<div id='VidaEnemigoPJ1'></div>" +
+        "</div>" +
+        "</td>" +
+        "<td id='EnemigoPJ3'>" +
+        "<div class='fondoVida'>" +
+        "<div id='VidaEnemigoPJ2'></div>" +
+        "</div>" +
+        "</td>" +
+        "</tr>" +
+        "</table>" +
+        "</div>" +
+        "</div>"
+
+
+    $("header").after(contenido)
+
 }
