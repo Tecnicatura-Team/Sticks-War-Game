@@ -549,6 +549,9 @@ socket.on("ejecutareventocontrincante" + $(".close").html().trim(), function(dat
     ejecutareventocontrincante(data["evento"])
 })
 
+function subirnivel(userid, status) {
+    ajax("./Controlador/SubirNivel.php", { usuario: userid, estado: status }, "subirnivel")
+}
 
 function afectarVida(idpersonaje, cambiovida) {
 

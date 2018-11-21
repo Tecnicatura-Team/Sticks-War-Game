@@ -1,10 +1,11 @@
 <?php
-
 require_once("../Modelo/class.consultas.php");
 session_start();
 $consultas = new Consultas();
-$userid=6;
-$estado="perdedor";
+$userid=(integer)$_POST["usuario"];
+$estado=(integer)$_POST["estado"];
+// $userid=6;
+// $estado="ganador";
 $sql="select usernivel,userexp from usuario where userid=?";
 $consultas->query($sql,array($userid));
 $datos=$consultas->getResult();
@@ -27,5 +28,4 @@ if($exp+$exprecibida>=$exppasarnivel){
     $sql="update usuario set userexp=? where userid=?";
     $consultas->query($sql,array( ($exp+$exprecibida) , $userid ));
 }
-
 ?>

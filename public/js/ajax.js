@@ -112,6 +112,8 @@ function ajax(archivo, datos, evento) {
                     case "asignarbuffo":
 
                         break;
+                    case "subirnivel":
+                        break;
                     default:
                         console.log("Error en la funcion ajax.js")
                         break;
