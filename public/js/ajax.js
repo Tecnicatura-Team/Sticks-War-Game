@@ -109,6 +109,9 @@ function ajax(archivo, datos, evento) {
                     case "afectarvida":
 
                         break;
+                    case "asignarbuffo":
+
+                        break;
                     default:
                         console.log("Error en la funcion ajax.js")
                         break;

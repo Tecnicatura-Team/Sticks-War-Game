@@ -416,7 +416,7 @@ function afectarVida(idpersonaje, cambiovida) {
 }
 
 function asignarBuffoPersonaje(idpersonaje, idbuff) {
-
+    ajax("./Controlador/AsignarBuffo.php", { personaje: idpersonaje, buff: idbuff }, "asignarbuffo")
 }
 
 function desmarcarEnemigos() {
