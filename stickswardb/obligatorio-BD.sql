@@ -36,3 +36,4 @@ delete from personajesufrebd where personajeid = perID and tiemporestante = 0;
 
 END $$ 
 DELIMITER ;;
+create trigger lol after INSERT on usuario for each row insert into objeto(objetotipo,objetopertenece) values(1,new.userid);
