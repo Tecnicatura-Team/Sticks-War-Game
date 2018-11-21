@@ -20,6 +20,10 @@ body {
     position: relative;
 }
 
+#Juego {
+    z-index: -1;
+}
+
 .bodyResto {
     background: url("../img/fondete2.jpg");
     background-repeat: no-repeat;
@@ -416,7 +420,7 @@ table {
     background-size: 900px 400px;
     background-position: center;
     background-position-y: 10px;
-    width: 1200px;
+    width: 100%;
     height: auto;
     margin: auto;
     border: solid rgba(255, 255, 255, 0);
@@ -685,8 +689,9 @@ table {
 }
 
 
-/* .versus {
-    text-align: center;
+/*.versus {
+    position: absolute;
+     text-align: center;
     margin: auto;
     color: aliceblue;
     position: absolute;
@@ -697,7 +702,15 @@ table {
     background: url('../img/vsTurnoJugador.png') no-repeat 0 0;
     background-size: 400px 50px;
     background-position: center;
-    background-position-y: 5px;
+    background-position-y: 5px; 
+}
+*/
+
+
+/* .DivVersus {
+    position: absolute;
+    width: 100%;
+    height: 50px;
 } */
 
 
@@ -715,6 +728,7 @@ table {
     text-align: right;
     width: 200px;
     margin-left: 450px;
+    /* margin-left: 70px; */
 }
 
 .enemigoNombre {
@@ -724,6 +738,7 @@ table {
     text-align: left;
     width: 200px;
     margin-left: 705px;
+    /* margin-left: 330px; */
 }
 
 
@@ -770,24 +785,91 @@ table {
     -webkit-transform: scaleX(-1);
 }
 
-
-/* table {
-    border: solid rgb(92, 170, 238);
+.transparencia {
+    width: 100%;
+    height: 640px;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    z-index: 1;
+    margin: auto;
+    background: url("../img/fondete2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
 }
 
-table td {
+.afectados {
+    width: 100%;
+    height: 330px;
+    padding-top: 100px;
+    margin-top: 20px;
+    background: url("../img/batalla3.jpg");
+    background-repeat: no-repeat;
+    background-size: 1000px 480px;
+    background-position: center;
+    background-position-y: -30px;
+}
+
+
+/* .fondoPelea {
+    position: absolute;
+    margin-left: 180px;
+    margin-top: -100px;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+} */
+
+.fondoPelea img {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.tabAfectados {
+    width: auto;
+    height: 330px;
+    margin: auto;
+    background: url('../img/batallaPiso.png') no-repeat 0 0;
+    background-size: 1140px 60px;
+    background-position-y: 250px;
+    background-position-x: -40px;
+}
+
+@font-face {
+    font-family: 'Guerra_Santa';
+    src: local('Guerra Santa'), url(/public/Fuentes/Guerra_Santa.ttf) format('ttf');
+}
+
+.accion {
+    font-family: 'Guerra_Santa';
+    font-size: 35px;
+    color: aliceblue;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    z-index: 1;
+    margin-top: 130px;
+    position: absolute;
+}
+
+
+/* table td {
     border: solid aliceblue;
+}
+
+table {
+    border: solid rgb(92, 170, 238);
 }
 
 div {
     border: solid rgb(6, 139, 255);
-} */
-
-
-/* img {
-    border: solid rgb(115, 159, 197);
 }
 
+img {
+    border: solid rgb(115, 159, 197);
+} */
+
+
+/*
 input {
     border: solid rgb(53, 192, 180);
-} */
+}
