@@ -365,18 +365,37 @@ function dispararFinPartida() {
 
 
 function clickearHabilidad(numeroHabilidad) {
-
+    // console.log(Partida)
     var personajeturno = Partida["Jugador"]["TurnoPersonaje"]
     if (Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"] == null) {
-        Partida["Jugador"]["HabilidadSelect"] == null
-        var DatosEvento = array()
+        Partida["Jugador"]["HabilidadSelect"] = null
+            // console.log(Partida)
+            // console.log(Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad])
+            // console.log(Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"])
+        desmarcarEnemigos()
+        var DatosEventoJugador = new Array()
+        var DatosEventoContrincante = new Array()
+        var tipohabilidad = "solo"
         var ListaEfectos = Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["Efectos"]
-        for (i = 0; i < count(ListaEfectos); i++) {
+        for (i = 0; i < ListaEfectos.lenght; i++) {
             //verifica si el efecto es daño o buff
             if (ListaEfectos[i]["Tipo"] == null) {
                 //a quien afecta la habilidad, lanzador nosotros o enemigo
                 if (ListaEfectos[i]["Objetivo"] == "lanzador") {
+                    afectarVida(Partida["Jugador"]["Personajes"][personajeturno]["ID"], sortear(ListaEfectos[i]["Minimo"], ListaEfectos[i]["Maximo"]))
 
+                } else {
+                    for (var j = 0; j < 3; j++) {
+                        afectarVida(Partida["Jugador"]["Personajes"][j]["ID"], sortear(ListaEfectos[i]["Minimo"], ListaEfectos[i]["Maximo"]))
+                    }
+                }
+            } else {
+                if (ListaEfectos[i]["Objetivo"] == "lanzador") {
+                    asignarBuffoPersonaje(Partida["Jugador"]["Personajes"][personajeturno]["ID"], ListaEfectos[i]["ID"])
+                } else {
+                    for (var j = 0; j < 3; j++) {
+                        asignarBuffoPersonaje(Partida["Jugador"]["Personajes"][j]["ID"], ListaEfectos[i]["ID"])
+                    }
                 }
             }
         }
@@ -388,19 +407,34 @@ function clickearHabilidad(numeroHabilidad) {
 
 
 
-        socket.emit("ejecutareventocontrincante", { usuario: Partida["Contrincante"]["Nombre"], evento: datos })
-
+        socket.emit("ejecutareventocontrincante", { usuario: Partida["Contrincante"]["Nombre"], evento: "pepe" })
+        pasarTurno()
     } else {
-        datos = "habilidad ofensiva"
-        socket.emit("ejecutareventocontrincante", { usuario: Partida["Contrincante"]["Nombre"], evento: datos })
+        var personajeturno = Partida["Jugador"]["TurnoPersonaje"]
+        var NroObjetivos = Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"].length
+        desmarcarEnemigos()
+        Partida["Jugador"]["HabilidadSelect"] = numeroHabilidad
+            // console.log("personaje turno: " + personajeturno)
+            // console.log("Nro objetivos: " + NroObjetivos)
+            // console.log(Partida)
+        for (var i = 0; i < NroObjetivos; i++) {
+            console.log(Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"][i]["PosicionID"])
+            $("#SelectEnemigoPJ" + (parseInt(Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"][i]["PosicionID"]) - 1)).attr("src", "img/SelectEnemigo.png")
+        }
+        // datos = "habilidad ofensiva"
+
+        // socket.emit("ejecutareventocontrincante", { usuario: Partida["Contrincante"]["Nombre"], evento: datos })
     }
 
 
-    pasarTurno()
-        // Partida["Turno"] = "contrincante"
-        // console.log("habilidad: " + numeroHabilidad)
+    // pasarTurno()
+    // Partida["Turno"] = "contrincante"
+    // console.log("habilidad: " + numeroHabilidad)
 }
 
+function sortear(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
 // console.log(Partida["Jugador"]["Nombre"])
 socket.on("ejecutareventocontrincante" + $(".close").html().trim(), function(data) {
     console.log("se ejecuto")

@@ -22,7 +22,7 @@ class PartidaJS{
        }  
 
       //carga los efectos de buff/debuff
-        $sql="select objetivo, buffdebuffid, buffdebufftipo from buffdebuffhabilidad where habilidadid=?";
+        $sql="select h.objetivo,h.buffdebuffid, bd.buffdebufftipo from buffdebuffhabilidad as h,buffdebuff as bd where h.buffdebuffid=bd.buffdebuffid and h.habilidadid=?";
         $consultas->query($sql,array($idhabilidad));
         $toutf8=new classarray();
         $resultado=$toutf8->utf8Arraydoble($consultas->getResult()) ;          
@@ -52,28 +52,14 @@ public function cargarObjetivosHabilidad($idhabilidad){
 }
     public function cargarHabilidad($idhabilidad){
             $consultas= new Consultas();
-            $habilidad;
-    
-            $sql="select posicionid from objetivoshabilidad where habilidadid=?";        
-            $consultas->query($sql,array($idhabilidad));
             $toutf8=new classarray();
-            $resultado=$toutf8->utf8Arraydoble($consultas->getResult()) ;   
+            $habilidad;
             
-            if($consultas->getColumnAffected()==0){
-                $sql="select habilidadid, habilidadnombre, direcicono,direcimagen,descripcion from habilidad where habilidadid=?";
-                $consultas->query($sql,array($idhabilidad));
-                $resultado=$toutf8->utf8Arraydoble($consultas->getResult()) ;
-    
-                $habilidad= array("Nombre"=>$resultado[0]["habilidadnombre"],"Icono"=>$resultado[0]["direcicono"],"Imagen"=>$resultado[0]["direcimagen"],"Descripcion"=>$resultado[0]["descripcion"],"Efectos"=>$this->cargarEfectos($idhabilidad));
-            }else{
-    
-                $sql="select habilidadid, habilidadnombre, direcicono,direcimagen,descripcion from habilidad where habilidadid=?";
-                $consultas->query($sql,array($idhabilidad));
-                $resultado=$toutf8->utf8Arraydoble($consultas->getResult()) ;
-    
-                $habilidad= array("Nombre"=>$resultado[0]["habilidadnombre"],"Icono"=>$resultado[0]["direcicono"],"Imagen"=>$resultado[0]["direcimagen"],"Descripcion"=>$resultado[0]["descripcion"],"Efectos"=>$this->cargarEfectos($idhabilidad), "PosicionesObjetivo"=>$this->cargarObjetivosHabilidad($idhabilidad));
-                   
-            }  
+            $sql="select habilidadid, habilidadnombre, direcicono,direcimagen,descripcion from habilidad where habilidadid=?";
+            $consultas->query($sql,array($idhabilidad));
+            $resultado=$toutf8->utf8Arraydoble($consultas->getResult()) ;
+            $habilidad= array("Nombre"=>$resultado[0]["habilidadnombre"],"Icono"=>$resultado[0]["direcicono"],"Imagen"=>$resultado[0]["direcimagen"],"Descripcion"=>$resultado[0]["descripcion"],"Efectos"=>$this->cargarEfectos($idhabilidad), "PosicionesObjetivo"=>$this->cargarObjetivosHabilidad($idhabilidad));
+            
             return $habilidad;     
     }
 

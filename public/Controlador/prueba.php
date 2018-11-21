@@ -24,9 +24,9 @@ require_once("PartidaJS.php");
 // $prueba=new Funciones();
 // $prueba->cargarversus();
 $prueba=new PartidaJS();
-$test=$prueba->cargarPartida(4);
-
-print_r($prueba->recargarEstaististicasPJ($test));
+$test=$prueba->cargarHabilidad(22);
+print_r($test)
+// print_r($prueba->recargarEstaististicasPJ($test));
 // print_r($prueba->recargarEstaististicasPJ($_SESSION["Partida"]));
 
 // print_r($_SESSION["Partida"]);
