@@ -29,6 +29,7 @@ function cargaNombrePartida() {
 
     socket.on("ganador" + $(".close").html().trim(), function(data) {
         // PartidaEnCurso = false
+        subirnivel(Partida["Jugador"]["ID"], "ganador")
         ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
         contenido =
             "<div class='finPartida'>" +
@@ -51,6 +52,7 @@ function cargaNombrePartida() {
         // alert("Ganaste")
     })
     socket.on("perdedor" + $(".close").html().trim(), function(data) {
+        subirnivel(Partida["Jugador"]["ID"], "perdedor")
         PartidaEnCurso = false
         ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
         contenido =
