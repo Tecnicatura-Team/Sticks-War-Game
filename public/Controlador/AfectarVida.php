@@ -2,7 +2,7 @@
 require_once("../Modelo/class.consultas.php");
 $consultas= new Consultas();
 $idper=$_POST["personaje"];
-$dc=$_POST["dc"];
+$dc=$_POST["vida"];
 // $idper=277;
 // $dc=-1;
 $sql="select vidaactual from personaje where presonajeid=?";

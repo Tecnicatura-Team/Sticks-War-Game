@@ -410,7 +410,7 @@ socket.on("ejecutareventocontrincante" + $(".close").html().trim(), function(dat
 
 function afectarVida(idpersonaje, cambiovida) {
 
-    ajax("./Controlador/AfectarVida.php", idpersonaje.array(), "afectarvida")
+    ajax("./Controlador/AfectarVida.php", { personaje: idpersonaje, vida: cambiovida }, "afectarvida")
 
 
 }
