@@ -368,6 +368,7 @@ function clickearEnemigo(numeroEnemigo) {
     }
     pasarTurno()
 
+
 }
 
 function dañarEnemigo(alPrecision, alModDamage, enEvasion, enResistencia, dminimo, dmaximo) {
@@ -414,6 +415,16 @@ function esSeleccionable(numeroPersonaje) {
     return seleccionable
 }
 
+
+//audio al pasar turno
+var audioTurno = new Howl({
+    src: ["../public/Turno.mp3"],
+    volume: [0.1]
+
+})
+
+
+
 function pasarTurno() {
     Partida["Turno"] = "contrincante"
 
@@ -431,6 +442,8 @@ function pasarTurno() {
 }
 
 socket.on("pasarturno" + $(".close").html().trim(), function(data) {
+    //ejecuta el audio al pasar el turno al contrincante
+    audioTurno.play()
 
     var contador = 0
     if (contador == 0) {
@@ -535,9 +548,9 @@ function clickearHabilidad(numeroHabilidad) {
     }
 
 
-    // pasarTurno()
-    // Partida["Turno"] = "contrincante"
-    // console.log("habilidad: " + numeroHabilidad)
+    pasarTurno()
+        // Partida["Turno"] = "contrincante"
+        // console.log("habilidad: " + numeroHabilidad)
 }
 
 function sortear(min, max) {
@@ -545,7 +558,7 @@ function sortear(min, max) {
 }
 // console.log(Partida["Jugador"]["Nombre"])
 socket.on("ejecutareventocontrincante" + $(".close").html().trim(), function(data) {
-    console.log("se ejecuto")
+    // console.log("se ejecuto")
     ejecutareventocontrincante(data["evento"])
 })
 
@@ -573,11 +586,94 @@ function desmarcarEnemigos() {
 
 
 function test() {
-    recargarEstadisticas()
-    cargarBatalla()
-    cargarPeleaTurno()
+    // recargarEstadisticas()
+    // cargarBatalla()
+    // cargarPeleaTurno()
+
+    contenido =
+        "<div class='finPartida'>" +
+        "<div class='perdedor'>" +
+        // "<div class='ganador'>" +
+        // "<label class='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
+        // "<br>" +
+        "<input type='button' value='Aceptar' onclick='recompensa()'>" +
+        "</div>" +
+        // "<br>" +
+        // "<div class='recompensa'>" +
+        // "</div>" +
+        "</div>"
+
+    $(".Juego").remove()
+    $(".versus").remove()
+    $(".testear").remove()
+    $("header").after(contenido)
+
+
 
 }
+
+function recompensa() {
+    contenido =
+        "<div class='finPartida'>" +
+        // "<br>" +
+        "<div class='recompensa'>" +
+        "<h1>Objeto Desbloqueado</h1>" +
+        "<input type='button' value='Abrir Cofre' onclick='abrirCofre()'>" +
+        "</div>" +
+        "</div>"
+
+
+    $(".perdedor").remove()
+    $(".ganador").remove()
+    $(".finPartida").remove()
+
+    $("header").after(contenido)
+}
+
+
+// //audioal desbloquear objeto
+var audioObjeto = new Howl({
+    src: ["../public/Objeto-Sonido.mp3"],
+    volume: [0.1]
+
+})
+
+function abrirCofre() {
+    audioObjeto.play()
+    contenido =
+        // "<div class='finPartida'>" +
+        // // "<br>" +
+        // "<div class='cofreAbierto'>" +
+        // "<h1>Objeto Desbloqueado</h1>" +
+        // "<div class='premio'>" +
+        // "</div>" +
+        // "<label class='descripPremio'> Disminuye 5 puntos la evasión y aumenta la resistencia en 20 puntos </label>" +
+        // "<br>" +
+        // "<input type='button' value='Aceptar' onclick='finPartida()'>" +
+        // "</div>" +
+        // "</div>"
+
+        "<div class='finPartida'>" +
+        "<h1>Objeto Desbloqueado</h1>" +
+        "<div class='premio'>" +
+        "</div>" +
+        "<div class='cofreAbierto'>" +
+        "</div>" +
+        "<label class='descripPremio'> Disminuye 5 puntos la evasión y aumenta la resistencia en 20 puntos </label>" +
+        "<br>" +
+        "<input type='button' class='fin' value='Aceptar' onclick='finPartida()'>" +
+        "</div>"
+
+
+    $(".perdedor").remove()
+    $(".ganador").remove()
+    $(".finPartida").remove()
+    $("header").after(contenido)
+    $(".cofreAbierto").show().fadeOut(3000)
+    $(".descripPremio").hide().fadeIn(4000)
+
+}
+
 
 function cargarPeleaTurno() {
 
