@@ -347,6 +347,7 @@ function clickearEnemigo(numeroEnemigo) {
             //a quien afecta la habilidad, lanzador nosotros o enemigo            
             if (ListaEfectos[i]["Objetivo"] == "lanzador") {
                 afectarVida(Partida["Jugador"]["Personajes"][personajeTurno]["ID"], sortear(ListaEfectos[i]["Minimo"], ListaEfectos[i]["Maximo"]))
+                    // recargarEstadisticas()
             } else {
 
                 var alPrecision = Partida["Jugador"]["Personajes"][personajeTurno]["Precision"]
@@ -357,7 +358,7 @@ function clickearEnemigo(numeroEnemigo) {
                 var dmaximo = ListaEfectos[i]["Maximo"]
 
                 afectarVida(idEnemigo, dañarEnemigo(alPrecision, alModDamage, enEvasion, enResistencia, dminimo, dmaximo))
-                recargarEstadisticas(Partida)
+                    // recargarEstadisticas(Partida)
             }
         } else {
             if (ListaEfectos[i]["Objetivo"] == "lanzador") {
@@ -368,6 +369,7 @@ function clickearEnemigo(numeroEnemigo) {
             }
         }
     }
+
     pasarTurno()
 
 }
@@ -393,17 +395,17 @@ function dañarEnemigo(alPrecision, alModDamage, enEvasion, enResistencia, dmini
     } else {
         asiertooponente = false
     }
-    // console.log(asiertooponente)
+    console.log(asiertooponente)
     if (asiertooponente) {
         var porcentajeDaño = alModDamage - enResistencia
-        console.log(porcentajeDaño)
+            // console.log(porcentajeDaño)
         var daño = sortear(parseInt(dminimo), parseInt(dmaximo))
         if (porcentajeDaño < 0) {
             porcentajeDaño = 0
         }
-        // console.log(daño)
-        // console.log(sortear(1, 10))
-        // console.log(daño * (porcentajeDaño / 100))
+        console.log(daño)
+            // console.log(sortear(1, 10))
+            // console.log(daño * (porcentajeDaño / 100))
         return daño * (porcentajeDaño / 100)
     } else {
         return 0
@@ -448,17 +450,20 @@ function pasarTurno() {
         Partida["Jugador"]["TurnoPersonaje"] = 0
     }
 
+    recargarEstadisticas(Partida)
     cargarBatalla()
-
+    console.log("turno personajeA: " + Partida["Jugador"]["TurnoPersonaje"])
+    console.log("turno personajeE: " + Partida["Contrincante"]["TurnoPersonaje"])
     socket.emit("pasarturno", { "receptor": Partida["Contrincante"]["Nombre"] })
         // alert("pasa turno")
 
 }
 
 socket.on("pasarturno" + $(".close").html().trim(), function(data) {
-
+    console.log(Partida)
     var contador = 0
     if (contador == 0) {
+
         dispararFinPartida()
         contador += 1
 
@@ -467,7 +472,12 @@ socket.on("pasarturno" + $(".close").html().trim(), function(data) {
         if (Partida["Contrincante"]["TurnoPersonaje"] == 3) {
             Partida["Contrincante"]["TurnoPersonaje"] = 0
         }
+        recargarEstadisticas(Partida)
+        cargarBatalla()
+        console.log("turno personajeA: " + Partida["Jugador"]["TurnoPersonaje"])
+        console.log("turno personajeE: " + Partida["Contrincante"]["TurnoPersonaje"])
     }
+
 
 })
 
@@ -600,7 +610,7 @@ function desmarcarEnemigos() {
 function test() {
     recargarEstadisticas()
     cargarBatalla()
-    cargarPeleaTurno()
+        // cargarPeleaTurno()
 
 }
 
