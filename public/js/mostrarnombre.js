@@ -50,6 +50,7 @@ function cerrarsesion() {
             // console.log(Partida)
             // alert(Partida["Contrincante"]["ID"])
         ajax("./Controlador/BorrarPersonajes.php", { datos: Partida["Jugador"]["ID"] }, "borrarpersonajes")
+        ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Contrincante"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
         socket.emit("asignarperdedor", Partida["Jugador"]["ID"])
         alert("Abandonaras la partida y perderas")
     }

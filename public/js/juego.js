@@ -62,8 +62,9 @@ function cargaNombrePartida() {
         if (contador == 0) {
             subirnivel(Partida["Jugador"]["ID"], "perdedor")
             PartidaEnCurso = false
-            ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
             ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Contrincante"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
+            ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
+
             contenido =
                 "<div class='finPartida'>" +
                 "<div class='perdedor'>" +
