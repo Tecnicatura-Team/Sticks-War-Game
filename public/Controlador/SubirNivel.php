@@ -3,7 +3,7 @@ require_once("../Modelo/class.consultas.php");
 session_start();
 $consultas = new Consultas();
 $userid=(integer)$_POST["usuario"];
-$estado=(integer)$_POST["estado"];
+$estado=$_POST["estado"];
 // $userid=6;
 // $estado="ganador";
 $sql="select usernivel,userexp from usuario where userid=?";

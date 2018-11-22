@@ -63,6 +63,7 @@ function cargaNombrePartida() {
             subirnivel(Partida["Jugador"]["ID"], "perdedor")
             PartidaEnCurso = false
             ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
+            ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Contrincante"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
             contenido =
                 "<div class='finPartida'>" +
                 "<div class='perdedor'>" +
@@ -556,7 +557,7 @@ function dispararFinPartida() {
         if (contador == 0) {
             if (data["respuesta"]) {
                 console.log("fin")
-                ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Jugador"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
+
                 socket.emit("asignarperdedor", Partida["Jugador"]["Nombre"])
             } else {
                 // alert("llego el turno")
