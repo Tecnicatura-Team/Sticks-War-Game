@@ -4,6 +4,12 @@ var objeto
     // var PartidaEnCurso = false
 cargaNombrePartida()
 
+
+
+
+
+
+
 function cargaNombrePartida() {
 
     ajax("./Controlador/CargarFunciones.php", false, "cargarversuspartida")
@@ -25,20 +31,23 @@ function cargaNombrePartida() {
             cargarBatalla()
         })
         // console.log("ganador" + $(".close").html().trim())
+    socket.on("desbloquearobjeto" + $(".close").html().trim(), function(data) {
+        objeto = data["objeto"]
+        console.log(objeto)
 
+    })
 
 
     socket.on("ganador" + $(".close").html().trim(), function(data) {
         var contador = 0
         if (contador == 0) {
-            socket.on("desbloquearobjeto" + $(".close").html().trim(), function(data) {
-                    objeto = data["objeto"]
-                    console.log(objeto)
-                })
-                // PartidaEnCurso = false
             subirnivel(Partida["Jugador"]["ID"], "ganador")
             ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
-                // ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Contrincante"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
+            ajax("./Controlador/BorrarPersonajes.php", { datos: Partida["Jugador"]["ID"] }, "borrarpersonajes")
+
+
+            // PartidaEnCurso = false
+            // ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Contrincante"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
             contenido =
                 "<div class='finPartida'>" +
                 "<div class='ganador'>" +
@@ -50,14 +59,20 @@ function cargaNombrePartida() {
                 "</div>" +
                 "</div>"
 
-            ajax("./Controlador/BorrarPersonajes.php", { datos: Partida["Jugador"]["ID"] }, "borrarpersonajes")
+
 
             $(".Juego").fadeOut(500)
             $(".versus").fadeOut(500)
             $("footer").before(contenido)
 
 
+
+
+
+
             // alert("Ganaste")
+
+
             contador++
         }
 
@@ -65,11 +80,12 @@ function cargaNombrePartida() {
     socket.on("perdedor" + $(".close").html().trim(), function(data) {
         var contador = 0
         if (contador == 0) {
-            socket.on("desbloquearobjeto" + $(".close").html().trim(), function(data) {
-                objeto = data["objeto"]
-                console.log(objeto)
-            })
-            subirnivel(Partida["Jugador"]["ID"], "perdedor")
+
+
+            // socket.on("desbloquearobjeto" + $(".close").html().trim(), function(data) {
+            //     objeto = data["objeto"]
+            //     console.log(objeto)
+
             PartidaEnCurso = false
             ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Contrincante"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
             ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
@@ -89,7 +105,13 @@ function cargaNombrePartida() {
             $(".versus").fadeOut(500)
             $("footer").before(contenido)
 
-            // alert("perdiste prro")
+            // })
+
+
+
+            subirnivel(Partida["Jugador"]["ID"], "perdedor")
+
+
             contador++
         }
 
@@ -700,6 +722,9 @@ socket.on("ejecutareventocontrincante" + $(".close").html().trim(), function(dat
 
 function subirnivel(userid, status) {
     ajax("./Controlador/SubirNivel.php", { usuario: userid, estado: status }, "subirnivel")
+
+
+
 }
 
 function afectarVida(idpersonaje, cambiovida) {
@@ -729,21 +754,27 @@ function test() {
 }
 
 function recompensa() {
-    contenido =
-        "<div class='finPartida'>" +
-        // "<br>" +
-        "<div class='recompensa'>" +
-        "<h1>Objeto Desbloqueado</h1>" +
-        "<input type='button' value='Abrir Cofre' onclick='abrirCofre()'>" +
-        "</div>" +
-        "</div>"
+    if (objeto) {
 
 
-    $(".perdedor").remove()
-    $(".ganador").remove()
-    $(".finPartida").remove()
+        contenido =
+            "<div class='finPartida'>" +
+            // "<br>" +
+            "<div class='recompensa'>" +
+            "<h1>Objeto Desbloqueado</h1>" +
+            "<input type='button' value='Abrir Cofre' onclick='abrirCofre()'>" +
+            "</div>" +
+            "</div>"
 
-    $("header").after(contenido)
+
+        $(".perdedor").remove()
+        $(".ganador").remove()
+        $(".finPartida").remove()
+
+        $("header").after(contenido)
+    } else {
+        finPartida()
+    }
 }
 
 
@@ -756,6 +787,8 @@ var audioObjeto = new Howl({
 
 function abrirCofre() {
     audioObjeto.play()
+
+
     contenido =
         // "<div class='finPartida'>" +
         // // "<br>" +
@@ -787,6 +820,19 @@ function abrirCofre() {
     $("header").after(contenido)
     $(".cofreAbierto").show().fadeOut(3000)
     $(".descripPremio").hide().fadeIn(4000)
+
+
+    $(".premio").css({
+        "height": "100px",
+        "margin-top": "150px",
+        "background": "url('../" + objeto["direcimagen"] + "') no-repeat 0 0",
+        "background-size": "100px 100px",
+        "background-position": "center"
+
+    })
+    $(".descripPremio").html(objeto["descripcion"])
+
+
 
 }
 

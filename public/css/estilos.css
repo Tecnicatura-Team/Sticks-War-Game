@@ -800,14 +800,14 @@ table {
     color: aliceblue;
 }
 
-.premio {
+
+/* .premio {
     height: 100px;
-    margin-top: 150px;
-    /* display: inline-block; */
-    background: url('../img/objeto/armaduraDeMiltril.png') no-repeat 0 0;
+    margin-top: 150px;   
+    background: url('../img/objeto/armaduraDeMithril.png') no-repeat 0 0;
     background-size: 100px 100px;
     background-position: center;
-}
+} */
 
 .descripPremio {
     position: relative;
