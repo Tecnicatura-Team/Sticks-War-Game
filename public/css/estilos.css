@@ -749,26 +749,91 @@ table {
 
 .finPartida {
     width: 100%;
-    height: 500px;
+    height: 550px;
     text-align: center;
 }
 
+.recompensa {
+    /* position: relative; */
+    width: 450px;
+    height: 370px;
+    display: inline-block;
+    background: url('../img/CofreCerrado.png') no-repeat 0 0;
+    background-position: center;
+    background-size: 250px 200px;
+    margin-top: 100px;
+}
+
+.cofreAbierto {
+    width: 100%;
+    height: 370px;
+    /* display: inline-block; */
+    background: url('../img/CofreAbierto.png') no-repeat 0 0;
+    background-position: center;
+    background-size: 250px 200px;
+    margin-top: -200px;
+    position: absolute;
+}
+
+
+/* .cofreAbierto input {
+    margin-top: 300px;
+} */
+
+.recompensa input {
+    margin-top: 300px;
+}
+
+.fin {
+    margin-top: 100px;
+}
+
+
+/* .cofreAbierto input {
+    margin-top: 70px;
+} */
+
+.recompensa h1,
+.cofreAbierto h1 {
+    font-family: Comic Sans MS;
+    font-size: 35px;
+    color: aliceblue;
+}
+
+.premio {
+    height: 100px;
+    margin-top: 150px;
+    /* display: inline-block; */
+    background: url('../img/objeto/armaduraDeMiltril.png') no-repeat 0 0;
+    background-size: 100px 100px;
+    background-position: center;
+}
+
+.descripPremio {
+    position: relative;
+    font-family: Comic Sans MS;
+    font-size: 20px;
+    color: aliceblue;
+    margin-top: 20px;
+    display: inline-block;
+}
+
 .ganador {
-    width: 350px;
-    height: 400px;
+    width: 320px;
+    height: 370px;
     display: inline-block;
     background: url('../img/victoria.png') no-repeat 0 0;
-    background-size: 350px 400px;
-    margin-top: 40px;
+    background-size: 320px 370px;
+    margin-top: 100px;
 }
 
 .perdedor {
-    width: 350px;
-    height: 400px;
+    width: 320px;
+    height: 370px;
     display: inline-block;
     background: url('../img/derrota.png') no-repeat 0 0;
-    background-size: 350px 400px;
-    margin-top: 75px;
+    background-size: 320px 370px;
+    margin-top: 100px;
 }
 
 .ganador input {
@@ -866,6 +931,10 @@ div {
 
 img {
     border: solid rgb(115, 159, 197);
+}
+
+label {
+    border: solid rgb(223, 45, 208);
 } */
 
 

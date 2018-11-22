@@ -112,7 +112,9 @@ io.sockets.on("connection", function(socket) {
         io.sockets.emit("ejecutareventocontrincante" + data["usuario"].replace(/"/g, "").trim(), data)
     })
 
-
+    socket.on("desbloquearobjeto", function(data) {
+        io.sockets.emit("desbloquearobjeto" + data["usuario"], data)
+    })
 
 
 

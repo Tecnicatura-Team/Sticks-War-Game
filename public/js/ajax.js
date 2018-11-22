@@ -113,6 +113,9 @@ function ajax(archivo, datos, evento) {
 
                         break;
                     case "subirnivel":
+                        console.log(data)
+                            // console.log(eval("(" + data + ")"))
+                            // socket.emit("desbloquearobjeto", eval("(" + data + ")"))
                         break;
                     case "pasarturnopersonaje":
                         break;

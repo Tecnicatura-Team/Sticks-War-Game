@@ -1,5 +1,6 @@
 var socket = io.connect("http://127.0.0.1:3700")
 var Partida
+var objeto
     // var PartidaEnCurso = false
 cargaNombrePartida()
 
@@ -30,7 +31,11 @@ function cargaNombrePartida() {
     socket.on("ganador" + $(".close").html().trim(), function(data) {
         var contador = 0
         if (contador == 0) {
-            // PartidaEnCurso = false
+            socket.on("desbloquearobjeto" + $(".close").html().trim(), function(data) {
+                    objeto = data["objeto"]
+                    console.log(objeto)
+                })
+                // PartidaEnCurso = false
             subirnivel(Partida["Jugador"]["ID"], "ganador")
             ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
                 // ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Contrincante"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
@@ -41,7 +46,7 @@ function cargaNombrePartida() {
                 // "<label class='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
                 // "</div>" +
                 // "<br>" +
-                "<input type='button' value='Aceptar' onclick='finPartida()'>" +
+                "<input type='button' value='Aceptar' onclick='recompensa()'>" +
                 "</div>" +
                 "</div>"
 
@@ -60,6 +65,10 @@ function cargaNombrePartida() {
     socket.on("perdedor" + $(".close").html().trim(), function(data) {
         var contador = 0
         if (contador == 0) {
+            socket.on("desbloquearobjeto" + $(".close").html().trim(), function(data) {
+                objeto = data["objeto"]
+                console.log(objeto)
+            })
             subirnivel(Partida["Jugador"]["ID"], "perdedor")
             PartidaEnCurso = false
             ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Contrincante"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
@@ -70,7 +79,7 @@ function cargaNombrePartida() {
                 "<div class='perdedor'>" +
                 // "<label class='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
                 // "<br>" +
-                "<input type='button' value='Aceptar' onclick='finPartida()'>" +
+                "<input type='button' value='Aceptar' onclick='recompensa()'>" +
                 "</div>" +
                 "</div>"
 
@@ -88,7 +97,7 @@ function cargaNombrePartida() {
 }
 
 function PasarTurnoPersonaje(idper) {
-    console.log("pasar turno de: " + idper)
+    // console.log("pasar turno de: " + idper)
     ajax("./Controlador/PasarTurnoPersonaje.php", { datos: idper }, "pasarturnopersonaje")
 }
 
@@ -100,6 +109,7 @@ function recargarEstadisticas() {
             // console.log(Partida)
     })
 }
+
 
 function finPartida() {
 
@@ -438,6 +448,7 @@ function clickearEnemigo(numeroEnemigo) {
 
     pasarTurno()
 
+
 }
 
 function dañarEnemigo(alPrecision, alModDamage, enEvasion, enResistencia, dminimo, dmaximo) {
@@ -510,6 +521,16 @@ function esSeleccionable(numeroPersonaje) {
     return seleccionable
 }
 
+
+//audio al pasar turno
+var audioTurno = new Howl({
+    src: ["../public/Turno.mp3"],
+    volume: [0.1]
+
+})
+
+
+
 function pasarTurno() {
     Partida["Turno"] = "contrincante"
 
@@ -529,8 +550,12 @@ function pasarTurno() {
 }
 
 socket.on("pasarturno" + $(".close").html().trim(), function(data) {
+
     // console.log("nombre" + $(".close").html().trim())
     // console.log(Partida)
+
+    //ejecuta el audio al pasar el turno al contrincante
+    audioTurno.play()
 
     var contador = 0
     if (contador == 0) {
@@ -703,77 +728,140 @@ function test() {
 
 }
 
-function cargarPeleaTurno() {
-
+function recompensa() {
     contenido =
-        "<div class='transparencia'>" +
-        "<div class='afectados'>" +
-        // "<img src='img/batalla3.jpg' class='fondoPelea ' width='1010px ' height='450px '>" +
-        "<table class='tabAfectados'>" +
-        "<tr>" +
-        "<td>" +
-        "<div class='accion'><label></label> </div>" +
-        "<img src='img/clase/StickAmazonaNormal.png' id='PJ2' alt='stickpj' width='150px' height='280px'></td>" +
-        "<td>" +
-        "<div class='accion'><label></label> </div>" +
-        "<img src='img/clase/StickAmazonaNormal.png' id='PJ1' alt='stickpj' width='150px' height='280px'></td>" +
-        "<td>" +
-        "<div class='accion'><label></label> </div>" +
-        "<img src='img/clase/StickAmazonaNormal.png' id='PJ0' alt='stickpj' width='150px' height='280px'></td>" +
-
-        "<td>" +
-        "<img src='img/Espera.png' alt='espacio vacio' width='80px' height='200px'>" +
-        "</td>" +
-
-        "<td>" +
-        "<div class='accion'><label>bloqueado</label> </div>" +
-        "<img src='img/clase/StickAmazonaNormal.png' id='EPJ0' alt='stickpj' width='150px' height='280px'></td>" +
-        "<td>" +
-        "<div class='accion'><label>contraataque</label> </div>" +
-        "<img src='img/clase/StickAmazonaNormal.png' id='EPJ1' alt='stickpj' width='150px' height='280px'></td>" +
-        "<td>" +
-        "<div class='accion'><label>Evadido</label> </div>" +
-        "<img src='img/clase/StickAmazonaNormal.png' id='EPJ2' alt='stickpj' width='150px' height='280px'></td>" +
-        "</tr>" +
-        "<tr>" +
-        "<td id='TurnoPJ3'>" +
-        "<div class='fondoVida'>" +
-        "<div id='VidaPJ2'></div>" +
-        "</div>" +
-        "</td>" +
-        "<td id='TurnoPJ2'>" +
-        "<div class='fondoVida'>" +
-        "<div id='VidaPJ1'></div>" +
-        "</div>" +
-        "</td>" +
-        "<td id='TurnoPJ1'>" +
-        "<div class='fondoVida'>" +
-        "<div id='VidaPJ0'></div>" +
-        "</div>" +
-        "</td>" +
-        "<td>" +
-        "</td>" +
-        "<td id='EnemigoPJ1'>" +
-        "<div class='fondoVida'>" +
-        "<div id='VidaEnemigoPJ0'></div>" +
-        "</div>" +
-        "</td>" +
-        "<td id='EnemigoPJ2'>" +
-        "<div class='fondoVida'>" +
-        "<div id='VidaEnemigoPJ1'></div>" +
-        "</div>" +
-        "</td>" +
-        "<td id='EnemigoPJ3'>" +
-        "<div class='fondoVida'>" +
-        "<div id='VidaEnemigoPJ2'></div>" +
-        "</div>" +
-        "</td>" +
-        "</tr>" +
-        "</table>" +
+        "<div class='finPartida'>" +
+        // "<br>" +
+        "<div class='recompensa'>" +
+        "<h1>Objeto Desbloqueado</h1>" +
+        "<input type='button' value='Abrir Cofre' onclick='abrirCofre()'>" +
         "</div>" +
         "</div>"
 
 
+    $(".perdedor").remove()
+    $(".ganador").remove()
+    $(".finPartida").remove()
+
     $("header").after(contenido)
+}
+
+
+// //audioal desbloquear objeto
+var audioObjeto = new Howl({
+    src: ["../public/Objeto-Sonido.mp3"],
+    volume: [0.1]
+
+})
+
+function abrirCofre() {
+    audioObjeto.play()
+    contenido =
+        // "<div class='finPartida'>" +
+        // // "<br>" +
+        // "<div class='cofreAbierto'>" +
+        // "<h1>Objeto Desbloqueado</h1>" +
+        // "<div class='premio'>" +
+        // "</div>" +
+        // "<label class='descripPremio'> Disminuye 5 puntos la evasión y aumenta la resistencia en 20 puntos </label>" +
+        // "<br>" +
+        // "<input type='button' value='Aceptar' onclick='finPartida()'>" +
+        // "</div>" +
+        // "</div>"
+
+        "<div class='finPartida'>" +
+        "<h1>Objeto Desbloqueado</h1>" +
+        "<div class='premio'>" +
+        "</div>" +
+        "<div class='cofreAbierto'>" +
+        "</div>" +
+        "<label class='descripPremio'> Disminuye 5 puntos la evasión y aumenta la resistencia en 20 puntos </label>" +
+        "<br>" +
+        "<input type='button' class='fin' value='Aceptar' onclick='finPartida()'>" +
+        "</div>"
+
+
+    $(".perdedor").remove()
+    $(".ganador").remove()
+    $(".finPartida").remove()
+    $("header").after(contenido)
+    $(".cofreAbierto").show().fadeOut(3000)
+    $(".descripPremio").hide().fadeIn(4000)
 
 }
+
+
+// function cargarPeleaTurno() {
+
+//     contenido =
+//         "<div class='transparencia'>" +
+//         "<div class='afectados'>" +
+//         // "<img src='img/batalla3.jpg' class='fondoPelea ' width='1010px ' height='450px '>" +
+//         "<table class='tabAfectados'>" +
+//         "<tr>" +
+//         "<td>" +
+//         "<div class='accion'><label></label> </div>" +
+//         "<img src='img/clase/StickAmazonaNormal.png' id='PJ2' alt='stickpj' width='150px' height='280px'></td>" +
+//         "<td>" +
+//         "<div class='accion'><label></label> </div>" +
+//         "<img src='img/clase/StickAmazonaNormal.png' id='PJ1' alt='stickpj' width='150px' height='280px'></td>" +
+//         "<td>" +
+//         "<div class='accion'><label></label> </div>" +
+//         "<img src='img/clase/StickAmazonaNormal.png' id='PJ0' alt='stickpj' width='150px' height='280px'></td>" +
+
+//         "<td>" +
+//         "<img src='img/Espera.png' alt='espacio vacio' width='80px' height='200px'>" +
+//         "</td>" +
+
+//         "<td>" +
+//         "<div class='accion'><label>bloqueado</label> </div>" +
+//         "<img src='img/clase/StickAmazonaNormal.png' id='EPJ0' alt='stickpj' width='150px' height='280px'></td>" +
+//         "<td>" +
+//         "<div class='accion'><label>contraataque</label> </div>" +
+//         "<img src='img/clase/StickAmazonaNormal.png' id='EPJ1' alt='stickpj' width='150px' height='280px'></td>" +
+//         "<td>" +
+//         "<div class='accion'><label>Evadido</label> </div>" +
+//         "<img src='img/clase/StickAmazonaNormal.png' id='EPJ2' alt='stickpj' width='150px' height='280px'></td>" +
+//         "</tr>" +
+//         "<tr>" +
+//         "<td id='TurnoPJ3'>" +
+//         "<div class='fondoVida'>" +
+//         "<div id='VidaPJ2'></div>" +
+//         "</div>" +
+//         "</td>" +
+//         "<td id='TurnoPJ2'>" +
+//         "<div class='fondoVida'>" +
+//         "<div id='VidaPJ1'></div>" +
+//         "</div>" +
+//         "</td>" +
+//         "<td id='TurnoPJ1'>" +
+//         "<div class='fondoVida'>" +
+//         "<div id='VidaPJ0'></div>" +
+//         "</div>" +
+//         "</td>" +
+//         "<td>" +
+//         "</td>" +
+//         "<td id='EnemigoPJ1'>" +
+//         "<div class='fondoVida'>" +
+//         "<div id='VidaEnemigoPJ0'></div>" +
+//         "</div>" +
+//         "</td>" +
+//         "<td id='EnemigoPJ2'>" +
+//         "<div class='fondoVida'>" +
+//         "<div id='VidaEnemigoPJ1'></div>" +
+//         "</div>" +
+//         "</td>" +
+//         "<td id='EnemigoPJ3'>" +
+//         "<div class='fondoVida'>" +
+//         "<div id='VidaEnemigoPJ2'></div>" +
+//         "</div>" +
+//         "</td>" +
+//         "</tr>" +
+//         "</table>" +
+//         "</div>" +
+//         "</div>"
+
+
+//     $("header").after(contenido)
+
+// }

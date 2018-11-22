@@ -1,6 +1,8 @@
 <?php
 require_once("../Modelo/class.consultas.php");
 session_start();
+require_once("./array.php");
+$toutf8array= new classarray();
 $consultas = new Consultas();
 $userid=(integer)$_POST["usuario"];
 $estado=$_POST["estado"];
@@ -14,18 +16,25 @@ $exp=(integer)$datos[0]["userexp"];
 $exppartida=15;
 $exprecibida=($estado=="ganador")?$exppartida*3:$exppartida;
 $exppasarnivel=$nivel*100+300;
-
+$objeto=array();
 if($exp+$exprecibida>=$exppasarnivel){
+    // echo "paso";
     $sql="update usuario set userexp=?,usernivel=? where userid=?";
     $consultas->query($sql,array( ($exp+$exprecibida-$exppasarnivel) , ($nivel+1) , $userid ));
-    $sql="select tipoobjetoid from tipoobjeto order by tipoobjetoid desc limit 1";
+    $sql="select * from tipoobjeto";
     $consultas->query($sql,array());
-    $resul=$consultas->getResult();
+    $resul=$toutf8array->utf8Arraydoble($consultas->getResult());;
     $sql="insert into objeto values(0,?,?)";
-    $consultas->query($sql,array( rand(1,((integer)$resul[0]["tipoobjetoid"])) , $userid));
-    echo $consultas->getColumnAffected();
+    $random=(integer)rand(1,((integer)count($resul)));
+    $consultas->query($sql,array( $random , $userid));
+    $objeto=$resul[$random-1];
+    // echo $consultas->getColumnAffected();
 }else{
     $sql="update usuario set userexp=? where userid=?";
     $consultas->query($sql,array( ($exp+$exprecibida) , $userid ));
+    
 }
+$resultadoe=array("usuario"=>$_SESSION["usuario"]["nombre"],"objeto"=>$objeto);
+echo json_encode($resultadoe,JSON_UNESCAPED_UNICODE);
+// print_r($objeto);
 ?>
