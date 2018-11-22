@@ -87,7 +87,8 @@ io.sockets.on("connection", function(socket) {
     })
     socket.on("asignarganador", function(data) {
         // console.log("enviando partida nueva")
-        // console.log("Gano: " + data.replace(/"/g, "").trim())
+        console.log("ganador" + data.replace(/"/g, "").trim())
+            // console.log("Gano: " + data.replace(/"/g, "").trim())
         io.sockets.emit("ganador" + data.replace(/"/g, "").trim(), data)
     })
     socket.on("asignarperdedor", function(data) {
@@ -96,7 +97,9 @@ io.sockets.on("connection", function(socket) {
 
     socket.on("pasarturno", function(data) {
         // console.log("enviando partida nueva")
+        // console.log("se paso turno")
         // console.log("Gano: " + data.replace(/"/g, "").trim())
+        // console.log()
         io.sockets.emit("pasarturno" + data["receptor"].replace(/"/g, "").trim(), data)
     })
     socket.on("dispararfinpartida", function(data) {

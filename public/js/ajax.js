@@ -100,7 +100,7 @@ function ajax(archivo, datos, evento) {
 
                         break;
                     case "asignarganador":
-                        // console.log("Ganador: " + data)
+                        console.log("Ganador: " + data)
                         socket.emit("asignarganador", data)
                         break;
                     case "dispararfinpartida":

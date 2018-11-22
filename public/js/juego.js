@@ -28,49 +28,60 @@ function cargaNombrePartida() {
 
 
     socket.on("ganador" + $(".close").html().trim(), function(data) {
-        // PartidaEnCurso = false
-        subirnivel(Partida["Jugador"]["ID"], "ganador")
-        ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
-        contenido =
-            "<div class='finPartida'>" +
-            "<div class='ganador'>" +
-            // "<div>" +
-            // "<label class='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
-            // "</div>" +
-            // "<br>" +
-            "<input type='button' value='Aceptar' onclick='finPartida()'>" +
-            "</div>" +
-            "</div>"
+        var contador = 0
+        if (contador == 0) {
+            // PartidaEnCurso = false
+            subirnivel(Partida["Jugador"]["ID"], "ganador")
+            ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
+                // ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Contrincante"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
+            contenido =
+                "<div class='finPartida'>" +
+                "<div class='ganador'>" +
+                // "<div>" +
+                // "<label class='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
+                // "</div>" +
+                // "<br>" +
+                "<input type='button' value='Aceptar' onclick='finPartida()'>" +
+                "</div>" +
+                "</div>"
 
-        ajax("./Controlador/BorrarPersonajes.php", { datos: Partida["Jugador"]["ID"] }, "borrarpersonajes")
+            ajax("./Controlador/BorrarPersonajes.php", { datos: Partida["Jugador"]["ID"] }, "borrarpersonajes")
 
-        $(".Juego").fadeOut(500)
-        $(".versus").fadeOut(500)
-        $("footer").before(contenido)
+            $(".Juego").fadeOut(500)
+            $(".versus").fadeOut(500)
+            $("footer").before(contenido)
 
 
-        // alert("Ganaste")
+            // alert("Ganaste")
+            contador++
+        }
+
     })
     socket.on("perdedor" + $(".close").html().trim(), function(data) {
-        subirnivel(Partida["Jugador"]["ID"], "perdedor")
-        PartidaEnCurso = false
-        ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
-        contenido =
-            "<div class='finPartida'>" +
-            "<div class='perdedor'>" +
-            // "<label class='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
-            // "<br>" +
-            "<input type='button' value='Aceptar' onclick='finPartida()'>" +
-            "</div>" +
-            "</div>"
+        var contador = 0
+        if (contador == 0) {
+            subirnivel(Partida["Jugador"]["ID"], "perdedor")
+            PartidaEnCurso = false
+            ajax("./Controlador/CancelarBusqueda.php", false, "cancelarbusqueda")
+            contenido =
+                "<div class='finPartida'>" +
+                "<div class='perdedor'>" +
+                // "<label class='resultadoPartida'>" + data.replace(/"/g, "") + "</label>" +
+                // "<br>" +
+                "<input type='button' value='Aceptar' onclick='finPartida()'>" +
+                "</div>" +
+                "</div>"
 
-        ajax("./Controlador/BorrarPersonajes.php", { datos: Partida["Jugador"]["ID"] }, "borrarpersonajes")
+            ajax("./Controlador/BorrarPersonajes.php", { datos: Partida["Jugador"]["ID"] }, "borrarpersonajes")
 
-        $(".Juego").fadeOut(500)
-        $(".versus").fadeOut(500)
-        $("footer").before(contenido)
+            $(".Juego").fadeOut(500)
+            $(".versus").fadeOut(500)
+            $("footer").before(contenido)
 
-        // alert("perdiste prro")
+            // alert("perdiste prro")
+            contador++
+        }
+
     })
 }
 
@@ -284,6 +295,8 @@ $(document).ready(function() {
         if (Partida["Turno"] == "jugador") {
             clickearHabilidad(0)
         }
+        // console.log("partida h1: " + Partida)
+        // console.log("Turno jugador: " + (Partida["Turno"]))
     })
     $("#h1").on("click", function(e) {
         if (Partida["Turno"] == "jugador") {
@@ -299,6 +312,51 @@ $(document).ready(function() {
         if (Partida["Turno"] == "jugador") {
             clickearHabilidad(3)
         }
+    })
+    $("#h0").on("mouseenter", function(e) {
+        e.preventDefault()
+        var personajeTurnoA = Partida["Jugador"]["TurnoPersonaje"]
+        $(".NomHabilidad").html(Partida["Jugador"]["Personajes"][personajeTurnoA]["Habilidades"][0]["Nombre"])
+        $(".descHabilidad").html(Partida["Jugador"]["Personajes"][personajeTurnoA]["Habilidades"][0]["Descripcion"])
+    })
+    $("#h1").on("mouseenter", function(e) {
+        e.preventDefault()
+        var personajeTurnoA = Partida["Jugador"]["TurnoPersonaje"]
+        $(".NomHabilidad").html(Partida["Jugador"]["Personajes"][personajeTurnoA]["Habilidades"][1]["Nombre"])
+        $(".descHabilidad").html(Partida["Jugador"]["Personajes"][personajeTurnoA]["Habilidades"][1]["Descripcion"])
+    })
+    $("#h2").on("mouseenter", function(e) {
+        e.preventDefault()
+        var personajeTurnoA = Partida["Jugador"]["TurnoPersonaje"]
+        $(".NomHabilidad").html(Partida["Jugador"]["Personajes"][personajeTurnoA]["Habilidades"][2]["Nombre"])
+        $(".descHabilidad").html(Partida["Jugador"]["Personajes"][personajeTurnoA]["Habilidades"][2]["Descripcion"])
+    })
+    $("#h3").on("mouseenter", function(e) {
+        e.preventDefault()
+        var personajeTurnoA = Partida["Jugador"]["TurnoPersonaje"]
+        $(".NomHabilidad").html(Partida["Jugador"]["Personajes"][personajeTurnoA]["Habilidades"][3]["Nombre"])
+        $(".descHabilidad").html(Partida["Jugador"]["Personajes"][personajeTurnoA]["Habilidades"][3]["Descripcion"])
+    })
+
+    $("#h0").on("mouseleave", function(e) {
+        e.preventDefault()
+        $(".NomHabilidad").html("")
+        $(".descHabilidad").html("")
+    })
+    $("#h1").on("mouseleave", function(e) {
+        e.preventDefault()
+        $(".NomHabilidad").html("")
+        $(".descHabilidad").html("")
+    })
+    $("#h2").on("mouseleave", function(e) {
+        e.preventDefault()
+        $(".NomHabilidad").html("")
+        $(".descHabilidad").html("")
+    })
+    $("#h3").on("mouseleave", function(e) {
+        e.preventDefault()
+        $(".NomHabilidad").html("")
+        $(".descHabilidad").html("")
     })
 
     // ---------------------------------------------------------------------
@@ -346,6 +404,7 @@ function clickearEnemigo(numeroEnemigo) {
         if (ListaEfectos[i]["Tipo"] == null) {
             //a quien afecta la habilidad, lanzador nosotros o enemigo            
             if (ListaEfectos[i]["Objetivo"] == "lanzador") {
+                // var dc = 
                 afectarVida(Partida["Jugador"]["Personajes"][personajeTurno]["ID"], sortear(ListaEfectos[i]["Minimo"], ListaEfectos[i]["Maximo"]))
                     // recargarEstadisticas()
             } else {
@@ -395,22 +454,25 @@ function dañarEnemigo(alPrecision, alModDamage, enEvasion, enResistencia, dmini
     } else {
         asiertooponente = false
     }
-    console.log(asiertooponente)
+    // console.log(asiertooponente)
+    var daño = sortear(parseInt(dminimo), parseInt(dmaximo))
     if (asiertooponente) {
         var porcentajeDaño = alModDamage - enResistencia
             // console.log(porcentajeDaño)
-        var daño = sortear(parseInt(dminimo), parseInt(dmaximo))
+
         if (porcentajeDaño < 0) {
             porcentajeDaño = 0
         }
-        console.log(daño)
-            // console.log(sortear(1, 10))
-            // console.log(daño * (porcentajeDaño / 100))
-        return daño * (porcentajeDaño / 100)
+        // console.log(daño)
+        // console.log(sortear(1, 10))
+        // console.log(Math.round(daño * (porcentajeDaño / 100)))
+        daño = Math.round(daño * (porcentajeDaño / 100))
     } else {
-        return 0
+        // console.log(0)
+        daño = 0
+            // return 0
     }
-
+    return daño
 }
 
 function estaVivo(numeroPersonaje) {
@@ -452,18 +514,20 @@ function pasarTurno() {
 
     recargarEstadisticas(Partida)
     cargarBatalla()
-    console.log("turno personajeA: " + Partida["Jugador"]["TurnoPersonaje"])
-    console.log("turno personajeE: " + Partida["Contrincante"]["TurnoPersonaje"])
+        // console.log("turno personajeA: " + Partida["Jugador"]["TurnoPersonaje"])
+        // console.log("turno personajeE: " + Partida["Contrincante"]["TurnoPersonaje"])
     socket.emit("pasarturno", { "receptor": Partida["Contrincante"]["Nombre"] })
         // alert("pasa turno")
 
 }
 
 socket.on("pasarturno" + $(".close").html().trim(), function(data) {
-    console.log(Partida)
+    // console.log("nombre" + $(".close").html().trim())
+    // console.log(Partida)
+
     var contador = 0
     if (contador == 0) {
-
+        Partida["Turno"] = "jugador"
         dispararFinPartida()
         contador += 1
 
@@ -474,8 +538,8 @@ socket.on("pasarturno" + $(".close").html().trim(), function(data) {
         }
         recargarEstadisticas(Partida)
         cargarBatalla()
-        console.log("turno personajeA: " + Partida["Jugador"]["TurnoPersonaje"])
-        console.log("turno personajeE: " + Partida["Contrincante"]["TurnoPersonaje"])
+            // console.log("turno personajeA: " + Partida["Jugador"]["TurnoPersonaje"])
+            // console.log("turno personajeE: " + Partida["Contrincante"]["TurnoPersonaje"])
     }
 
 
@@ -491,7 +555,8 @@ function dispararFinPartida() {
         var contador = 0
         if (contador == 0) {
             if (data["respuesta"]) {
-                socket.emit("asignarganador", Partida["Contrincante"]["Nombre"])
+                console.log("fin")
+                ajax("./Controlador/AsignarGanador.php", { datos: { "ganador": Partida["Jugador"]["ID"], "partida": Partida["ID"] } }, "asignarganador")
                 socket.emit("asignarperdedor", Partida["Jugador"]["Nombre"])
             } else {
                 // alert("llego el turno")
@@ -516,6 +581,7 @@ function clickearHabilidad(numeroHabilidad) {
     var personajeturno = Partida["Jugador"]["TurnoPersonaje"]
     if (Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"] == null) {
         Partida["Jugador"]["HabilidadSelect"] = null
+            // console.log("habilidad defenciva")
             // console.log(Partida)
             // console.log(Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad])
             // console.log(Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"])
@@ -524,7 +590,8 @@ function clickearHabilidad(numeroHabilidad) {
         var DatosEventoContrincante = new Array()
         var tipohabilidad = "solo"
         var ListaEfectos = Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["Efectos"]
-        for (i = 0; i < ListaEfectos.lenght; i++) {
+            // console.log(ListaEfectos.length)
+        for (i = 0; i < ListaEfectos.length; i++) {
             //verifica si el efecto es daño o buff
             if (ListaEfectos[i]["Tipo"] == null) {
                 //a quien afecta la habilidad, lanzador nosotros o enemigo
@@ -552,6 +619,7 @@ function clickearHabilidad(numeroHabilidad) {
         socket.emit("ejecutareventocontrincante", { usuario: Partida["Contrincante"]["Nombre"], evento: "pepe" })
         pasarTurno()
     } else {
+        // console.log("habilidad ofenciva")
         var personajeturno = Partida["Jugador"]["TurnoPersonaje"]
             // afectarVida(10, -50)
         var NroObjetivos = Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"].length
@@ -561,7 +629,7 @@ function clickearHabilidad(numeroHabilidad) {
             // console.log("Nro objetivos: " + NroObjetivos)
             // console.log(Partida)
         for (var i = 0; i < NroObjetivos; i++) {
-            console.log(Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"][i]["PosicionID"])
+            // console.log(Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"][i]["PosicionID"])
             $("#SelectEnemigoPJ" + (parseInt(Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"][i]["PosicionID"]) - 1)).attr("src", "img/SelectEnemigo.png")
         }
         // datos = "habilidad ofensiva"
@@ -573,14 +641,26 @@ function clickearHabilidad(numeroHabilidad) {
     // pasarTurno()
     // Partida["Turno"] = "contrincante"
     // console.log("habilidad: " + numeroHabilidad)
+    // console.log("Habilidad: " + numeroHabilidad + "; " + Partida["Jugador"]["Personajes"][personajeturno]["Habilidades"][numeroHabilidad]["PosicionesObjetivo"] == null)
 }
 
 function sortear(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min
+    // console.log("minimo: " + min + "; maximo: " + max)
+    // console.log("maxmod: " + (max - min + 1))
+    // console.log("random: " + Math.random())
+    var random = Math.random()
+    var resultado = (random * (max - min + 1)) + min
+        // var resultado = (random * maximo) + min
+    resultado = Math.floor(resultado)
+        // console.log("maximo: " + maximo)
+        // console.log("random: " + random)
+        // console.log("resultado: " + resultado)
+        // console.log("sorteado: (" + random + "*" + maximo + "+1)+" + min + ") = " + (random * maximo + 1) + min)
+    return resultado
 }
 // console.log(Partida["Jugador"]["Nombre"])
 socket.on("ejecutareventocontrincante" + $(".close").html().trim(), function(data) {
-    console.log("se ejecuto")
+    // console.log("se ejecuto")
     ejecutareventocontrincante(data["evento"])
 })
 
@@ -589,7 +669,7 @@ function subirnivel(userid, status) {
 }
 
 function afectarVida(idpersonaje, cambiovida) {
-
+    // console.log("cambiovida: " + cambiovida)
     ajax("./Controlador/AfectarVida.php", { personaje: idpersonaje, vida: cambiovida }, "afectarvida")
 
 
