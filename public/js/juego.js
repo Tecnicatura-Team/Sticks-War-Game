@@ -86,6 +86,11 @@ function cargaNombrePartida() {
     })
 }
 
+function PasarTurnoPersonaje(idper) {
+    console.log("pasar turno de: " + idper)
+    ajax("./Controlador/PasarTurnoPersonaje.php", { datos: idper }, "pasarturnopersonaje")
+}
+
 function recargarEstadisticas() {
 
     ajax("./Controlador/RecargarEstadisticas.php", { datos: Partida }, "recargarestadisticas")
@@ -528,8 +533,10 @@ socket.on("pasarturno" + $(".close").html().trim(), function(data) {
 
     var contador = 0
     if (contador == 0) {
+        var PersonajeTurno = Partida["Jugador"]["TurnoPersonaje"]
         Partida["Turno"] = "jugador"
         dispararFinPartida()
+        PasarTurnoPersonaje(Partida["Jugador"]["Personajes"][PersonajeTurno]["ID"])
         contador += 1
 
         Partida["Contrincante"]["TurnoPersonaje"] = parseInt(Partida["Contrincante"]["TurnoPersonaje"]) + 1

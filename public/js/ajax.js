@@ -114,6 +114,8 @@ function ajax(archivo, datos, evento) {
                         break;
                     case "subirnivel":
                         break;
+                    case "pasarturnopersonaje":
+                        break;
                     default:
                         console.log("Error en la funcion ajax.js")
                         break;
